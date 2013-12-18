@@ -157,7 +157,7 @@ execute "source ".$MYVIMFILES."/tagbar.vim"
 " Airline
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'bling/vim-airline'
-if has('gui_running') || has('unix')
+if has('unix')
   " airline 设置
   let g:airline_powerline_fonts=2
 
@@ -179,6 +179,15 @@ if has('gui_running') || has('unix')
 
   " 显示换行和制表符
   set listchars=eol:¬,tab:>-,nbsp:~
+elseif has('win32') || has('win64')
+  let g:airline_theme='molokai'
+
+  if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+  endif
+
+  let g:airline_left_sep = ''
+  let g:airline_right_sep = ''
 endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 

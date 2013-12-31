@@ -1,0 +1,55 @@
+snippet     CFLAGS
+options     head
+  CFLAGS=-Wall -g ${0: -llua -lzeromq}
+
+snippet     clean:
+options     head
+  clean:
+    rm -f ${0}
+
+# make for windows
+snippet make
+    cmd = g++
+    # cmd = gcc
+    # pack for gtk, mysql
+    # develop_pack = \`pkg-config --cflags --libs gtk+-2.0\` #\`mysql_config --cflags --libs\`
+    # develop_pack = $(shell pkg-config --cflags --libs gtk+-2.0) #$(shell mysql_config --cflags --libs)
+    link = $(cmd) -Wall -g $^ -o $@
+    link_p = $(cmd) -Wall -g $^ -o $@ $(develop_pack)
+    gtk_link = $(cmd) -Wall -g $^ -o $@ \`pkg-config --cflags --libs gtk+-2.0\`
+    obj = $(cmd) -Wall -g -c -finput-charset=UTF-8 -fexec-charset=GBK $< -o $@
+    obj_p = $(cmd) -Wall -g -c -finput-charset=UTF-8 -fexec-charset=GBK $< -o $@ $(develop_pack)
+    gtk_obj = $(cmd) -Wall -g -c -finput-charset=UTF-8 -fexec-charset=GBK $< -o $@ \`pkg-config --cflags --libs gtk+-2.0\`
+    WIN32_obj = $(cmd) -Wall -g -c -mwindows -finput-charset=UTF-8 -fexec-charset=GBK $< -o $@
+    RES = windres $< -o $@
+# make for linux
+snippet gcc
+    cmd
+    link
+    obj
+    gtk
+    mysql
+snippet    cmd
+    cmd = gcc
+    # cmd = g++
+    # cmd = javac
+snippet    cmdc
+    cmd = gcc
+snippet    cmd+
+    cmd = g++
+snippet java
+    cmd javac
+snippet link
+    link = $(cmd) -Wall -g $^ -o $@
+snippet obj
+    obj = $(cmd) -Wall -g -c $< -o $@
+snippet gtk
+    # make for gtk
+    develop_pack = \`pkg-config --cflags --libs gtk+-2.0\`
+    link_p = $(cmd) -Wall -g $^ -o $@ $(develop_pack)
+    obj_p = $(cmd) -Wall -g -c $< -o $@ $(develop_pack)
+snippet mysql
+    # make for mysql
+    develop_pack = \`mysql_config --cflags --libs\`
+    link_p = $(cmd) -Wall -g $^ -o $@ $(develop_pack)
+    obj_p = $(cmd) -Wall -g -c $< -o $@ $(develop_pack)

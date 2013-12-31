@@ -1,0 +1,101 @@
+snippet wo
+	window.onload = function(){
+		${1}
+	};
+
+snippet alert
+alias al
+    alert(${0});
+
+snippet af
+    (function(${1:#:attribute}) {${0:TARGET}})();
+
+snippet :f
+options head
+  ${1:#:method_name}: function(${2:#:attribute}) {
+    ${0:TARGET}
+  }
+
+snippet function
+alias   func
+abbr    func
+options head
+  function ${1:function_name}(${2}) {
+    ${0:TARGET}
+  }
+
+snippet re
+alias ret
+    return
+
+snippet proto
+options head
+  ${1:#:class_name}.prototype.${2:#:method_name} = function(${3:#:first_argument}) {
+    ${0:TARGET}
+  };
+
+
+snippet f
+options word
+  function(${1}){${0:TARGET}}
+
+snippet if
+options head
+  if (${1:true}) {
+    ${0:TARGET}
+  }
+
+snippet if-else
+abbr ife
+options head
+  if (${1:#:condition}) {
+    ${0:TARGET}
+  } else {
+  }
+
+snippet else
+    else {
+        ${0:TARGET}
+    }
+
+snippet for
+options head
+  for (var ${1:i}=0; $1 < ${2:#:Things}.length; ++$1) {
+    ${0:TARGET}
+  }
+
+snippet forin
+options head
+  for (var ${1:i} in ${2:#:Things}) {
+    ${0:TARGET}
+  }
+
+snippet switch
+    switch (${1:#:var}) {
+        case ${2:#:val}:
+            ${3}
+            break;
+        default:
+            ${0:TARGET}
+    }
+
+snippet key-value
+abbr :,
+options word
+  ${1:#:value_name}: ${0:#:value},
+
+#snippet key
+#options word
+#  ${1:#:key}: "${2:#:value}"}${3:, }
+
+snippet setTimeout-function
+options head
+  setTimeout(function() { ${0} }, ${1:10});
+snippet setInterval-function
+options head
+  setInterval(function() { ${0} }, ${1:10});
+
+snippet console-log
+alias cl
+options head
+  console.log(${0:TARGET});

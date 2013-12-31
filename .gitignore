@@ -1,0 +1,9 @@
+*.swp
+*.swo
+*.swn
+*.swm
+.netrwhist
+bundle/*
+vimwiki/docs/*
+vimwiki/html/*
+.netrwhist

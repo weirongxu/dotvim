@@ -26,7 +26,7 @@ map gc :edit $MYVIMRC<CR>
 execute 'map gp :NERDTree ' . $MYVIMFILES . '<CR>'
 
 " 打开终端
-if has("unix")
+if has("unix") && has("gui_running")
   command SHELL :!gnome-terminal&
 endif
 

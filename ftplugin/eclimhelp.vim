@@ -1,1 +1,1 @@
-nmap <BS> <C-O>
+nmap <buffer> <BS> <C-O>

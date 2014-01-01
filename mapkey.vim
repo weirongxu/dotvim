@@ -25,6 +25,11 @@ map gc :edit $MYVIMRC<CR>
 " 打开插件目录
 execute 'map gp :NERDTree ' . $MYVIMFILES . '<CR>'
 
+" 打开终端
+if has("unix")
+  command SHELL :!gnome-terminal&
+endif
+
 " key Q open Ex mode very haite
 map Q gq
 noremap gQ Q

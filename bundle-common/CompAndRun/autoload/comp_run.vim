@@ -113,7 +113,7 @@ func! comp_run#RunCode() "{{{
   elseif &filetype == 'vim'
     exec 'source %'
   elseif &filetype == 'javascript'
-    exec 'node %'
+    exec '!node %'
   elseif has('unix')
     if &filetype == 'sh'
       exec '!./%'

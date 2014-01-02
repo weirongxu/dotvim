@@ -117,13 +117,13 @@ func! comp_run#RunCode() "{{{
   elseif has('unix')
     if &filetype == 'sh'
       exec '!./%'
-    elseif &filetype == 'html' || &filetype == 'xhtml'
+    elseif &filetype =~ 'html' || &filetype == 'xhtml'
       exec '!google-chrome "%"&'
     endif
   elseif has('win32')
     if &filetype == 'dosbatch'
       exec '!%'
-    elseif &filetype == 'html' || &filetype == 'xhtml'
+    elseif &filetype =~ 'html' || &filetype == 'xhtml'
       call comp_run#system_open_link(expand('%:p'))
     endif
   endif

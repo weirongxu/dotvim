@@ -1,0 +1,19 @@
+include html.snip
+snippet jsp
+    <jsp:${1:tab} />
+snippet include_file
+alias incf includef
+    <%@ include file="${0}" %>
+snippet include_page
+alias incp includep
+    <jsp:include page="${0}" />
+snippet forward_page
+alias forp forwardp
+    <jsp:forward page="${0}" />
+snippet tag
+options word
+alias %
+    <% ${0} %>
+snippet echo
+options word
+    <%= ${0} %>

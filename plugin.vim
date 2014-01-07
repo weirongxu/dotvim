@@ -269,11 +269,13 @@ NeoBundleLazy 'davidhalter/jedi-vim', {
       \ 'autoload' : { 'filetypes' : 'python' }}
 NeoBundleLazy 'elzr/vim-json', {
       \ 'autoload' : { 'filetypes' : 'json' }}
+NeoBundleLazy 'digitaltoad/vim-jade', {
+      \ 'autoload' : { 'filetypes' : 'jade' }}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
 """"""""""""""""""""""""""""""
-" nodejs complete jshint
+" nodejs complete ~jshint~
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundleLazy 'myhere/vim-nodejs-complete', {
       \ 'autoload' : { 'filetypes' : 'javascript' }}

@@ -273,6 +273,15 @@ NeoBundleLazy 'elzr/vim-json', {
 
 
 """"""""""""""""""""""""""""""
+" nodejs complete jshint
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+NeoBundleLazy 'myhere/vim-nodejs-complete', {
+      \ 'autoload' : { 'filetypes' : 'javascript' }}
+autocmd FileType javascript setlocal omnifunc=jscomplete#CompleteJS
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+""""""""""""""""""""""""""""""
 " Eclim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundleLazy 'cstrahan/vim-eclim', {

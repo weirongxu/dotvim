@@ -265,10 +265,18 @@ NeoBundleLazy 'tpope/vim-speeddating', {
       \ 'autoload' : { 'filetypes' : ['org', 'vimwiki'] }}
 NeoBundleLazy 'gabesoft/vim-java', {
       \ 'autoload' : { 'filetypes' : 'java' }}
-NeoBundleLazy 'davidhalter/jedi-vim', {
-      \ 'autoload' : { 'filetypes' : 'python' }}
 NeoBundleLazy 'elzr/vim-json', {
       \ 'autoload' : { 'filetypes' : 'json' }}
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+""""""""""""""""""""""""""""""
+" Jedi
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+NeoBundleLazy 'davidhalter/jedi-vim', {
+      \ 'autoload' : { 'filetypes' : 'python' }}
+let g:jedi#popup_select_first = 0
+let g:jedi#popup_on_dot = 0
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 

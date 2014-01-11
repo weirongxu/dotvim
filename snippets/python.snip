@@ -8,6 +8,13 @@ snippet     im
 alias imp
     import ${0:TARGET}
 
+snippet     from
+    from ${1} import ${0}
+
+snippet     re
+alias ret
+    return
+
 snippet docs
 	'''
 	File: ${1:`Filename('$1.py', 'foo.py')`}
@@ -133,4 +140,7 @@ abbr        [x for x in {list} if {condition}]
 
 snippet     print
 options     word
-  print(${0:TARGET})
+    print(${0:TARGET})
+
+snippet     br
+    break

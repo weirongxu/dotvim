@@ -300,6 +300,16 @@ autocmd FileType javascript setlocal omnifunc=jscomplete#CompleteJS
 
 
 """"""""""""""""""""""""""""""
+" Jedi
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+NeoBundleLazy 'davidhalter/jedi-vim', {
+      \ 'autoload' : { 'filetypes' : 'python' }}
+let g:jedi#popup_select_first = 0
+let g:jedi#popup_on_dot = 0
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+""""""""""""""""""""""""""""""
 " Eclim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundleLazy 'cstrahan/vim-eclim', {
@@ -353,7 +363,7 @@ vnoremap <leader>8 :call PhpDocRange()<CR>
 """"""""""""""""""""""""""""""
 " YiiPradoTemplete
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-NeoBundle 'WeiRongXu/yiiprado.vim'
+NeoBundle 'weirongxu/yiiprado.vim'
 autocmd BufNewFile,BufRead *.tpl setfiletype htmlyiiprado.html
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -362,7 +372,7 @@ autocmd BufNewFile,BufRead *.tpl setfiletype htmlyiiprado.html
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundleLazy 'hail2u/vim-css3-syntax', {
       \ 'autoload' : { 'filetypes' : ['css', 'less'] }}
-NeoBundleLazy 'WeiRongXu/vim-less', {
+NeoBundleLazy 'weirongxu/vim-less', {
       \ 'autoload' : { 'filetypes' : ['less'] }}
 " less 自动编译
 let g:less_auto_compile = 0
@@ -405,7 +415,7 @@ endif
 """"""""""""""""""""""""""""""
 " MkdView
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-NeoBundleLazy 'WeiRongXu/mkdview.vim', {
+NeoBundleLazy 'weirongxu/mkdview.vim', {
       \ 'autoload' : { 'filetypes' : 'markdown' }}
 let g:mkdview#css = 'github.css'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

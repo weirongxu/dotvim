@@ -199,13 +199,13 @@ endif
 " 用系统窗口打开本文件目录
 if has('win32')
   command E :!start explorer /select,%:p
-  command Explorer :!start explorer /select,%:p
+  command Explorer :E
 elseif has('unix')
-  command E :!nautilus %:p &
-  command Explorer :!nautilus %:p &
+  command E execute '!nautilus "'.expand('%:p').'" &'
+  command Explorer :E
 elseif has('mac')
-  command E :!open %:p:h<CR>
-  command Explorer :!open %:p:h<CR>
+  command E :!open %:p:h
+  command Explorer :E
 endif
 
 " tab 控制

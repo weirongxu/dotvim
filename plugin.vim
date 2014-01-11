@@ -15,11 +15,19 @@ call neobundle#local(expand($MYBUNDLEDIR.'-common'), {})
   " call neobundle#local(expand($MYBUNDLEDIR.'-win32'), {})
 " endif
 
-""""""""""""""""""""""""""""""
+
 " Neobundle
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'Shougo/neobundle.vim'
-""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" #    #  #    #   ####    #####
+" ##  ##  #    #  #          #
+" # ## #  #    #   ####      #
+" #    #  #    #       #     #
+" #    #  #    #  #    #     #
+" #    #   ####    ####      #
+" MUST
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Fencview Mark Surround Fugitive...
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'mbbill/fencview'
@@ -28,6 +36,7 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'benatkin/vim-move-between-tabs' " map tN tP
 NeoBundle 'nacitar/a.vim'
+NeoBundle 'bronson/vim-trailing-whitespace'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -78,6 +87,10 @@ function! s:unite_settings()
   nmap <buffer> <c-q> <Plug>(unite_exit)
   nmap <buffer> <ESC> <Plug>(unite_exit)
 endfunction
+""""""""""""""""""""""""""""""
+NeoBundle 'junkblocker/unite-tasklist'
+command TaskList Unite tasklist
+command TList Unite tasklist
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'Shougo/vimproc', {
       \ 'build' : {
@@ -246,6 +259,7 @@ let g:syntastic_mode_map = {
 " #           #    #       #          #       #    #####   #
 " #           #    #       #          #       #    #       #
 " #           #    ######  ######     #       #    #       ######
+" FILETYPE
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""
@@ -266,6 +280,8 @@ NeoBundleLazy 'tpope/vim-speeddating', {
 NeoBundleLazy 'gabesoft/vim-java', {
       \ 'autoload' : { 'filetypes' : 'java' }}
 NeoBundleLazy 'davidhalter/jedi-vim', {
+      \ 'autoload' : { 'filetypes' : 'python' }}
+NeoBundleLazy 'hdima/python-syntax', {
       \ 'autoload' : { 'filetypes' : 'python' }}
 NeoBundleLazy 'elzr/vim-json', {
       \ 'autoload' : { 'filetypes' : 'json' }}
@@ -403,6 +419,7 @@ let g:mkdview#css = 'github.css'
 "    #     #    #  #    #  #            #
 "    #     #    #  #    #  #       #    #
 "    #      ####    ####   ######   ####
+" TOOLS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""
 " Hexman DrawIt VisIncr Eunuch
@@ -429,6 +446,20 @@ NeoBundleLazy 'tpope/vim-eunuch', {
       \                 'Locate', 'SudoWrite', 'W']
       \ }}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+""""""""""""""""""""""""""""""
+" Gundo
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+NeoBundleLazy 'sjl/gundo.vim', {
+      \ 'autoload' : {
+      \   'commands' : [
+      \     'GundoToggle', 'GundoHide', 'GundoRendGraph', 'GundoShow'
+      \   ]
+      \ }}
+command Gundo GundoToggle
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 
 """"""""""""""""""""""""""""""
 " Align

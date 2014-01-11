@@ -267,6 +267,17 @@ NeoBundleLazy 'gabesoft/vim-java', {
       \ 'autoload' : { 'filetypes' : 'java' }}
 NeoBundleLazy 'elzr/vim-json', {
       \ 'autoload' : { 'filetypes' : 'json' }}
+NeoBundleLazy 'digitaltoad/vim-jade', {
+      \ 'autoload' : { 'filetypes' : 'jade' }}
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+""""""""""""""""""""""""""""""
+" nodejs complete ~jshint~
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+NeoBundleLazy 'myhere/vim-nodejs-complete', {
+      \ 'autoload' : { 'filetypes' : 'javascript' }}
+autocmd FileType javascript setlocal omnifunc=jscomplete#CompleteJS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 

@@ -116,7 +116,7 @@ func! comp_run#RunCode() "{{{
     exec '!node %'
   elseif has('unix')
     if &filetype == 'sh'
-      exec '!./%'
+      exec '!sh %'
     elseif &filetype =~ 'html' || &filetype == 'xhtml'
       exec '!google-chrome "%"&'
     endif

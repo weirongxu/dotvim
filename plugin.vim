@@ -338,6 +338,13 @@ NeoBundleLazy 'mattn/emmet-vim', {
       \                  'css', 'less', 'sass', 'scss', 'php']
       \ }}
 let g:emmet_html5 = 0
+let g:user_emmet_expandabbr_key = "<c-y>y,"
+imap <C-Y>, <c-o>:call <SID>CallEmmet("EmmetExpandAbbr")<CR>
+nmap <C-Y>, :call emmet#expandAbbr(3,"")<cr>
+vmap <C-Y>, :call emmet#expandAbbr(2,"")<cr>
+function! s:CallEmmet(plug)
+  call feedkeys("\<plug>(".a:plug.")")
+endfunction
 " let g:user_emmet_expandabbr_key = '<c-y>y,'
 " autocmd FileType html,xhtml,xml,htm,jsp,css,less,sass,scss,php imap <buffer> <c-y>, <ESC><c-y>y,a
 " autocmd FileType html,xhtml,xml,htm,jsp,css,less,sass,scss,php vmap <buffer> <c-y>, <c-y>y,
@@ -456,6 +463,7 @@ NeoBundleLazy 'tpope/vim-eunuch', {
       \                 'Locate', 'SudoWrite', 'W']
       \ }}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 
 """"""""""""""""""""""""""""""
 " Gundo

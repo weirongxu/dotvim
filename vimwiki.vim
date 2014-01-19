@@ -6,7 +6,7 @@ au FileType vimwiki if !exists('b:vimwiki_list') | let b:vimwiki_list = {} | end
       \ let b:vimwiki_list['template_default'] = 'default' |
       \ let b:vimwiki_list['template_ext'] = '.html'
 let g:vimwiki_dir = $MYVIMFILES.'/vimwiki'
-let g:vimwiki_list = [{ 
+let g:vimwiki_list = [{
       \ 'path': g:vimwiki_dir.'/docs/',
       \ 'path_html': g:vimwiki_dir.'/html/',
       \ 'template_path': g:vimwiki_dir.'/',
@@ -95,4 +95,3 @@ function! s:Vimwiki_compile_all()
   endif
   VimwikiAll2HTML
 endfunction
-

@@ -52,7 +52,7 @@ NeoBundle 'jiazhoulvke/googletranslate'
 " unite
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'Shougo/unite.vim'
-map <Leader>u :Unite 
+map <Leader>u :Unite
 " let g:unite_enable_start_insert = 1
 let g:unite_split_rule = "botright"
 let g:unite_force_overwrite_statusline = 0
@@ -608,7 +608,7 @@ let g:EasyMotion_leader_key = '<SPACE><SPACE>'
 
 
 """"""""""""""""""""""""""""""
-" TODO 
+" TODO
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NeoBundle 'tomtom/tcomment_vim' " 听说这个方便得多。
 " NeoBundle 'Valloric/YouCompleteMe' " 以后试试

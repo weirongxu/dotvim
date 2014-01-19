@@ -144,15 +144,17 @@ snippet if
 
 snippet var_dump
 options head
-    var_dump(${0:TARGET});
+    var_dump(${0:TARGET}); // XXX
 
 snippet dump
-    echo '<pre>';
-    var_dump(${0:TARGET});
-    echo '</pre>';
+    echo '<pre>'; // XXX
+    var_dump(${0:TARGET}); // XXX
+    echo '</pre>'; // XXX
 
 snippet echo
 	echo "${1:#:string}"${0};
+snippet pf
+    printf('${0:TARGET}');
 
 snippet else
 	else {

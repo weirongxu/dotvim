@@ -461,6 +461,11 @@ NeoBundleLazy 'tpope/vim-eunuch', {
       \                 'Rename', 'Chmod', 'Find',
       \                 'Locate', 'SudoWrite', 'W']
       \ }}
+NeoBundleLazy 'thinca/vim-quickrun', {
+      \ 'autoload' : {
+      \   'commands' : ['QuickRun']
+      \ }}
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -544,18 +549,14 @@ execute "source ".$MYVIMFILES."/vimwiki.vim"
 """"""""""""""""""""""""""""""
 " Calendar
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-NeoBundle 'itchyny/calendar.vim' " XXX
+" NeoBundle 'itchyny/calendar.vim' " XXX 以后再说
 let g:calendar_google_task = 1
-" NeoBundleLazy 'mattn/calendar-vim', {
-      " \ 'autoload' : {
-      " \   'commands' : ['Calendar', 'CalendarH', 'CalendarT'],
-      " \   'mappings' : ['<LocalLeader>cal', '<LocalLeader>caL']
-      " \ }}
+NeoBundleLazy 'mattn/calendar-vim', {
+      \ 'autoload' : {
+      \   'commands' : ['Calendar', 'CalendarH', 'CalendarT'],
+      \   'mappings' : ['<LocalLeader>cal', '<LocalLeader>caL']
+      \ }}
 map gC :Calendar<CR>
-" XXX try
-NeoBundle 'itchyny/thumbnail.vim'
-NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'yuratomo/gmail.vim'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -608,6 +609,8 @@ let g:EasyMotion_leader_key = '<SPACE><SPACE>'
 " NeoBundle 'szw/vim-ctrlspace' " 这个确实不错，但是Shougo的unite。。。
 " NeoBundle 'itchyny/lightline.vim' " 这个vimer强势出击呀？不过配制比airline麻烦。
 " NeoBundle 'itchyny/vim-cmdline-ranges'
+" NeoBundle 'itchyny/thumbnail.vim' " 切换窗口，用的不多
+" NeoBundle 'yuratomo/gmail.vim' " 太疯狂。
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

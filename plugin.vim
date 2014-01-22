@@ -545,11 +545,13 @@ execute "source ".$MYVIMFILES."/vimwiki.vim"
 """"""""""""""""""""""""""""""
 " Calendar
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-NeoBundleLazy 'mattn/calendar-vim', {
-      \ 'autoload' : {
-      \   'commands' : ['Calendar', 'CalendarH', 'CalendarT'],
-      \   'mappings' : ['<LocalLeader>cal', '<LocalLeader>caL']
-      \ }}
+NeoBundle 'itchyny/calendar.vim' " XXX
+let g:calendar_google_task = 1
+" NeoBundleLazy 'mattn/calendar-vim', {
+      " \ 'autoload' : {
+      " \   'commands' : ['Calendar', 'CalendarH', 'CalendarT'],
+      " \   'mappings' : ['<LocalLeader>cal', '<LocalLeader>caL']
+      " \ }}
 map gC :Calendar<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 

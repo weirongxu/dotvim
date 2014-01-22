@@ -36,7 +36,6 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'benatkin/vim-move-between-tabs' " map tN tP
 NeoBundle 'nacitar/a.vim'
-NeoBundle 'bronson/vim-trailing-whitespace'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -553,6 +552,10 @@ let g:calendar_google_task = 1
       " \   'mappings' : ['<LocalLeader>cal', '<LocalLeader>caL']
       " \ }}
 map gC :Calendar<CR>
+" XXX try
+NeoBundle 'itchyny/thumbnail.vim'
+NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'yuratomo/gmail.vim'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -603,6 +606,8 @@ let g:EasyMotion_leader_key = '<SPACE><SPACE>'
 " NeoBundle 'Raimondi/delimitMate' " 还是jiangmiao/auto-pairs好使
 " NeoBundle 'junegunn/vim-easy-align' " 我还是用Align吧，模拟easy-align
 " NeoBundle 'szw/vim-ctrlspace' " 这个确实不错，但是Shougo的unite。。。
+" NeoBundle 'itchyny/lightline.vim' " 这个vimer强势出击呀？不过配制比airline麻烦。
+" NeoBundle 'itchyny/vim-cmdline-ranges'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

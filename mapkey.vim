@@ -63,8 +63,8 @@ if has('gui_running')
 endif
 
 " 用空格代替搜索
-map <SPACE> /
-map <leader><SPACE> ?
+" map <SPACE> /
+" map <leader><SPACE> ?
 
 " 用于 web 开发的语法映射
 nnoremap <C-F1> :set filetype=html<CR>

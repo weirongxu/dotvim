@@ -37,6 +37,11 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'benatkin/vim-move-between-tabs' " map tN tP
 NeoBundle 'nacitar/a.vim'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" temp
+" NeoBundle 'dterei/VimBookmarking'
+" NeoBundle 'amiorin/vim-bookmarks'
+NeoBundle 'starleoda/vim-vookmark'
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
 """"""""""""""""""""""""""""""

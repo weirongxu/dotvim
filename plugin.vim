@@ -37,10 +37,6 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'benatkin/vim-move-between-tabs' " map tN tP
 NeoBundle 'nacitar/a.vim'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" temp
-" NeoBundle 'dterei/VimBookmarking'
-" NeoBundle 'amiorin/vim-bookmarks'
-NeoBundle 'starleoda/vim-vookmark'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -217,6 +213,7 @@ command Snip NeoSnippetEdit -split -vertical
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'jiangmiao/auto-pairs'
 " let g:AutoPairsFlyMode = 1
+let g:AutoPairsMapSpace = 0
 let g:AutoPairs = {
       \ '(': ')',
       \ '[': ']',
@@ -470,7 +467,25 @@ NeoBundleLazy 'thinca/vim-quickrun', {
       \ 'autoload' : {
       \   'commands' : ['QuickRun']
       \ }}
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+
+""""""""""""""""""""""""""""""
+" vookmark
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+NeoBundle 'starleoda/vim-vookmark', {
+      \ 'autoload' : {
+      \   'commands' : [ 'VmkToggle', 'VmkNext', 'VmkPrev', 'VmkClear',
+      \                  'VmkSave', 'VmkLoad', 'VmkList', 'VmkRefresh',
+      \                  'VmkFactoryReset' ]
+      \ }}
+let g:vookmark_mapkeys=0
+map <space><space> :VmkToggle<cr>
+map <space>n :VmkNext<cr>
+map <space>p :VmkPrev<cr>
+map <space>c :VmkClear<cr>
+map <space>l :VmkList<cr>
+map <space>r :VmkRefresh<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -584,9 +599,9 @@ nmap <silent> gL <Plug>IndentGuidesToggle
 " EasyMotion
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundleLazy 'Lokaltog/vim-easymotion', {
-      \ 'autoload' : { 'mappings' : '<SPACE><SPACE>' }}
-" easymotion用两个空格来调用
-let g:EasyMotion_leader_key = '<SPACE><SPACE>'
+      \ 'autoload' : { 'mappings' : '<leader><leader>' }}
+" easymotion用两个<leader>来调用
+let g:EasyMotion_leader_key = '<leader><leader>'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""

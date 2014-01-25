@@ -35,8 +35,10 @@ if has('gui_running') || has('unix')
   set termencoding=utf-8
 endif
 if has("gui_running")
-  language messages zh_CN.UTF-8
-  set langmenu=zh_CN.UTF-8
+  language messages en_US.UTF-8
+  " language messages zh_CN.UTF-8
+  set langmenu=en_US.UTF-8
+  " set langmenu=zh_CN.UTF-8
 endif
 
 " 配色
@@ -59,6 +61,10 @@ elseif has("win32")
   set guifont=Courier_New_for_Powerline:h10:cANSI
   " set guifont=Source_Code_Pro:h9:cANSI
   " set guifont=monofur_for_Powerline:h10.5:w5,Courier_new:h10,*
+endif
+
+if has('win32')
+  set directory=$TMP
 endif
 
 set linespace=0

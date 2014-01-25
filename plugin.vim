@@ -213,7 +213,6 @@ command Snip NeoSnippetEdit -split -vertical
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'jiangmiao/auto-pairs'
 " let g:AutoPairsFlyMode = 1
-let g:AutoPairsMapSpace = 0
 let g:AutoPairs = {
       \ '(': ')',
       \ '[': ']',

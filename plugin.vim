@@ -482,7 +482,9 @@ let g:vookmark_mapkeys=0
 map <space><space> :VmkToggle<cr>
 map <space>n :VmkNext<cr>
 map <space>p :VmkPrev<cr>
+map <space>N :VmkPrev<cr>
 map <space>c :VmkClear<cr>
+
 map <space>l :VmkList<cr>
 map <space>r :VmkRefresh<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

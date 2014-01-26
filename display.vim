@@ -26,7 +26,7 @@ command Menu if &guioptions =~# 'm' <Bar>
       \endif
 
 " 识别的文件编码
-set fileencodings=utf-8,gb18030,gbk,gb2312,cp936,ucs-bom,chinese,latin-1  
+set fileencodings=utf-8,gb18030,gbk,gb2312,cp936,ucs-bom,chinese,latin-1
 
 " 语言与编码设置
 set fileencoding=utf-8

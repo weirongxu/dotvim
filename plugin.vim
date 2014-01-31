@@ -371,7 +371,7 @@ vnoremap <leader>8 :call PhpDocRange()<CR>
 " YiiPradoTemplete
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'weirongxu/yiiprado.vim'
-autocmd BufNewFile,BufRead *.tpl setfiletype htmlyiiprado.html
+autocmd BufNewFile,BufRead *.tpl setfiletype htmlyiiprado.html.php
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""
@@ -513,7 +513,7 @@ NeoBundleLazy 'vim-scripts/Align', {
 vmap <CR> :<c-u>call <SID>Align_input()<CR>
 function! s:Align_input()
   let align = input("Align: ")
-  execute "Align ".align
+  execute "'<,'>Align ".align
 endfunction
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 

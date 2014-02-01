@@ -72,6 +72,18 @@ options head
     ${0:TARGET}
   }
 
+snippet while
+options head
+    while(${1:condition}) {
+        ${0:TARGET}
+    }
+
+snippet with
+options head
+    with(${1:OBJECT}) {
+        ${0:TARGET}
+    }
+
 snippet switch
     switch (${1:#:var}) {
         case ${2:#:val}:

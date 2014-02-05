@@ -113,6 +113,10 @@ map <leader>; <leader>ci
 map <leader>: <leader>cm
 map <leader>' <leader>cA
 map <leader>" <leader>cs
+let g:NERDCustomDelimiters = {
+      \ 'htmlyiiprado': { 'left': '<!---', 'right': '--->', 'leftAlt': '<!--', 'rightAlt': '-->' },
+      \ 'less': { 'left': '//', 'leftAlt': '/*', 'rightAlt': '*/' }
+      \ }
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""
@@ -384,6 +388,7 @@ NeoBundleLazy 'weirongxu/vim-less', {
 " less 自动编译
 let g:less_auto_compile = 0
 let g:less_compile_buffer_key = '<F5>'
+let g:less_compile_option = '-x'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -643,7 +648,7 @@ let g:EasyMotion_leader_key = '<leader><leader>'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NeoBundle 'tomtom/tcomment_vim' " 听说这个方便得多。
 " NeoBundle 'Valloric/YouCompleteMe' " 以后试试
-" NeoBundle 'FredKSchott/CoVim' " 协作编辑，给跪了。。。
+" NeoBundle 'FredKSchott/CoVim' " 协作编辑
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 

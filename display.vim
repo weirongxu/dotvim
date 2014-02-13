@@ -118,7 +118,7 @@ set softtabstop=4
 " 设定 << 和 >> 移动的宽度
 set shiftwidth=4
 
-autocmd FileType css,less,vim setl tabstop=2 softtabstop=2 shiftwidth=2
+autocmd FileType css,less,vim,coffee setl tabstop=2 softtabstop=2 shiftwidth=2
 
 " 使用空格替代 Tab
 " au BufRead,BufNewFile *.py set expandtab

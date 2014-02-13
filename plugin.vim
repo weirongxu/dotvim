@@ -39,7 +39,6 @@ NeoBundle 'nacitar/a.vim'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-
 """"""""""""""""""""""""""""""
 " Translate
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -295,11 +294,13 @@ NeoBundleLazy 'digitaltoad/vim-jade', {
 
 
 """"""""""""""""""""""""""""""
-" nodejs complete ~jshint~
+" nodejs complete ~jshint~ coffee
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundleLazy 'myhere/vim-nodejs-complete', {
       \ 'autoload' : { 'filetypes' : 'javascript' }}
 autocmd FileType javascript setlocal omnifunc=jscomplete#CompleteJS
+NeoBundleLazy 'kchmck/vim-coffee-script', {
+      \ 'autoload' : { 'filetypes' : 'coffee' }}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -682,3 +683,5 @@ imap <c-c> <c-_>
 
 " think php tpl
 autocmd BufNewFile,BufRead *.html setfiletype htmlthphp.html
+" mkd
+autocmd BufNewFile,BufRead *.md setfiletype markdown

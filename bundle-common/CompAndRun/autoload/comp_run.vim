@@ -30,35 +30,37 @@ function! comp_run#system_open_link(url) "{{{
 endfunction "}}}
 
 function! comp_run#CompileCode()
-  silent exec "w"
-  if &filetype == "c"
-    if has("win32")
+  silent exec 'w'
+  if &filetype == 'c'
+    if has('win32')
       " exec '!gcc -std=c99 -Wall -g -finput-charset=UTF-8 -fexec-charset=GBK % -o %<.exe'
       exec '!gcc -Wall -g % -o %<.exe'
     else
       " exec '!gcc -std=c99 -Wall -g % -o %<'
       exec '!gcc -Wall -g % -o %<'
     endif
-  elseif &filetype == "cpp"
-    if has("win32")
+  elseif &filetype == 'cpp'
+    if has('win32')
       " exec '!g++ -std=c++98 -Wall -g -finput-charset=UTF-8 -fexec-charset=GBK % -o %<.exe'
       exec '!g++ -Wall -g % -o %<.exe'
     else
       " exec '!g++ -std=c++98 -Wall -g % -o %<'
       exec '!g++ -Wall -g % -o %<'
     endif
-  elseif &filetype == "java"
+  elseif &filetype == 'java'
     exec '!javac -g %'
-  elseif &filetype == "haskell"
-    exec "!ghc --make % -o %<"
-  elseif &filetype == "lua"
-    exec "!lua %"
-  elseif &filetype == "perl"
-    exec "!perl %"
-  elseif &filetype == "python"
-    exec "!python %"
-  elseif &filetype == "ruby"
-    exec "!ruby %"
+  elseif &filetype == 'haskell'
+    exec '!ghc --make % -o %<'
+  elseif &filetype == 'lua'
+    exec '!lua %'
+  elseif &filetype == 'perl'
+    exec '!perl %'
+  elseif &filetype == 'python'
+    exec '!python %'
+  elseif &filetype == 'ruby'
+    exec '!ruby %'
+  elseif &filetype == 'coffee'
+    exec '!coffee -c %'
   endif
 endfunction
 
@@ -114,6 +116,8 @@ func! comp_run#RunCode() "{{{
     exec 'source %'
   elseif &filetype == 'javascript'
     exec '!node %'
+  elseif &filetype == 'coffee'
+    exec '!node %<.js'
   elseif has('unix')
     if &filetype == 'sh'
       exec '!sh %'

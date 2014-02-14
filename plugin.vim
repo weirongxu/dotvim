@@ -52,6 +52,7 @@ NeoBundle 'jiazhoulvke/googletranslate'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'Shougo/unite.vim'
 map <Leader>u :Unite
+map <Leader>U :UniteResume<cr>
 " let g:unite_enable_start_insert = 1
 let g:unite_split_rule = "botright"
 let g:unite_force_overwrite_statusline = 0

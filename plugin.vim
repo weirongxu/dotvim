@@ -36,6 +36,7 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'benatkin/vim-move-between-tabs' " map tN tP
 NeoBundle 'nacitar/a.vim'
+NeoBundle 'editorconfig/editorconfig-vim'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -231,13 +232,11 @@ let g:AutoPairs = {
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'scrooloose/syntastic'
 if has('win32')
-  " NeoBundleLazy 'scrooloose/syntastic'
   let g:syntastic_error_symbol = 'x>'
   let g:syntastic_style_error_symbol = 'Sx'
   let g:syntastic_warning_symbol = '>>'
   let g:syntastic_style_warning_symbol = 'S>'
 else
-  " NeoBundle 'scrooloose/syntastic'
   let g:syntastic_error_symbol = '✗'
   let g:syntastic_style_error_symbol = 'Sx'
   let g:syntastic_warning_symbol = '⚠'

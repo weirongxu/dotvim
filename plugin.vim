@@ -69,7 +69,7 @@ let g:unite_source_alias_aliases = {
       \     'source': 'file_mru'
       \   },
       \ }
-command MRU :Unite mru
+command! MRU :Unite mru
 
 autocmd FileType unite call <SID>unite_settings()
 function! s:unite_settings()
@@ -90,8 +90,8 @@ function! s:unite_settings()
 endfunction
 """"""""""""""""""""""""""""""
 NeoBundle 'junkblocker/unite-tasklist'
-command TaskList Unite tasklist
-command TList Unite tasklist
+command! TaskList Unite tasklist
+command! TList Unite tasklist
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'Shougo/vimproc', {
       \ 'build' : {
@@ -209,7 +209,7 @@ smap <expr><C-CR> neosnippet#expandable() ?
 let g:neosnippet#snippets_directory = $MYVIMFILES.'/snippets'
 " 快速编辑snip
 " command Snip NeoSnippetEdit -split -vertical -runtime
-command Snip NeoSnippetEdit -split -vertical
+command! Snip NeoSnippetEdit -split -vertical
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -296,6 +296,8 @@ NeoBundleLazy 'digitaltoad/vim-jade', {
 """"""""""""""""""""""""""""""
 " nodejs complete ~jshint~ coffee
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+NeoBundleLazy 'pangloss/vim-javascript', {
+      \ 'autoload' : { 'filetypes' : 'javascript' }}
 NeoBundleLazy 'myhere/vim-nodejs-complete', {
       \ 'autoload' : { 'filetypes' : 'javascript' }}
 autocmd FileType javascript setlocal omnifunc=jscomplete#CompleteJS
@@ -505,7 +507,7 @@ NeoBundleLazy 'sjl/gundo.vim', {
       \     'GundoToggle', 'GundoHide', 'GundoRendGraph', 'GundoShow'
       \   ]
       \ }}
-command Gundo GundoToggle
+command! Gundo GundoToggle
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 

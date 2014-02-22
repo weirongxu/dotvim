@@ -1,0 +1,22 @@
+include javascript.snip
+
+snippet html:5
+    doctype html
+    html(lang="en")
+        head
+            title ${1}
+        body
+            ${0}
+snippet script
+    script(src="${0}")
+
+snippet link
+    link(rel="stylesheet",href="${0}")
+
+snippet a
+    a(href="${1:#}")${0}
+
+snippet table
+    table
+        tr
+            td

@@ -116,9 +116,11 @@ map <leader>' <leader>cA
 map <leader>" <leader>cs
 let g:NERDCustomDelimiters = {
       \ 'htmlyiiprado': { 'left': '<!---', 'right': '--->', 'leftAlt': '<!--', 'rightAlt': '-->' },
+      \ 'blade.php': { 'left': '<!--', 'right': '-->', 'leftAlt': '<!--', 'rightAlt': '-->' },
       \ 'less': { 'left': '//', 'leftAlt': '/*', 'rightAlt': '*/' }
       \ }
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 
 """"""""""""""""""""""""""""""
 " Tagber
@@ -296,7 +298,7 @@ NeoBundleLazy 'digitaltoad/vim-jade', {
 """"""""""""""""""""""""""""""
 " nodejs complete ~jshint~ coffee
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-NeoBundleLazy 'pangloss/vim-javascript', {
+NeoBundleLazy 'jelera/vim-javascript-syntax', {
       \ 'autoload' : { 'filetypes' : 'javascript' }}
 NeoBundleLazy 'myhere/vim-nodejs-complete', {
       \ 'autoload' : { 'filetypes' : 'javascript' }}
@@ -377,9 +379,19 @@ vnoremap <leader>8 :call PhpDocRange()<CR>
 """"""""""""""""""""""""""""""
 " YiiPradoTemplete
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-NeoBundle 'weirongxu/yiiprado.vim'
+NeoBundleLazy 'weirongxu/yiiprado.vim', {
+      \ 'autoload' : { 'filetypes' : ['htmlyiiprado.html.php'] }}
 autocmd BufNewFile,BufRead *.tpl setfiletype htmlyiiprado.html.php
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+""""""""""""""""""""""""""""""
+" LaravelBladeTemplete
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+NeoBundleLazy 'xsbeats/vim-blade', {
+      \ 'autoload' : { 'filetypes' : ['blade'] }}
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 
 """"""""""""""""""""""""""""""
 " Less Css

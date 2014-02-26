@@ -14,7 +14,7 @@ function! comp_run#system_open_link(url) "{{{
     call system('xdg-open ' . shellescape(a:url, 1).' &')
   endfunction
   let success = 0
-  try 
+  try
     if comp_run#is_windows()
       call s:win32_handler(a:url)
       return
@@ -61,6 +61,8 @@ function! comp_run#CompileCode()
     exec '!ruby %'
   elseif &filetype == 'coffee'
     exec '!coffee -c %'
+  elseif &filetype == 'jade'
+    exec '!jade %'
   endif
 endfunction
 
@@ -121,14 +123,16 @@ func! comp_run#RunCode() "{{{
   elseif has('unix')
     if &filetype == 'sh'
       exec '!sh %'
-    elseif &filetype =~ 'html' || &filetype == 'xhtml'
+    elseif &filetype =~ 'html' || &filetype == 'xhtml' || &filetype == 'jade'
       exec '!google-chrome "%"&'
     endif
   elseif has('win32')
     if &filetype == 'dosbatch'
       exec '!%'
-    elseif &filetype =~ 'html' || &filetype == 'xhtml'
+    elseif &filetype =~ 'html' || &filetype == 'xhtml' || &filetype == 'jade'
       call comp_run#system_open_link(expand('%:p'))
+    elseif &filetype == 'jade'
+      exec '!google-chrome %<.html'
     endif
   endif
 endfunc "}}}

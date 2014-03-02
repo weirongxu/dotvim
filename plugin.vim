@@ -310,6 +310,8 @@ NeoBundleLazy 'elzr/vim-json', {
       \ 'autoload' : { 'filetypes' : 'json' }}
 NeoBundleLazy 'digitaltoad/vim-jade', {
       \ 'autoload' : { 'filetypes' : 'jade' }}
+NeoBundleLazy 'weirongxu/html2jade.vim', {
+      \ 'autoload' : { 'commands' : 'Html2jade' }}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 

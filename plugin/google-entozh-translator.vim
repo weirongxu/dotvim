@@ -9,6 +9,7 @@
 " TODO: 新建buf窗口打开
 
 function s:GetCursorWord()
+  " matchstr('\<.\{-}\%'.col('.').'c.\{-}\>') not correct match
   let column = get(getpos('.'), 2, 0) - 1
   let line = getline('.')
   let word = strpart(line, column, 1)
@@ -36,13 +37,13 @@ function s:GetCursorWord()
 endfunc
 
 function! s:get_visual_selection()
-  " Why is this not a built-in Vim script function?!
-  let [lnum1, col1] = getpos("'<")[1:2]
-  let [lnum2, col2] = getpos("'>")[1:2]
-  let lines = getline(lnum1, lnum2)
-  let lines[-1] = lines[-1][: col2 - (&selection == 'inclusive' ? 1 : 2)]
-  let lines[0] = lines[0][col1 - 1:]
-  return join(lines, "\n")
+  let reg = '"'
+  let reg_save = getreg(reg)
+  let reg_type = getregtype(reg)
+  silent exe 'norm! gv"'.reg.'y'
+  let cont = getreg(reg)
+  call setreg(reg,reg_save,reg_type)
+  return cont
 endfunction
 
 function s:Translate(m)

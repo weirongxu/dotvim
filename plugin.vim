@@ -105,20 +105,39 @@ NeoBundle 'Shougo/vimproc', {
 
 
 """"""""""""""""""""""""""""""
-" NerdCommenter
+" TComment
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-NeoBundle 'scrooloose/nerdcommenter'
-" nerd-commenter注释
-let g:NERDSpaceDelims=1
-map <leader>; <leader>ci
-map <leader>: <leader>cm
-map <leader>' <leader>cA
-map <leader>" <leader>cs
-let g:NERDCustomDelimiters = {
-      \ 'htmlyiiprado': { 'left': '<!---', 'right': '--->', 'leftAlt': '<!--', 'rightAlt': '-->' },
-      \ 'blade.php': { 'left': '<!--', 'right': '-->', 'leftAlt': '<!--', 'rightAlt': '-->' },
-      \ 'less': { 'left': '//', 'leftAlt': '/*', 'rightAlt': '*/' }
+NeoBundle 'tomtom/tcomment_vim'
+let g:tcommentMaps = 0
+map <leader>; :TComment<cr>
+nmap <leader>: <s-v>:TCommentInline<cr>
+vmap <leader>: :TCommentInline<cr>
+map <Leader>' :TCommentRight<cr>
+map <leader>" :TCommentBlock<cr>
+      " \ 'less_block': '/* %s */',
+let g:tcomment_types = {
+      \ 'less': '// %s',
+      \ 'less_inline': '/* %s */',
+      \ 'htmlyiiprado': '<!--- %s --->',
+      \ 'htmlyiiprado_inline': '<!-- %s -->',
+      \ 'blade.php': '<!-- %s -->',
+      \ 'jade': '//- %s',
+      \ 'jade_inline': '// %s',
       \ }
+
+" NerdCommenter
+" NeoBundle 'scrooloose/nerdcommenter'
+" nerd-commenter注释
+" let g:NERDSpaceDelims=1
+" map <leader>; <leader>ci
+" map <leader>: <leader>cm
+" map <leader>' <leader>cA
+" map <leader>" <leader>cs
+" let g:NERDCustomDelimiters = {
+      " \ 'htmlyiiprado': { 'left': '<!---', 'right': '--->', 'leftAlt': '<!--', 'rightAlt': '-->' },
+      " \ 'blade.php': { 'left': '<!--', 'right': '-->', 'leftAlt': '<!--', 'rightAlt': '-->' },
+      " \ 'less': { 'left': '//', 'leftAlt': '/*', 'rightAlt': '*/' }
+      " \ }
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -209,6 +228,7 @@ smap <expr><C-CR> neosnippet#expandable() ?
       \ "\<Plug>(neosnippet_expand)"
       \: "\<C-CR>"
 let g:neosnippet#snippets_directory = $MYVIMFILES.'/snippets'
+set clipboard-=autoselect " 取消在选择模式移动时复制内容
 " 快速编辑snip
 " command Snip NeoSnippetEdit -split -vertical -runtime
 command! Snip NeoSnippetEdit -split -vertical
@@ -268,7 +288,7 @@ let g:syntastic_mode_map = {
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""
-" Matchit Html5 Matlab Ahk Date Java
+" Matchit Html5 Matlab Ahk Date
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundleLazy 'vim-scripts/matchit.zip', {
       \ 'autoload' : {
@@ -282,8 +302,6 @@ NeoBundleLazy 'vim-scripts/autohotkey-ahk', {
       \ 'autoload' : { 'filetypes' : 'autohotkey' }}
 NeoBundleLazy 'tpope/vim-speeddating', {
       \ 'autoload' : { 'filetypes' : ['org', 'vimwiki'] }}
-NeoBundleLazy 'gabesoft/vim-java', {
-      \ 'autoload' : { 'filetypes' : 'java' }}
 NeoBundleLazy 'davidhalter/jedi-vim', {
       \ 'autoload' : { 'filetypes' : 'python' }}
 NeoBundleLazy 'hdima/python-syntax', {
@@ -292,6 +310,49 @@ NeoBundleLazy 'elzr/vim-json', {
       \ 'autoload' : { 'filetypes' : 'json' }}
 NeoBundleLazy 'digitaltoad/vim-jade', {
       \ 'autoload' : { 'filetypes' : 'jade' }}
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+""""""""""""""""""""""""""""""
+" Java
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+NeoBundleLazy 'gabesoft/vim-java', {
+      \ 'autoload' : { 'filetypes' : 'java' }}
+NeoBundleLazy 'yuratomo/java-api-complete', {
+      \ 'autoload' : { 'filetypes' : 'java' }}
+NeoBundleLazy 'yuratomo/java-api-javax', {
+      \ 'autoload' : { 'filetypes' : 'java' }}
+NeoBundleLazy 'yuratomo/java-api-org', {
+      \ 'autoload' : { 'filetypes' : 'java' }}
+NeoBundleLazy 'yuratomo/java-api-sun', {
+      \ 'autoload' : { 'filetypes' : 'java' }}
+NeoBundleLazy 'yuratomo/java-api-servlet2.3', {
+      \ 'autoload' : { 'filetypes' : 'java' }}
+NeoBundleLazy 'yuratomo/java-api-android', {
+      \ 'autoload' : { 'filetypes' : 'java' }}
+command! JavaApi setlocal omnifunc=javaapi#complete
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+""""""""""""""""""""""""""""""
+" Eclim
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+NeoBundleLazy 'cstrahan/vim-eclim', {
+      \ 'autoload' : {
+      \   'filetypes' : ['java'],
+      \   'commands' : ['Eclim']
+      \ }}
+" if exists('*eclim#PingEclim') && eclim#PingEclim(0)
+let g:EclimCompletionMethod = 'omnifunc'
+" endif
+let g:EclimHtmlValidate = 0
+let g:EclimPythonValidate = 0
+let g:EclimJavascriptValidate = 0
+let g:EclimCValidate = 0
+let g:EclimPhpValidate = 0
+let g:EclimRubyValidate = 0
+let g:EclimScalaValidate = 0
+let g:EclimXmlValidate = 0
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -319,32 +380,12 @@ let g:jedi#popup_on_dot = 0
 
 
 """"""""""""""""""""""""""""""
-" Eclim
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-NeoBundleLazy 'cstrahan/vim-eclim', {
-      \ 'autoload' : {
-      \   'filetypes' : ['java'],
-      \   'commands' : ['Eclim']
-      \ }}
-let g:EclimCompletionMethod = 'omnifunc'
-let g:EclimHtmlValidate = 0
-let g:EclimPythonValidate = 0
-let g:EclimJavascriptValidate = 0
-let g:EclimCValidate = 0
-let g:EclimPhpValidate = 0
-let g:EclimRubyValidate = 0
-let g:EclimScalaValidate = 0
-let g:EclimXmlValidate = 0
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
-""""""""""""""""""""""""""""""
 " Emmet
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundleLazy 'mattn/emmet-vim', {
       \ 'autoload' : {
-      \   'filetypes' : ['html', 'xhtml', 'xml', 'htm', 'jsp',
-      \                  'css', 'less', 'sass', 'scss', 'php']
+      \   'filetypes' : ['html', 'xhtml', 'xml', 'htm', 'jsp', 'markdown',
+      \                  'css', 'less', 'sass', 'scss', 'php', 'jade']
       \ }}
 let g:emmet_html5 = 0
 let g:user_emmet_expandabbr_key = "<c-y>y,"
@@ -661,7 +702,6 @@ let g:EasyMotion_leader_key = '<leader><leader>'
 """"""""""""""""""""""""""""""
 " TODO
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" NeoBundle 'tomtom/tcomment_vim' " 听说这个方便得多。
 " NeoBundle 'Valloric/YouCompleteMe' " 以后试试
 " NeoBundle 'FredKSchott/CoVim' " 协作编辑
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

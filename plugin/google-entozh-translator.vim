@@ -3,38 +3,10 @@
 "   Date: 2012/12/20 16:23
 "   Desc: 英汉/汉英翻译插件
 " Useage: 
-"     <Leader> t 1.翻译当前光标下内容 //FIXME 中文不行
+"     <Leader> t 1.翻译当前光标下内容
 "                2.或翻译选中的内容
 "     <Leader> lt 翻译当前行
 " TODO: 新建buf窗口打开
-
-function s:GetCursorWord()
-  " matchstr('\<.\{-}\%'.col('.').'c.\{-}\>') not correct match
-  let column = get(getpos('.'), 2, 0) - 1
-  let line = getline('.')
-  let word = strpart(line, column, 1)
-  let start = 1
-  while 1
-    let tmp = strpart(line, column + start, 1)
-    if tmp =~ "[a-zA-Z]"
-      let word = word . tmp
-    else
-      break
-    endif
-    let start = start + 1
-  endwhile
-  let start = 1
-  while 1
-    let tmp = strpart(line, column - start, 1)
-    if tmp =~ '[a-zA-Z]'
-      let word = tmp . word
-    else
-      break
-    endif
-    let start = start + 1
-  endwhile
-  return word
-endfunc
 
 function! s:get_visual_selection()
   let reg = '"'
@@ -50,7 +22,7 @@ function s:Translate(m)
   " m 1 -> 翻译当前行
   " m 2 -> 翻译选中
   if a:m == 0
-    let word = s:GetCursorWord() " 如果是命令模式则取当前字符下单词
+    let word = expand('<cword>') " 如果是命令模式则取当前字符下单词
   elseif a:m == 2
     " let word = getreg('*')     " 如果是选择模式获取选择块
     let word = s:get_visual_selection()

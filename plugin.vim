@@ -37,8 +37,10 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'benatkin/vim-move-between-tabs' " map tN tP
 NeoBundle 'nacitar/a.vim'
 NeoBundle 'editorconfig/editorconfig-vim'
+NeoBundle 'wellle/targets.vim'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 
 """"""""""""""""""""""""""""""
 " Translate
@@ -142,11 +144,12 @@ let g:tcomment_types = {
 
 
 """"""""""""""""""""""""""""""
-" Tagber
+" Tagbar
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'majutsushi/tagbar'
 " 用gl来显视源代码的函数
 map gl :TagbarToggle<CR>
+execute "source ".$MYVIMFILES."/tagbar.vim"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -250,6 +253,14 @@ let g:AutoPairs = {
 
 
 """"""""""""""""""""""""""""""
+" wildfire
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+NeoBundle 'gcmt/wildfire.vim'
+let g:wildfire_fuel_map = "<c-cr>"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+""""""""""""""""""""""""""""""
 " Syntastic
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'scrooloose/syntastic'
@@ -292,10 +303,10 @@ let g:syntastic_mode_map = {
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundleLazy 'vim-scripts/matchit.zip', {
       \ 'autoload' : {
-      \ 'filetypes' : ['html', 'jsp', 'xhtml', 'xml', 'htm', 'php'] }}
+      \   'filetypes' : ['html', 'jsp', 'xhtml', 'xml', 'htm', 'php'] }}
 NeoBundleLazy 'othree/html5.vim', {
       \ 'autoload' : {
-      \ 'filetypes' : ['html', 'jsp', 'xhtml', 'xml', 'htm', 'php'] }}
+      \   'filetypes' : ['html', 'jsp', 'xhtml', 'xml', 'htm', 'php'] }}
 NeoBundleLazy 'jrestrepo/matlab', {
       \ 'autoload' : { 'filetypes' : 'matlab' }}
 NeoBundleLazy 'vim-scripts/autohotkey-ahk', {
@@ -425,6 +436,15 @@ vnoremap <leader>8 :call PhpDocRange()<CR>
 NeoBundleLazy 'weirongxu/yiiprado.vim', {
       \ 'autoload' : { 'filetypes' : ['htmlyiiprado.html.php'] }}
 autocmd BufNewFile,BufRead *.tpl setfiletype htmlyiiprado.html.php
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+""""""""""""""""""""""""""""""
+" breeze
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+NeoBundleLazy 'gcmt/breeze.vim', {
+      \ 'autoload' : {
+      \   'filetypes' : ['html', 'jsp', 'xhtml', 'xml', 'htm', 'php'] }}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 

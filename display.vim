@@ -58,8 +58,7 @@ if has("unix")
   " set guifont=SimSun\ for\ Powerline\ 10
   " set guifont=Courier\ New\ for\ Powerline\ 10
 elseif has("win32")
-  " set guifont=monofur_for_Powerline:h10.5:w5
-  set guifont=Courier_New_for_Powerline:h10:cANSI
+  set guifont=monofur_for_Powerline:h10.5:w5,Courier_New_for_Powerline:h10:cANSI
   " set guifont=Source_Code_Pro:h9:cANSI
   " set guifont=monofur_for_Powerline:h10.5:w5,Courier_new:h10,*
 endif

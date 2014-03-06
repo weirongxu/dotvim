@@ -27,7 +27,7 @@ execute 'map gp :NERDTree ' . $MYVIMFILES . '<CR>'
 
 " 打开终端
 if has("unix") && has("gui_running")
-  command SHELL :!gnome-terminal&
+  command! SHELL :!gnome-terminal&
 endif
 
 " key Q open Ex mode very haite
@@ -85,6 +85,7 @@ map <F4> @q
 " vnoremap <TAB> =
 
 " TODO 将这些功能弄成一个menu那应该会好很多.
+" 比如用unite, 不过兼容性会下降吧.
 
 " 删除所有行首空格
 nnoremap <F9> :%s/^[ ]\+//g<CR>
@@ -93,10 +94,10 @@ nnoremap <F9> :%s/^[ ]\+//g<CR>
 nnoremap <C-F9> :%s/\%d41377/  /g<CR>
 
 " tab转为4个空格
-command TabToSpace :%s/\t/    /g
+command! TabToSpace :%s/\t/    /g
 
 " 4个空格转为tab
-command SpaceToTab :%s/    /\t/g
+command! SpaceToTab :%s/    /\t/g
 
 " 所有 中文全角数字 替换为 英文半角数字
 fun! NumReplace()
@@ -117,8 +118,8 @@ nnoremap <C-F10> :call NumReplace()<CR>
 " nnoremap <F10> :%s/$//g<CR>
 
 " 清除php不标准的标签
-command EchoPhpStd :%s/<?=/<?php echo /g<CR>
-command TagPhpStd /^<?[^p]\|<?[^p]\|<?$\|^<?$<CR>laphp
+command! EchoPhpStd :%s/<?=/<?php echo /g<CR>
+command! TagPhpStd /^<?[^p]\|<?[^p]\|<?$\|^<?$<CR>laphp
 
 " 删除所有行尾的 ^M 字符
 nnoremap <F11> :%s/\r[ \t\r]*$//g<CR>
@@ -201,14 +202,14 @@ endif
 
 " 用系统窗口打开本文件目录
 if has('win32')
-  command E :!start explorer /select,%:p
-  command Explorer :E
+  command! E :!start explorer /select,%:p
+  command! Explorer :E
 elseif has('unix')
-  command E execute '!nautilus "'.expand('%:p').'" &'
-  command Explorer :E
+  command! E execute '!nautilus "'.expand('%:p').'" &'
+  command! Explorer :E
 elseif has('mac')
-  command E :!open %:p:h
-  command Explorer :E
+  command! E :!open %:p:h
+  command! Explorer :E
 endif
 
 " tab 控制
@@ -232,8 +233,8 @@ imap <c-d> <ESC>A
 imap <c-f> <ESC>I
 
 " Tab 长度 设置
-command -nargs=1 TabLen call <sid>TabLen(<f-args>)
-command -nargs=1 TabLenLocal call <sid>TabLenLocal(<f-args>)
+command! -nargs=1 TabLen call <sid>TabLen(<f-args>)
+command! -nargs=1 TabLenLocal call <sid>TabLenLocal(<f-args>)
 function! s:TabLen(n)
   " 设定 Tab 长度
   let &tabstop = a:n
@@ -254,11 +255,11 @@ endfunction
 """""""""""""""""""""""""""""""""""""
 
 au FileType c,cpp,objc,objcpp,cs,javascript,php,java,css,less,sass,matlab,sql map  <silent> <buffer> ; :call <SID>AppendMark(';')<CR>
-fun s:AppendMark(mark)
+fun! s:AppendMark(mark)
   let lines = getline('.')
   if match(lines, '[' . a:mark . '{}]\s*$') == -1
     call setline(line('.'), lines . a:mark)
   endif
 endf
 
-command EchoPath :echo expand("%:p")
+command! EchoPath :echo expand("%:p")

@@ -66,13 +66,6 @@ call unite#filters#sorter_default#use(['sorter_rank'])
 nnoremap <Leader>f :Unite vimgrep:.
 nnoremap <c-p> :<c-u>Unite -buffer-name=files -start-insert file_rec<cr>
 
-let g:unite_source_alias_aliases = {
-      \   'mru' : {
-      \     'source': 'file_mru'
-      \   },
-      \ }
-command! MRU :Unite mru
-
 autocmd FileType unite call <SID>unite_settings()
 function! s:unite_settings()
   imap <buffer> <C-j>   <Plug>(unite_select_next_line)
@@ -94,6 +87,14 @@ endfunction
 NeoBundle 'junkblocker/unite-tasklist'
 command! TaskList Unite tasklist
 command! TList Unite tasklist
+""""""""""""""""""""""""""""""
+NeoBundle 'Shougo/neomru.vim'
+let g:unite_source_alias_aliases = {
+      \   'mru' : {
+      \     'source': 'file_mru'
+      \   },
+      \ }
+command! MRU :Unite mru
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'Shougo/vimproc', {
       \ 'build' : {
@@ -340,18 +341,21 @@ NeoBundleLazy 'weirongxu/html2jade.vim', {
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundleLazy 'gabesoft/vim-java', {
       \ 'autoload' : { 'filetypes' : 'java' }}
+" NeoBundleLazy 'VictorDenisov/javacomplete', {
+"       \ 'autoload' : { 'filetypes' : 'java' }}
+" command! JavaApi setlocal omnifunc=javacomplete#Complete
 NeoBundleLazy 'yuratomo/java-api-complete', {
       \ 'autoload' : { 'filetypes' : 'java' }}
 NeoBundleLazy 'yuratomo/java-api-javax', {
       \ 'autoload' : { 'filetypes' : 'java' }}
-NeoBundleLazy 'yuratomo/java-api-org', {
-      \ 'autoload' : { 'filetypes' : 'java' }}
-NeoBundleLazy 'yuratomo/java-api-sun', {
-      \ 'autoload' : { 'filetypes' : 'java' }}
-NeoBundleLazy 'yuratomo/java-api-servlet2.3', {
-      \ 'autoload' : { 'filetypes' : 'java' }}
-NeoBundleLazy 'yuratomo/java-api-android', {
-      \ 'autoload' : { 'filetypes' : 'java' }}
+" NeoBundleLazy 'yuratomo/java-api-org', {
+"       \ 'autoload' : { 'filetypes' : 'java' }}
+" NeoBundleLazy 'yuratomo/java-api-sun', {
+"       \ 'autoload' : { 'filetypes' : 'java' }}
+" NeoBundleLazy 'yuratomo/java-api-servlet2.3', {
+"       \ 'autoload' : { 'filetypes' : 'java' }}
+" NeoBundleLazy 'yuratomo/java-api-android', {
+"       \ 'autoload' : { 'filetypes' : 'java' }}
 command! JavaApi setlocal omnifunc=javaapi#complete
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 

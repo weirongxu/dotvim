@@ -15,7 +15,7 @@ endif
 
 " gvim 菜单栏与工具栏隐藏与显示动态切换
 " 在必要时，可使用 Menu 键呼出菜单栏/工具栏；待不使用时，用 Menu 键将其关闭。
-command Menu if &guioptions =~# 'm' <Bar>
+command! Menu if &guioptions =~# 'm' <Bar>
       \set guioptions-=m <Bar>
       \set guioptions-=T <Bar>
       \set guioptions-=r <Bar>

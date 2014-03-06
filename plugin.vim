@@ -197,7 +197,7 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'Rykka/colorv.vim'
 " 颜色显示 使用ColorV
-let g:colorv_preview_ftype = 'css,html,javascript,htm,less'
+let g:colorv_preview_ftype = 'css,html,php,jsp,aspvbs,mason,javascript,htm,less'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -312,10 +312,10 @@ let g:syntastic_mode_map = {
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundleLazy 'vim-scripts/matchit.zip', {
       \ 'autoload' : {
-      \   'filetypes' : ['html', 'jsp', 'xhtml', 'xml', 'htm', 'php'] }}
+      \   'filetypes' : ['html', 'jsp', 'xhtml', 'xml', 'htm', 'php', 'aspvbs', 'mason'] }}
 NeoBundleLazy 'othree/html5.vim', {
       \ 'autoload' : {
-      \   'filetypes' : ['html', 'jsp', 'xhtml', 'xml', 'htm', 'php'] }}
+      \   'filetypes' : ['html', 'jsp', 'xhtml', 'xml', 'htm', 'php', 'aspvbs', 'mason'] }}
 NeoBundleLazy 'jrestrepo/matlab', {
       \ 'autoload' : { 'filetypes' : 'matlab' }}
 NeoBundleLazy 'vim-scripts/autohotkey-ahk', {
@@ -406,8 +406,8 @@ let g:jedi#popup_on_dot = 0
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundleLazy 'mattn/emmet-vim', {
       \ 'autoload' : {
-      \   'filetypes' : ['html', 'xhtml', 'xml', 'htm', 'jsp', 'markdown',
-      \                  'css', 'less', 'sass', 'scss', 'php', 'jade']
+      \   'filetypes' : ['html', 'xhtml', 'xml', 'htm', 'jsp', 'markdown', 'css',
+      \                  'less', 'sass', 'scss', 'php', 'jade', 'aspvbs', 'mason']
       \ }}
 let g:emmet_html5 = 0
 let g:user_emmet_expandabbr_key = "<c-y>y,"
@@ -453,7 +453,8 @@ autocmd BufNewFile,BufRead *.tpl setfiletype htmlyiiprado.html.php
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundleLazy 'gcmt/breeze.vim', {
       \ 'autoload' : {
-      \   'filetypes' : ['html', 'jsp', 'xhtml', 'xml', 'htm', 'php'] }}
+      \   'filetypes' : ['html', 'jsp', 'xhtml', 'xml',
+      \                  'htm', 'php', 'aspvbs', 'mason'] }}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 

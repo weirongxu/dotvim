@@ -135,6 +135,25 @@ map <C-F12> :!astyle --style=java --indent=spaces=4 --pad-header --unpad-paren -
 
 
 """""""""""""""""""""""""""""""""""""
+" html转换
+"""""""""""""""""""""""""""""""""""""
+function! s:HtmlEscape()
+  silent s/&/\&amp;/eg
+  silent s/</\&lt;/eg
+  silent s/>/\&gt;/eg
+endfunction
+
+function! s:HtmlUnEscape()
+  silent s/&lt;/</eg
+  silent s/&gt;/>/eg
+  silent s/&amp;/\&/eg
+endfunction
+
+vmap <silent> <Leader>he :call <SID>HtmlEscape()<CR>
+vmap <silent> <Leader>hu :call <SID>HtmlUnEscape()<CR>
+
+
+"""""""""""""""""""""""""""""""""""""
 " 界面和控制
 """""""""""""""""""""""""""""""""""""
 

@@ -113,7 +113,7 @@ NeoBundle 'Shougo/vimproc', {
 NeoBundle 'tomtom/tcomment_vim'
 let g:tcommentMaps = 0
 map <leader>; :TComment<cr>
-nmap <leader>: <s-v>:TCommentInline<cr>
+nmap <leader>: $v^:TCommentInline<cr>
 vmap <leader>: :TCommentInline<cr>
 map <Leader>' :TCommentRight<cr>
 map <leader>" :TCommentBlock<cr>
@@ -123,24 +123,25 @@ let g:tcomment_types = {
       \ 'less_inline': '/* %s */',
       \ 'htmlyiiprado': '<!--- %s --->',
       \ 'htmlyiiprado_inline': '<!-- %s -->',
+      \ 'markdown': '<!-- %s -->',
+      \ 'markdown_inline': '<!-- %s -->',
       \ 'blade.php': '<!-- %s -->',
       \ 'jade': '//- %s',
       \ 'jade_inline': '// %s',
       \ }
 
 " NerdCommenter
-" NeoBundle 'scrooloose/nerdcommenter'
-" nerd-commenter注释
-" let g:NERDSpaceDelims=1
+NeoBundle 'scrooloose/nerdcommenter'
+let g:NERDSpaceDelims=1
 " map <leader>; <leader>ci
 " map <leader>: <leader>cm
 " map <leader>' <leader>cA
 " map <leader>" <leader>cs
-" let g:NERDCustomDelimiters = {
-      " \ 'htmlyiiprado': { 'left': '<!---', 'right': '--->', 'leftAlt': '<!--', 'rightAlt': '-->' },
-      " \ 'blade.php': { 'left': '<!--', 'right': '-->', 'leftAlt': '<!--', 'rightAlt': '-->' },
-      " \ 'less': { 'left': '//', 'leftAlt': '/*', 'rightAlt': '*/' }
-      " \ }
+let g:NERDCustomDelimiters = {
+      \ 'htmlyiiprado': { 'left': '<!---', 'right': '--->', 'leftAlt': '<!--', 'rightAlt': '-->' },
+      \ 'blade.php': { 'left': '<!--', 'right': '-->', 'leftAlt': '<!--', 'rightAlt': '-->' },
+      \ 'less': { 'left': '//', 'leftAlt': '/*', 'rightAlt': '*/' }
+      \ }
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -267,6 +268,7 @@ let g:AutoPairs = {
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'gcmt/wildfire.vim'
 let g:wildfire_fuel_map = "<c-cr>"
+let g:wildfire_objects = ["i'", 'i"', "i)", "i]", "i}", "ip", "it"]
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -332,7 +334,7 @@ NeoBundleLazy 'elzr/vim-json', {
 NeoBundleLazy 'digitaltoad/vim-jade', {
       \ 'autoload' : { 'filetypes' : 'jade' }}
 NeoBundleLazy 'weirongxu/html2jade.vim', {
-      \ 'autoload' : { 'commands' : 'Html2jade' }}
+      \ 'autoload' : { 'commands' : ['Html2jade', 'JadeC'] }}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -387,6 +389,8 @@ let g:EclimXmlValidate = 0
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundleLazy 'jelera/vim-javascript-syntax', {
       \ 'autoload' : { 'filetypes' : 'javascript' }}
+" NeoBundleLazy 'pangloss/vim-javascript', {
+"       \ 'autoload' : { 'filetypes' : 'javascript' }}
 NeoBundleLazy 'myhere/vim-nodejs-complete', {
       \ 'autoload' : { 'filetypes' : 'javascript' }}
 autocmd FileType javascript setlocal omnifunc=jscomplete#CompleteJS

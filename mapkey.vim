@@ -184,10 +184,10 @@ map <C-Up> 5<c-w>+
 map <C-Down> 5<c-w>-
 map <C-Right> 5<c-w>>
 map <C-Left> 5<c-w><
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
+map <C-h> :wincmd h<cr>
+map <C-j> :wincmd j<cr>
+map <C-k> :wincmd k<cr>
+map <C-l> :wincmd l<cr>
 if has('gui')
   nmap <silent><S-Up> :call <SID>MoveUp(20)<CR>
   nmap <silent><S-Down> :call <SID>MoveDown(20)<CR>

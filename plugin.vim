@@ -34,6 +34,7 @@ NeoBundle 'mbbill/fencview'
 NeoBundle 'peterjmorgan/mark-2.8.0'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-fugitive'
+" NeoBundle 'motemen/git-vim'
 NeoBundle 'benatkin/vim-move-between-tabs' " map tN tP
 NeoBundle 'nacitar/a.vim'
 NeoBundle 'editorconfig/editorconfig-vim'
@@ -418,13 +419,13 @@ NeoBundleLazy 'mattn/emmet-vim', {
       \                  'less', 'sass', 'scss', 'php', 'jade', 'aspvbs', 'mason']
       \ }}
 let g:emmet_html5 = 0
-let g:user_emmet_expandabbr_key = "<c-y>y,"
-imap <C-Y>, <c-o>:call <SID>CallEmmet("EmmetExpandAbbr")<CR>
-nmap <C-Y>, :call emmet#expandAbbr(3,"")<cr>
-vmap <C-Y>, :call emmet#expandAbbr(2,"")<cr>
-function! s:CallEmmet(plug)
-  call feedkeys("\<plug>(".a:plug.")")
-endfunction
+" let g:user_emmet_expandabbr_key = "<c-y>y,"
+" imap <C-Y>, <c-o>:call <SID>CallEmmet("EmmetExpandAbbr")<CR>
+" nmap <C-Y>, :call emmet#expandAbbr(3,"")<cr>
+" vmap <C-Y>, :call emmet#expandAbbr(2,"")<cr>
+" function! s:CallEmmet(plug)
+"   call feedkeys("\<plug>(".a:plug.")")
+" endfunction
 " let g:user_emmet_expandabbr_key = '<c-y>y,'
 " autocmd FileType html,xhtml,xml,htm,jsp,css,less,sass,scss,php imap <buffer> <c-y>, <ESC><c-y>y,a
 " autocmd FileType html,xhtml,xml,htm,jsp,css,less,sass,scss,php vmap <buffer> <c-y>, <c-y>y,

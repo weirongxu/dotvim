@@ -480,12 +480,14 @@ NeoBundleLazy 'xsbeats/vim-blade', {
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundleLazy 'hail2u/vim-css3-syntax', {
       \ 'autoload' : { 'filetypes' : ['css', 'less'] }}
-NeoBundleLazy 'weirongxu/vim-less', {
+NeoBundleLazy 'groenewege/vim-less', {
       \ 'autoload' : { 'filetypes' : ['less'] }}
-" less 自动编译
-let g:less_auto_compile = 0
-let g:less_compile_buffer_key = '<F5>'
-let g:less_compile_option = '-x'
+" NeoBundleLazy 'weirongxu/vim-less', {
+"       \ 'autoload' : { 'filetypes' : ['less'] }}
+" " less 自动编译
+" let g:less_auto_compile = 0
+" let g:less_compile_buffer_key = '<F5>'
+" let g:less_compile_option = '-x'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -778,5 +780,3 @@ imap <c-c> <c-_>
 
 " think php tpl
 autocmd BufNewFile,BufRead *.html setfiletype htmlthphp.html
-" mkd
-autocmd BufNewFile,BufRead *.md setfiletype markdown

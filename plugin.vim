@@ -334,8 +334,6 @@ NeoBundleLazy 'elzr/vim-json', {
       \ 'autoload' : { 'filetypes' : 'json' }}
 NeoBundleLazy 'digitaltoad/vim-jade', {
       \ 'autoload' : { 'filetypes' : 'jade' }}
-NeoBundleLazy 'weirongxu/html2jade.vim', {
-      \ 'autoload' : { 'commands' : ['Html2jade', 'JadeC'] }}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -392,9 +390,14 @@ NeoBundleLazy 'jelera/vim-javascript-syntax', {
       \ 'autoload' : { 'filetypes' : 'javascript' }}
 " NeoBundleLazy 'pangloss/vim-javascript', {
 "       \ 'autoload' : { 'filetypes' : 'javascript' }}
+NeoBundleLazy 'aereal/jscomplete-vim', {
+      \ 'autoload' : { 'filetypes' : 'javascript' }}
 NeoBundleLazy 'myhere/vim-nodejs-complete', {
       \ 'autoload' : { 'filetypes' : 'javascript' }}
-autocmd FileType javascript setlocal omnifunc=jscomplete#CompleteJS
+let g:nodejs_complete_config = {
+\  'js_compl_fn': 'jscomplete#CompleteJS',
+\  'max_node_compl_len': 15
+\}
 NeoBundleLazy 'kchmck/vim-coffee-script', {
       \ 'autoload' : { 'filetypes' : 'coffee' }}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

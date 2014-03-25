@@ -60,7 +60,7 @@ function! comp_run#CompileCode()
   elseif &filetype == 'ruby'
     exec '!ruby %'
   elseif &filetype == 'less'
-    exec '!lessc % > %<.css'
+    exec '!lessc -x % > %<.css'
   elseif &filetype == 'coffee'
     exec '!coffee -c %'
   elseif &filetype == 'jade'

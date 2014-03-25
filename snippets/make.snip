@@ -30,19 +30,19 @@ snippet gcc
     gtk
     mysql
 snippet    cmd
-    cmd = gcc
-    # cmd = g++
+    cmd = gcc -Wall -g
+    # cmd = g++ -Wall -g
     # cmd = javac
 snippet    cmdc
-    cmd = gcc
+    cmd = gcc -Wall -g
 snippet    cmd+
-    cmd = g++
+    cmd = g++ -Wall -g
 snippet java
     cmd javac
 snippet link
-    link = $(cmd) -Wall -g $^ -o $@
+    link = $(cmd) $^ -o $@
 snippet obj
-    obj = $(cmd) -Wall -g -c $< -o $@
+    obj = $(cmd) -c $< -o $@
 snippet gtk
     # make for gtk
     develop_pack = \`pkg-config --cflags --libs gtk+-2.0\`

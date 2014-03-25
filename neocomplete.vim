@@ -7,7 +7,7 @@ let g:neocomplete#sources#dictionary#dictionaries = {
       \ 'less' : $MYVIMFILES.'/dict/cssColorName.dict'
       \ }
 let g:neocomplete#same_filetypes = {
-      \ 'c': 'cpp,d',
+      \ 'c': 'cpp',
       \ 'cpp': 'c',
       \ 'html': 'css,javascript',
       \ 'php': 'html',

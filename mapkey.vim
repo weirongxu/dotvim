@@ -137,18 +137,28 @@ map <C-F12> :!astyle --style=java --indent=spaces=4 --pad-header --unpad-paren -
 """""""""""""""""""""""""""""""""""""
 " html转换
 """""""""""""""""""""""""""""""""""""
+let s:html_escape_dict = {
+      \ '"': 'quot',
+      \ "'": 'apos',
+      \ '&': 'amp',
+      \ '<': 'lt',
+      \ '>': 'gt',
+      \ ' ': 'nbsp',
+      \ }
 function! s:HtmlEscape()
-  silent s/&/\&amp;/eg
-  silent s/</\&lt;/eg
-  silent s/>/\&gt;/eg
+  for k in keys(s:html_escape_dict)
+    exec 'silent s/\V'.k.'/&'.s:html_escape_dict[k].';/eg'
+  endfor
 endfunction
 
 function! s:HtmlUnEscape()
-  silent s/&lt;/</eg
-  silent s/&gt;/>/eg
-  silent s/&amp;/\&/eg
+  for k in keys(s:html_escape_dict)
+    exec 'silent s/\V&'.s:html_escape_dict[k].';/'.k.'/eg'
+  endfor
 endfunction
 
+nmap <silent> <Leader>he v<Leader>he
+nmap <silent> <Leader>hu v<Leader>hu
 vmap <silent> <Leader>he :call <SID>HtmlEscape()<CR>
 vmap <silent> <Leader>hu :call <SID>HtmlUnEscape()<CR>
 

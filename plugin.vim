@@ -243,6 +243,9 @@ smap <expr><C-CR> neosnippet#expandable() ?
       \ "\<Plug>(neosnippet_expand)"
       \: "\<C-CR>"
 let g:neosnippet#snippets_directory = $MYVIMFILES.'/snippets'
+let g:neosnippet#disable_runtime_snippets = {
+      \   '_' : 1
+      \ }
 set clipboard-=autoselect " 取消在选择模式移动时复制内容
 " 快速编辑snip
 " command Snip NeoSnippetEdit -split -vertical -runtime

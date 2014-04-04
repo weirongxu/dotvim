@@ -8,34 +8,30 @@ let maplocalleader = ','
 
 " 快速保存和退出
 nmap <CR> :w<CR>
-nmap <leader>w :w!<cr>
 nmap <leader>q :q<cr>
 
 " 只留下一个窗口
 nmap <leader>o :only<CR>
 
 " 分割窗口
-nmap <leader>1 :vsplit<CR>
-nmap <leader>2 :split<CR>
-nmap <leader>3 :q!<cr>
+nmap <silent> <leader>1 :vsplit<CR>
+nmap <silent> <leader>2 :split<CR>
+nmap <silent> <leader>3 :q!<cr>
 
-" 打开配制文件
+" 打开配置
 map gc :edit $MYVIMRC<CR>
-
-" 打开插件目录
 execute 'map gp :NERDTree ' . $MYVIMFILES . '<CR>'
 
 " 打开终端
 if has("unix") && has("gui_running")
   command! SHELL :!gnome-terminal&
+elseif has('win32') || has('win64')
+  command! SHELL :!start cmd
 endif
 
 " key Q open Ex mode very haite
 map Q gq
 noremap gQ Q
-
-" 添加在可视模式下 退格键 删除功能
-" vnoremap <BS> d
 
 " SHIFT-Del 剪切
 vnoremap <S-Del> "+x
@@ -50,31 +46,8 @@ map <leader><leader>p "+p
 " 在visual和select模式中使用<leader>p,粘贴但不复制
 xnoremap <expr> <leader>p 'pgv"'.v:register.'y'
 
-" CTRL-S 保存
-if has('gui_running')
-    " imap <C-S> <ESC>:w<CR>
-    " imap <M-s> <ESC>:w<CR>
-    map <C-S> :w<CR>
-    map <M-s> :w<CR>
-    if has("mac") || has("macunix")
-        imap <D-S> <ESC>:w<CR>
-        map <D-S> :w<CR>
-    endif
-endif
-
-" 用空格代替搜索
-" map <SPACE> /
-" map <leader><SPACE> ?
-
-" 用于 web 开发的语法映射
-nnoremap <C-F1> :set filetype=html<CR>
-nnoremap <C-F2> :set filetype=css<CR>
-nnoremap <C-F3> :set filetype=javascript<CR>
-nnoremap <C-F4> :set filetype=php<CR>
-
 " F4                 使用宏q
 map <F4> @q
-
 
 """""""""""""""""""""""""""""""""""""
 " 格式化,清除多余字符
@@ -168,41 +141,41 @@ vmap <silent> <Leader>hu :call <SID>HtmlUnEscape()<CR>
 """""""""""""""""""""""""""""""""""""
 
 " 移动一整行通过 ALT+[jk] 或 Comamnd+[jk] 在 mac
-nmap <M-j> mz:m+<cr>`z
-nmap <M-k> mz:m-2<cr>`z
-vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
-vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
-nmap <leader>j mz:m+<cr>`z
-nmap <leader>k mz:m-2<cr>`z
-vmap <leader>j :m'>+<cr>`<my`>mzgv`yo`z
-vmap <leader>k :m'<-2<cr>`>my`<mzgv`yo`z
+nmap <silent> <M-j> mz:m+<cr>`z
+nmap <silent> <M-k> mz:m-2<cr>`z
+vmap <silent> <M-j> :m'>+<cr>`<my`>mzgv`yo`z
+vmap <silent> <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
+nmap <silent> <leader>j mz:m+<cr>`z
+nmap <silent> <leader>k mz:m-2<cr>`z
+vmap <silent> <leader>j :m'>+<cr>`<my`>mzgv`yo`z
+vmap <silent> <leader>k :m'<-2<cr>`>my`<mzgv`yo`z
 if has("mac") || has("macunix")
-  nmap <D-j> <M-j>
-  nmap <D-k> <M-k>
-  vmap <D-j> <M-j>
-  vmap <D-k> <M-k>
+  nmap <silent> <D-j> <M-j>
+  nmap <silent> <D-k> <M-k>
+  vmap <silent> <D-j> <M-j>
+  vmap <silent> <D-k> <M-k>
 endif
 
 " 用alt键在插入模式下移动光标
-imap <M-h> <ESC>i
-imap <M-j> <ESC>ja
-imap <M-k> <ESC>ka
-imap <M-l> <ESC>la
+imap <silent> <M-h> <ESC>i
+imap <silent> <M-j> <ESC>ja
+imap <silent> <M-k> <ESC>ka
+imap <silent> <M-l> <ESC>la
 
 " 窗口控制
-map <C-Up> 5<c-w>+
-map <C-Down> 5<c-w>-
-map <C-Right> 5<c-w>>
-map <C-Left> 5<c-w><
-map <C-h> :wincmd h<cr>
-map <C-j> :wincmd j<cr>
-map <C-k> :wincmd k<cr>
-map <C-l> :wincmd l<cr>
+map <silent> <C-Up> 5<c-w>+
+map <silent> <C-Down> 5<c-w>-
+map <silent> <C-Right> 5<c-w>>
+map <silent> <C-Left> 5<c-w><
+map <silent> <C-h> :wincmd h<cr>
+map <silent> <C-j> :wincmd j<cr>
+map <silent> <C-k> :wincmd k<cr>
+map <silent> <C-l> :wincmd l<cr>
 if has('gui')
-  nmap <silent><S-Up> :call <SID>MoveUp(20)<CR>
-  nmap <silent><S-Down> :call <SID>MoveDown(20)<CR>
-  nmap <silent><S-Left> :call <SID>MoveLeft(20)<CR>
-  nmap <silent><S-Right> :call <SID>MoveRight(20)<CR>
+  nmap <silent> <S-Up> :call <SID>MoveUp(20)<CR>
+  nmap <silent> <S-Down> :call <SID>MoveDown(20)<CR>
+  nmap <silent> <S-Left> :call <SID>MoveLeft(20)<CR>
+  nmap <silent> <S-Right> :call <SID>MoveRight(20)<CR>
 
   function! s:MoveDown(d)
     let x = getwinposx()
@@ -291,4 +264,4 @@ fun! s:AppendMark(mark)
   endif
 endf
 
-command! EchoPath :echo expand("%:p")
+" command! EchoPath :echo expand("%:p")

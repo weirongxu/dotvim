@@ -39,6 +39,7 @@ NeoBundle 'benatkin/vim-move-between-tabs' " map tN tP
 NeoBundle 'nacitar/a.vim'
 NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'wellle/targets.vim'
+NeoBundle 'vim-jp/vital.vim'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -64,7 +65,7 @@ let g:unite_winheight = 10
 
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#filters#sorter_default#use(['sorter_rank'])
-nnoremap <Leader>f :Unite vimgrep:.
+nnoremap <Leader>f :Unite vimgrep:
 nnoremap <c-p> :<c-u>Unite -buffer-name=files -start-insert file_rec<cr>
 
 autocmd FileType unite call <SID>unite_settings()
@@ -84,6 +85,8 @@ function! s:unite_settings()
   nmap <buffer> <c-q> <Plug>(unite_exit)
   nmap <buffer> <ESC> <Plug>(unite_exit)
 endfunction
+""""""""""""""""""""""""""""""
+let g:unite_source_history_yank_enable = 1
 """"""""""""""""""""""""""""""
 NeoBundle 'junkblocker/unite-tasklist'
 command! TaskList Unite tasklist
@@ -143,16 +146,6 @@ let g:NERDCustomDelimiters = {
       \ 'blade.php': { 'left': '<!--', 'right': '-->', 'leftAlt': '<!--', 'rightAlt': '-->' },
       \ 'less': { 'left': '//', 'leftAlt': '/*', 'rightAlt': '*/' }
       \ }
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
-""""""""""""""""""""""""""""""
-" Tagbar
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-NeoBundle 'majutsushi/tagbar'
-" 用gl来显视源代码的函数
-map gl :TagbarToggle<CR>
-execute "source ".$MYVIMFILES."/tagbar.vim"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -258,6 +251,7 @@ command! Snip NeoSnippetEdit -split -vertical
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'jiangmiao/auto-pairs'
 " let g:AutoPairsFlyMode = 1
+let g:AutoPairsMapSpace = 0
 let g:AutoPairs = {
       \ '(': ')',
       \ '[': ']',
@@ -352,14 +346,11 @@ NeoBundleLazy 'yuratomo/java-api-complete', {
       \ 'autoload' : { 'filetypes' : 'java' }}
 NeoBundleLazy 'yuratomo/java-api-javax', {
       \ 'autoload' : { 'filetypes' : 'java' }}
-" NeoBundleLazy 'yuratomo/java-api-org', {
-"       \ 'autoload' : { 'filetypes' : 'java' }}
-" NeoBundleLazy 'yuratomo/java-api-sun', {
-"       \ 'autoload' : { 'filetypes' : 'java' }}
-" NeoBundleLazy 'yuratomo/java-api-servlet2.3', {
-"       \ 'autoload' : { 'filetypes' : 'java' }}
-" NeoBundleLazy 'yuratomo/java-api-android', {
-"       \ 'autoload' : { 'filetypes' : 'java' }}
+
+NeoBundleLazy 'yuratomo/java-api-org'
+NeoBundleLazy 'yuratomo/java-api-sun'
+NeoBundleLazy 'yuratomo/java-api-servlet2.3'
+NeoBundleLazy 'yuratomo/java-api-android'
 command! JavaApi setlocal omnifunc=javaapi#complete
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -482,12 +473,16 @@ NeoBundleLazy 'xsbeats/vim-blade', {
 
 
 """"""""""""""""""""""""""""""
-" Less Css
+" Less styl Css
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundleLazy 'hail2u/vim-css3-syntax', {
       \ 'autoload' : { 'filetypes' : ['css', 'less'] }}
 NeoBundleLazy 'groenewege/vim-less', {
       \ 'autoload' : { 'filetypes' : ['less'] }}
+NeoBundleLazy 'wavded/vim-stylus', {
+      \ 'autoload' : { 'filetypes' : ['stylus'] }}
+autocmd BufNewFile,BufRead *.styl set filetype=stylus
+autocmd BufNewFile,BufRead *.stylus set filetype=stylus
 " NeoBundleLazy 'weirongxu/vim-less', {
 "       \ 'autoload' : { 'filetypes' : ['less'] }}
 " " less 自动编译
@@ -573,8 +568,18 @@ NeoBundleLazy 'tpope/vim-eunuch', {
       \                 'Locate', 'SudoWrite', 'W']
       \ }}
 NeoBundleLazy 'thinca/vim-quickrun', {
+      \ 'autoload' : { 'commands' : ['QuickRun'] }}
+NeoBundleLazy 'mattn/emoji-vim', {
       \ 'autoload' : {
-      \   'commands' : ['QuickRun']
+      \   'commands' : ['Emoji']
+      \ }, 'type' : 'nosync' }
+NeoBundleLazy 'thinca/vim-ref', {
+      \ 'autoload' : {
+      \   'commands' : ['Ref']
+      \ }}
+NeoBundleLazy 'tpope/vim-dispatch', {
+      \ 'autoload' : {
+      \   'commands' : ['Make', 'Copen', 'Dispatch', 'FocusDispatch', 'Start']
       \ }}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -626,6 +631,23 @@ function! s:Align_input()
   execute "'<,'>Align ".align
 endfunction
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+""""""""""""""""""""""""""""""
+" Tagbar
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+NeoBundleLazy 'majutsushi/tagbar', {
+      \ 'autoload' : {
+      \   'commands' : ['TagbarOpen', 'TagbarClose', 'TagbarToggle', 'Tagbar',
+      \                 'TagbarOpenAutoClose', 'TagbarTogglePause',
+      \                 'TagbarSetFoldlevel', 'TagbarShowTag',
+      \                 'TagbarCurrentTag', 'TagbarGetTypeConfig',
+      \                 'TagbarDebug', 'TagbarDebugEnd']
+      \ }}
+map gl :TagbarToggle<CR>
+execute "source ".$MYVIMFILES."/tagbar.vim"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 
 """"""""""""""""""""""""""""""
 " Sunday

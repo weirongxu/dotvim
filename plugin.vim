@@ -594,14 +594,14 @@ NeoBundle 'starleoda/vim-vookmark', {
       \                  'VmkFactoryReset' ]
       \ }}
 let g:vookmark_mapkeys=0
-map <space><space> :VmkToggle<cr>
-map <space>n :VmkNext<cr>
-map <space>p :VmkPrev<cr>
-map <space>N :VmkPrev<cr>
-map <space>c :VmkClear<cr>
+map <leader><space> :VmkToggle<cr>
+map <Leader><space>n :VmkNext<cr>
+map <leader><space>p :VmkPrev<cr>
+map <leader><space>N :VmkPrev<cr>
+map <leader><space>c :VmkClear<cr>
 
-map <space>l :VmkList<cr>
-map <space>r :VmkRefresh<cr>
+map <leader><space>l :VmkList<cr>
+map <leader><space>r :VmkRefresh<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -732,9 +732,14 @@ nmap <silent> gL <Plug>IndentGuidesToggle
 " EasyMotion
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundleLazy 'Lokaltog/vim-easymotion', {
-      \ 'autoload' : { 'mappings' : '<leader><leader>' }}
-" easymotion用两个<leader>来调用
-let g:EasyMotion_leader_key = '<leader><leader>'
+      \ 'autoload' : {
+      \   'mappings' : ['<space>f', '<space>F', '<space>t', '<space>T',
+      \                 '<space>w', '<space>W', '<space>b', '<space>B',
+      \                 '<space>e', '<space>E', '<space>ge', '<space>gE',
+      \                 '<space>j', '<space>k', '<space>n', '<space>N',
+      \                 '<space>s']
+      \}}
+let g:EasyMotion_leader_key = '<space>'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""
@@ -767,14 +772,8 @@ let g:EasyMotion_leader_key = '<leader><leader>'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
-""""""""""""""""""""""""""""""
-" TODO
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" NeoBundle 'Valloric/YouCompleteMe' " 以后试试
-" NeoBundle 'FredKSchott/CoVim' " 协作编辑
+" NeoBundle 'Valloric/YouCompleteMe' " wait
+" NeoBundle 'FredKSchott/CoVim' " 协作编辑wait
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 

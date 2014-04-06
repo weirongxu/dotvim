@@ -8,7 +8,6 @@ let maplocalleader = ','
 
 " 快速保存和退出
 nmap <CR> :w<CR>
-nmap <leader>q :q<cr>
 
 " 只留下一个窗口
 nmap <leader>o :only<CR>

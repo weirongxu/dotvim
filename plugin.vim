@@ -40,6 +40,7 @@ NeoBundle 'nacitar/a.vim'
 NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'wellle/targets.vim'
 NeoBundle 'vim-jp/vital.vim'
+NeoBundle 'Yggdroot/indentLine'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 

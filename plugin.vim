@@ -40,7 +40,6 @@ NeoBundle 'nacitar/a.vim'
 NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'wellle/targets.vim'
 NeoBundle 'vim-jp/vital.vim'
-NeoBundle 'Yggdroot/indentLine'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -154,15 +153,13 @@ let g:NERDCustomDelimiters = {
 " Airline
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'bling/vim-airline'
+let g:airline_theme='molokai'
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+
 if has('unix')
-  " airline 设置
   let g:airline_powerline_fonts=2
-
-  let g:airline_theme='molokai'
-
-  if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-  endif
 
   let g:airline_left_sep = '⮀'
   let g:airline_right_sep = '⮂'
@@ -175,17 +172,20 @@ if has('unix')
   let g:airline_linecolumn_prefix = '⭡'
 
   " 显示换行和制表符
-  set listchars=eol:¬,tab:>-,nbsp:~
+  " set listchars=eol:¬,tab:>-,nbsp:~
+  set list listchars=tab:\|\ ,nbsp:~
 elseif has('win32') || has('win64')
-  let g:airline_theme='molokai'
-
-  if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-  endif
-
   let g:airline_left_sep = ''
   let g:airline_right_sep = ''
 endif
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+""""""""""""""""""""""""""""""
+" indentLine
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+NeoBundle 'Yggdroot/indentLine'
+let g:indentLine_noConcealCursor = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -596,13 +596,23 @@ NeoBundle 'starleoda/vim-vookmark', {
       \ }}
 let g:vookmark_mapkeys=0
 map <leader><space> :VmkToggle<cr>
-map <Leader><space>n :VmkNext<cr>
+map <leader><space>n :VmkNext<cr>
 map <leader><space>p :VmkPrev<cr>
 map <leader><space>N :VmkPrev<cr>
 map <leader><space>c :VmkClear<cr>
 
 map <leader><space>l :VmkList<cr>
 map <leader><space>r :VmkRefresh<cr>
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+""""""""""""""""""""""""""""""
+" pyclewn
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+NeoBundleLazy 'xieyu/pyclewn', {
+      \ 'autoload' : {
+      \   'commands' : [ 'Pyclewn' ]
+      \ }}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -647,6 +657,7 @@ NeoBundleLazy 'majutsushi/tagbar', {
       \ }}
 map gl :TagbarToggle<CR>
 execute "source ".$MYVIMFILES."/tagbar.vim"
+let g:tagbar_show_linenumbers = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 

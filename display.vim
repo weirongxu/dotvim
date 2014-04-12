@@ -127,7 +127,6 @@ autocmd FileType css,less,vim,javascript,coffee setl tabstop=2 softtabstop=2 shi
 " 使用空格替代 Tab
 " au BufRead,BufNewFile *.py set expandtab
 set expandtab
-autocmd FileType neosnippet setl noexpandtab
 
 
 " 自动缩进

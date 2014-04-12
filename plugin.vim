@@ -171,13 +171,13 @@ if has('unix')
   let g:airline_whitespace_symbol = 'Ξ'
   let g:airline_linecolumn_prefix = '⭡'
 
-  " 显示换行和制表符
   " set listchars=eol:¬,tab:>-,nbsp:~
-  set list listchars=tab:\|\ ,nbsp:~
 elseif has('win32') || has('win64')
   let g:airline_left_sep = ''
   let g:airline_right_sep = ''
 endif
+" 显示换行和制表符
+set list listchars=tab:\|\ ,nbsp:~
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 

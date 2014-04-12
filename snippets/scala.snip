@@ -1,36 +1,36 @@
-snippet     match
-abbr        match {\n  case .. => ..
+snippet match
+abbr match {\n  case .. => ..
 	match {
 		case ${1} => ${0}
 	}
 
-snippet     try
-abbr        try {} catch { case ... }
-options     head
+snippet try
+abbr try {} catch { case ... }
+options head
 	try {
 		${1:TARGET}
 	} catch {
 		case e${2:: Exception} => ${0}
 	}
 
-snippet     p
-abbr        println()
+snippet p
+abbr println()
 	println(${1})
 
-snippet     pn
-abbr        println('name, name)
+snippet pn
+abbr println('name, name)
 	println('${1:#:name}, $1)
 
-snippet     main
-abbr        def main(args: Array[String]) {
-options     head
+snippet main
+abbr def main(args: Array[String]) {
+options head
 	def main(args: Array[String]) {
 		${0:TARGET}
 	}
 
-snippet     hello
-abbr        object HelloWorld { def main(...) }
-options     head
+snippet hello
+abbr object HelloWorld { def main(...) }
+options head
 	object HelloWorld {
 		def main(args: Array[String]) {
 			println("Hello, world!")

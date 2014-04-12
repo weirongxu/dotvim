@@ -1,18 +1,18 @@
 snippet sel
-    @selector(${1:#:method}:)
+	@selector(${1:#:method}:)
 
 
 snippet imp
-    #import <${1:Cocoa/Cocoa.h}>
+	#import <${1:Cocoa/Cocoa.h}>
 
 
 snippet Imp
-    #import "${1}}"
+	#import "${1}}"
 
 
 snippet log
 abbr NSLog(...)
-    NSLog(@"${1}")
+	NSLog(@"${1}")
 
 
 snippet cl
@@ -68,15 +68,15 @@ abbr CategoryInterface
 	@end
 
 snippet array
-    NSMutableArray *${1:#:array} = [NSMutableArray array];
+	NSMutableArray *${1:#:array} = [NSMutableArray array];
 
 
 snippet dict
-    NSMutableDictionary *${1:#:dict} = [NSMutableDictionary dictionary];
+	NSMutableDictionary *${1:#:dict} = [NSMutableDictionary dictionary];
 
 
 snippet bez
-    NSBezierPath *${1:#:path} = [NSBezierPath bezierPath];
+	NSBezierPath *${1:#:path} = [NSBezierPath bezierPath];
 
 snippet m
 abbr Method
@@ -88,7 +88,7 @@ abbr Method
 
 snippet M
 abbr Method
-    - (${1:#:id})${2:#:method}${3:(#:id)}${4:#:anArgument};
+	- (${1:#:id})${2:#:method}${3:(#:id)}${4:#:anArgument};
 
 
 snippet cm
@@ -102,7 +102,7 @@ abbr ClassMethod
 
 snippet icm
 abbr InterfaceClassMethod
-    + (${1:#:id})${0:#:method};
+	+ (${1:#:id})${0:#:method};
 
 
 snippet sm
@@ -216,7 +216,7 @@ abbr KVCArry
 	{
 		[${3} setArray:new${1}];
 	}
-    
+	
 
 snippet iarray
 abbr InterfaceAccessorsForKVCArray
@@ -250,29 +250,29 @@ abbr Interface:AccessorsForPrimitiveType
 
 snippet rdef
 abbr ReadDefaultsValue
-    [[NSUserDefaults standardUserDefaults] objectForKey:${1:key}];
+	[[NSUserDefaults standardUserDefaults] objectForKey:${1:key}];
 
 
 snippet wdef
 abbr WriteDefaultsValue
-    [[NSUserDefaults standardUserDefaults] setObject:${1:object} forKey:${2:key}];
+	[[NSUserDefaults standardUserDefaults] setObject:${1:object} forKey:${2:key}];
 
 
 snippet ibo
 abbr IBOutlet
-    IBOutlet ${1}${2: *}${3};
+	IBOutlet ${1}${2: *}${3};
 
 
 snippet syn
-    @synthesize ${1:#:property};
+	@synthesize ${1:#:property};
 
 
 snippet bind
-    bind:@"${2:#:binding}" toObject:${3:observableController} withKeyPath:@"${4:keyPath}" options:${5:nil}
+	bind:@"${2:#:binding}" toObject:${3:observableController} withKeyPath:@"${4:keyPath}" options:${5:nil}
 
 
 snippet reg
-    [[NSNotificationCenter defaultCenter] addObserver:${1:self} selector:@selector(${3}) name:${2:NSWindowDidBecomeMainNotification} object:${4:nil}];
+	[[NSNotificationCenter defaultCenter] addObserver:${1:self} selector:@selector(${3}) name:${2:NSWindowDidBecomeMainNotification} object:${4:nil}];
 
 
 snippet focus
@@ -304,7 +304,7 @@ snippet res
 	${1} Send ${2} to ${1}, if ${1} supports it}${3}
 	if ([${1:self} respondsToSelector:@selector(${2:someSelector:})])
 	{
-	    [${1} ${3}];
+		[${1} ${3}];
 	}
 
 snippet del
@@ -323,7 +323,7 @@ snippet save
 
 
 snippet thread
-    [NSThread detachNewThreadSelector:@selector(${1:#:method}:) toTarget:${2:#:aTarget} withObject:${3:#:anArgument}]
+	[NSThread detachNewThreadSelector:@selector(${1:#:method}:) toTarget:${2:#:aTarget} withObject:${3:#:anArgument}]
 
 
 snippet pool

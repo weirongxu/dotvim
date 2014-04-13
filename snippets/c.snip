@@ -106,7 +106,7 @@ alias #inc, #include
 	#include <${1:stdio}.h>
 # #include "..."
 snippet inc2
-alias Inc #Inc #inc2, #include2
+alias Inc #Inc #inc2 incl #include2
 	#include "${1}.h"
 
 snippet ifndef
@@ -124,8 +124,7 @@ alias #def, #define
 snippet once
 abbr include-guard
 	#ifndef ${1:`substitute(expand('%<').'_'.expand('%:e'), '.', '\u&', 'g')`}
-		#define $1
-
+	#define $1
 		${0:TARGET}
 	#endif /* end of $1 */
 

@@ -194,7 +194,7 @@ let g:indentLine_noConcealCursor = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'Rykka/colorv.vim'
 " 颜色显示 使用ColorV
-let g:colorv_preview_ftype = 'css,html,php,jsp,aspvbs,mason,javascript,htm,less'
+let g:colorv_preview_ftype = 'css,html,php,jsp,aspvbs,mason,javascript,htm,less,stylus'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -477,7 +477,7 @@ NeoBundleLazy 'xsbeats/vim-blade', {
 " Less styl Css
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundleLazy 'hail2u/vim-css3-syntax', {
-      \ 'autoload' : { 'filetypes' : ['css', 'less'] }}
+      \ 'autoload' : { 'filetypes' : ['css', 'less', 'stylus'] }}
 NeoBundleLazy 'groenewege/vim-less', {
       \ 'autoload' : { 'filetypes' : ['less'] }}
 NeoBundleLazy 'wavded/vim-stylus', {
@@ -714,7 +714,7 @@ execute "source ".$MYVIMFILES."/vimwiki.vim"
 """"""""""""""""""""""""""""""
 " Calendar
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" NeoBundle 'itchyny/calendar.vim' " XXX 以后再说
+" NeoBundle 'itchyny/calendar.vim' " XXX wait
 let g:calendar_google_task = 1
 NeoBundleLazy 'mattn/calendar-vim', {
       \ 'autoload' : {

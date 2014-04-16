@@ -194,7 +194,7 @@ let g:indentLine_noConcealCursor = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'Rykka/colorv.vim'
 " 颜色显示 使用ColorV
-let g:colorv_preview_ftype = 'css,html,php,jsp,aspvbs,mason,javascript,htm,less'
+let g:colorv_preview_ftype = 'css,html,php,jsp,aspvbs,mason,javascript,htm,less,stylus'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 

@@ -184,8 +184,10 @@ set list listchars=tab:\|\ ,nbsp:~
 """"""""""""""""""""""""""""""
 " indentLine
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-NeoBundle 'Yggdroot/indentLine'
-let g:indentLine_noConcealCursor = 1
+if has('gui_running') || &term == "xterm"
+  NeoBundle 'Yggdroot/indentLine'
+  let g:indentLine_noConcealCursor = 1
+endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 

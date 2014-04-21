@@ -124,17 +124,15 @@ func! comp_run#RunCode() "{{{
     exec '!node %<.js'
   elseif has('unix')
     if &filetype == 'sh'
-      exec '!sh %'
+      exec '!bash %'
     elseif &filetype =~ 'html' || &filetype == 'xhtml' || &filetype == 'jade'
-      exec '!google-chrome "%"&'
+      exec '!chromium-browser "%"&'
     endif
   elseif has('win32')
     if &filetype == 'dosbatch'
       exec '!%'
     elseif &filetype =~ 'html' || &filetype == 'xhtml' || &filetype == 'jade'
       call comp_run#system_open_link(expand('%:p'))
-    elseif &filetype == 'jade'
-      exec '!google-chrome %<.html'
     endif
   endif
 endfunc "}}}

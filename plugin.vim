@@ -460,10 +460,10 @@ autocmd BufNewFile,BufRead *.tpl setfiletype htmlyiiprado.html.php
 """"""""""""""""""""""""""""""
 " breeze
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-NeoBundleLazy 'gcmt/breeze.vim', {
-      \ 'autoload' : {
-      \   'filetypes' : ['html', 'jsp', 'xhtml', 'xml',
-      \                  'htm', 'php', 'aspvbs', 'mason'] }}
+" NeoBundleLazy 'gcmt/breeze.vim', {
+"       \ 'autoload' : {
+"       \   'filetypes' : ['html', 'jsp', 'xhtml', 'xml',
+"       \                  'htm', 'php', 'aspvbs', 'mason'] }}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 

@@ -125,7 +125,7 @@ snippet once
 abbr include-guard
 	#ifndef ${1:`substitute(expand('%<').'_'.expand('%:e'), '.', '\u&', 'g')`}
 	#define $1
-		${0:TARGET}
+	${0:TARGET}
 	#endif /* end of $1 */
 
 # Ternary conditional operator

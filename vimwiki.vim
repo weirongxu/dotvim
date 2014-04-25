@@ -19,7 +19,7 @@ let g:vimwiki_CJK_length = 1
 let g:vimwiki_list_ignore_newline = 0
 let g:vimwiki_use_mouse = 1
 let g:vimwiki_valid_html_tags='b,i,s,u,sub,sup,kbd,del,br,hr,div,code,h1'
-" if has('win32')
+" if g:env#win
   " let g:vimwiki_w32_dir_enc = 'gb18030'
 " endif
 

@@ -15,6 +15,11 @@ let g:neocomplete#same_filetypes = {
       \ 'xhtml': 'html',
       \ 'zsh': 'sh'
       \ }
+
+if g:env#win
+  let g:neocomplete#use_vimproc = 0
+endif
+
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags

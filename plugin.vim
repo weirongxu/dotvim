@@ -9,9 +9,9 @@ endif
 call neobundle#rc(expand($MYBUNDLEDIR))
 call neobundle#local(expand($MYBUNDLEDIR.'-common'), {})
 
-" if has('unix')
+" if g:env#unix
   " call neobundle#local(expand($MYBUNDLEDIR.'-unix'), {})
-" elseif has('win32')
+" elseif g:env#win
   " call neobundle#local(expand($MYBUNDLEDIR.'-win32'), {})
 " endif
 
@@ -35,7 +35,7 @@ NeoBundle 'peterjmorgan/mark-2.8.0'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-fugitive'
 " NeoBundle 'motemen/git-vim'
-NeoBundle 'benatkin/vim-move-between-tabs' " map tN tP
+" NeoBundle 'benatkin/vim-move-between-tabs' " map tN tP
 NeoBundle 'nacitar/a.vim'
 NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'wellle/targets.vim'
@@ -47,8 +47,8 @@ NeoBundle 'vim-jp/vital.vim'
 """"""""""""""""""""""""""""""
 " Translate
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-NeoBundle 'bolasblack/gtrans.vim'
-NeoBundle 'jiazhoulvke/googletranslate'
+" NeoBundle 'bolasblack/gtrans.vim'
+" NeoBundle 'jiazhoulvke/googletranslate'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -88,7 +88,7 @@ endfunction
 """"""""""""""""""""""""""""""
 let g:unite_source_history_yank_enable = 1
 """"""""""""""""""""""""""""""
-NeoBundle 'junkblocker/unite-tasklist'
+NeoBundleLazy 'junkblocker/unite-tasklist'
 command! TaskList Unite tasklist
 command! TList Unite tasklist
 """"""""""""""""""""""""""""""
@@ -99,6 +99,8 @@ let g:unite_source_alias_aliases = {
       \   },
       \ }
 command! MRU :Unite mru
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+NeoBundleLazy 'ujihisa/unite-colorscheme'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'Shougo/vimproc', {
       \ 'build' : {
@@ -154,28 +156,28 @@ let g:NERDCustomDelimiters = {
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'bling/vim-airline'
 let g:airline_theme='molokai'
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
+" if !exists('g:airline_symbols')
+"   let g:airline_symbols = {}
+" endif
 
-if has('unix')
-  let g:airline_powerline_fonts=2
+" if g:env#unix
+  " let g:airline_powerline_fonts=2
 
-  let g:airline_left_sep = '⮀'
-  let g:airline_right_sep = '⮂'
-  let g:airline_left_alt_sep = '⮁'
-  let g:airline_right_alt_sep = '⮃'
-  let g:airline_branch_prefix = '⭠'
-  let g:airline_readonly_symbol = '⭤'
-  let g:airline_paste_symbol = '∥'
-  let g:airline_whitespace_symbol = 'Ξ'
-  let g:airline_linecolumn_prefix = '⭡'
+  " let g:airline_left_sep = '⮀'
+  " let g:airline_right_sep = '⮂'
+  " let g:airline_left_alt_sep = '⮁'
+  " let g:airline_right_alt_sep = '⮃'
+  " let g:airline_branch_prefix = '⭠'
+  " let g:airline_readonly_symbol = '⭤'
+  " let g:airline_paste_symbol = '∥'
+  " let g:airline_whitespace_symbol = 'Ξ'
+  " let g:airline_linecolumn_prefix = '⭡'
 
   " set listchars=eol:¬,tab:>-,nbsp:~
-elseif has('win32') || has('win64')
-  let g:airline_left_sep = ''
-  let g:airline_right_sep = ''
-endif
+" elseif g:env#win
+" endif
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
 " 显示换行和制表符
 set list listchars=tab:\|\ ,nbsp:~
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -184,7 +186,7 @@ set list listchars=tab:\|\ ,nbsp:~
 """"""""""""""""""""""""""""""
 " indentLine
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if has('gui_running') || &term == "xterm"
+if g:env#x
   NeoBundle 'Yggdroot/indentLine'
   let g:indentLine_noConcealCursor = 1
 endif
@@ -277,7 +279,7 @@ let g:wildfire_objects = ["i'", 'i"', "i)", "i]", "i}", "ip", "it"]
 " Syntastic
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'scrooloose/syntastic'
-if has('win32')
+if g:env#win
   let g:syntastic_error_symbol = 'x>'
   let g:syntastic_style_error_symbol = 'Sx'
   let g:syntastic_warning_symbol = '>>'
@@ -460,10 +462,10 @@ autocmd BufNewFile,BufRead *.tpl setfiletype htmlyiiprado.html.php
 """"""""""""""""""""""""""""""
 " breeze
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-NeoBundleLazy 'gcmt/breeze.vim', {
-      \ 'autoload' : {
-      \   'filetypes' : ['html', 'jsp', 'xhtml', 'xml',
-      \                  'htm', 'php', 'aspvbs', 'mason'] }}
+" NeoBundleLazy 'gcmt/breeze.vim', {
+"       \ 'autoload' : {
+"       \   'filetypes' : ['html', 'jsp', 'xhtml', 'xml',
+"       \                  'htm', 'php', 'aspvbs', 'mason'] }}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -513,9 +515,9 @@ autocmd BufNewFile,BufRead *.stylus set filetype=stylus
 """"""""""""""""""""""""""""""
 " Clang_complete
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if has('win32')
+if g:env#win
   NeoBundleLazy 'Rip-Rip/clang_complete'
-elseif has('unix')
+elseif g:env#unix
   NeoBundleLazy 'Rip-Rip/clang_complete', {
         \ 'autoload' : { 'filetypes' : ['cpp', 'c'] }}
   " let g:clang_complete_copen = 1

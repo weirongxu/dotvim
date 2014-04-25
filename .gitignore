@@ -2,6 +2,7 @@
 *.swo
 *.swn
 *.swm
+*~
 .netrwhist
 bundle/*
 vimwiki/docs/*

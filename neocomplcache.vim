@@ -13,6 +13,11 @@ let g:neocomplcache_same_filetype_lists = {
 let g:neocomplcache_filename_include_exts = {
       \ 'cpp': ['', 'h', 'hpp', 'hxx']
       \ }
+
+if g:env#win
+  let g:neocomplete#use_vimproc = 0
+endif
+
 " dict
 let g:neocomplcache_dictionary_filetype_lists = {
       \ 'default' : '',

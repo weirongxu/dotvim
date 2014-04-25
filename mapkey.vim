@@ -21,13 +21,6 @@ nmap <silent> <leader>3 :q!<cr>
 map gc :edit $MYVIMRC<CR>
 execute 'map gp :NERDTree ' . $MYVIMFILES . '<CR>'
 
-" 打开终端
-if has("unix") && has("gui_running")
-  command! SHELL :!gnome-terminal&
-elseif has('win32') || has('win64')
-  command! SHELL :!start cmd
-endif
-
 " key Q open Ex mode very haite
 map Q gq
 noremap gQ Q
@@ -148,7 +141,7 @@ nmap <silent> <leader>j mz:m+<cr>`z
 nmap <silent> <leader>k mz:m-2<cr>`z
 vmap <silent> <leader>j :m'>+<cr>`<my`>mzgv`yo`z
 vmap <silent> <leader>k :m'<-2<cr>`>my`<mzgv`yo`z
-if has("mac") || has("macunix")
+if g:env#mac
   nmap <silent> <D-j> <M-j>
   nmap <silent> <D-k> <M-k>
   vmap <silent> <D-j> <M-j>
@@ -170,7 +163,7 @@ map <silent> <C-h> :wincmd h<cr>
 map <silent> <C-j> :wincmd j<cr>
 map <silent> <C-k> :wincmd k<cr>
 map <silent> <C-l> :wincmd l<cr>
-if has('gui')
+if g:env#gui
   nmap <silent> <S-Up> :call <SID>MoveUp(20)<CR>
   nmap <silent> <S-Down> :call <SID>MoveDown(20)<CR>
   nmap <silent> <S-Left> :call <SID>MoveLeft(20)<CR>
@@ -202,13 +195,13 @@ if has('gui')
 endif
 
 " 用系统窗口打开本文件目录
-if has('win32')
+if g:env#win
   command! E :!start explorer /select,%:p
   command! Explorer :E
-elseif has('unix')
+elseif g:env#unix
   command! E execute '!nautilus "'.expand('%:p').'" &'
   command! Explorer :E
-elseif has('mac')
+elseif g:env#mac
   command! E :!open %:p:h
   command! Explorer :E
 endif
@@ -224,7 +217,7 @@ map <S-h> :tabprevious<cr>
 " alt + n , alt + p 时在折行里移动
 map <m-p> gk
 map <m-n> gj
-if has("mac") || has("macunix")
+if g:env#mac
   map <d-p> <m-p>
   map <d-n> <m-p>
 endif

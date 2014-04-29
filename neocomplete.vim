@@ -16,7 +16,7 @@ let g:neocomplete#same_filetypes = {
       \ 'zsh': 'sh'
       \ }
 
-if g:env#win
+if g:env#win && g:env#gui
   let g:neocomplete#use_vimproc = 0
 endif
 

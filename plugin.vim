@@ -39,7 +39,6 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'nacitar/a.vim'
 NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'wellle/targets.vim'
-NeoBundle 'vim-jp/vital.vim'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -160,22 +159,22 @@ let g:airline_theme='molokai'
 "   let g:airline_symbols = {}
 " endif
 
-" if g:env#unix
+if g:env#unix
   " let g:airline_powerline_fonts=2
 
   " let g:airline_left_sep = '⮀'
   " let g:airline_right_sep = '⮂'
   " let g:airline_left_alt_sep = '⮁'
   " let g:airline_right_alt_sep = '⮃'
-  " let g:airline_branch_prefix = '⭠'
-  " let g:airline_readonly_symbol = '⭤'
+  let g:airline_branch_prefix = '⭠'
+  let g:airline_readonly_symbol = '⭤'
   " let g:airline_paste_symbol = '∥'
   " let g:airline_whitespace_symbol = 'Ξ'
-  " let g:airline_linecolumn_prefix = '⭡'
+  let g:airline_linecolumn_prefix = '⭡'
 
   " set listchars=eol:¬,tab:>-,nbsp:~
 " elseif g:env#win
-" endif
+endif
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 " 显示换行和制表符
@@ -586,6 +585,14 @@ NeoBundleLazy 'tpope/vim-dispatch', {
       \ 'autoload' : {
       \   'commands' : ['Make', 'Copen', 'Dispatch', 'FocusDispatch', 'Start']
       \ }}
+NeoBundleLazy 'vim-jp/vital.vim', {
+      \ 'autoload' : {
+      \   'commands' : ['Vitalize']
+      \ }}
+NeoBundleLazy 'junegunn/goyo.vim', {
+      \ 'autoload' : {
+      \   'commands' : ['Goyo']
+      \ }}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -636,15 +643,28 @@ command! Gundo GundoToggle
 """"""""""""""""""""""""""""""
 " Align
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-NeoBundleLazy 'vim-scripts/Align', {
+NeoBundleLazy 'junegunn/vim-easy-align', {
       \ 'autoload' : {
-      \   'commands' : ['Align', 'AlignCtrl', 'AlignPush', 'AlignPop']
+      \   'mappings' : ['<Plug>(EasyAlign)'],
+      \   'commands' : ['EasyAlign']
       \ }}
-vmap <CR> :<c-u>call <SID>Align_input()<CR>
-function! s:Align_input()
-  let align = input("Align: ")
-  execute "'<,'>Align ".align
-endfunction
+" nmap <Leader>a <Plug>(EasyAlign)
+vmap <Enter>   <Plug>(EasyAlign)
+
+" NeoBundleLazy 'godlygeek/tabular', {
+"       \ 'autoload' : {
+"       \   'commands' : ['AddTabularPattern', 'AddTabularPipeline',
+"       \                 'GTabularize', 'Tabularize']
+"       \ }}
+" NeoBundleLazy 'vim-scripts/Align', {
+"       \ 'autoload' : {
+"       \   'commands' : ['Align', 'AlignCtrl', 'AlignPush', 'AlignPop']
+"       \ }}
+" vmap <CR> :<c-u>call <SID>Align_input()<CR>
+" function! s:Align_input()
+"   let align = input("Align: ")
+"   execute "'<,'>Align ".align
+" endfunction
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 

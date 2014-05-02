@@ -144,9 +144,8 @@ set t_vb=
 set tm=500
 
 " backup
-if g:env#win
-  set directory=$TMP
-endif
+let &backupdir = g:env#tmp
+let &directory = g:env#tmp
 set backup
 set writebackup
 set swapfile

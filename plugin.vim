@@ -269,7 +269,9 @@ let g:AutoPairs = {
 " wildfire
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'gcmt/wildfire.vim'
-let g:wildfire_fuel_map = "<c-cr>"
+" let g:wildfire_fuel_map = "<c-cr>"
+map <NL> <Plug>(wildfire-fuel)
+map <C-CR> <Plug>(wildfire-fuel)
 let g:wildfire_objects = ["i'", 'i"', "i)", "i]", "i}", "ip", "it"]
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 

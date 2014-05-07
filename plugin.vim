@@ -34,6 +34,7 @@ NeoBundle 'mbbill/fencview'
 NeoBundle 'peterjmorgan/mark-2.8.0'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-fugitive'
+" NeoBundle 'WolfgangMehner/git-support'
 " NeoBundle 'motemen/git-vim'
 " NeoBundle 'benatkin/vim-move-between-tabs' " map tN tP
 NeoBundle 'nacitar/a.vim'
@@ -270,8 +271,11 @@ let g:AutoPairs = {
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'gcmt/wildfire.vim'
 " let g:wildfire_fuel_map = "<c-cr>"
-map <NL> <Plug>(wildfire-fuel)
-map <C-CR> <Plug>(wildfire-fuel)
+if g:env#gui
+  map <C-CR> <Plug>(wildfire-fuel)
+else
+  map <NL> <Plug>(wildfire-fuel)
+endif
 let g:wildfire_objects = ["i'", 'i"', "i)", "i]", "i}", "ip", "it"]
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -612,6 +616,25 @@ NeoBundleLazy 'junegunn/goyo.vim', {
 
 
 """"""""""""""""""""""""""""""
+" evervim
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+NeoBundleLazy 'weirongxu/evervim', {
+      \ 'autoload' : {
+      \   'commands' : ['EvervimNotebookList', 'EvervimListTags',
+      \                 'EvervimSearchByQuery', 'EvervimPageNext',
+      \                 'EvervimPagePrev', 'EvervimCreateNote',
+      \                 'EvervimOpenBrowser', 'EvervimOpenClient',
+      \                 'EvervimSetup', 'EvervimReloadPref']
+      \ }}
+let g:evervim_host = 'app.yinxiang.com'
+let devtoken_file = expand("~/.evernote-devtoken")
+if filereadable(devtoken_file)
+  let g:evervim_devtoken = readfile(devtoken_file)[0]
+endif
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+""""""""""""""""""""""""""""""
 " vookmark
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'starleoda/vim-vookmark', {
@@ -738,8 +761,8 @@ NeoBundleLazy 'vimwiki/vimwiki', {
       \ 'autoload' : {
       \   'filetypes' : 'vimwiki',
       \   'commands' : ['VimwikiIndex', 'VimwikiTabIndex', 'VimwikiUISelect',
-      \                 'VimwikiDiaryIndex', 'VimwikiMakeDiaryNote', 'VimwikiTabMakeDiaryNote',
-      \                 'Calendar', 'CalendarH'],
+      \                 'VimwikiDiaryIndex', 'VimwikiMakeDiaryNote',
+      \                 'VimwikiTabMakeDiaryNote'],
       \   'mappings' : ['<Leader>ww', '<Plug>VimwikiIndex', '<Leader>wt',
       \                 '<Plug>VimwikiTabIndex', '<Leader>ws', '<Plug>VimwikiUISelect',
       \                 '<Leader>wi', '<Plug>VimwikiDiaryIndex', '<Leader>w<Leader>w',

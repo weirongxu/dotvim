@@ -14,9 +14,9 @@ let g:neocomplcache_filename_include_exts = {
       \ 'cpp': ['', 'h', 'hpp', 'hxx']
       \ }
 
-if g:env#win && g:env#gui
-  let g:neocomplete#use_vimproc = 0
-endif
+" if g:env#win && g:env#gui
+"   let g:neocomplete#use_vimproc = 0
+" endif
 
 " dict
 let g:neocomplcache_dictionary_filetype_lists = {

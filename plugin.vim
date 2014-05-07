@@ -347,7 +347,6 @@ NeoBundleLazy 'gabesoft/vim-java', {
       \ 'autoload' : { 'filetypes' : 'java' }}
 " NeoBundleLazy 'VictorDenisov/javacomplete', {
 "       \ 'autoload' : { 'filetypes' : 'java' }}
-" command! JavaApi setlocal omnifunc=javacomplete#Complete
 NeoBundleLazy 'yuratomo/java-api-complete', {
       \ 'autoload' : { 'filetypes' : 'java' }}
 NeoBundleLazy 'yuratomo/java-api-javax', {
@@ -357,7 +356,9 @@ NeoBundleLazy 'yuratomo/java-api-org'
 NeoBundleLazy 'yuratomo/java-api-sun'
 NeoBundleLazy 'yuratomo/java-api-servlet2.3'
 NeoBundleLazy 'yuratomo/java-api-android'
-command! JavaApi setlocal omnifunc=javaapi#complete
+" command! JavaApi setlocal omnifunc=javaapi#complete
+command! JavaApi 
+      \ let g:neocomplete#sources#omni#functions.java = 'javaapi#complete'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -516,16 +517,28 @@ autocmd BufNewFile,BufRead *.stylus set filetype=stylus
 """"""""""""""""""""""""""""""
 " Clang_complete
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if g:env#win
-  NeoBundleLazy 'Rip-Rip/clang_complete'
-elseif g:env#unix
+if g:env#unix && executable('clang')
   NeoBundleLazy 'Rip-Rip/clang_complete', {
         \ 'autoload' : { 'filetypes' : ['cpp', 'c'] }}
   " let g:clang_complete_copen = 1
-  let g:clang_complete_auto = 1
-  let g:clang_auto_select = 1
-  let g:clang_library_path = '/usr/lib/'
+  let g:clang_complete_auto = 0
+  let g:clang_auto_select = 0
   let g:clang_use_library = 1
+  let g:clang_library_path = '/usr/lib/'
+  let g:neocomplete#force_omni_input_patterns.c =
+        \ '[^.[:digit:] *\t]\%(\.\|->\)\w*'
+  let g:neocomplete#force_omni_input_patterns.cpp =
+        \ '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
+  let g:neocomplete#force_omni_input_patterns.objc =
+        \ '[^.[:digit:] *\t]\%(\.\|->\)\w*'
+  let g:neocomplete#force_omni_input_patterns.objcpp =
+        \ '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
+  let g:neocomplete#sources#omni#functions.c = 'ClangComplete'
+  let g:neocomplete#sources#omni#functions.cpp = 'ClangComplete'
+  let g:neocomplete#sources#omni#functions.objc = 'ClangComplete'
+  let g:neocomplete#sources#omni#functions.objcpp = 'ClangComplete'
+else
+    NeoBundleLazy 'Rip-Rip/clang_complete'
 endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 

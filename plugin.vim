@@ -605,7 +605,7 @@ NeoBundleLazy 'junegunn/goyo.vim', {
 """"""""""""""""""""""""""""""
 " evervim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-NeoBundleLazy 'kakkyz81/evervim', {
+NeoBundleLazy 'weirongxu/evervim', {
       \ 'autoload' : {
       \   'commands' : ['EvervimNotebookList', 'EvervimListTags',
       \                 'EvervimSearchByQuery', 'EvervimPageNext',

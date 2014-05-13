@@ -34,12 +34,15 @@ NeoBundle 'mbbill/fencview'
 NeoBundle 'peterjmorgan/mark-2.8.0'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-fugitive'
+" NeoBundle 'mhinz/vim-signify'
+NeoBundle 'airblade/vim-gitgutter'
 " NeoBundle 'WolfgangMehner/git-support'
 " NeoBundle 'motemen/git-vim'
 " NeoBundle 'benatkin/vim-move-between-tabs' " map tN tP
 NeoBundle 'nacitar/a.vim'
 NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'wellle/targets.vim'
+NeoBundle 'mhinz/vim-startify'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -341,6 +344,10 @@ NeoBundleLazy 'elzr/vim-json', {
       \ 'autoload' : { 'filetypes' : 'json' }}
 NeoBundleLazy 'digitaltoad/vim-jade', {
       \ 'autoload' : { 'filetypes' : 'jade' }}
+NeoBundleLazy 'spf13/PIV', {
+      \ 'autoload' : { 'filetypes' : 'php' }}
+NeoBundleLazy 'justinmk/vim-syntax-extra', {
+      \ 'autoload' : { 'filetypes' : ['c', 'cpp', 'lex', 'yacc'] }}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -600,9 +607,13 @@ NeoBundleLazy 'thinca/vim-ref', {
       \ 'autoload' : {
       \   'commands' : ['Ref']
       \ }}
-NeoBundleLazy 'tpope/vim-dispatch', {
+" NeoBundleLazy 'tpope/vim-dispatch', {
+"       \ 'autoload' : {
+"       \   'commands' : ['Make', 'Copen', 'Dispatch', 'FocusDispatch', 'Start']
+"       \ }}
+NeoBundleLazy 'justinmk/vim-gtfo', {
       \ 'autoload' : {
-      \   'commands' : ['Make', 'Copen', 'Dispatch', 'FocusDispatch', 'Start']
+      \   'mappings' : ['got', 'goT', 'gof', 'goF']
       \ }}
 NeoBundleLazy 'vim-jp/vital.vim', {
       \ 'autoload' : {
@@ -837,7 +848,6 @@ let g:EasyMotion_leader_key = '<space>'
 " NeoBundle 'kien/ctrlp.vim' " 被unite折服了。。。
 " NeoBundle 'Townk/vim-autoclose' " ESC是要更新buffer，这样和neocomplete冲突了。
 " NeoBundle 'Raimondi/delimitMate' " 还是jiangmiao/auto-pairs好使
-" NeoBundle 'junegunn/vim-easy-align' " 我还是用Align吧，模拟easy-align
 " NeoBundle 'szw/vim-ctrlspace' " 这个确实不错，但是Shougo的unite。。。
 " NeoBundle 'itchyny/lightline.vim' " 这个vimer强势出击呀？不过配制比airline麻烦。
 " NeoBundle 'itchyny/vim-cmdline-ranges'

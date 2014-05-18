@@ -39,10 +39,11 @@ NeoBundle 'airblade/vim-gitgutter'
 " NeoBundle 'WolfgangMehner/git-support'
 " NeoBundle 'motemen/git-vim'
 " NeoBundle 'benatkin/vim-move-between-tabs' " map tN tP
+NeoBundle 'jrhorn424/vim-multiple-cursors'
 NeoBundle 'nacitar/a.vim'
 NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'wellle/targets.vim'
-NeoBundle 'mhinz/vim-startify'
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -52,6 +53,27 @@ NeoBundle 'mhinz/vim-startify'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NeoBundle 'bolasblack/gtrans.vim'
 " NeoBundle 'jiazhoulvke/googletranslate'
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""
+" startify
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+NeoBundle 'mhinz/vim-startify'
+let g:startify_custom_header = [
+      \ '  Raidou''s vim',
+      \ '',
+      \ ]
+" let g:startify_bookmarks = [ $MYVIMRC, $MYPlugin ]
+let g:startify_list_order = [
+      \ ['   Vimfile:'],
+      \ 'bookmarks',
+      \ ['   Current directory:'],
+      \ 'dir',
+      \ ['   Last Recently Use:'],
+      \ 'files',
+      \ ['   Sessions:'],
+      \ 'sessions',
+      \ ]
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -298,7 +320,7 @@ else
   let g:syntastic_warning_symbol = '⚠'
   let g:syntastic_style_warning_symbol = 'S>'
 endif
-" Syntastic 语法错误检查
+" Syntastic
 " let g:syntastic_check_on_open = 1
 let g:syntastic_php_checkers=['php']
 let g:syntastic_mode_map = {
@@ -336,8 +358,6 @@ NeoBundleLazy 'vim-scripts/autohotkey-ahk', {
       \ 'autoload' : { 'filetypes' : 'autohotkey' }}
 NeoBundleLazy 'tpope/vim-speeddating', {
       \ 'autoload' : { 'filetypes' : ['org', 'vimwiki'] }}
-NeoBundleLazy 'davidhalter/jedi-vim', {
-      \ 'autoload' : { 'filetypes' : 'python' }}
 NeoBundleLazy 'hdima/python-syntax', {
       \ 'autoload' : { 'filetypes' : 'python' }}
 NeoBundleLazy 'elzr/vim-json', {
@@ -418,10 +438,12 @@ NeoBundleLazy 'kchmck/vim-coffee-script', {
 """"""""""""""""""""""""""""""
 " Jedi
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-NeoBundleLazy 'davidhalter/jedi-vim', {
-      \ 'autoload' : { 'filetypes' : 'python' }}
-let g:jedi#popup_select_first = 0
-let g:jedi#popup_on_dot = 0
+" NeoBundleLazy 'davidhalter/jedi-vim', {
+"       \ 'autoload' : { 'filetypes' : 'python' }}
+" let g:jedi#popup_select_first = 0
+" let g:jedi#popup_on_dot = 0
+" let g:jedi#auto_close_doc = 0
+" let g:jedi#show_call_signatures = 0
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -619,10 +641,10 @@ NeoBundleLazy 'vim-jp/vital.vim', {
       \ 'autoload' : {
       \   'commands' : ['Vitalize']
       \ }}
-NeoBundleLazy 'junegunn/goyo.vim', {
-      \ 'autoload' : {
-      \   'commands' : ['Goyo']
-      \ }}
+" NeoBundleLazy 'junegunn/goyo.vim', {
+"       \ 'autoload' : {
+"       \   'commands' : ['Goyo']
+"       \ }}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -832,7 +854,6 @@ let g:EasyMotion_leader_key = '<space>'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NeoBundle 'tpope/vim-afterimage' " 用vim来编辑图片。It's crazy!
 " NeoBundle 'vim-scripts/mru.vim' " 用ctrlp代替
-" NeoBundle 'terryma/vim-multiple-cursors' " 这不是人类能驾驭的
 " NeoBundle 'Rykka/galaxy.vim' " 还用不上
 " NeoBundle 'sukima/xmledit' " 好像没什么用
 " NeoBundle 'vim-scripts/jsbeautify' " jsff 它的效率不好

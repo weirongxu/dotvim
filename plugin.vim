@@ -33,17 +33,12 @@ NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'mbbill/fencview'
 NeoBundle 'peterjmorgan/mark-2.8.0'
 NeoBundle 'tpope/vim-surround'
-NeoBundle 'tpope/vim-fugitive'
-" NeoBundle 'mhinz/vim-signify'
-NeoBundle 'airblade/vim-gitgutter'
-" NeoBundle 'WolfgangMehner/git-support'
-" NeoBundle 'motemen/git-vim'
-" NeoBundle 'benatkin/vim-move-between-tabs' " map tN tP
 NeoBundle 'jrhorn424/vim-multiple-cursors'
 NeoBundle 'nacitar/a.vim'
 NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'wellle/targets.vim'
-
+" NeoBundle 'benatkin/vim-move-between-tabs' " map tN tP
+" NeoBundle 'zhaocai/GoldenView.Vim'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -55,6 +50,7 @@ NeoBundle 'wellle/targets.vim'
 " NeoBundle 'jiazhoulvke/googletranslate'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+
 """"""""""""""""""""""""""""""
 " startify
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -63,17 +59,29 @@ let g:startify_custom_header = [
       \ '  Raidou''s vim',
       \ '',
       \ ]
-" let g:startify_bookmarks = [ $MYVIMRC, $MYPlugin ]
+let g:startify_bookmarks = [ $MYVIMRC, $MYPlugin ]
+" FIXME
+      " \ ['   Current directory:'],
+      " \ 'dir',
 let g:startify_list_order = [
       \ ['   Vimfile:'],
       \ 'bookmarks',
-      \ ['   Current directory:'],
-      \ 'dir',
       \ ['   Last Recently Use:'],
       \ 'files',
       \ ['   Sessions:'],
       \ 'sessions',
       \ ]
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+""""""""""""""""""""""""""""""
+" git
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'airblade/vim-gitgutter'
+" NeoBundle 'mhinz/vim-signify'
+let g:gitgutter_realtime = 0
+let g:gitgutter_eager = 0
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -84,9 +92,9 @@ NeoBundle 'Shougo/unite.vim'
 map <Leader>u :Unite
 map <Leader>U :UniteResume<cr>
 " let g:unite_enable_start_insert = 1
-let g:unite_split_rule = "botright"
+" let g:unite_split_rule = "botright"
+" let g:unite_winheight = 10
 let g:unite_force_overwrite_statusline = 0
-let g:unite_winheight = 10
 
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#filters#sorter_default#use(['sorter_rank'])
@@ -177,32 +185,29 @@ let g:NERDCustomDelimiters = {
 
 
 """"""""""""""""""""""""""""""
-" Airline
+" lightline
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-NeoBundle 'bling/vim-airline'
-let g:airline_theme='molokai'
-" if !exists('g:airline_symbols')
-"   let g:airline_symbols = {}
-" endif
-
+NeoBundle 'itchyny/lightline.vim'
 if g:env#unix
-  " let g:airline_powerline_fonts=2
-
-  " let g:airline_left_sep = '⮀'
-  " let g:airline_right_sep = '⮂'
-  " let g:airline_left_alt_sep = '⮁'
-  " let g:airline_right_alt_sep = '⮃'
-  let g:airline_branch_prefix = '⭠'
-  let g:airline_readonly_symbol = '⭤'
-  " let g:airline_paste_symbol = '∥'
-  " let g:airline_whitespace_symbol = 'Ξ'
-  let g:airline_linecolumn_prefix = '⭡'
-
-  " set listchars=eol:¬,tab:>-,nbsp:~
-" elseif g:env#win
+  let g:lightline = {
+        \   'colorscheme': 'jellybeans',
+        \   'component': {
+        \     'readonly': '%{&filetype=="help"?"":&readonly?"⭤":""}',
+        \     'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
+        \     'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
+        \   },
+        \   'separator': { 'left': '⮀', 'right': '⮂' },
+        \   'subseparator': { 'left': '⮁', 'right': '⮃' }
+        \ }
+else
+  let g:lightline = {
+        \   'colorscheme': 'jellybeans',
+        \   'component': {
+        \     'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
+        \     'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
+        \   }
+        \ }
 endif
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
 " 显示换行和制表符
 set list listchars=tab:\|\ ,nbsp:~
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -547,6 +552,7 @@ autocmd BufNewFile,BufRead *.stylus set filetype=stylus
 " execute 'set tags+='.expand($MYVIMFILES).'/tags/cppstl'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+
 """"""""""""""""""""""""""""""
 " Clang_complete
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -640,6 +646,10 @@ NeoBundleLazy 'justinmk/vim-gtfo', {
 NeoBundleLazy 'vim-jp/vital.vim', {
       \ 'autoload' : {
       \   'commands' : ['Vitalize']
+      \ }}
+NeoBundleLazy 'wesleyche/SrcExpl', {
+      \ 'autoload' : {
+      \   'commands' : ['SrcExpl', 'SrcExplClose', 'SrcExplToggle']
       \ }}
 " NeoBundleLazy 'junegunn/goyo.vim', {
 "       \ 'autoload' : {
@@ -870,7 +880,6 @@ let g:EasyMotion_leader_key = '<space>'
 " NeoBundle 'Townk/vim-autoclose' " ESC是要更新buffer，这样和neocomplete冲突了。
 " NeoBundle 'Raimondi/delimitMate' " 还是jiangmiao/auto-pairs好使
 " NeoBundle 'szw/vim-ctrlspace' " 这个确实不错，但是Shougo的unite。。。
-" NeoBundle 'itchyny/lightline.vim' " 这个vimer强势出击呀？不过配制比airline麻烦。
 " NeoBundle 'itchyny/vim-cmdline-ranges'
 " NeoBundle 'itchyny/thumbnail.vim' " 切换窗口，用的不多
 " NeoBundle 'yuratomo/gmail.vim' " 太疯狂。

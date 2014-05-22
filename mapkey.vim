@@ -4,22 +4,17 @@
 " like <leader>w saves the current file
 let mapleader = ","
 let maplocalleader = ','
-" let g:mapleader = ","
 
-" 快速保存和退出
+" 快速保存
 nmap <CR> :w<CR>
 
 " 只留下一个窗口
 nmap <leader>o :only<CR>
 
 " 分割窗口
-nmap <silent> <leader>1 :vsplit<CR>
-nmap <silent> <leader>2 :split<CR>
-nmap <silent> <leader>3 :q!<cr>
-
-" 打开配置
-map gc :edit $MYVIMRC<CR>
-execute 'map gp :NERDTree ' . $MYVIMFILES . '<CR>'
+" nmap <silent> <leader>1 :vsplit<CR>
+" nmap <silent> <leader>2 :split<CR>
+" nmap <silent> <leader>3 :q!<cr>
 
 " key Q open Ex mode very haite
 map Q gq
@@ -45,12 +40,24 @@ map <F4> @q
 " 格式化,清除多余字符
 """""""""""""""""""""""""""""""""""""
 
-" tab设定为格式化
-" map <TAB> ==
-" vnoremap <TAB> =
+function! s:FixWhitespace(line1,line2)
+    " Preparation: save last search, and cursor position.
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+    " Do the business:
+    %s/\s\+$//e
+    " Clean up: restore previous search history, and cursor position
+    let @/=_s
+    call cursor(l, c)
+endfunction
+
+" Run :FixWhitespace to remove end of line white space
+command! -range=% FixWhitespace call <SID>FixWhitespace(<line1>,<line2>)
 
 " TODO 将这些功能弄成一个menu那应该会好很多.
 " 比如用unite, 不过兼容性会下降吧.
+" such as unite and textshift.vim 
 
 " 删除所有行首空格
 nnoremap <F9> :%s/^[ ]\+//g<CR>
@@ -194,18 +201,6 @@ if g:env#gui
   endfunction
 endif
 
-" 用系统窗口打开本文件目录
-if g:env#win
-  command! E :!start explorer /select,%:p
-  command! Explorer :E
-elseif g:env#unix
-  command! E execute '!nautilus "'.expand('%:p').'" &'
-  command! Explorer :E
-elseif g:env#mac
-  command! E :!open %:p:h
-  command! Explorer :E
-endif
-
 " tab 控制
 map gN :tab split<cr>
 " map gq :tabclose<cr>
@@ -215,16 +210,16 @@ map <C-S-tab> :tabprevious<cr>
 map <S-h> :tabprevious<cr>
 
 " alt + n , alt + p 时在折行里移动
-map <m-p> gk
-map <m-n> gj
-if g:env#mac
-  map <d-p> <m-p>
-  map <d-n> <m-p>
-endif
+" map <c-p> gk
+" map <c-n> gj
+" if g:env#mac
+"   map <d-p> <c-p>
+"   map <d-n> <c-p>
+" endif
 
-" 用ctrl + d, ctrl + f 来移动到行首和行尾
-imap <c-d> <ESC>A
-imap <c-f> <ESC>I
+" jump to end of line while in Insert Mode
+inoremap <C-e> <C-o>$
+inoremap <C-a> <C-o>0
 
 " Tab 长度 设置
 command! -nargs=1 TabLen call <sid>TabLen(<f-args>)

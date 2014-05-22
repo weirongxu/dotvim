@@ -28,7 +28,7 @@ NeoBundle 'Shougo/neobundle.vim'
 " #    #   ####    ####      #
 " MUST
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Fencview Mark Surround Fugitive...
+" Fencview Mark Surround
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'mbbill/fencview'
 NeoBundle 'peterjmorgan/mark-2.8.0'
@@ -37,6 +37,7 @@ NeoBundle 'jrhorn424/vim-multiple-cursors'
 NeoBundle 'nacitar/a.vim'
 NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'wellle/targets.vim'
+NeoBundle 'kshenoy/vim-signature'
 " NeoBundle 'benatkin/vim-move-between-tabs' " map tN tP
 " NeoBundle 'zhaocai/GoldenView.Vim'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -78,10 +79,11 @@ let g:startify_list_order = [
 " git
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'airblade/vim-gitgutter'
-" NeoBundle 'mhinz/vim-signify'
+" NeoBundle 'airblade/vim-gitgutter'
+let g:gitgutter_enabled = 0
 let g:gitgutter_realtime = 0
 let g:gitgutter_eager = 0
+" NeoBundle 'mhinz/vim-signify'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -99,6 +101,7 @@ let g:unite_force_overwrite_statusline = 0
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#filters#sorter_default#use(['sorter_rank'])
 nnoremap <Leader>f :Unite vimgrep:
+nnoremap <Leader><s-f> :Unite vimgrep:%<CR>
 nnoremap <c-p> :<c-u>Unite -buffer-name=files -start-insert file_rec<cr>
 
 autocmd FileType unite call <SID>unite_settings()
@@ -209,7 +212,7 @@ else
         \ }
 endif
 " 显示换行和制表符
-set list listchars=tab:\|\ ,nbsp:~
+set list listchars=tab:\|\ ,trail:.
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -326,8 +329,8 @@ else
   let g:syntastic_style_warning_symbol = 'S>'
 endif
 " Syntastic
-" let g:syntastic_check_on_open = 1
-let g:syntastic_php_checkers=['php']
+" let g:syntastic_php_checkers=['php']
+" SyntasticCheck
 let g:syntastic_mode_map = {
       \ 'mode': 'active',
       \ 'active_filetypes': [],
@@ -500,8 +503,12 @@ autocmd BufNewFile,BufRead *.tpl setfiletype htmlyiiprado.html.php
 
 
 """"""""""""""""""""""""""""""
-" breeze
+" MatchTag
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+NeoBundleLazy 'gregsexton/MatchTag', {
+      \ 'autoload' : {
+      \   'filetypes' : ['html', 'jsp', 'xhtml', 'xml',
+      \                  'htm', 'php', 'aspvbs', 'mason'] }}
 " NeoBundleLazy 'gcmt/breeze.vim', {
 "       \ 'autoload' : {
 "       \   'filetypes' : ['html', 'jsp', 'xhtml', 'xml',
@@ -678,27 +685,6 @@ endif
 
 
 """"""""""""""""""""""""""""""
-" vookmark
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-NeoBundle 'starleoda/vim-vookmark', {
-      \ 'autoload' : {
-      \   'commands' : [ 'VmkToggle', 'VmkNext', 'VmkPrev', 'VmkClear',
-      \                  'VmkSave', 'VmkLoad', 'VmkList', 'VmkRefresh',
-      \                  'VmkFactoryReset' ]
-      \ }}
-let g:vookmark_mapkeys=0
-map <leader><space> :VmkToggle<cr>
-map <leader><space>n :VmkNext<cr>
-map <leader><space>p :VmkPrev<cr>
-map <leader><space>N :VmkPrev<cr>
-map <leader><space>c :VmkClear<cr>
-
-map <leader><space>l :VmkList<cr>
-map <leader><space>r :VmkRefresh<cr>
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
-""""""""""""""""""""""""""""""
 " pyclewn
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundleLazy 'xieyu/pyclewn', {
@@ -781,18 +767,25 @@ let g:sunday_pairs = [
 
 
 """"""""""""""""""""""""""""""
-" NerdTree
+" Explorer
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " scrooloose版本在win下切换磁盘会有问题
 " NeoBundleLazy 'mixvin/nerdtree', {
-NeoBundleLazy 'scrooloose/nerdtree', {
-      \ 'autoload' : {
-      \   'commands' : ['NERDTree', 'NERDTreeFromBookmark',
-      \                 'NERDTreeToggle', 'NERDTreeMirror',
-      \                 'NERDTreeClose', 'NERDTreeFind',
-      \                 'NERDTreeCWD']
-      \ }}
-map gn :NERDTreeToggle<cr>
+NeoBundle 'Shougo/vimfiler.vim'
+let g:vimfiler_as_default_explorer = 1
+let g:vimfiler_safe_mode_by_default = 0
+let g:vimfiler_cmd = 'VimFiler -explorer -auto-cd -toggle -split'
+execute 'map gon :' . vimfiler_cmd .'<CR>'
+map goc :edit $MYVIMRC<CR>
+execute 'map gp :' . vimfiler_cmd . ' ' . $MYVIMFILES . '<CR>'
+" NeoBundleLazy 'scrooloose/nerdtree', {
+"       \ 'autoload' : {
+"       \   'commands' : ['NERDTree', 'NERDTreeFromBookmark',
+"       \                 'NERDTreeToggle', 'NERDTreeMirror',
+"       \                 'NERDTreeClose', 'NERDTreeFind',
+"       \                 'NERDTreeCWD']
+"       \ }}
+" map gn :NERDTreeToggle<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -820,7 +813,7 @@ execute "source ".$MYVIMFILES."/vimwiki.vim"
 " Calendar
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NeoBundle 'itchyny/calendar.vim' " XXX wait
-let g:calendar_google_task = 1
+" let g:calendar_google_task = 1
 NeoBundleLazy 'mattn/calendar-vim', {
       \ 'autoload' : {
       \   'commands' : ['Calendar', 'CalendarH', 'CalendarT'],
@@ -833,30 +826,35 @@ map gC :Calendar<CR>
 """"""""""""""""""""""""""""""
 " Indent-Guides
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-NeoBundleLazy 'nathanaelkane/vim-indent-guides', {
-      \ 'autoload' : {
-      \   'commands' : ['IndentGuidesToggle', 'IndentGuidesEnable', 'IndentGuidesDisable'],
-      \   'mappings' : ['<Plug>IndentGuidesToggle', '<Plug>IndentGuidesEnable', '<Plug>IndentGuidesDisable']
-      \ },
-      \ 'gui': 1 }
-" 设置对齐线
-let g:indent_guides_guide_size = 1
-nmap <silent> gL <Plug>IndentGuidesToggle
+" NeoBundleLazy 'nathanaelkane/vim-indent-guides', {
+"       \ 'autoload' : {
+"       \   'commands' : ['IndentGuidesToggle', 'IndentGuidesEnable', 'IndentGuidesDisable'],
+"       \   'mappings' : ['<Plug>IndentGuidesToggle', '<Plug>IndentGuidesEnable', '<Plug>IndentGuidesDisable']
+"       \ },
+"       \ 'gui': 1 }
+" " 设置对齐线
+" let g:indent_guides_guide_size = 1
+" nmap <silent> gL <Plug>IndentGuidesToggle
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
 """"""""""""""""""""""""""""""
 " EasyMotion
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-NeoBundleLazy 'Lokaltog/vim-easymotion', {
-      \ 'autoload' : {
-      \   'mappings' : ['<space>f', '<space>F', '<space>t', '<space>T',
-      \                 '<space>w', '<space>W', '<space>b', '<space>B',
-      \                 '<space>e', '<space>E', '<space>ge', '<space>gE',
-      \                 '<space>j', '<space>k', '<space>n', '<space>N',
-      \                 '<space>s']
-      \}}
-let g:EasyMotion_leader_key = '<space>'
+NeoBundle 'justinmk/vim-sneak'
+let g:sneak#f_reset = 1
+let g:sneak#t_reset = 1
+map <space> <Plug>SneakNext
+map <s-space> <Plug>SneakPrevious
+" NeoBundleLazy 'Lokaltog/vim-easymotion', {
+"       \ 'autoload' : {
+"       \   'mappings' : ['<space>f', '<space>F', '<space>t', '<space>T',
+"       \                 '<space>w', '<space>W', '<space>b', '<space>B',
+"       \                 '<space>e', '<space>E', '<space>ge', '<space>gE',
+"       \                 '<space>j', '<space>k', '<space>n', '<space>N',
+"       \                 '<space>s']
+"       \}}
+" let g:EasyMotion_leader_key = '<space>'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""

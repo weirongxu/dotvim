@@ -1,26 +1,18 @@
-" UI界面
+" UI
 if g:env#gui
   "if g:env#win
-  " au GUIEnter * simalt ~x  " windows窗口启动时自动最大化
+  " au GUIEnter * simalt ~x  " startup while windows max
   "endif
-  "winpos 20 20            " 指定窗口出现的位置，坐标原点在屏幕左上角
-  "set lines=20 columns=90 " 指定窗口大小，lines为高度，columns为宽度
-  set guioptions-=m    " 菜单栏
-  set guioptions-=T    " 工具栏
-  set guioptions-=l    " 左侧滚动条
-  set guioptions-=r    " 右侧滚动条
-  set guioptions-=b    " 底部滚动条
-  set showtabline=1    " Tab 栏
+  set guioptions=
+  set showtabline=1
 endif
 
 " Menu
 command! Menu if &guioptions =~# 'm' <Bar>
       \set guioptions-=m <Bar>
-      \set guioptions-=T <Bar>
       \set guioptions-=r <Bar>
       \else <Bar>
       \set guioptions+=m <Bar>
-      \set guioptions+=T <Bar>
       \set guioptions+=r <Bar>
       \endif
 
@@ -74,18 +66,11 @@ set mouse=a " support mouse
 
 " edit show
 " 去掉utf-8 BOM
-set nobomb
-set linespace=0
-set ambiwidth=double
-" set cursorline
-" set cursorcolumn
+set nobomb linespace=0 ambiwidth=double
+" set cursorline cursorcolumn
 
 " interface
-set guitablabel=%t\ %M
-set number
-set showmatch
-set scrolloff=5
-set ruler " show cursor position
+set guitablabel=%t\ %M number showmatch scrolloff=5 ruler
 " Don't redraw while executing macros (good performance config)
 " set lazyredraw
 
@@ -118,17 +103,10 @@ set shiftwidth=4 " << >>
 autocmd FileType css,less,vim,javascript,coffee setl tabstop=2 softtabstop=2 shiftwidth=2
 
 " autoindent
-set smartindent
-set autoindent
-set smarttab
-set cindent
+set smartindent autoindent smarttab cindent
 
 " search
-set incsearch
-set hlsearch
-set ignorecase
-set smartcase
-set magic
+set incsearch hlsearch ignorecase smartcase magic
 
 " dir
 set browsedir=buffer " file browse dir
@@ -138,17 +116,12 @@ set wildignore=*.o,*~,*.pyc " ignore file
 set autoread " auto read when file changed outside of Vim
 
 " sound
-set noerrorbells
-set novisualbell
-set t_vb=
-set tm=500
+set noerrorbells novisualbell t_vb= tm=500
 
 " backup
 let &backupdir = g:env#tmp
 let &directory = g:env#tmp
-set backup
-set writebackup
-set swapfile
+set backup writebackup swapfile
 
 " highlight 80 columns
 " au BufRead,BufNewFile *.s,*.asm,*.h,*.c,*.cpp,*.cc,*.java,*.cs,*.erl,*.hs,*.sh,*.lua,*.pl,*.pm,*.php,*.py,*.rb,*.erb,*.vim,*.js,*.css,*.xml,*.html,*.xhtml 2match Underlined /.\%81v/

@@ -100,7 +100,7 @@ set shiftround
 set tabstop=4 " Tab len
 set softtabstop=4
 set shiftwidth=4 " << >>
-autocmd FileType css,less,vim,javascript,coffee setl tabstop=2 softtabstop=2 shiftwidth=2
+autocmd FileType css,less,vim,javascript,coffee,stylus setl tabstop=2 softtabstop=2 shiftwidth=2
 
 " autoindent
 set smartindent autoindent smarttab cindent

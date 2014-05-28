@@ -137,6 +137,11 @@ let g:unite_source_alias_aliases = {
 command! MRU :Unite mru
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundleLazy 'ujihisa/unite-colorscheme'
+NeoBundleLazy 'Shougo/unite-session', {
+      \ 'autoload' : {
+      \   'commands' : ['UniteSessionSave', 'UniteSessionLoad']
+      \ }}
+" let g:unite_source_session_enable_auto_save = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'Shougo/vimproc', {
       \ 'build' : {
@@ -372,8 +377,8 @@ NeoBundleLazy 'elzr/vim-json', {
       \ 'autoload' : { 'filetypes' : 'json' }}
 NeoBundleLazy 'digitaltoad/vim-jade', {
       \ 'autoload' : { 'filetypes' : 'jade' }}
-NeoBundleLazy 'spf13/PIV', {
-      \ 'autoload' : { 'filetypes' : 'php' }}
+" NeoBundleLazy 'spf13/PIV', {
+"       \ 'autoload' : { 'filetypes' : 'php' }}
 NeoBundleLazy 'justinmk/vim-syntax-extra', {
       \ 'autoload' : { 'filetypes' : ['c', 'cpp', 'lex', 'yacc'] }}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -611,8 +616,13 @@ let g:mkdview#css = 'github.css'
 """"""""""""""""""""""""""""""
 " Hexman DrawIt VisIncr Eunuch
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-NeoBundleLazy 'vim-scripts/hexman.vim', {
-      \ 'autoload' : { 'mappings' : '<Leader>h' }}
+NeoBundleLazy 'Shougo/vinarise.vim', {
+      \ 'autoload' : {
+      \   'commands' : ['Vinarise', 'VinariseScript2Hex', 'VinariseHex2Script',
+      \                 'VinarisePluginDump', 'VinarisePluginViewBitmapView']
+      \ }}
+" NeoBundleLazy 'vim-scripts/hexman.vim', {
+"       \ 'autoload' : { 'mappings' : '<Leader>h' }}
 NeoBundleLazy 'vim-scripts/DrawIt', {
       \ 'autoload' : {
       \   'commands' : ['DIstart', 'DIsngl', 'DIdbl', 'DIstop', 'DrawIt'],
@@ -662,6 +672,11 @@ NeoBundleLazy 'wesleyche/SrcExpl', {
 "       \ 'autoload' : {
 "       \   'commands' : ['Goyo']
 "       \ }}
+NeoBundleLazy 'matze/vim-move', {
+      \ 'autoload': {
+      \   'mappings': ['<M-k>', '<M-j>']
+      \ }}
+let g:move_key_modifier = 'M'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -769,15 +784,30 @@ let g:sunday_pairs = [
 """"""""""""""""""""""""""""""
 " Explorer
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" scrooloose版本在win下切换磁盘会有问题
-" NeoBundleLazy 'mixvin/nerdtree', {
-NeoBundle 'Shougo/vimfiler.vim'
+" NeoBundle 'mattn/vimfiler-icn'
+NeoBundleLazy 'Shougo/vimfiler.vim', {
+      \ 'autoload' : {
+      \   'commands' : ['VimFiler', 'VimFilerCreate', 'VimFilerSimple',
+      \                 'VimFilerSplit', 'VimFilerTab', 'VimFilerDouble',
+      \                 'VimFilerCurrentDir', 'VimFilerBufferDir',
+      \                 'VimFilerExplorer', 'VimFilerClose']
+      \ }}
+autocmd FileType vimfiler call <SID>vimfiler_settings()
+function! s:vimfiler_settings()
+  nmap <buffer><silent> R <Plug>(vimfiler_redraw_screen)
+  nunmap <buffer><silent> <C-l>
+  nunmap <buffer><silent> <C-j>
+endfunction
+autocmd BufEnter * setlocal autochdir " fixed some buf, in 
 let g:vimfiler_as_default_explorer = 1
 let g:vimfiler_safe_mode_by_default = 0
+let g:vimfiler_buf = 'VimFilerBufferDir -explorer -auto-cd -toggle -split'
 let g:vimfiler_cmd = 'VimFiler -explorer -auto-cd -toggle -split'
-execute 'map gon :' . vimfiler_cmd .'<CR>'
+execute 'map <silent> gon :' . vimfiler_buf .'<CR>'
 map goc :edit $MYVIMRC<CR>
-execute 'map gp :' . vimfiler_cmd . ' ' . $MYVIMFILES . '<CR>'
+execute 'map <silent> gp :' . vimfiler_cmd . ' ' . $MYVIMFILES . '<CR>'
+" scrooloose版本在win下切换磁盘会有问题
+" NeoBundleLazy 'mixvin/nerdtree', {
 " NeoBundleLazy 'scrooloose/nerdtree', {
 "       \ 'autoload' : {
 "       \   'commands' : ['NERDTree', 'NERDTreeFromBookmark',

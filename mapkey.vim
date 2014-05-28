@@ -140,14 +140,14 @@ vmap <silent> <Leader>hu :call <SID>HtmlUnEscape()<CR>
 """""""""""""""""""""""""""""""""""""
 
 " 移动一整行通过 ALT+[jk] 或 Comamnd+[jk] 在 mac
-nmap <silent> <M-j> mz:m+<cr>`z
-nmap <silent> <M-k> mz:m-2<cr>`z
-vmap <silent> <M-j> :m'>+<cr>`<my`>mzgv`yo`z
-vmap <silent> <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
-nmap <silent> <leader>j mz:m+<cr>`z
-nmap <silent> <leader>k mz:m-2<cr>`z
-vmap <silent> <leader>j :m'>+<cr>`<my`>mzgv`yo`z
-vmap <silent> <leader>k :m'<-2<cr>`>my`<mzgv`yo`z
+" nmap <silent> <M-j> mz:m+<cr>`z
+" nmap <silent> <M-k> mz:m-2<cr>`z
+" vmap <silent> <M-j> :m'>+<cr>`<my`>mzgv`yo`z
+" vmap <silent> <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
+" nmap <silent> <leader>j mz:m+<cr>`z
+" nmap <silent> <leader>k mz:m-2<cr>`z
+" vmap <silent> <leader>j :m'>+<cr>`<my`>mzgv`yo`z
+" vmap <silent> <leader>k :m'<-2<cr>`>my`<mzgv`yo`z
 if g:env#mac
   nmap <silent> <D-j> <M-j>
   nmap <silent> <D-k> <M-k>

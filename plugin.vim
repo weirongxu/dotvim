@@ -34,7 +34,7 @@ NeoBundle 'mbbill/fencview'
 NeoBundle 'peterjmorgan/mark-2.8.0'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'nacitar/a.vim'
-NeoBundle 'editorconfig/editorconfig-vim'
+NeoBundle 'weirongxu/editorconfig-vim'
 NeoBundle 'wellle/targets.vim'
 NeoBundle 'kshenoy/vim-signature'
 " NeoBundle 'benatkin/vim-move-between-tabs' " map tN tP
@@ -79,11 +79,11 @@ let g:startify_list_order = [
 " git
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'tpope/vim-fugitive'
-" NeoBundle 'airblade/vim-gitgutter'
+NeoBundleLazy 'airblade/vim-gitgutter'
 let g:gitgutter_enabled = 0
 let g:gitgutter_realtime = 0
 let g:gitgutter_eager = 0
-" NeoBundle 'mhinz/vim-signify'
+NeoBundleLazy 'mhinz/vim-signify'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 

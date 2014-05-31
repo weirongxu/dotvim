@@ -33,13 +33,13 @@ NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'mbbill/fencview'
 NeoBundle 'peterjmorgan/mark-2.8.0'
 NeoBundle 'tpope/vim-surround'
-NeoBundle 'jrhorn424/vim-multiple-cursors'
 NeoBundle 'nacitar/a.vim'
 NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'wellle/targets.vim'
 NeoBundle 'kshenoy/vim-signature'
 " NeoBundle 'benatkin/vim-move-between-tabs' " map tN tP
 " NeoBundle 'zhaocai/GoldenView.Vim'
+" NeoBundle 'jrhorn424/vim-multiple-cursors'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -490,7 +490,7 @@ NeoBundleLazy 'stephpy/vim-phpdoc', {
       \ 'autoload' : { 'filetypes' : ['php' ,'html', 'xhtml', 'xml', 'htm'] }}
 " inoremap <leader>8 <ESC>:call PhpDocSingle()<CR>i
 " let g:pdv_cfg_Version = "$id$"
-let g:pdv_cfg_Author = "Raidou 徐伟榕 <weirongxuraidou@gmail.com> ".strftime("%Y-%m-%d")
+let g:pdv_cfg_Author = "Raidou <weirongxu.raidou@gmail.com> ".strftime("%Y-%m-%d")
 " let g:pdv_cfg_Copyright = "20013-2013 ".g:pdv_cfg_Author
 " let g:pdv_cfg_License = ""
 nnoremap <leader>8 :call PhpDocSingle()<CR>
@@ -732,6 +732,7 @@ NeoBundleLazy 'junegunn/vim-easy-align', {
       \ }}
 " nmap <Leader>a <Plug>(EasyAlign)
 vmap <Enter>   <Plug>(EasyAlign)
+vmap <Leader><Enter>   <Plug>(LiveEasyAlign)
 
 " NeoBundleLazy 'godlygeek/tabular', {
 "       \ 'autoload' : {
@@ -854,6 +855,19 @@ map gC :Calendar<CR>
 
 
 """"""""""""""""""""""""""""""
+" VimShell
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" NeoBundleLazy 'Shougo/vimshell.vim', {
+"       \ 'autoload' : {
+"       \   'commands' : ['VimShell', 'VimShellCreate', 'VimShellTab', 'VimShellPop',
+"       \                 'VimShellCurrentDir', 'VimShellBufferDir', 'VimShellExecute',
+"       \                 'VimShellInteractive', 'VimShellTerminal', 'VimShellSendString',
+"       \                 'VimShellSendBuffer']
+"       \ }}
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+""""""""""""""""""""""""""""""
 " Indent-Guides
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NeoBundleLazy 'nathanaelkane/vim-indent-guides', {
@@ -900,7 +914,6 @@ map <s-space> <Plug>SneakPrevious
 " NeoBundle 'vim-scripts/Color-Sampler-Pack' " 没怎么用
 " NeoBundleLazy 'jnwhiteh/vim-golang' " go语言
 " NeoBundleLazy 'jceb/vim-orgmode' " vimwiki伤不起
-" NeoBundle 'Shougo/vimshell.vim' " 另外再用一个shell也太占空间了
 " NeoBundleLazy 'vim-scripts/utl.vim' " 这个打开链接不好用
 " NeoBundle 'millermedeiros/vim-statline', {'base' : $MYBUNDLEDIR.'-win32'} " 还是用airline吧
 " NeoBundle 'Lokaltog/powerline', {'base': $MYBUNDLEDIR.'-win32'} " 因为有airline

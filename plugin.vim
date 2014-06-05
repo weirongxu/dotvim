@@ -199,7 +199,7 @@ let g:NERDCustomDelimiters = {
 " lightline
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'itchyny/lightline.vim'
-if g:env#x
+if g:env#unix && g:env#x
   let g:lightline = {
         \   'colorscheme': 'jellybeans',
         \   'component': {

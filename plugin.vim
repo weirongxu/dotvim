@@ -803,6 +803,7 @@ NeoBundleLazy 'Shougo/vimfiler.vim', {
 autocmd FileType vimfiler call <SID>vimfiler_settings()
 function! s:vimfiler_settings()
   nmap <buffer><silent> R <Plug>(vimfiler_redraw_screen)
+  nmap <buffer> u <Plug>(vimfiler_switch_to_parent_directory)
   nunmap <buffer><silent> <C-l>
   nunmap <buffer><silent> <C-j>
 endfunction

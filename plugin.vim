@@ -34,12 +34,15 @@ NeoBundle 'mbbill/fencview'
 NeoBundle 'peterjmorgan/mark-2.8.0'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'nacitar/a.vim'
-NeoBundle 'weirongxu/editorconfig-vim'
 NeoBundle 'wellle/targets.vim'
 NeoBundle 'kshenoy/vim-signature'
 " NeoBundle 'benatkin/vim-move-between-tabs' " map tN tP
-" NeoBundle 'zhaocai/GoldenView.Vim'
 " NeoBundle 'jrhorn424/vim-multiple-cursors'
+" NeoBundle 'plasticboy/vim-markdown'
+NeoBundle 'zhaocai/GoldenView.Vim'
+let g:goldenview__enable_default_mapping = 0
+NeoBundle 'editorconfig/editorconfig-vim'
+execute "source ".$MYVIMFILES."/editorconfig-vim.vim"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -196,7 +199,7 @@ let g:NERDCustomDelimiters = {
 " lightline
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'itchyny/lightline.vim'
-if g:env#unix
+if g:env#x
   let g:lightline = {
         \   'colorscheme': 'jellybeans',
         \   'component': {
@@ -224,9 +227,12 @@ set list listchars=tab:\|\ ,trail:.
 """"""""""""""""""""""""""""""
 " indentLine
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if g:env#x
-  NeoBundle 'Yggdroot/indentLine'
-  let g:indentLine_noConcealCursor = 1
+NeoBundle 'Yggdroot/indentLine'
+let g:indentLine_noConcealCursor = 1
+let g:indentLine_fileTypeExclude = ['']
+let g:indentLine_faster = 1
+if !g:env#x
+  let g:indentLine_color_term = 8
 endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -733,6 +739,7 @@ NeoBundleLazy 'junegunn/vim-easy-align', {
 " nmap <Leader>a <Plug>(EasyAlign)
 vmap <Enter>   <Plug>(EasyAlign)
 vmap <Leader><Enter>   <Plug>(LiveEasyAlign)
+vmap <C-Enter>   <Plug>(LiveEasyAlign)
 
 " NeoBundleLazy 'godlygeek/tabular', {
 "       \ 'autoload' : {
@@ -885,11 +892,21 @@ map gC :Calendar<CR>
 """"""""""""""""""""""""""""""
 " EasyMotion
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-NeoBundle 'justinmk/vim-sneak'
-let g:sneak#f_reset = 1
-let g:sneak#t_reset = 1
-map <space> <Plug>SneakNext
-map <s-space> <Plug>SneakPrevious
+NeoBundleLazy 't9md/vim-smalls', {
+      \ 'autoload' : {
+      \   'mappings' : ['<Plug>(smalls)']
+      \}}
+nmap s <Plug>(smalls)
+omap s <Plug>(smalls)
+xmap s <Plug>(smalls)
+" NeoBundleLazy 'justinmk/vim-sneak'
+"       \ 'autoload' : {
+"       \   'mappings' : ['<Plug>Sneak']
+"       \}}
+" let g:sneak#f_reset = 1
+" let g:sneak#t_reset = 1
+" map <space> <Plug>SneakNext
+" map <s-space> <Plug>SneakPrevious
 " NeoBundleLazy 'Lokaltog/vim-easymotion', {
 "       \ 'autoload' : {
 "       \   'mappings' : ['<space>f', '<space>F', '<space>t', '<space>T',

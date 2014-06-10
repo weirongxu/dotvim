@@ -36,6 +36,8 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'nacitar/a.vim'
 NeoBundle 'wellle/targets.vim'
 NeoBundle 'kshenoy/vim-signature'
+let g:SignatureErrorIfNoAvailableMarks = 0
+NeoBundle 'tpope/vim-repeat'
 " NeoBundle 'benatkin/vim-move-between-tabs' " map tN tP
 " NeoBundle 'jrhorn424/vim-multiple-cursors'
 " NeoBundle 'plasticboy/vim-markdown'
@@ -50,6 +52,7 @@ execute "source ".$MYVIMFILES."/editorconfig-vim.vim"
 """"""""""""""""""""""""""""""
 " Translate
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" neobundle 'Rykka/trans.vim'
 " NeoBundle 'bolasblack/gtrans.vim'
 " NeoBundle 'jiazhoulvke/googletranslate'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -82,6 +85,10 @@ let g:startify_list_order = [
 " git
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'tpope/vim-fugitive'
+NeoBundleLazy 'gregsexton/gitv', {
+      \ 'autoload' : {
+      \   'commands' : ['Gitv']
+      \ }}
 NeoBundleLazy 'airblade/vim-gitgutter'
 let g:gitgutter_enabled = 0
 let g:gitgutter_realtime = 0
@@ -384,7 +391,9 @@ NeoBundleLazy 'elzr/vim-json', {
 NeoBundleLazy 'digitaltoad/vim-jade', {
       \ 'autoload' : { 'filetypes' : 'jade' }}
 " NeoBundleLazy 'spf13/PIV', {
-"       \ 'autoload' : { 'filetypes' : 'php' }}
+      " \ 'autoload' : { 'filetypes' : 'php' }}
+NeoBundleLazy 'kepbod/php_indent', {
+      \ 'autoload' : { 'filetypes' : 'php' }}
 NeoBundleLazy 'justinmk/vim-syntax-extra', {
       \ 'autoload' : { 'filetypes' : ['c', 'cpp', 'lex', 'yacc'] }}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -678,6 +687,11 @@ NeoBundleLazy 'wesleyche/SrcExpl', {
 "       \ 'autoload' : {
 "       \   'commands' : ['Goyo']
 "       \ }}
+NeoBundleLazy 'chenkaie/DirDiff.vim', {
+      \ 'autoload': {
+      \   'commands': ['DirDiff', 'DirDiffOpen', 'DirDiffNext',
+      \                'DirDiffPrev', 'DirDiffUpdate', 'DirDiffQuit']
+      \ }}
 NeoBundleLazy 'matze/vim-move', {
       \ 'autoload': {
       \   'mappings': ['<M-k>', '<M-j>']
@@ -942,6 +956,7 @@ xmap s <Plug>(smalls)
 " NeoBundle 'itchyny/vim-cmdline-ranges'
 " NeoBundle 'itchyny/thumbnail.vim' " 切换窗口，用的不多
 " NeoBundle 'yuratomo/gmail.vim' " 太疯狂。
+" NeoBundle 'Rykka/easydigraph.vim'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

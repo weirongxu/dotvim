@@ -1,6 +1,7 @@
 " neocomplete
 let g:neocomplete#enable_at_startup = 1
 " let g:neocomplete#enable_auto_select = 1
+" let g:neocomplete#disable_auto_complete = 1
 let g:neocomplete#sources#dictionary#dictionaries = {
       \ 'default' : '',
       \ 'css' : $MYVIMFILES.'/dict/cssColorName.dict',
@@ -9,7 +10,8 @@ let g:neocomplete#sources#dictionary#dictionaries = {
 let g:neocomplete#same_filetypes = {
       \ 'c': 'cpp',
       \ 'cpp': 'c',
-      \ 'html': 'css,javascript',
+      \ 'html': 'css,javascript,coffee,stylus',
+      \ 'jade': 'html',
       \ 'php': 'html',
       \ 'jsp': 'html',
       \ 'xhtml': 'html',

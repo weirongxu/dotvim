@@ -1,5 +1,4 @@
-" Yii's prado templete syntax file
-" Language: Html + Prado templete
+" Thinkphp's templete syntax file
 " Maintainer: WeiRong Xu <weirongxuraidou@gmail.com>
 " Last Change: 2013-12-21
 " Version: 0.01

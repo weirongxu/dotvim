@@ -41,8 +41,8 @@ NeoBundle 'tpope/vim-repeat'
 " NeoBundle 'benatkin/vim-move-between-tabs' " map tN tP
 " NeoBundle 'jrhorn424/vim-multiple-cursors'
 " NeoBundle 'plasticboy/vim-markdown'
-NeoBundle 'zhaocai/GoldenView.Vim'
-let g:goldenview__enable_default_mapping = 0
+" NeoBundle 'zhaocai/GoldenView.Vim'
+" let g:goldenview__enable_default_mapping = 0
 NeoBundle 'editorconfig/editorconfig-vim'
 execute "source ".$MYVIMFILES."/editorconfig-vim.vim"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -147,6 +147,7 @@ let g:unite_source_alias_aliases = {
 command! MRU :Unite mru
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundleLazy 'ujihisa/unite-colorscheme'
+NeoBundleLazy 'Shougo/unite-outline'
 NeoBundleLazy 'Shougo/unite-session', {
       \ 'autoload' : {
       \   'commands' : ['UniteSessionSave', 'UniteSessionLoad']
@@ -185,20 +186,29 @@ let g:tcomment_types = {
       \ 'blade.php': '<!-- %s -->',
       \ 'jade': '//- %s',
       \ 'jade_inline': '// %s',
+      \ 'vader': '# %s',
+      \ 'vader_inline': '# %s',
       \ }
 
+" NeoBundle 'tpope/vim-commentary'
+" NeoBundleLazy 'tyru/caw.vim', {
+"       \ 'mappings' : [['nxo',
+"       \   '<Plug>(caw:prefix)', '<Plug>(caw:i:toggle)', 'gc']]
+"       \ }
+" let g:caw_a_sp_left = ' '
+
 " NerdCommenter
-NeoBundle 'scrooloose/nerdcommenter'
-let g:NERDSpaceDelims=1
+" NeoBundle 'scrooloose/nerdcommenter'
+" let g:NERDSpaceDelims=1
 " map <leader>; <leader>ci
 " map <leader>: <leader>cm
 " map <leader>' <leader>cA
 " map <leader>" <leader>cs
-let g:NERDCustomDelimiters = {
-      \ 'htmlyiiprado': { 'left': '<!---', 'right': '--->', 'leftAlt': '<!--', 'rightAlt': '-->' },
-      \ 'blade.php': { 'left': '<!--', 'right': '-->', 'leftAlt': '<!--', 'rightAlt': '-->' },
-      \ 'less': { 'left': '//', 'leftAlt': '/*', 'rightAlt': '*/' }
-      \ }
+" let g:NERDCustomDelimiters = {
+"       \ 'htmlyiiprado': { 'left': '<!---', 'right': '--->', 'leftAlt': '<!--', 'rightAlt': '-->' },
+"       \ 'blade.php': { 'left': '<!--', 'right': '-->', 'leftAlt': '<!--', 'rightAlt': '-->' },
+"       \ 'less': { 'left': '//', 'leftAlt': '/*', 'rightAlt': '*/' }
+"       \ }
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -210,12 +220,12 @@ if g:env#unix && g:env#x
   let g:lightline = {
         \   'colorscheme': 'jellybeans',
         \   'component': {
-        \     'readonly': '%{&filetype=="help"?"":&readonly?"⭤":""}',
+        \     'readonly': '%{&filetype=="help"?"":&readonly?"?":""}',
         \     'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
         \     'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
         \   },
-        \   'separator': { 'left': '⮀', 'right': '⮂' },
-        \   'subseparator': { 'left': '⮁', 'right': '⮃' }
+        \   'separator': { 'left': '?', 'right': '?' },
+        \   'subseparator': { 'left': '?', 'right': '?' }
         \ }
 else
   let g:lightline = {
@@ -237,7 +247,8 @@ set list listchars=tab:\|\ ,trail:.
 NeoBundle 'Yggdroot/indentLine'
 let g:indentLine_noConcealCursor = 1
 let g:indentLine_fileTypeExclude = ['']
-let g:indentLine_faster = 1
+let g:indentLine_fileTypeExclude = ['stylus', 'jade']
+let g:indentLine_faster = 1 " XXX Exists bug with jade and stylus syntax
 if !g:env#x
   let g:indentLine_color_term = 8
 endif
@@ -341,16 +352,16 @@ if g:env#win
   let g:syntastic_warning_symbol = '>>'
   let g:syntastic_style_warning_symbol = 'S>'
 else
-  let g:syntastic_error_symbol = '✗'
+  let g:syntastic_error_symbol = '?'
   let g:syntastic_style_error_symbol = 'Sx'
-  let g:syntastic_warning_symbol = '⚠'
+  let g:syntastic_warning_symbol = '?'
   let g:syntastic_style_warning_symbol = 'S>'
 endif
-" Syntastic
 " let g:syntastic_php_checkers=['php']
-" SyntasticCheck
+map <space> :w<CR>:SyntasticCheck<CR>
+      " \ 'mode': 'active',
 let g:syntastic_mode_map = {
-      \ 'mode': 'active',
+      \ 'mode': 'passive',
       \ 'active_filetypes': [],
       \ 'passive_filetypes': ['java', 'less'] }
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -370,7 +381,7 @@ let g:syntastic_mode_map = {
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""
-" Matchit Html5 Matlab Ahk Date
+" Matchit Html5 Matlab Ahk
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundleLazy 'vim-scripts/matchit.zip', {
       \ 'autoload' : {
@@ -396,6 +407,7 @@ NeoBundleLazy 'kepbod/php_indent', {
       \ 'autoload' : { 'filetypes' : 'php' }}
 NeoBundleLazy 'justinmk/vim-syntax-extra', {
       \ 'autoload' : { 'filetypes' : ['c', 'cpp', 'lex', 'yacc'] }}
+NeoBundle 'maksimr/vim-jsbeautify'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -459,7 +471,7 @@ let g:nodejs_complete_config = {
 \  'max_node_compl_len': 15
 \}
 NeoBundleLazy 'kchmck/vim-coffee-script', {
-      \ 'autoload' : { 'filetypes' : 'coffee' }}
+      \ 'autoload' : { 'filetypes' : ['coffee', 'jade'] }}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -552,7 +564,7 @@ NeoBundleLazy 'hail2u/vim-css3-syntax', {
 NeoBundleLazy 'groenewege/vim-less', {
       \ 'autoload' : { 'filetypes' : ['less'] }}
 NeoBundleLazy 'wavded/vim-stylus', {
-      \ 'autoload' : { 'filetypes' : ['stylus'] }}
+      \ 'autoload' : { 'filetypes' : ['stylus', 'jade'] }}
 autocmd BufNewFile,BufRead *.styl set filetype=stylus
 autocmd BufNewFile,BufRead *.stylus set filetype=stylus
 " NeoBundleLazy 'weirongxu/vim-less', {
@@ -692,11 +704,17 @@ NeoBundleLazy 'chenkaie/DirDiff.vim', {
       \   'commands': ['DirDiff', 'DirDiffOpen', 'DirDiffNext',
       \                'DirDiffPrev', 'DirDiffUpdate', 'DirDiffQuit']
       \ }}
+" NeoBundleLazy 't9md/vim-choosewin', {
+"       \ 'autoload': {
+"       \   'commands': ['ChooseWin', '<Plug>(choosewin)']
+"       \ }}
+" nmap - <Plug>(choosewin)
 NeoBundleLazy 'matze/vim-move', {
       \ 'autoload': {
       \   'mappings': ['<M-k>', '<M-j>']
       \ }}
 let g:move_key_modifier = 'M'
+let g:move_auto_indent = 0
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -747,13 +765,12 @@ command! Gundo GundoToggle
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundleLazy 'junegunn/vim-easy-align', {
       \ 'autoload' : {
-      \   'mappings' : ['<Plug>(EasyAlign)'],
-      \   'commands' : ['EasyAlign']
+      \   'mappings' : ['<Plug>(EasyAlign)', '<Plug>(LiveEasyAlign)'],
+      \   'commands' : ['EasyAlign', 'LiveEasyAlign']
       \ }}
 " nmap <Leader>a <Plug>(EasyAlign)
-vmap <Enter>   <Plug>(EasyAlign)
-vmap <Leader><Enter>   <Plug>(LiveEasyAlign)
-vmap <C-Enter>   <Plug>(LiveEasyAlign)
+" vmap <Enter>   <Plug>(EasyAlign)
+vmap <Enter>   <Plug>(LiveEasyAlign)
 
 " NeoBundleLazy 'godlygeek/tabular', {
 "       \ 'autoload' : {
@@ -816,17 +833,33 @@ NeoBundleLazy 'Shougo/vimfiler.vim', {
       \ }}
 autocmd FileType vimfiler call <SID>vimfiler_settings()
 function! s:vimfiler_settings()
-  nmap <buffer><silent> R <Plug>(vimfiler_redraw_screen)
+  nmap <buffer> t
+        \ :<C-u>call vimfiler#mappings#do_action('tabopen')<CR>
+
   nmap <buffer> u <Plug>(vimfiler_switch_to_parent_directory)
+
+  nmap <2-LeftMouse> <Plug>(vimfiler_edit_file)
+
   nunmap <buffer><silent> <C-l>
+  nmap <buffer><silent> R <Plug>(vimfiler_redraw_screen)
+
   nunmap <buffer><silent> <C-j>
+  command -buffer History call feedkeys("\<Plug>(vimfiler_switch_to_history_directory)")
+
+  nunmap <buffer><silent> H
+  command -buffer Shell call feedkeys("\<Plug>(vimfiler_popup_shell)")
+
+  nunmap <buffer><silent> L
+  command -buffer Drive call feedkeys("\<Plug>(vimfiler_switch_to_drive)")
 endfunction
-autocmd BufEnter * setlocal autochdir " fixed some buf, in 
+" autocmd BufEnter * setlocal autochdir " fixed some buf, in 
 let g:vimfiler_as_default_explorer = 1
 let g:vimfiler_safe_mode_by_default = 0
-let g:vimfiler_buf = 'VimFilerBufferDir -explorer -auto-cd -toggle -split'
-let g:vimfiler_cmd = 'VimFiler -explorer -auto-cd -toggle -split'
-execute 'map <silent> gon :' . vimfiler_buf .'<CR>'
+" let g:vimfiler_expand_jump_to_first_child = 0
+let g:vimfiler_tree_leaf_icon = '¦'
+let g:vimfiler_buf = 'VimFilerBufferDir -explorer -auto-cd -split'
+let g:vimfiler_cmd = 'VimFiler -explorer -auto-cd -split'
+execute 'map <silent> gn :' . vimfiler_buf .'<CR>'
 map goc :edit $MYVIMRC<CR>
 execute 'map <silent> gp :' . vimfiler_cmd . ' ' . $MYVIMFILES . '<CR>'
 " scrooloose版本在win下切换磁盘会有问题
@@ -994,4 +1027,6 @@ imap <c-c> <c-_>
 " endfunction
 
 " think php tpl
-autocmd BufNewFile,BufRead *.html setfiletype htmlthphp.html
+" autocmd BufNewFile,BufRead *.html setfiletype htmlthphp.html
+NeoBundle 'Shougo/vesting'
+NeoBundle 'junegunn/vader.vim'

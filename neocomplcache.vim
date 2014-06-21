@@ -1,11 +1,12 @@
 " neocomplcache
-" let g:EclimCompletionMethod = 'eclim#java#complete#CodeComplete'
 let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_enable_auto_select = 1
+" let g:neocomplcache_enable_auto_select = 1
+let g:neocomplcache_disable_auto_complete = 1
 let g:neocomplcache_same_filetype_lists = {
       \ 'c': 'cpp,d',
       \ 'cpp': 'c',
-      \ 'html': 'css,javascript',
+      \ 'html': 'css,javascript,coffee,stylus',
+      \ 'jade': 'html',
       \ 'php': 'html',
       \ 'xhtml': 'html',
       \ 'zsh': 'sh'

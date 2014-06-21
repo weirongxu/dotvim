@@ -123,7 +123,7 @@ alias #def, #define
 # Include-Guard
 snippet once
 abbr include-guard
-	#ifndef ${1:`substitute(expand('%<').'_'.expand('%:e'), '.', '\u&', 'g')`}
+	#ifndef ${1:`substitute(expand('%:t:r').'_'.expand('%:e'), '.', '\u&', 'g')`}
 	#define $1
 	${0:TARGET}
 	#endif /* end of $1 */

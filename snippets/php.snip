@@ -113,7 +113,7 @@ snippet po
 	protected
 
 snippet class
-	class ${1:`expand('%<')`} {
+	class ${1:`expand('%:t:r')`} {
 		${0:TARGET}
 	}
 
@@ -198,22 +198,22 @@ snippet here
 	$1;
 
 snippet inc
-	include '${1:#:file}';${0}
+	include __DIR__ . '${1:#:file}';
 
 snippet inco
-	include_once '${1:#:file}';${0}
+	include_once __DIR__ '${1:#:file}';
 
 snippet array
 	$${1:#:arrayName} = array('${2}' => ${3} ${0});
 
 snippet req
-	require '${1:#:file}';${0}
+	require __DIR__ . '${1:#:file}';
 
 snippet reqo
-	require_once '${1:#:file}';${0}
+	require_once __DIR__ . '${1:#:file}';
 
 snippet ret
-	return${1};${0}
+	return${1};
 
 snippet retf
 	return false;
@@ -241,7 +241,6 @@ abbr sw
 
 snippet throw
 	throw new ${1}Exception(${2:"${3:#:Error Processing Request}"}${4:});
-	${0}
 
 snippet while
 abbr wh

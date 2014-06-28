@@ -246,8 +246,7 @@ set list listchars=tab:\|\ ,trail:.
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'Yggdroot/indentLine'
 let g:indentLine_noConcealCursor = 1
-let g:indentLine_fileTypeExclude = ['']
-let g:indentLine_fileTypeExclude = ['stylus', 'jade']
+let g:indentLine_fileTypeExclude = ['', 'stylus', 'jade']
 let g:indentLine_faster = 1 " XXX Exists bug with jade and stylus syntax
 if !g:env#x
   let g:indentLine_color_term = 8
@@ -529,8 +528,8 @@ vnoremap <leader>8 :call PhpDocRange()<CR>
 " YiiPradoTemplete
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundleLazy 'weirongxu/yiiprado.vim', {
-      \ 'autoload' : { 'filetypes' : ['htmlyiiprado.html.php'] }}
-autocmd BufNewFile,BufRead *.tpl setfiletype htmlyiiprado.html.php
+      \ 'autoload' : { 'filetypes' : ['yiiprado'] }}
+autocmd BufNewFile,BufRead *.tpl setfiletype yiiprado
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -855,8 +854,7 @@ endfunction
 " autocmd BufEnter * setlocal autochdir " fixed some buf, in 
 let g:vimfiler_as_default_explorer = 1
 let g:vimfiler_safe_mode_by_default = 0
-" let g:vimfiler_expand_jump_to_first_child = 0
-let g:vimfiler_tree_leaf_icon = '¦'
+let g:vimfiler_expand_jump_to_first_child = 0
 let g:vimfiler_buf = 'VimFilerBufferDir -explorer -auto-cd -split'
 let g:vimfiler_cmd = 'VimFiler -explorer -auto-cd -split'
 execute 'map <silent> gn :' . vimfiler_buf .'<CR>'

@@ -1,6 +1,6 @@
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 使用一个额外的辅助键
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " like <leader>w saves the current file
 let mapleader = ","
 let maplocalleader = ','
@@ -46,7 +46,7 @@ function! s:FixWhitespace(line1,line2)
     let l = line(".")
     let c = col(".")
     " Do the business:
-    %s/\s\+$//e
+    %s/[\s\r]\+$//e
     " Clean up: restore previous search history, and cursor position
     let @/=_s
     call cursor(l, c)

@@ -48,7 +48,6 @@ execute "source ".$MYVIMFILES."/editorconfig-vim.vim"
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-NeoBundle 'joonty/vdebug'
 
 """"""""""""""""""""""""""""""
 " Temp
@@ -682,6 +681,10 @@ NeoBundleLazy 'tpope/vim-eunuch', {
       \ }}
 NeoBundleLazy 'thinca/vim-quickrun', {
       \ 'autoload' : { 'commands' : ['QuickRun'] }}
+NeoBundleLazy 'joonty/vdebug', {
+      \ 'autoload' : {
+      \   'commands' : ['VdebugEval', 'VdebugOpt', 'VdebugStart']
+      \ }}
 NeoBundleLazy 'mattn/emoji-vim', {
       \ 'autoload' : {
       \   'commands' : ['Emoji']

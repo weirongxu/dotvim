@@ -45,8 +45,6 @@ colo Tomorrow-Night-Eighties
 " t_Co gui-font
 if g:env#x
   set t_Co=256
-else
-  set t_Co=8
 endif
 if g:env#unix
   set guifont=Menlo\ 10,*

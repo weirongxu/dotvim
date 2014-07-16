@@ -45,6 +45,8 @@ colo Tomorrow-Night-Eighties
 " t_Co gui-font
 if g:env#x
   set t_Co=256
+else
+  set t_Co=8
 endif
 if g:env#unix
   set guifont=Menlo\ 10,*
@@ -100,7 +102,7 @@ set shiftround
 set tabstop=4 " Tab len
 set softtabstop=4
 set shiftwidth=4 " << >>
-autocmd FileType css,less,vim,javascript,coffee,stylus setl tabstop=2 softtabstop=2 shiftwidth=2
+autocmd FileType css,less,vim,python,javascript,coffee,stylus setl tabstop=2 softtabstop=2 shiftwidth=2
 
 " autoindent
 set smartindent autoindent smarttab cindent

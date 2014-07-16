@@ -48,20 +48,30 @@ execute "source ".$MYVIMFILES."/editorconfig-vim.vim"
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+NeoBundle 'joonty/vdebug'
 
 """"""""""""""""""""""""""""""
-" Translate
+" Temp
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Translate
 " neobundle 'Rykka/trans.vim'
 " NeoBundle 'bolasblack/gtrans.vim'
 " NeoBundle 'jiazhoulvke/googletranslate'
+" NeoBundle 'ianva/vim-youdao-translater'
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" think php tpl
+" autocmd BufNewFile,BufRead *.html setfiletype htmlthphp.html
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" test
+" NeoBundle 'Shougo/vesting'
+NeoBundle 'junegunn/vader.vim'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
 """"""""""""""""""""""""""""""
 " startify
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-NeoBundle 'mhinz/vim-startify'
+NeoBundle 'weirongxu/vim-startify'
 let g:startify_custom_header = [
       \ '  Raidou''s vim',
       \ '',
@@ -112,7 +122,7 @@ call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#filters#sorter_default#use(['sorter_rank'])
 nnoremap <Leader>f :Unite vimgrep:
 nnoremap <Leader><s-f> :Unite vimgrep:%<CR>
-nnoremap <c-p> :<c-u>Unite -buffer-name=files -start-insert file_rec<cr>
+nnoremap <c-p> :Unite -buffer-name=files -start-insert file_rec<cr>
 
 autocmd FileType unite call <SID>unite_settings()
 function! s:unite_settings()
@@ -246,8 +256,8 @@ set list listchars=tab:\|\ ,trail:.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'Yggdroot/indentLine'
 let g:indentLine_noConcealCursor = 1
-let g:indentLine_fileTypeExclude = ['', 'stylus', 'jade']
-let g:indentLine_faster = 1 " XXX Exists bug with jade and stylus syntax
+let g:indentLine_fileTypeExclude = ['', 'stylus', 'jade', 'vimfiler']
+let g:indentLine_faster = 1 " XXX Exists bug with jade and stylus syntax and vimfiler
 if !g:env#x
   let g:indentLine_color_term = 8
 endif
@@ -845,7 +855,7 @@ let g:vimfiler_expand_jump_to_first_child = 0
 let g:vimfiler_buf = 'VimFilerBufferDir -explorer -auto-cd -split'
 let g:vimfiler_cmd = 'VimFiler -explorer -auto-cd -split'
 execute 'map <silent> gn :' . vimfiler_buf .'<CR>'
-map goc :edit $MYVIMRC<CR>
+map gc :edit $MYVIMRC<CR>
 execute 'map <silent> gp :' . vimfiler_cmd . ' ' . $MYVIMFILES . '<CR>'
 " scrooloose版本在win下切换磁盘会有问题
 " NeoBundleLazy 'mixvin/nerdtree', {
@@ -1009,8 +1019,3 @@ imap <c-c> <c-_>
   " call feedkeys("\<c-_>")
   " return ''
 " endfunction
-
-" think php tpl
-" autocmd BufNewFile,BufRead *.html setfiletype htmlthphp.html
-NeoBundle 'Shougo/vesting'
-NeoBundle 'junegunn/vader.vim'

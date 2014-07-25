@@ -366,7 +366,7 @@ else
   let g:syntastic_style_warning_symbol = 'S>'
 endif
 " let g:syntastic_php_checkers=['php']
-map <space> :w<CR>:SyntasticCheck<CR>
+map <space> :up<CR>:SyntasticCheck<CR>
       " \ 'mode': 'active',
 let g:syntastic_mode_map = {
       \ 'mode': 'passive',

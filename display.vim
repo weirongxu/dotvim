@@ -47,8 +47,9 @@ if g:env#x
   set t_Co=256
 endif
 if g:env#unix
-  set guifont=Menlo\ 10,*
-  " set guifont=Monofur\ For\ Powerline\ 10,*
+  " set guifont=Menlo\ 10,*
+  set guifont=Consolas\ 11
+  " ,Monofur\ For\ Powerline\ 10,*
   " set guifont=Source\ Code\ Pro\ 10,*
   " set guifont=SimSun\ for\ Powerline\ 10
   " set guifont=Courier\ New\ for\ Powerline\ 10

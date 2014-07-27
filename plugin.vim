@@ -244,7 +244,7 @@ set list listchars=tab:\|\ ,trail:.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'Yggdroot/indentLine'
 let g:indentLine_noConcealCursor = 1
-let g:indentLine_fileTypeExclude = ['', 'stylus', 'jade', 'vimfiler']
+let g:indentLine_fileTypeExclude = ['', 'stylus', 'jade', 'vimfiler', 'unite', 'tagbar']
 let g:indentLine_faster = 1 " XXX Exists bug with jade and stylus syntax and vimfiler
 if !g:env#x
   let g:indentLine_color_term = 8
@@ -355,7 +355,7 @@ else
   let g:syntastic_style_warning_symbol = 'S>'
 endif
 " let g:syntastic_php_checkers=['php']
-map <space> :w<CR>:SyntasticCheck<CR>
+map <space> :up<CR>:SyntasticCheck<CR>
       " \ 'mode': 'active',
 let g:syntastic_mode_map = {
       \ 'mode': 'passive',

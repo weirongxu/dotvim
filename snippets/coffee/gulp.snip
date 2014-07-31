@@ -24,6 +24,7 @@ snippet gulp-stylus
 		dest = 'public/assets/css'
 		gulp.src 'stylus/main.styl'
 			.pipe plumber()
+			.pipe changed dest
 			.pipe sourcemaps.init()
 			.pipe stylus
 				use: [ nib() ]
@@ -36,6 +37,7 @@ snippet gulp-coffee
 		dest = 'public/assets/js'
 		gulp.src 'coffee/**/*.coffee'
 			.pipe plumber()
+			.pipe changed dest
 			.pipe sourcemaps.init()
 			.pipe coffee
 				bare: true
@@ -55,6 +57,7 @@ snippet gulp-less
 		dest = 'public/assets/css'
 		gulp.src 'less/main.less'
 			.pipe plumber()
+			.pipe changed dest
 			.pipe sourcemaps.init()
 			.pipe less
 				compress: true

@@ -3,7 +3,7 @@ snippet gulp-copy
 		dest = 'public/assets'
 		gulp.src 'assets/**'
 			.pipe plumber()
-			.pipe changed dest
+			# .pipe changed dest
 			.pipe gulp.dest dest
 
 snippet gulp-jade
@@ -11,7 +11,7 @@ snippet gulp-jade
 		dest = 'public'
 		gulp.src ['jade/**/*.jade', '!jade/common/**']
 			.pipe plumber()
-			.pipe changed dest
+			# .pipe changed dest
 			.pipe jade
 				locals:
 					data: require './jade/common/data'
@@ -24,7 +24,6 @@ snippet gulp-stylus
 		dest = 'public/assets/css'
 		gulp.src 'stylus/main.styl'
 			.pipe plumber()
-			.pipe changed dest
 			.pipe sourcemaps.init()
 			.pipe stylus
 				use: [ nib() ]
@@ -37,7 +36,7 @@ snippet gulp-coffee
 		dest = 'public/assets/js'
 		gulp.src 'coffee/**/*.coffee'
 			.pipe plumber()
-			.pipe changed dest
+			# .pipe changed dest
 			.pipe sourcemaps.init()
 			.pipe coffee
 				bare: true
@@ -57,7 +56,6 @@ snippet gulp-less
 		dest = 'public/assets/css'
 		gulp.src 'less/main.less'
 			.pipe plumber()
-			.pipe changed dest
 			.pipe sourcemaps.init()
 			.pipe less
 				compress: true

@@ -37,11 +37,9 @@ NeoBundle 'nacitar/a.vim'
 NeoBundle 'wellle/targets.vim'
 NeoBundle 'kshenoy/vim-signature'
 let g:SignatureErrorIfNoAvailableMarks = 0
-NeoBundle 'mkitt/tabline.vim'
 NeoBundle 'tpope/vim-repeat'
 " NeoBundle 'benatkin/vim-move-between-tabs' " map tN tP
 " NeoBundle 'jrhorn424/vim-multiple-cursors'
-" NeoBundle 'plasticboy/vim-markdown'
 " NeoBundle 'zhaocai/GoldenView.Vim'
 " let g:goldenview__enable_default_mapping = 0
 NeoBundle 'editorconfig/editorconfig-vim'
@@ -406,6 +404,8 @@ NeoBundleLazy 'justinmk/vim-syntax-extra', {
       \ 'autoload' : { 'filetypes' : ['c', 'cpp', 'lex', 'yacc'] }}
 NeoBundleLazy 'jnwhiteh/vim-golang', {
       \ 'autoload' : { 'filetypes' : ['go'] }}
+NeoBundleLazy 'plasticboy/vim-markdown', {
+      \ 'autoload' : { 'filetypes' : ['markdown'] }}
 NeoBundle 'maksimr/vim-jsbeautify'
 NeoBundle 'briancollins/vim-jst'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -713,12 +713,25 @@ NeoBundleLazy 'chenkaie/DirDiff.vim', {
 "       \   'commands': ['ChooseWin', '<Plug>(choosewin)']
 "       \ }}
 " nmap - <Plug>(choosewin)
+NeoBundle 'mattn/webapi-vim'
 NeoBundleLazy 'matze/vim-move', {
       \ 'autoload': {
       \   'mappings': ['<M-k>', '<M-j>']
       \ }}
 let g:move_key_modifier = 'M'
 let g:move_auto_indent = 0
+NeoBundleLazy 'mattn/gist-vim', {
+      \ 'autoload': { 'commands': ['Gist'] }}
+let g:gist_token_file = '~/.github-token'
+
+NeoBundleLazy 'jaxbot/github-issues.vim', {
+      \ 'autoload': {
+      \   'commands': ['Gissues', 'Giadd', 'Giedit', 'Giupdate', 'Gmiles']
+      \ }}
+let github_token_file = expand('~/.github-token')
+if filereadable(github_token_file)
+  let g:github_access_token = strpart(join(readfile(github_token_file), ""), 6)
+endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 

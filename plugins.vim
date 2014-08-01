@@ -6,13 +6,13 @@ if has('vim_starting')
   let &runtimepath = &runtimepath.','.$MYBUNDLEDIR.'/neobundle.vim'
 endif
 
-call neobundle#rc(expand($MYBUNDLEDIR))
-call neobundle#local(expand($MYBUNDLEDIR.'-common'), {})
+call neobundle#rc($MYBUNDLEDIR)
+call neobundle#local($MYBUNDLEDIR.'-common', {})
 
 " if g:env#unix
-  " call neobundle#local(expand($MYBUNDLEDIR.'-unix'), {})
+  " call neobundle#local($MYBUNDLEDIR.'-unix', {})
 " elseif g:env#win
-  " call neobundle#local(expand($MYBUNDLEDIR.'-win32'), {})
+  " call neobundle#local($MYBUNDLEDIR.'-win32', {})
 " endif
 
 
@@ -40,7 +40,6 @@ let g:SignatureErrorIfNoAvailableMarks = 0
 NeoBundle 'tpope/vim-repeat'
 " NeoBundle 'benatkin/vim-move-between-tabs' " map tN tP
 " NeoBundle 'jrhorn424/vim-multiple-cursors'
-" NeoBundle 'plasticboy/vim-markdown'
 " NeoBundle 'zhaocai/GoldenView.Vim'
 " let g:goldenview__enable_default_mapping = 0
 NeoBundle 'editorconfig/editorconfig-vim'
@@ -70,7 +69,7 @@ NeoBundle 'junegunn/vader.vim'
 """"""""""""""""""""""""""""""
 " startify
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-NeoBundle 'weirongxu/vim-startify'
+NeoBundle 'mhinz/vim-startify'
 let g:startify_custom_header = [
       \ '  Raidou''s vim',
       \ '',
@@ -225,26 +224,14 @@ let g:tcomment_types = {
 " lightline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'itchyny/lightline.vim'
-if g:env#unix && g:env#x
-  let g:lightline = {
-        \   'colorscheme': 'jellybeans',
-        \   'component': {
-        \     'readonly': '%{&filetype=="help"?"":&readonly?"?":""}',
-        \     'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
-        \     'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
-        \   },
-        \   'separator': { 'left': '?', 'right': '?' },
-        \   'subseparator': { 'left': '?', 'right': '?' }
-        \ }
-else
-  let g:lightline = {
-        \   'colorscheme': 'jellybeans',
-        \   'component': {
-        \     'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
-        \     'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
-        \   }
-        \ }
-endif
+let g:lightline = {
+      \   'colorscheme': 'jellybeans',
+      \   'component': {
+      \     'readonly': '%{&filetype=="help"?"":&readonly?"RO":""}',
+      \     'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
+      \     'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
+      \   }
+      \ }
 " 显示换行和制表符
 set list listchars=tab:\|\ ,trail:.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -417,7 +404,10 @@ NeoBundleLazy 'justinmk/vim-syntax-extra', {
       \ 'autoload' : { 'filetypes' : ['c', 'cpp', 'lex', 'yacc'] }}
 NeoBundleLazy 'jnwhiteh/vim-golang', {
       \ 'autoload' : { 'filetypes' : ['go'] }}
+NeoBundleLazy 'plasticboy/vim-markdown', {
+      \ 'autoload' : { 'filetypes' : ['markdown'] }}
 NeoBundle 'maksimr/vim-jsbeautify'
+NeoBundle 'briancollins/vim-jst'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -723,6 +713,7 @@ NeoBundleLazy 'chenkaie/DirDiff.vim', {
 "       \   'commands': ['ChooseWin', '<Plug>(choosewin)']
 "       \ }}
 " nmap - <Plug>(choosewin)
+NeoBundle 'mattn/webapi-vim'
 NeoBundleLazy 'matze/vim-move', {
       \ 'autoload': {
       \   'mappings': ['<M-k>', '<M-j>']
@@ -733,6 +724,18 @@ NeoBundleLazy 'AndrewRadev/splitjoin.vim', {
       \ 'autoload': {
       \   'mappings': ['gS', 'gJ']
       \ }}
+NeoBundleLazy 'mattn/gist-vim', {
+      \ 'autoload': { 'commands': ['Gist'] }}
+let g:gist_token_file = '~/.github-token'
+
+NeoBundleLazy 'jaxbot/github-issues.vim', {
+      \ 'autoload': {
+      \   'commands': ['Gissues', 'Giadd', 'Giedit', 'Giupdate', 'Gmiles']
+      \ }}
+let github_token_file = expand('~/.github-token')
+if filereadable(github_token_file)
+  let g:github_access_token = strpart(join(readfile(github_token_file), ""), 6)
+endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -914,13 +917,13 @@ map gC :Calendar<CR>
 """"""""""""""""""""""""""""""
 " VimShell
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" NeoBundleLazy 'Shougo/vimshell.vim', {
-"       \ 'autoload' : {
-"       \   'commands' : ['VimShell', 'VimShellCreate', 'VimShellTab', 'VimShellPop',
-"       \                 'VimShellCurrentDir', 'VimShellBufferDir', 'VimShellExecute',
-"       \                 'VimShellInteractive', 'VimShellTerminal', 'VimShellSendString',
-"       \                 'VimShellSendBuffer']
-"       \ }}
+NeoBundleLazy 'Shougo/vimshell.vim', {
+      \ 'autoload' : {
+      \   'commands' : ['VimShell', 'VimShellCreate', 'VimShellTab', 'VimShellPop',
+      \                 'VimShellCurrentDir', 'VimShellBufferDir', 'VimShellExecute',
+      \                 'VimShellInteractive', 'VimShellTerminal', 'VimShellSendString',
+      \                 'VimShellSendBuffer']
+      \ }}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -966,6 +969,7 @@ NeoBundleLazy 'Lokaltog/vim-easymotion', {
       \                 'ss']
       \}}
 let g:EasyMotion_leader_key = 's'
+NeoBundle 'saihoooooooo/glowshi-ft.vim'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""
@@ -1016,13 +1020,31 @@ let g:vimim_cloud=-1
 imap <c-c> <c-_>
 " imap <c-c> <c-r>=<sid>open_vimwiki()<cr>
 " function! s:open_vimwiki()
-  " if exists("b:openVimim") && b:openVimim
-    " let b:openVimim = 0
-    " nunmap <buffer> i
-  " else
-    " let b:openVimim = 1
-    " nmap <buffer> i i<cr>
-  " endif
-  " call feedkeys("\<c-_>")
-  " return ''
+"   if exists("b:openVimim") && b:openVimim
+"     let b:openVimim = 0
+"     nunmap <buffer> i
+"   else
+"     let b:openVimim = 1
+"     nmap <buffer> i i<cr>
+"   endif
+"   call feedkeys("\<c-_>")
+"   return ''
 " endfunction
+
+" let $XIKI_DIR = '/home/raidou/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/xiki-0.6.5'
+" function! XikiLaunch()
+"   ruby << EOF
+"     xiki_dir = ENV['XIKI_DIR']
+"     ['ol', 'vim/line', 'vim/tree'].each {|o| require "#{xiki_dir}/lib/xiki/#{o}"}
+"     line = Line.value
+"     indent = line[/^ +/]
+"     command = "xiki #{line}"
+"     result = `#{command}`
+"     Tree << result
+" EOF
+" endfunction
+"
+" nmap <silent> <2-LeftMouse> :call XikiLaunch()<CR>
+" imap <silent> <2-LeftMouse> <C-c>:call XikiLaunch()<CR>i
+" imap <silent> <C-CR> <C-c>:call XikiLaunch()<CR>i
+" nmap <silent> <C-CR> :call XikiLaunch()<CR>

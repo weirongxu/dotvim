@@ -2,13 +2,13 @@
 " 载入设置
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 显示配制
-execute "source ".$MYVIMFILES."/display.vim"
+execute "source ".$MYVIMFILES."/options.vim"
 
 " 键盘映射
-execute "source ".$MYVIMFILES."/mapkey.vim"
+execute "source ".$MYVIMFILES."/mapkeys.vim"
 
 " 脚本设置
-let $MYPlugin = $MYVIMFILES."/plugin.vim"
+let $MYPlugin = $MYVIMFILES."/plugins.vim"
 execute "source ".$MYPlugin
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 语法高亮

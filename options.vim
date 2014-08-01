@@ -47,8 +47,9 @@ if g:env#x
   set t_Co=256
 endif
 if g:env#unix
-  set guifont=Menlo\ 10,*
-  " set guifont=Monofur\ For\ Powerline\ 10,*
+  " set guifont=Menlo\ 10,*
+  set guifont=Consolas\ 11
+  " ,Monofur\ For\ Powerline\ 10,*
   " set guifont=Source\ Code\ Pro\ 10,*
   " set guifont=SimSun\ for\ Powerline\ 10
   " set guifont=Courier\ New\ for\ Powerline\ 10
@@ -124,5 +125,4 @@ let &directory = g:env#tmp
 set backup writebackup swapfile
 
 " highlight 80 columns
-" au BufRead,BufNewFile *.s,*.asm,*.h,*.c,*.cpp,*.cc,*.java,*.cs,*.erl,*.hs,*.sh,*.lua,*.pl,*.pm,*.php,*.py,*.rb,*.erb,*.vim,*.js,*.css,*.xml,*.html,*.xhtml 2match Underlined /.\%81v/
 au BufRead,BufNewFile *.s,*.asm,*.h,*.c,*.cpp,*.cc,*.java,*.cs,*.erl,*.hs,*.sh,*.lua,*.pl,*.pm,*.php,*.py,*.rb,*.erb,*.vim,*.js,*.css,*.xml,*.html,*.xhtml setlocal colorcolumn=81

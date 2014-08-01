@@ -57,7 +57,7 @@ command! -range=% FixWhitespace call <SID>FixWhitespace(<line1>,<line2>)
 
 " TODO 将这些功能弄成一个menu那应该会好很多.
 " 比如用unite, 不过兼容性会下降吧.
-" such as unite and textshift.vim 
+" such as unite and textshift.vim
 
 " 删除所有行首空格
 nnoremap <F9> :%s/^[ ]\+//g<CR>

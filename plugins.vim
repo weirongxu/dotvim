@@ -159,6 +159,8 @@ command! MRU :Unite mru
 NeoBundleLazy 'ujihisa/unite-colorscheme'
 NeoBundleLazy 'Shougo/unite-outline'
 NeoBundle 'Shougo/junkfile.vim'
+NeoBundle 'teranex/sessionman.vim'
+let g:sessions_path = $HOME.'/.cache/vim-sessions'
 NeoBundleLazy 'Shougo/unite-session', {
       \ 'autoload' : {
       \   'commands' : ['UniteSessionSave', 'UniteSessionLoad']

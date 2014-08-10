@@ -35,6 +35,8 @@ NeoBundle 'peterjmorgan/mark-2.8.0'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'nacitar/a.vim'
 NeoBundle 'wellle/targets.vim'
+NeoBundle 'teranex/sessionman.vim'
+let g:sessions_path = $HOME.'/.cache/vim-sessions'
 NeoBundle 'kshenoy/vim-signature'
 let g:SignatureErrorIfNoAvailableMarks = 0
 NeoBundle 'tpope/vim-repeat'
@@ -159,13 +161,6 @@ command! MRU :Unite mru
 NeoBundleLazy 'ujihisa/unite-colorscheme'
 NeoBundleLazy 'Shougo/unite-outline'
 NeoBundle 'Shougo/junkfile.vim'
-NeoBundle 'teranex/sessionman.vim'
-let g:sessions_path = $HOME.'/.cache/vim-sessions'
-NeoBundleLazy 'Shougo/unite-session', {
-      \ 'autoload' : {
-      \   'commands' : ['UniteSessionSave', 'UniteSessionLoad']
-      \ }}
-" let g:unite_source_session_enable_auto_save = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'Shougo/vimproc', {
       \ 'build' : {

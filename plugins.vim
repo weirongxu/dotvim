@@ -732,6 +732,10 @@ NeoBundleLazy 'matze/vim-move', {
       \ }}
 let g:move_key_modifier = 'M'
 let g:move_auto_indent = 0
+NeoBundleLazy 'AndrewRadev/splitjoin.vim', {
+      \ 'autoload': {
+      \   'mappings': ['gS', 'gJ']
+      \ }}
 NeoBundleLazy 'mattn/gist-vim', {
       \ 'autoload': { 'commands': ['Gist'] }}
 let g:gist_token_file = '~/.github-token'

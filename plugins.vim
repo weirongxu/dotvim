@@ -42,7 +42,9 @@ NeoBundle 'tpope/vim-repeat'
 " NeoBundle 'jrhorn424/vim-multiple-cursors'
 " NeoBundle 'zhaocai/GoldenView.Vim'
 " let g:goldenview__enable_default_mapping = 0
-NeoBundle 'editorconfig/editorconfig-vim'
+if g:env#python
+  NeoBundle 'editorconfig/editorconfig-vim'
+endif
 execute "source ".$MYVIMFILES."/editorconfig-vim.vim"
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -156,6 +158,7 @@ command! MRU :Unite mru
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundleLazy 'ujihisa/unite-colorscheme'
 NeoBundleLazy 'Shougo/unite-outline'
+NeoBundle 'Shougo/junkfile.vim'
 NeoBundleLazy 'Shougo/unite-session', {
       \ 'autoload' : {
       \   'commands' : ['UniteSessionSave', 'UniteSessionLoad']
@@ -238,7 +241,7 @@ set list listchars=tab:\|\ ,trail:.
 
 
 """"""""""""""""""""""""""""""
-" indentLine
+" indentLine, Indent-Guides
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'Yggdroot/indentLine'
 let g:indentLine_noConcealCursor = 1
@@ -247,6 +250,15 @@ let g:indentLine_faster = 1 " XXX Exists bug with jade and stylus syntax and vim
 if !g:env#x
   let g:indentLine_color_term = 8
 endif
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" NeoBundleLazy 'nathanaelkane/vim-indent-guides', {
+"       \ 'autoload' : {
+"       \   'commands' : ['IndentGuidesToggle', 'IndentGuidesEnable', 'IndentGuidesDisable'],
+"       \   'mappings' : ['<Plug>IndentGuidesToggle', '<Plug>IndentGuidesEnable', '<Plug>IndentGuidesDisable']
+"       \ },
+"       \ 'gui': 1 }
+" let g:indent_guides_guide_size = 1
+" nmap <silent> gL <Plug>IndentGuidesToggle
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -687,7 +699,7 @@ NeoBundleLazy 'thinca/vim-ref', {
 "       \ 'autoload' : {
 "       \   'commands' : ['Make', 'Copen', 'Dispatch', 'FocusDispatch', 'Start']
 "       \ }}
-NeoBundleLazy 'justinmk/vim-gtfo', {
+NeoBundleLazy 'weirongxu/vim-gtfo', {
       \ 'autoload' : {
       \   'mappings' : ['got', 'goT', 'gof', 'goF']
       \ }}
@@ -920,21 +932,6 @@ NeoBundleLazy 'Shougo/vimshell.vim', {
       \                 'VimShellInteractive', 'VimShellTerminal', 'VimShellSendString',
       \                 'VimShellSendBuffer']
       \ }}
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
-""""""""""""""""""""""""""""""
-" Indent-Guides
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" NeoBundleLazy 'nathanaelkane/vim-indent-guides', {
-"       \ 'autoload' : {
-"       \   'commands' : ['IndentGuidesToggle', 'IndentGuidesEnable', 'IndentGuidesDisable'],
-"       \   'mappings' : ['<Plug>IndentGuidesToggle', '<Plug>IndentGuidesEnable', '<Plug>IndentGuidesDisable']
-"       \ },
-"       \ 'gui': 1 }
-" " 设置对齐线
-" let g:indent_guides_guide_size = 1
-" nmap <silent> gL <Plug>IndentGuidesToggle
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 

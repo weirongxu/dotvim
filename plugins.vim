@@ -87,8 +87,6 @@ let g:startify_list_order = [
       \ 'bookmarks',
       \ ['   Last Recently Use:'],
       \ 'files',
-      \ ['   Sessions:'],
-      \ 'sessions',
       \ ]
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 

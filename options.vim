@@ -101,8 +101,33 @@ set shiftround
 set tabstop=4 " Tab len
 set softtabstop=4
 set shiftwidth=4 " << >>
-autocmd FileType css,less,vim,python,javascript,coffee,stylus setl tabstop=2 softtabstop=2 shiftwidth=2
-
+let g:auto_tablen = 2
+let g:auto_tab_opened = 1
+function! s:autoTabLenOpen(open) "{{{
+  if a:open
+    augroup tablen
+      au!
+      execute 'autocmd FileType css,less,vim,python,javascript,coffee,stylus setl tabstop='.g:auto_tablen.' softtabstop='.g:auto_tablen.' shiftwidth='.g:auto_tablen
+    augroup END
+    let g:auto_tab_opened = 1
+  else
+    augroup tablen
+      au!
+    augroup END
+    let g:auto_tab_opened = 0
+  endif
+endfunction "}}}
+call s:autoTabLenOpen(1)
+command! AutoTabLenOpen call <sid>autoTabLenOpen(1)
+command! AutoTabLenClose call <sid>autoTabLenOpen(0)
+function! s:AutoTabLen(n)
+  let g:auto_tablen = a:n
+  if g:auto_tab_opened
+    call s:autoTabLenOpen(0)
+    call s:autoTabLenOpen(1)
+  endif
+endfunction
+command! -nargs=1 AutoTabLen call <sid>AutoTabLen(<f-args>)
 " autoindent
 set smartindent autoindent smarttab cindent
 

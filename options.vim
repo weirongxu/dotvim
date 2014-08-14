@@ -107,7 +107,7 @@ function! s:autoTabLenOpen(open) "{{{
   if a:open
     augroup tablen
       au!
-      execute 'autocmd FileType css,less,vim,python,javascript,coffee,stylus setl tabstop='.g:auto_tablen.' softtabstop='.g:auto_tablen.' shiftwidth='.g:auto_tablen
+      execute 'autocmd FileType css,less,vim,python,javascript,coffee,stylus,sass,scss setl tabstop='.g:auto_tablen.' softtabstop='.g:auto_tablen.' shiftwidth='.g:auto_tablen
     augroup END
     let g:auto_tab_opened = 1
   else

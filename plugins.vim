@@ -36,7 +36,7 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'nacitar/a.vim'
 NeoBundle 'wellle/targets.vim'
 NeoBundle 'teranex/sessionman.vim'
-let g:sessions_path = $HOME.'/.cache/vim-sessions'
+let g:sessions_path = $HOME.'/.record/vim-sessions'
 NeoBundle 'kshenoy/vim-signature'
 let g:SignatureErrorIfNoAvailableMarks = 0
 NeoBundle 'tpope/vim-repeat'
@@ -733,13 +733,13 @@ NeoBundleLazy 'AndrewRadev/splitjoin.vim', {
       \ }}
 NeoBundleLazy 'mattn/gist-vim', {
       \ 'autoload': { 'commands': ['Gist'] }}
-let g:gist_token_file = '~/.github-token'
+let g:gist_token_file = expand('~/.record/github-token')
 
 NeoBundleLazy 'jaxbot/github-issues.vim', {
       \ 'autoload': {
       \   'commands': ['Gissues', 'Giadd', 'Giedit', 'Giupdate', 'Gmiles']
       \ }}
-let github_token_file = expand('~/.github-token')
+let github_token_file = g:gist_token_file
 if filereadable(github_token_file)
   let g:github_access_token = strpart(join(readfile(github_token_file), ""), 6)
 endif

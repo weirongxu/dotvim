@@ -869,6 +869,7 @@ endfunction
 let g:vimfiler_as_default_explorer = 1
 let g:vimfiler_safe_mode_by_default = 0
 let g:vimfiler_expand_jump_to_first_child = 0
+let g:vimfiler_ignore_pattern = '\%(^\.\|^.DS_Store%\|.*\.pyc\)'
 let g:vimfiler_buf = 'VimFilerBufferDir -explorer -auto-cd -split'
 let g:vimfiler_cmd = 'VimFiler -explorer -auto-cd -split'
 execute 'map <silent> gn :' . vimfiler_buf .'<CR>'

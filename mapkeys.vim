@@ -251,4 +251,10 @@ fun! s:AppendMark(mark)
   endif
 endf
 
-" command! EchoPath :echo expand("%:p")
+
+
+"""""""""""""""""""""""""""""""""""""
+" 其它设置
+"""""""""""""""""""""""""""""""""""""
+" command! EchoPath echo expand("%:p")
+command! CdHere exec 'cd ' expand("%:p:h")

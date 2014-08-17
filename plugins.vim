@@ -47,7 +47,7 @@ NeoBundle 'tpope/vim-repeat'
 if g:env#python
   NeoBundle 'editorconfig/editorconfig-vim'
 endif
-execute "source ".$MYVIMFILES."/editorconfig-vim.vim"
+Include editorconfig-vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -99,11 +99,13 @@ NeoBundleLazy 'gregsexton/gitv', {
       \ 'autoload' : {
       \   'commands' : ['Gitv']
       \ }}
-NeoBundleLazy 'airblade/vim-gitgutter'
-let g:gitgutter_enabled = 0
-let g:gitgutter_realtime = 0
-let g:gitgutter_eager = 0
-NeoBundleLazy 'mhinz/vim-signify'
+if g:env#unix
+  NeoBundle 'airblade/vim-gitgutter'
+  let g:gitgutter_enabled = 1
+  let g:gitgutter_realtime = 0
+  let g:gitgutter_eager = 0
+endif
+" NeoBundle 'mhinz/vim-signify'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -273,12 +275,13 @@ let g:colorv_preview_ftype = 'css,html,php,jsp,aspvbs,mason,javascript,htm,less,
 if has('lua')
   NeoBundle 'Shougo/neocomplete.vim'
   NeoBundleLazy 'Shougo/neocomplcache.vim'
-  execute "source ".$MYVIMFILES."/neocomplete.vim"
+  Include neocomplete
 else
   NeoBundle 'Shougo/neocomplcache.vim'
   NeoBundleLazy 'Shougo/neocomplete.vim'
-  execute "source ".$MYVIMFILES."/neocomplcache.vim"
+  Include neocomplcache
 endif
+NeoBundle 'hrsh7th/vim-neco-calc'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -814,7 +817,7 @@ NeoBundleLazy 'majutsushi/tagbar', {
       \                 'TagbarDebug', 'TagbarDebugEnd']
       \ }}
 map gl :TagbarToggle<CR>
-execute "source ".$MYVIMFILES."/tagbar.vim"
+Include tagbar
 let g:tagbar_show_linenumbers = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -872,9 +875,9 @@ let g:vimfiler_expand_jump_to_first_child = 0
 let g:vimfiler_ignore_pattern = '\%(^\.\|^.DS_Store%\|.*\.pyc\)'
 let g:vimfiler_buf = 'VimFilerBufferDir -explorer -auto-cd -split'
 let g:vimfiler_cmd = 'VimFiler -explorer -auto-cd -split'
-execute 'map <silent> gn :' . vimfiler_buf .'<CR>'
+execute 'map <silent> gn :' . g:vimfiler_buf .'<CR>'
 map gc :edit $MYVIMRC<CR>
-execute 'map <silent> gp :' . vimfiler_cmd . ' ' . $MYVIMFILES . '<CR>'
+execute 'map <silent> gp :' . g:vimfiler_cmd . ' ' . $MYVIMFILES . '<CR>'
 " scrooloose版本在win下切换磁盘会有问题
 " NeoBundleLazy 'mixvin/nerdtree', {
 " NeoBundleLazy 'scrooloose/nerdtree', {
@@ -904,7 +907,7 @@ NeoBundleLazy 'vimwiki/vimwiki', {
       \                 '<Plug>VimwikiMakeDiaryNote', '<Leader>w<Leader>t', '<Plug>VimwikiTabMakeDiaryNote',
       \                 '<LocalLeader>cal', '<LocalLeader>caL']
       \ }}
-execute "source ".$MYVIMFILES."/vimwiki.vim"
+Include vimwiki
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -962,6 +965,7 @@ NeoBundleLazy 'Lokaltog/vim-easymotion', {
       \                 'ss']
       \}}
 let g:EasyMotion_leader_key = 's'
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'saihoooooooo/glowshi-ft.vim'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -1010,34 +1014,6 @@ let javascript_enable_domhtmlcss = 1
 " 设置vimIM
 let g:vimim_plugin = 'wubi,pinyin'
 let g:vimim_cloud=-1
-imap <c-c> <c-_>
-" imap <c-c> <c-r>=<sid>open_vimwiki()<cr>
-" function! s:open_vimwiki()
-"   if exists("b:openVimim") && b:openVimim
-"     let b:openVimim = 0
-"     nunmap <buffer> i
-"   else
-"     let b:openVimim = 1
-"     nmap <buffer> i i<cr>
-"   endif
-"   call feedkeys("\<c-_>")
-"   return ''
-" endfunction
+" imap <c-c> <c-_>
 
-" let $XIKI_DIR = '/home/raidou/.rvm/rubies/ruby-2.1.2/lib/ruby/gems/2.1.0/gems/xiki-0.6.5'
-" function! XikiLaunch()
-"   ruby << EOF
-"     xiki_dir = ENV['XIKI_DIR']
-"     ['ol', 'vim/line', 'vim/tree'].each {|o| require "#{xiki_dir}/lib/xiki/#{o}"}
-"     line = Line.value
-"     indent = line[/^ +/]
-"     command = "xiki #{line}"
-"     result = `#{command}`
-"     Tree << result
-" EOF
-" endfunction
-"
-" nmap <silent> <2-LeftMouse> :call XikiLaunch()<CR>
-" imap <silent> <2-LeftMouse> <C-c>:call XikiLaunch()<CR>i
-" imap <silent> <C-CR> <C-c>:call XikiLaunch()<CR>i
-" nmap <silent> <C-CR> :call XikiLaunch()<CR>
+Include transformer

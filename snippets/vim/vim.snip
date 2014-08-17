@@ -129,6 +129,7 @@ options head
 
 	let &cpo = s:save_cpo
 	unlet s:save_cpo
+	" vim: foldmethod=marker
 
 snippet g:loaded
 abbr if exists('g:loaded_{plugin-name}')
@@ -186,13 +187,3 @@ abbr lua <<EOF | EOF
 snippet re
 alias ret
 	return
-
-snippet head-wrap
-	let s:save_cpo = &cpo
-	set cpo&vim
-
-	${0}
-
-	let &cpo = s:save_cpo
-
-	" vim: foldmethod=marker

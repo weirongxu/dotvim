@@ -697,7 +697,7 @@ NeoBundleLazy 'thinca/vim-ref', {
 "       \ 'autoload' : {
 "       \   'commands' : ['Make', 'Copen', 'Dispatch', 'FocusDispatch', 'Start']
 "       \ }}
-NeoBundleLazy 'weirongxu/vim-gtfo', {
+NeoBundleLazy 'justinmk/vim-gtfo', {
       \ 'autoload' : {
       \   'mappings' : ['got', 'goT', 'gof', 'goF']
       \ }}

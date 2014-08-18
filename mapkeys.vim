@@ -6,7 +6,7 @@ let mapleader = ","
 let maplocalleader = ','
 
 " 快速保存
-nmap <CR> :up<CR>
+nmap <silent> <CR> :up<CR>
 
 " 只留下一个窗口
 nmap <leader>o :only<CR>

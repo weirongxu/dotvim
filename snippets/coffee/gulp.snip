@@ -35,7 +35,9 @@ snippet gulp-coffee
 	gulp.task 'coffee', ->
 		dest = 'public/assets/js'
 		gulp.src 'coffee/**/*.coffee'
-			.pipe plumber()
+			.pipe plumber (error) ->
+				console.log error.stack
+				this.emit 'end'
 			# .pipe changed dest
 			.pipe sourcemaps.init()
 			.pipe coffee

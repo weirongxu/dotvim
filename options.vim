@@ -79,6 +79,7 @@ set guitablabel=%t\ %M number showmatch scrolloff=5 ruler
 set wildmenu " command complete menu inline
 " set cmdheight=2
 set laststatus=2
+set shortmess=aoOtT
 
 " break multi-line
 " if g:env#gui

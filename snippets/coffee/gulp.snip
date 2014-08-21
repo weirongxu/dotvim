@@ -37,7 +37,6 @@ snippet gulp-coffee
 		gulp.src 'coffee/**/*.coffee'
 			.pipe plumber (error) ->
 				console.log error.stack
-				this.emit 'end'
 			# .pipe changed dest
 			.pipe sourcemaps.init()
 			.pipe coffee
@@ -57,7 +56,9 @@ snippet gulp-less
 	gulp.task 'less', ->
 		dest = 'public/assets/css'
 		gulp.src 'less/main.less'
-			.pipe plumber()
+			.pipe plumber (error) ->
+				console.log error.message
+				console.log error.stack
 			.pipe sourcemaps.init()
 			.pipe less
 				compress: true

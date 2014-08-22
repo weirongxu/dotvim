@@ -36,6 +36,7 @@ snippet gulp-coffee
 		dest = 'public/assets/js'
 		gulp.src 'coffee/**/*.coffee'
 			.pipe plumber (error) ->
+				console.dir error.message
 				console.log error.stack
 			# .pipe changed dest
 			.pipe sourcemaps.init()

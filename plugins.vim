@@ -36,6 +36,7 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'nacitar/a.vim'
 NeoBundle 'wellle/targets.vim'
 NeoBundle 'teranex/sessionman.vim'
+set sessionoptions=curdir,folds,help,resize,tabpages,unix,winpos,winsize
 let g:sessions_path = $HOME.'/.record/vim-sessions'
 NeoBundle 'kshenoy/vim-signature'
 let g:SignatureErrorIfNoAvailableMarks = 0

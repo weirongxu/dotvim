@@ -52,6 +52,29 @@ Include editorconfig-vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+NeoBundle 'rbtnn/rabbit-ui.vim'
+" NeoBundle 'rbtnn/hexript.vim'
+NeoBundle 'kana/vim-textobj-user'
+call textobj#user#plugin('php', {
+\   'code': {
+\     'pattern': ['<?php\>', '?>'],
+\     'select-a': 'aP',
+\     'select-i': 'iP',
+\   },
+\ })
+call textobj#user#plugin('script', {
+\   'code': {
+\     'pattern': ['<?', '?>'],
+\     'select-a': 'a?',
+\     'select-i': 'i?',
+\   },
+\ })
+" NeoBundle 'kana/vim-operator-user'
+" NeoBundle 'rhysd/vim-operator-surround'
+" map <silent>sa <Plug>(operator-surround-append)
+" map <silent>sd <Plug>(operator-surround-delete)
+" map <silent>sr <Plug>(operator-surround-replace)
+" NeoBundle 'rhysd/vim-textobj-anyblock'
 
 """"""""""""""""""""""""""""""
 " Temp
@@ -330,7 +353,9 @@ let g:AutoPairs = {
       \ '[': ']',
       \ "'": "'",
       \ '"': '"',
-      \ '`': '`'}
+      \ '`': '`',
+      \ '{': '}'}
+" NeoBundle 'kana/vim-smartinput'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -399,8 +424,8 @@ NeoBundleLazy 'jrestrepo/matlab', {
       \ 'autoload' : { 'filetypes' : 'matlab' }}
 NeoBundleLazy 'vim-scripts/autohotkey-ahk', {
       \ 'autoload' : { 'filetypes' : 'autohotkey' }}
-NeoBundleLazy 'tpope/vim-speeddating', {
-      \ 'autoload' : { 'filetypes' : ['org', 'vimwiki'] }}
+" NeoBundleLazy 'tpope/vim-speeddating', {
+"       \ 'autoload' : { 'filetypes' : ['org', 'vimwiki'] }}
 NeoBundleLazy 'hdima/python-syntax', {
       \ 'autoload' : { 'filetypes' : 'python' }}
 NeoBundleLazy 'elzr/vim-json', {
@@ -957,15 +982,18 @@ NeoBundleLazy 'Shougo/vimshell.vim', {
 " let g:sneak#t_reset = 1
 " map <space> <Plug>SneakNext
 " map <s-space> <Plug>SneakPrevious
-NeoBundleLazy 'Lokaltog/vim-easymotion', {
-      \ 'autoload' : {
-      \   'mappings' : ['sf', 'sF', 'st', 'sT',
-      \                 'sw', 'sW', 'sb', 'sB',
-      \                 'se', 'sE', 'sge', 'sgE',
-      \                 'sj', 'sk', 'sn', 'sN',
-      \                 'ss']
-      \}}
+NeoBundle 'Lokaltog/vim-easymotion'
 let g:EasyMotion_leader_key = 's'
+let g:EasyMotion_use_upper = 1
+let g:EasyMotion_smartcase = 1
+let g:EasyMotion_use_smartsign_us = 1
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+map  n <Plug>(easymotion-next)
+map  N <Plug>(easymotion-prev)
+" nmap sS <Plug>(easymotion-s2)
+" nmap t <Plug>(easymotion-t2)
+nmap sl <Plug>(easymotion-sl)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'saihoooooooo/glowshi-ft.vim'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -998,6 +1026,12 @@ NeoBundle 'saihoooooooo/glowshi-ft.vim'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NeoBundle 'Valloric/YouCompleteMe' " wait
 " NeoBundle 'FredKSchott/CoVim' " 协作编辑wait
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Game
+" NeoBundle 'rbtnn/puyo.vim'
+" NeoBundle 'rbtnn/mario.vim'
+" NeoBundle 'rbtnn/vimconsole.vim'
+" NeoBundle 'rbtnn/game_engine.vim'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 

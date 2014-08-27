@@ -982,20 +982,26 @@ NeoBundleLazy 'Shougo/vimshell.vim', {
 " let g:sneak#t_reset = 1
 " map <space> <Plug>SneakNext
 " map <s-space> <Plug>SneakPrevious
-NeoBundle 'Lokaltog/vim-easymotion'
+NeoBundleLazy 'Lokaltog/vim-easymotion', {
+       \ 'autoload' : {
+       \   'mappings' : ['<Plug>(easymotion-', 's']
+       \}}
 let g:EasyMotion_leader_key = 's'
 let g:EasyMotion_use_upper = 1
 let g:EasyMotion_smartcase = 1
 let g:EasyMotion_use_smartsign_us = 1
-map  / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
-map  n <Plug>(easymotion-next)
-map  N <Plug>(easymotion-prev)
 " nmap sS <Plug>(easymotion-s2)
 " nmap t <Plug>(easymotion-t2)
 nmap sl <Plug>(easymotion-sl)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'saihoooooooo/glowshi-ft.vim'
+NeoBundleLazy 'haya14busa/incsearch.vim', {
+      \ 'autoload' : {
+      \   'mappings' : ['<Plug>(incsearch-']
+      \ }}
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""
@@ -1049,6 +1055,7 @@ let javascript_enable_domhtmlcss = 1
 " 设置vimIM
 let g:vimim_plugin = 'wubi,pinyin'
 let g:vimim_cloud=-1
+let g:vimim_map='no-search'
 " imap <c-c> <c-_>
 
 Include transformer

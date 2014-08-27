@@ -102,28 +102,28 @@ set shiftround
 set tabstop=4 " Tab len
 set softtabstop=4
 set shiftwidth=4 " << >>
-let g:auto_tablen = 2
-let g:auto_tab_opened = 0
+let s:auto_tablen = 2
+let s:auto_tab_opened = 0
 function! s:autoTabLenOpen(open) "{{{
   if a:open
     augroup tablen
       au!
-      execute 'autocmd FileType css,less,vim,python,javascript,coffee,stylus,sass,scss setl tabstop='.g:auto_tablen.' softtabstop='.g:auto_tablen.' shiftwidth='.g:auto_tablen
+      execute 'autocmd FileType css,less,vim,python,javascript,coffee,stylus,sass,scss setl tabstop='.s:auto_tablen.' softtabstop='.s:auto_tablen.' shiftwidth='.s:auto_tablen
     augroup END
-    let g:auto_tab_opened = 1
+    let s:auto_tab_opened = 1
   else
     augroup tablen
       au!
     augroup END
-    let g:auto_tab_opened = 0
+    let s:auto_tab_opened = 0
   endif
 endfunction "}}}
-call s:autoTabLenOpen(1)
+" call s:autoTabLenOpen(1)
 command! AutoTabLenOpen call <sid>autoTabLenOpen(1)
 command! AutoTabLenClose call <sid>autoTabLenOpen(0)
 function! s:autoTabLen(n)
-  let g:auto_tablen = a:n
-  if g:auto_tab_opened
+  let s:auto_tablen = a:n
+  if s:auto_tab_opened
     call s:autoTabLenOpen(0)
     call s:autoTabLenOpen(1)
   endif

@@ -49,33 +49,35 @@ if g:env#python
   NeoBundle 'editorconfig/editorconfig-vim'
 endif
 Include editorconfig-vim
+NeoBundle 'Shougo/context_filetype.vim'
+let g:context_filetype#filetypes = {
+      \ 'jade': [
+      \   {
+      \    'start' : '^script\.$',
+      \    'end' : '^\S', 'filetype' : 'javascript',
+      \   },
+      \   {
+      \    'start' : '^:coffee$',
+      \    'end' : '^\S', 'filetype' : 'coffee',
+      \   },
+      \   {
+      \    'start' : '^:markdown$',
+      \    'end' : '^\S', 'filetype' : 'markdown',
+      \   },
+      \ ],
+      \ 'mkd': [
+      \   {
+      \    'start' : '^\s*```\s*\(\h\w*\)',
+      \    'end' : '^\s*```$', 'filetype' : '\1',
+      \   },
+      \ ],
+      \}
+NeoBundle 'osyo-manga/vim-precious'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-NeoBundle 'rbtnn/rabbit-ui.vim'
+" NeoBundle 'rbtnn/rabbit-ui.vim'
 " NeoBundle 'rbtnn/hexript.vim'
-NeoBundle 'kana/vim-textobj-user'
-call textobj#user#plugin('php', {
-\   'code': {
-\     'pattern': ['<?php\>', '?>'],
-\     'select-a': 'aP',
-\     'select-i': 'iP',
-\   },
-\ })
-call textobj#user#plugin('script', {
-\   'code': {
-\     'pattern': ['<?', '?>'],
-\     'select-a': 'a?',
-\     'select-i': 'i?',
-\   },
-\ })
-" NeoBundle 'kana/vim-operator-user'
-" NeoBundle 'rhysd/vim-operator-surround'
-" map <silent>sa <Plug>(operator-surround-append)
-" map <silent>sd <Plug>(operator-surround-delete)
-" map <silent>sr <Plug>(operator-surround-replace)
-" NeoBundle 'rhysd/vim-textobj-anyblock'
-
 """"""""""""""""""""""""""""""
 " Temp
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -112,6 +114,27 @@ let g:startify_list_order = [
       \ ['   Last Recently Use:'],
       \ 'files',
       \ ]
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+""""""""""""""""""""""""""""""
+" vim-textobj-user
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+NeoBundle 'kana/vim-textobj-user'
+call textobj#user#plugin('php', {
+\   'code': {
+\     'pattern': ['<?php\>', '?>'],
+\     'select-a': 'aP',
+\     'select-i': 'iP',
+\   },
+\ })
+call textobj#user#plugin('script', {
+\   'code': {
+\     'pattern': ['<?', '?>'],
+\     'select-a': 'a?',
+\     'select-i': 'i?',
+\   },
+\ })
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -684,8 +707,10 @@ NeoBundleLazy 'Shougo/vinarise.vim', {
       \   'commands' : ['Vinarise', 'VinariseScript2Hex', 'VinariseHex2Script',
       \                 'VinarisePluginDump', 'VinarisePluginViewBitmapView']
       \ }}
-" NeoBundleLazy 'vim-scripts/hexman.vim', {
-"       \ 'autoload' : { 'mappings' : '<Leader>h' }}
+NeoBundleLazy 'osyo-manga/vim-over', {
+      \ 'autoload' : {
+      \   'commands' : ['OverCommandLine']
+      \ }}
 NeoBundleLazy 'vim-scripts/DrawIt', {
       \ 'autoload' : {
       \   'commands' : ['DIstart', 'DIsngl', 'DIdbl', 'DIstop', 'DrawIt'],

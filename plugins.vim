@@ -31,7 +31,7 @@ NeoBundle 'Shougo/neobundle.vim'
 " Fencview Mark Surround
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'mbbill/fencview'
-NeoBundle 'peterjmorgan/mark-2.8.0'
+NeoBundle 'dimasg/vim-mark'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'nacitar/a.vim'
 NeoBundle 'wellle/targets.vim'
@@ -49,30 +49,9 @@ if g:env#python
   NeoBundle 'editorconfig/editorconfig-vim'
 endif
 Include editorconfig-vim
-NeoBundle 'Shougo/context_filetype.vim'
-let g:context_filetype#filetypes = {
-      \ 'jade': [
-      \   {
-      \    'start' : '^script\.$',
-      \    'end' : '^\S', 'filetype' : 'javascript',
-      \   },
-      \   {
-      \    'start' : '^:coffee$',
-      \    'end' : '^\S', 'filetype' : 'coffee',
-      \   },
-      \   {
-      \    'start' : '^:markdown$',
-      \    'end' : '^\S', 'filetype' : 'markdown',
-      \   },
-      \ ],
-      \ 'mkd': [
-      \   {
-      \    'start' : '^\s*```\s*\(\h\w*\)',
-      \    'end' : '^\s*```$', 'filetype' : '\1',
-      \   },
-      \ ],
-      \}
+NeoBundle 'weirongxu/context_filetype.vim'
 NeoBundle 'osyo-manga/vim-precious'
+Include context_filetype
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -135,6 +114,7 @@ call textobj#user#plugin('script', {
 \     'select-i': 'i?',
 \   },
 \ })
+NeoBundle 'kana/vim-textobj-indent'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -399,25 +379,31 @@ let g:wildfire_objects = ["i'", 'i"', "i)", "i]", "i}", "ip", "it"]
 """"""""""""""""""""""""""""""
 " Syntastic
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-NeoBundle 'scrooloose/syntastic'
-if g:env#win
-  let g:syntastic_error_symbol = 'x>'
-  let g:syntastic_style_error_symbol = 'Sx'
-  let g:syntastic_warning_symbol = '>>'
-  let g:syntastic_style_warning_symbol = 'S>'
-else
-  let g:syntastic_error_symbol = '?'
-  let g:syntastic_style_error_symbol = 'Sx'
-  let g:syntastic_warning_symbol = '?'
-  let g:syntastic_style_warning_symbol = 'S>'
-endif
-" let g:syntastic_php_checkers=['php']
-map <space> :up<CR>:SyntasticCheck<CR>
-      " \ 'mode': 'active',
-let g:syntastic_mode_map = {
-      \ 'mode': 'passive',
-      \ 'active_filetypes': [],
-      \ 'passive_filetypes': ['java', 'less'] }
+NeoBundle 'osyo-manga/shabadou.vim'
+NeoBundle 'jceb/vim-hier'
+NeoBundle 'dannyob/quickfixstatus'
+NeoBundle 'osyo-manga/vim-watchdogs'
+let g:watchdogs_check_BufWritePost_enable = 1
+
+" NeoBundle 'scrooloose/syntastic'
+" if g:env#win
+"   let g:syntastic_error_symbol = 'x>'
+"   let g:syntastic_style_error_symbol = 'Sx'
+"   let g:syntastic_warning_symbol = '>>'
+"   let g:syntastic_style_warning_symbol = 'S>'
+" else
+"   let g:syntastic_error_symbol = '?'
+"   let g:syntastic_style_error_symbol = 'Sx'
+"   let g:syntastic_warning_symbol = '?'
+"   let g:syntastic_style_warning_symbol = 'S>'
+" endif
+" " let g:syntastic_php_checkers=['php']
+" map <space> :up<CR>:SyntasticCheck<CR>
+"       " \ 'mode': 'active',
+" let g:syntastic_mode_map = {
+"       \ 'mode': 'passive',
+"       \ 'active_filetypes': [],
+"       \ 'passive_filetypes': ['java', 'less'] }
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -654,29 +640,49 @@ autocmd BufNewFile,BufRead *.stylus set filetype=stylus
 """"""""""""""""""""""""""""""
 " Clang_complete
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if g:env#unix && executable('clang')
-  NeoBundleLazy 'Rip-Rip/clang_complete', {
-        \ 'autoload' : { 'filetypes' : ['cpp', 'c'] }}
-  " let g:clang_complete_copen = 1
-  let g:clang_complete_auto = 0
-  let g:clang_auto_select = 0
-  let g:clang_use_library = 1
-  let g:clang_library_path = '/usr/lib/'
-  let g:neocomplete#force_omni_input_patterns.c =
-        \ '[^.[:digit:] *\t]\%(\.\|->\)\w*'
-  let g:neocomplete#force_omni_input_patterns.cpp =
-        \ '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
-  let g:neocomplete#force_omni_input_patterns.objc =
-        \ '[^.[:digit:] *\t]\%(\.\|->\)\w*'
-  let g:neocomplete#force_omni_input_patterns.objcpp =
-        \ '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
-  let g:neocomplete#sources#omni#functions.c = 'ClangComplete'
-  let g:neocomplete#sources#omni#functions.cpp = 'ClangComplete'
-  let g:neocomplete#sources#omni#functions.objc = 'ClangComplete'
-  let g:neocomplete#sources#omni#functions.objcpp = 'ClangComplete'
-else
-    NeoBundleLazy 'Rip-Rip/clang_complete'
+NeoBundle 'osyo-manga/vim-marching'
+let g:marching_clang_command = "/usr/bin/clang"
+let g:marching_include_paths = [
+\   "/usr/include"
+\]
+
+if !exists('g:neocomplete#force_omni_input_patterns')
+    let g:neocomplete#force_omni_input_patterns = {}
 endif
+
+let g:neocomplete#force_omni_input_patterns.c =
+      \ '[^.[:digit:] *\t]\%(\.\|->\)\w*'
+let g:neocomplete#force_omni_input_patterns.cpp =
+      \ '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
+let g:neocomplete#force_omni_input_patterns.objc =
+      \ '[^.[:digit:] *\t]\%(\.\|->\)\w*'
+let g:neocomplete#force_omni_input_patterns.objcpp =
+      \ '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
+
+let g:marching_enable_neocomplete = 1
+" if g:env#unix && executable('clang')
+"   NeoBundleLazy 'Rip-Rip/clang_complete', {
+"         \ 'autoload' : { 'filetypes' : ['cpp', 'c'] }}
+"   " let g:clang_complete_copen = 1
+"   let g:clang_complete_auto = 0
+"   let g:clang_auto_select = 0
+"   let g:clang_use_library = 1
+"   let g:clang_library_path = '/usr/lib/'
+"   let g:neocomplete#force_omni_input_patterns.c =
+"         \ '[^.[:digit:] *\t]\%(\.\|->\)\w*'
+"   let g:neocomplete#force_omni_input_patterns.cpp =
+"         \ '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
+"   let g:neocomplete#force_omni_input_patterns.objc =
+"         \ '[^.[:digit:] *\t]\%(\.\|->\)\w*'
+"   let g:neocomplete#force_omni_input_patterns.objcpp =
+"         \ '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
+"   let g:neocomplete#sources#omni#functions.c = 'ClangComplete'
+"   let g:neocomplete#sources#omni#functions.cpp = 'ClangComplete'
+"   let g:neocomplete#sources#omni#functions.objc = 'ClangComplete'
+"   let g:neocomplete#sources#omni#functions.objcpp = 'ClangComplete'
+" else
+"     NeoBundleLazy 'Rip-Rip/clang_complete'
+" endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -707,6 +713,11 @@ NeoBundleLazy 'Shougo/vinarise.vim', {
       \   'commands' : ['Vinarise', 'VinariseScript2Hex', 'VinariseHex2Script',
       \                 'VinarisePluginDump', 'VinarisePluginViewBitmapView']
       \ }}
+NeoBundleLazy 'jaxbot/semantic-highlight.vim', {
+      \ 'autoload' : {
+      \   'commands' : ['SemanticHighlightToggle']
+      \ }}
+nnoremap <Leader>s :SemanticHighlightToggle<cr>
 NeoBundleLazy 'osyo-manga/vim-over', {
       \ 'autoload' : {
       \   'commands' : ['OverCommandLine']
@@ -774,7 +785,6 @@ NeoBundleLazy 'chenkaie/DirDiff.vim', {
 "       \   'commands': ['ChooseWin', '<Plug>(choosewin)']
 "       \ }}
 " nmap - <Plug>(choosewin)
-NeoBundle 'mattn/webapi-vim'
 NeoBundleLazy 'matze/vim-move', {
       \ 'autoload': {
       \   'mappings': ['<M-k>', '<M-j>']
@@ -785,6 +795,7 @@ NeoBundleLazy 'AndrewRadev/splitjoin.vim', {
       \ 'autoload': {
       \   'mappings': ['gS', 'gJ']
       \ }}
+NeoBundle 'mattn/webapi-vim'
 NeoBundleLazy 'mattn/gist-vim', {
       \ 'autoload': { 'commands': ['Gist'] }}
 let g:gist_token_file = expand('~/.record/github-token')
@@ -1027,6 +1038,15 @@ NeoBundleLazy 'haya14busa/incsearch.vim', {
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
+let g:incsearch#highlight = {
+\   'on_cursor' : {
+\     'priority' : '100'
+\   },
+\   'cursor' : {
+\     'group' : 'ErrorMsg',
+\     'priority' : '1000'
+\   }
+\ }
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""

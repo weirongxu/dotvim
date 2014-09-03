@@ -157,3 +157,6 @@ function! s:set_colorcolumn() "{{{
   endif
 endfunction "}}}
 autocmd FileType * call s:set_colorcolumn()
+
+autocmd FileType python,coffee,jade,stylus,sass setl foldmethod=indent foldcolumn=1 foldlevel=0
+set foldignore=

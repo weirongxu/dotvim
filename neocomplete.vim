@@ -10,11 +10,7 @@ let g:neocomplete#sources#dictionary#dictionaries = {
 let g:neocomplete#same_filetypes = {
       \ 'c': 'cpp',
       \ 'cpp': 'c',
-      \ 'html': 'css,javascript,coffee,stylus',
-      \ 'jade': 'html',
-      \ 'php': 'html',
-      \ 'jsp': 'html',
-      \ 'xhtml': 'html',
+      \ 'html': 'xhtml,jsp,php,jade,css,javascript,coffee,stylus',
       \ 'zsh': 'sh'
       \ }
 

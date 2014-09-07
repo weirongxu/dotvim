@@ -15,12 +15,14 @@ set wildmenu
 if has('vim_starting')
   let &runtimepath = &runtimepath.','.$MYVIMFILES.'/bundle/neobundle.vim'
 endif
-call neobundle#rc(expand($MYBUNDLEDIR))
+call neobundle#begin(expand($MYBUNDLEDIR))
 
 " plugin
 NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimfiler.vim'
+
+neobundle#end()
 
 " syntax
 syntax on

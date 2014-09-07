@@ -48,13 +48,14 @@ if g:env#x
 endif
 if g:env#unix
   " set guifont=Menlo\ 10,*
-  set guifont=Consolas\ 11
-  " ,Monofur\ For\ Powerline\ 10,*
+  set guifont=Monaco\ 10
+  " set guifont=Consolas\ 11
+  " set guifont=Monofur\ For\ Powerline\ 10,*
   " set guifont=Source\ Code\ Pro\ 10,*
   " set guifont=SimSun\ for\ Powerline\ 10
   " set guifont=Courier\ New\ for\ Powerline\ 10
 elseif g:env#win
-  set guifont=Consolas:h11:cANSI,Courier_New_for_Powerline:h10:cANSI,*
+  set guifont=Monaco:h10,Consolas:h11:cANSI,Courier_New_for_Powerline:h10:cANSI,*
   " set guifont=Source_Code_Pro:h9:cANSI
   " set guifont=monofur_for_Powerline:h10.5:w5,Courier_new:h10,*
 endif
@@ -106,13 +107,13 @@ let s:auto_tablen = 2
 let s:auto_tab_opened = 0
 function! s:autoTabLenOpen(open) "{{{
   if a:open
-    augroup tablen
+    augroup MyTablen
       au!
       execute 'autocmd FileType css,less,vim,python,javascript,coffee,stylus,sass,scss setl tabstop='.s:auto_tablen.' softtabstop='.s:auto_tablen.' shiftwidth='.s:auto_tablen
     augroup END
     let s:auto_tab_opened = 1
   else
-    augroup tablen
+    augroup MyTablen
       au!
     augroup END
     let s:auto_tab_opened = 0
@@ -158,5 +159,5 @@ function! s:set_colorcolumn() "{{{
 endfunction "}}}
 autocmd FileType * call s:set_colorcolumn()
 
-autocmd FileType python,coffee,jade,stylus,sass setl foldmethod=indent foldcolumn=1 foldlevel=0
+autocmd FileType python,coffee,jade,stylus,sass setl foldmethod=indent foldlevel=0
 set foldignore=

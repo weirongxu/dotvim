@@ -1,1 +1,1 @@
-autocmd! BufNewFile,BufRead .gitignore setfiletype gitignore
+autocmd! BufNewFile,BufRead .gitignore setf gitignore

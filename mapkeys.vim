@@ -22,16 +22,16 @@ noremap gQ Q
 
 " SHIFT-Del 剪切
 vnoremap <S-Del> "+x
-vnoremap <leader><leader>x "+x
+vnoremap <leader>x "+x
 " CTRL-C and CTRL-Insert are Copy 复制
 vnoremap <C-Insert> "+y
-vnoremap <leader><leader>y "+y
+vnoremap <leader>y "+y
 " SHIFT-Insert 粘贴
 map <S-Insert> "+p
-map <leader><leader>p "+p
+map <leader>p "+p
 
 " 在visual和select模式中使用<leader>p,粘贴但不复制
-xnoremap <expr> <leader>p 'pgv"'.v:register.'y'
+" xnoremap <expr> <leader>p 'pgv"'.v:register.'y'
 
 " F4                 使用宏q
 map <F4> @q

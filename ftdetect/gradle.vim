@@ -1,1 +1,1 @@
-autocmd! BufNewFile,BufRead *.gradle setfiletype groovy
+autocmd! BufNewFile,BufRead *.gradle setf groovy

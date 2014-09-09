@@ -3,11 +3,18 @@ include html
 snippet #!
 	#!/usr/bin/env php
 
+snippet f
+options word
+abbr function(){}
+	function(${1}) {
+		${2:TARGET}
+	}
+
 snippet function
 alias func fun
-abbr public function () {}
-	function ${2:#:FunctionName}(${3}) {
-		${4:TARGET}
+abbr function () {}
+	function ${1:#:FunctionName}(${2}) {
+		${3:TARGET}
 	}
 
 snippet re

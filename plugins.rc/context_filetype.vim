@@ -1,42 +1,42 @@
 let g:context_filetype#filetypes = {
       \ 'coffee': [
       \   {
-      \     'start' : '`',
-      \     'end' : '`',
-      \     'filetype' : 'javascript',
+      \     'start':    '`',
+      \     'end':      '`',
+      \     'filetype': 'javascript',
       \   },
       \ ],
       \ 'mkd': [
       \   {
-      \     'start' : '^\s*```\s*\(\h\w*\)',
-      \     'end' : '^\s*```$',
-      \     'filetype' : '\1',
+      \     'start':    '^\s*```\s*\(\h\w*\)',
+      \     'end':      '^\s*```$',
+      \     'filetype': '\1',
       \   },
       \ ],
       \ 'php': [
       \   {
-      \     'start': '<script>',
-      \     'end': '</script>',
+      \     'start':    '<script>',
+      \     'end':      '</script>',
       \     'filetype': 'javascript',
       \   },
       \   {
-      \     'start': '<script\%( [^>]*\)charset="[^\"]*"\%( [^>]*\)\?>',
-      \     'end': '</script>',
+      \     'start':    '<script\%( [^>]*\)charset="[^\"]*"\%( [^>]*\)\?>',
+      \     'end':      '</script>',
       \     'filetype': 'javascript',
       \   },
       \   {
-      \     'start': '<script\%( [^>]*\)\? type="text/javascript"\%( [^>]*\)\?>',
-      \     'end': '</script>',
+      \     'start':    '<script\%( [^>]*\)\? type="text/javascript"\%( [^>]*\)\?>',
+      \     'end':      '</script>',
       \     'filetype': 'javascript',
       \   },
       \   {
-      \     'start': '<script\%( [^>]*\)\? type="text/coffeescript"\%( [^>]*\)\?>',
-      \     'end': '</script>',
+      \     'start':    '<script\%( [^>]*\)\? type="text/coffeescript"\%( [^>]*\)\?>',
+      \     'end':      '</script>',
       \     'filetype': 'coffee',
       \   },
       \   {
-      \     'start': '<style\%( [^>]*\)\? type="text/css"\%( [^>]*\)\?>',
-      \     'end': '</style>',
+      \     'start':    '<style\%( [^>]*\)\? type="text/css"\%( [^>]*\)\?>',
+      \     'end':      '</style>',
       \     'filetype': 'css',
       \   },
       \ ],

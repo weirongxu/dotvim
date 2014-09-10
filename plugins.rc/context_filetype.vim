@@ -6,11 +6,28 @@ let g:context_filetype#filetypes = {
       \     'filetype': 'javascript',
       \   },
       \ ],
+      \ 'markdown': [
+      \   {
+      \    'start' : '^\s*```\s*\(\h\w*\)',
+      \    'end' : '^\s*```$',
+      \     'filetype' : '\1',
+      \   },
+      \   {
+      \    'start' : '^\s*```\s*viml',
+      \    'end' : '^\s*```$',
+      \     'filetype' : 'vim',
+      \   },
+      \ ],
       \ 'mkd': [
       \   {
       \     'start':    '^\s*```\s*\(\h\w*\)',
       \     'end':      '^\s*```$',
       \     'filetype': '\1',
+      \   },
+      \   {
+      \    'start' : '^\s*```\s*viml',
+      \    'end' : '^\s*```$',
+      \     'filetype' : 'vim',
       \   },
       \ ],
       \ 'php': [

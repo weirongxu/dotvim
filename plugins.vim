@@ -22,7 +22,6 @@ NeoBundle 'mbbill/fencview'
 NeoBundle 'dimasg/vim-mark'
 NeoBundle 'nacitar/a.vim'
 NeoBundle 'teranex/sessionman.vim'
-NeoBundle 'kana/vim-smartword'
 NeoBundle 'drmikehenry/vim-fixkey'
 set sessionoptions=curdir,folds,help,resize,tabpages,unix
 let g:sessions_path = $HOME.'/.record/vim-sessions'
@@ -38,7 +37,7 @@ if g:env#python
   Include plugins.rc/editorconfig-vim
 endif
 NeoBundle 'kana/vim-fakeclip'
-NeoBundle 'weirongxu/context_filetype.vim'
+NeoBundle 'Shougo/context_filetype.vim'
 NeoBundle 'osyo-manga/vim-precious'
 Include plugins.rc/context_filetype
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -197,14 +196,16 @@ NeoBundle 'ujihisa/unite-colorscheme'
 NeoBundle 'Shougo/unite-outline'
 NeoBundle 'Shougo/junkfile.vim'
 NeoBundle 'Kocha/vim-unite-tig'
-NeoBundle 'supermomonga/unite-kawaii-calc'
+" NeoBundle 'supermomonga/unite-kawaii-calc'
 NeoBundle 'thinca/vim-unite-history'
 NeoBundle 'Shougo/unite-help'
 NeoBundle 'mattn/unite-gist'
+" NeoBundle 'hewes/unite-gtags'
 NeoBundle 'tsukkee/unite-tag'
+let g:unite_source_tag_strict_truncate_string = 0
 autocmd BufEnter *
       \   if empty(&buftype)
-      \|      nnoremap <buffer> <c-]> :<C-u>UniteWithCursorWord -immediately tag<CR>
+      \|      nnoremap <buffer> <c-]> :<C-u>UniteWithCursorWord -auto-preview tag<CR>
       \|  endif
 set tags+=.tags,./.tags
 NeoBundle 'farseer90718/unite-workflow'
@@ -471,9 +472,6 @@ NeoBundleLazy 'justinmk/vim-syntax-extra', {
 NeoBundleLazy 'jnwhiteh/vim-golang', {
       \ 'filetypes' : 'go'
       \ }
-" NeoBundleLazy 'plasticboy/vim-markdown', {
-"       \  'filetypes' : ['markdown']
-"       \ }
 NeoBundleLazy 'rcmdnk/vim-markdown', {
       \ 'filetypes' : 'markdown'
       \ }
@@ -486,6 +484,11 @@ NeoBundleLazy 'tyru/open-browser.vim', {
       \ 'mappings' : '<Plug>',
       \ }
 NeoBundle 'maksimr/vim-jsbeautify'
+NeoBundleLazy 'Chiel92/vim-autoformat', {
+      \ 'commands' : [
+      \   { 'name' : 'Autoformat',
+      \     'complete' : 'filetype' },
+      \ ]}
 NeoBundle 'briancollins/vim-jst'
 
 
@@ -717,6 +720,14 @@ let g:marching_enable_neocomplete = 1
 NeoBundleLazy 'junegunn/vader.vim', {
       \ 'commands' : 'Vader'
       \ }
+NeoBundleLazy 'rhysd/vim-grammarous', {
+      \ 'commands' : [{ 'name': 'GrammarousCheck',
+      \                 'complete': 'customlist,grammarous#complete_opt'}
+      \ ]}
+NeoBundleLazy 'weirongxu/fixdir.vim', {
+      \ 'commands' : [{ 'name': 'FixDir',
+      \                 'complete': 'customlist,fixdir#complete'}
+      \ ]}
 NeoBundleLazy 'thinca/vim-prettyprint', {
       \ 'commands' : 'PP'
       \ }
@@ -863,9 +874,7 @@ NeoBundleLazy 'junegunn/vim-easy-align', {
       \ 'mappings' : ['<Plug>(EasyAlign)', '<Plug>(LiveEasyAlign)'],
       \ 'commands' : ['EasyAlign', 'LiveEasyAlign']
       \ }
-" nmap <Leader>a <Plug>(EasyAlign)
-" vmap <Enter>   <Plug>(EasyAlign)
-vmap <Enter>   <Plug>(LiveEasyAlign)
+vmap <Enter> <Plug>(LiveEasyAlign)
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -991,6 +1000,17 @@ let g:incsearch#highlight = {
 " NeoBundle 'FredKSchott/CoVim'
 " NeoBundle 'kana/vim-smartchr'
 " inoremap <expr> - smartchr#one_of('->', '-')
+" NeoBundle 'kana/vim-smartword', {
+"       \ 'mappings' : '<Plug>(smartword-'
+"       \ }
+" nmap w  <Plug>(smartword-w)
+" nmap b  <Plug>(smartword-b)
+" nmap e  <Plug>(smartword-e)
+" nmap ge <Plug>(smartword-ge)
+" vmap w  <Plug>(smartword-w)
+" vmap b  <Plug>(smartword-b)
+" vmap e  <Plug>(smartword-e)
+" vmap ge <Plug>(smartword-ge)
 " NeoBundleLazy 'rhysd/accelerated-jk'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NeoBundle 'Valloric/YouCompleteMe' " waitting

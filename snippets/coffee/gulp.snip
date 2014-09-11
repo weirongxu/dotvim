@@ -31,7 +31,7 @@ snippet gulp-stylus
 			.pipe stylus
 				use: [ nib() ]
 				compress: true
-			.pipe sourcemaps.write('./')
+			.pipe sourcemaps.write './'
 			.pipe gulp.dest dest
 
 snippet gulp-coffee
@@ -46,7 +46,7 @@ snippet gulp-coffee
 			.pipe coffee
 				bare: true
 			.pipe uglify()
-			.pipe sourcemaps.write('./')
+			.pipe sourcemaps.write './'
 			.pipe gulp.dest dest
 
 snippet gulp-watch
@@ -66,5 +66,5 @@ snippet gulp-less
 			.pipe sourcemaps.init()
 			.pipe less
 				compress: true
-			.pipe sourcemaps.write('./')
+			.pipe sourcemaps.write './'
 			.pipe gulp.dest dest

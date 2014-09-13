@@ -30,6 +30,9 @@ function! s:unite_settings()
 endfunction
 """"""""""""""""""""""""""""""
 let g:unite_source_history_yank_enable = 1
+let g:unite_source_grep_max_candidates = 0
+let g:unite_source_find_max_candidates = 0
+call unite#custom_max_candidates('vimgrep', 0)
 
 if executable('ag')
   " Use ag in unite grep source.

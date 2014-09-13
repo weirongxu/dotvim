@@ -39,7 +39,7 @@ colo Tomorrow-Night-Eighties
 " colo molokai
 " colo desertink
 " colorscheme desert
-" set background=dark
+set background=dark
 
 
 " t_Co gui-font

@@ -655,7 +655,7 @@ autocmd BufNewFile,BufRead *.stylus set filetype=stylus
   " call system('ctags * --c++-kinds=+p --fields=+iaS --extra=+q')
 " endfunc
 " let &tags .= ','.$MYVIMFILES.'/tags/cppstl'
-" execute 'set tags+='.expand($MYVIMFILES).'/tags/cppstl'
+" execute 'set tags+='.$MYVIMFILES.'/tags/cppstl'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

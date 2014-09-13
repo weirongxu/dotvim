@@ -721,6 +721,7 @@ let g:marching_enable_neocomplete = 1
 NeoBundleLazy 'junegunn/vader.vim', {
       \ 'commands' : 'Vader'
       \ }
+NeoBundle 'thinca/vim-scall'
 NeoBundle 'kana/vim-vspec'
 NeoBundleLazy 'rhysd/vim-grammarous', {
       \ 'commands' : [{ 'name': 'GrammarousCheck',

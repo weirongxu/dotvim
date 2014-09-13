@@ -37,6 +37,7 @@ if g:env#python
   Include plugins.rc/editorconfig-vim
 endif
 NeoBundle 'kana/vim-fakeclip'
+NeoBundle 'thinca/vim-visualstar'
 NeoBundle 'Shougo/context_filetype.vim'
 NeoBundle 'osyo-manga/vim-precious'
 Include plugins.rc/context_filetype
@@ -237,7 +238,6 @@ NeoBundle 'Shougo/vimproc', {
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" NeoBundle 'mattn/vimfiler-icn'
 NeoBundleLazy 'Shougo/vimfiler.vim', {
       \ 'commands' : [
       \   { 'name' : 'VimFiler',
@@ -398,7 +398,6 @@ let g:neosnippet#disable_runtime_snippets = {
       \ }
 set clipboard-=autoselect " 取消在选择模式移动时复制内容
 " 快速编辑snip
-" command Snip NeoSnippetEdit -split -vertical -runtime
 command! Snip NeoSnippetEdit -split -vertical
 
 
@@ -1012,6 +1011,7 @@ let g:incsearch#highlight = {
 " vmap e  <Plug>(smartword-e)
 " vmap ge <Plug>(smartword-ge)
 " NeoBundleLazy 'rhysd/accelerated-jk'
+" NeoBundle 'thinca/vim-painter' " toy
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NeoBundle 'Valloric/YouCompleteMe' " waitting
 """"""""""""""""""""""""""""""

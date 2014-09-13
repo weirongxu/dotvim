@@ -13,6 +13,7 @@ call neobundle#local($MYBUNDLEDIR.'-common', {})
 " endif
 
 NeoBundle 'Shougo/neobundle.vim'
+let g:neobundle#types#git#clone_depth = 1
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -214,9 +215,7 @@ NeoBundle 'xolox/vim-misc'
 NeoBundle 'xolox/vim-easytags'
 " NeoBundle 'Shougo/neossh.vim' " toy
 """"""""""""""""""""""""""""""
-if g:env#gui
-  NeoBundle 'kien/ctrlp.vim'
-else
+if !g:env#gui && !g:env#win
   set rtp+=~/.fzf
   NeoBundle 'junegunn/fzf', {
         \ 'commands' : 'FZF',
@@ -225,6 +224,8 @@ else
         \ }
   map <c-p> :FZF<CR>
   NeoBundleDisable 'kien/ctrlp.vim'
+else
+  NeoBundle 'kien/ctrlp.vim'
 endif
 
 NeoBundle 'Shougo/vimproc', {
@@ -654,7 +655,7 @@ autocmd BufNewFile,BufRead *.stylus set filetype=stylus
   " call system('ctags * --c++-kinds=+p --fields=+iaS --extra=+q')
 " endfunc
 " let &tags .= ','.$MYVIMFILES.'/tags/cppstl'
-" execute 'set tags+='.expand($MYVIMFILES).'/tags/cppstl'
+" execute 'set tags+='.$MYVIMFILES.'/tags/cppstl'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -719,6 +720,8 @@ let g:marching_enable_neocomplete = 1
 NeoBundleLazy 'junegunn/vader.vim', {
       \ 'commands' : 'Vader'
       \ }
+NeoBundle 'thinca/vim-scall'
+NeoBundle 'kana/vim-vspec'
 NeoBundleLazy 'rhysd/vim-grammarous', {
       \ 'commands' : [{ 'name': 'GrammarousCheck',
       \                 'complete': 'customlist,grammarous#complete_opt'}

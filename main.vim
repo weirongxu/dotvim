@@ -1,5 +1,5 @@
 " Loading config
-execute 'command -nargs=1 Include source '.$MYVIMFILES.'/<args>.vim'
+execute 'command! -nargs=1 Include source '.$MYVIMFILES.'/<args>.vim'
 Include options
 Include mapkeys
 let $MYPlugin = $MYVIMFILES . '/plugins.vim'

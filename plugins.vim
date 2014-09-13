@@ -13,6 +13,7 @@ call neobundle#local($MYBUNDLEDIR.'-common', {})
 " endif
 
 NeoBundle 'Shougo/neobundle.vim'
+let g:neobundle#types#git#clone_depth = 1
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

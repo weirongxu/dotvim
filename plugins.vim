@@ -718,7 +718,8 @@ let g:marching_enable_neocomplete = 1
 " TOOLS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundleLazy 'junegunn/vader.vim', {
-      \ 'commands' : 'Vader'
+      \ 'commands' : 'Vader',
+      \ 'filetypes' : 'vader',
       \ }
 NeoBundle 'thinca/vim-scall'
 NeoBundle 'kana/vim-vspec'

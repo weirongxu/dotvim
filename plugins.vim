@@ -40,7 +40,7 @@ endif
 NeoBundle 'kana/vim-fakeclip'
 NeoBundle 'thinca/vim-visualstar'
 NeoBundle 'Shougo/context_filetype.vim'
-NeoBundle 'osyo-manga/vim-precious'
+" NeoBundle 'osyo-manga/vim-precious'
 Include plugins.rc/context_filetype
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NeoBundle 'farseer90718/vim-taskwarrior'
@@ -211,8 +211,8 @@ autocmd BufEnter *
       \|  endif
 set tags+=.tags,./.tags
 NeoBundle 'farseer90718/unite-workflow'
-NeoBundle 'xolox/vim-misc'
-NeoBundle 'xolox/vim-easytags'
+" NeoBundle 'xolox/vim-misc'
+" NeoBundle 'xolox/vim-easytags'
 " NeoBundle 'Shougo/neossh.vim' " toy
 """"""""""""""""""""""""""""""
 if !g:env#gui && !g:env#win
@@ -499,6 +499,7 @@ NeoBundleLazy 'gabesoft/vim-java', {
 NeoBundleLazy 'kamichidu/javacomplete', {
       \  'filetypes' : 'java'
       \ }
+" let g:neocomplete#sources#omni#functions.java = 'javacomplete#Complete'
 NeoBundleLazy 'yuratomo/java-api-complete', {
       \  'filetypes' : 'java'
       \ }
@@ -516,21 +517,21 @@ command! JavaApi
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-NeoBundleLazy 'cstrahan/vim-eclim', {
-      \ 'filetypes' : 'java',
-      \ 'commands' : 'Eclim'
-      \ }
-" if exists('*eclim#PingEclim') && eclim#PingEclim(0)
-let g:EclimCompletionMethod = 'omnifunc'
-" endif
-let g:EclimHtmlValidate = 0
-let g:EclimPythonValidate = 0
-let g:EclimJavascriptValidate = 0
-let g:EclimCValidate = 0
-let g:EclimPhpValidate = 0
-let g:EclimRubyValidate = 0
-let g:EclimScalaValidate = 0
-let g:EclimXmlValidate = 0
+" NeoBundleLazy 'cstrahan/vim-eclim', {
+"       \ 'filetypes' : 'java',
+"       \ 'commands' : 'Eclim'
+"       \ }
+" " if exists('*eclim#PingEclim') && eclim#PingEclim(0)
+" let g:EclimCompletionMethod = 'omnifunc'
+" " endif
+" let g:EclimHtmlValidate = 0
+" let g:EclimPythonValidate = 0
+" let g:EclimJavascriptValidate = 0
+" let g:EclimCValidate = 0
+" let g:EclimPhpValidate = 0
+" let g:EclimRubyValidate = 0
+" let g:EclimScalaValidate = 0
+" let g:EclimXmlValidate = 0
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -900,6 +901,7 @@ NeoBundleLazy 'mattn/vim-sunday', {
 let g:sunday_pairs = [
     \   ['extends', 'implements'],
     \   ['require', 'require_once', 'include', 'include_once'],
+    \   ['NeoBundle', 'NeoBundleLazy'],
     \ ]
 
 

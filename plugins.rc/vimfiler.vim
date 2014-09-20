@@ -25,7 +25,7 @@ let g:vimfiler_safe_mode_by_default = 0
 let g:vimfiler_expand_jump_to_first_child = 0
 
 let start_pattern = join(['.', '~'], '\|')
-let end_pattern = join(['.DS_Store', '.pyc', 'o'], '\|')
+let end_pattern = join(['.DS_Store', '.pyc', '.o'], '\|')
 let g:vimfiler_ignore_pattern = '\V\%(\^\%('.start_pattern.'\)\|\%('.end_pattern.'\)\$\)'
 
 let g:vimfiler_buf = 'VimFilerBufferDir -explorer -auto-cd -split'

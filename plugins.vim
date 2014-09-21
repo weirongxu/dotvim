@@ -38,7 +38,6 @@ if g:env#python
   Include plugins.rc/editorconfig-vim
 endif
 NeoBundle 'kana/vim-fakeclip'
-NeoBundle 'thinca/vim-visualstar'
 NeoBundle 'Shougo/context_filetype.vim'
 " NeoBundle 'osyo-manga/vim-precious'
 Include plugins.rc/context_filetype
@@ -966,6 +965,12 @@ let g:EasyMotion_use_smartsign_us = 1
 nmap sl <Plug>(easymotion-sl)
 """"""""""""""""""""""""""""""
 NeoBundle 'saihoooooooo/glowshi-ft.vim'
+NeoBundle 'thinca/vim-visualstar'
+NeoBundleLazy 'osyo-manga/vim-anzu', {
+      \ 'mappings' : '<Plug>(anzu-'
+      \ }
+nmap n <Plug>(anzu-n-with-echo)
+nmap N <Plug>(anzu-N-with-echo)
 NeoBundleLazy 'haya14busa/incsearch.vim', {
       \ 'mappings' : '<Plug>(incsearch-'
       \ }
@@ -1027,10 +1032,11 @@ let g:incsearch#highlight = {
 " NeoBundleLazy 't9md/vim-choosewin' " 速度慢
 """"""""""""""""""""""""""""""
 " Game
+" NeoBundle 'rbtnn/game_engine.vim'
 " NeoBundle 'rbtnn/puyo.vim'
 " NeoBundle 'rbtnn/mario.vim'
 " NeoBundle 'rbtnn/vimconsole.vim'
-" NeoBundle 'rbtnn/game_engine.vim'
+" NeoBundle 'katono/rogue.vim'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 

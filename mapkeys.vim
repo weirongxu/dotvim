@@ -203,21 +203,13 @@ if g:env#gui
   endfunction
 endif
 
-" tab 控制
+" tab control
 map gN :tab split<cr>
 " map gq :tabclose<cr>
 map <C-tab> :tabnext<cr>
 map <S-l> :tabnext<cr>
 map <C-S-tab> :tabprevious<cr>
 map <S-h> :tabprevious<cr>
-
-" alt + n , alt + p 时在折行里移动
-" map <c-p> gk
-" map <c-n> gj
-" if g:env#mac
-"   map <d-p> <c-p>
-"   map <d-n> <c-p>
-" endif
 
 " jump to end of line while in Insert Mode
 inoremap <C-e> <C-o>$

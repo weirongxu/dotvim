@@ -1,19 +1,14 @@
 " UI
 if g:env#gui
-  "if g:env#win
-  " au GUIEnter * simalt ~x  " startup while windows max
-  "endif
   set guioptions=
   set showtabline=1
 endif
 
 " Menu
-command! Menu if &guioptions =~# 'm' <Bar>
-      \set guioptions-=m <Bar>
-      \set guioptions-=r <Bar>
-      \else <Bar>
-      \set guioptions+=m <Bar>
-      \set guioptions+=r <Bar>
+command! Menu if &guioptions =~# 'm' |
+      \set guioptions-=mr |
+      \else |
+      \set guioptions+=mr |
       \endif
 
 " encoding
@@ -26,12 +21,8 @@ if g:env#gui || g:env#unix
   set encoding=utf-8
   set termencoding=utf-8
 endif
-if g:env#gui
-  language messages en_US.UTF-8
-  " language messages zh_CN.UTF-8
-  set langmenu=en_US.UTF-8
-  " set langmenu=zh_CN.UTF-8
-endif
+
+language en_US.UTF-8
 
 " Colorscheme
 colo Tomorrow-Night-Eighties
@@ -68,7 +59,6 @@ set nocompatible " vi-compatible,
 set mouse=a " support mouse
 
 " edit show
-" 去掉utf-8 BOM
 set nobomb linespace=0 ambiwidth=double
 " set cursorline cursorcolumn
 
@@ -84,9 +74,7 @@ set laststatus=2
 set shortmess=aoOtT
 
 " break multi-line
-" if g:env#gui
-"    set nowrap
-" endif
+" set nowrap
 " set linebreak
 " set textwidth=500
 set backspace=indent,eol,start
@@ -94,9 +82,6 @@ set backspace=indent,eol,start
 " complete
 set completeopt=longest,menu
 set whichwrap+=<,>,[,],h,l
-
-" 设置'_'连接的不为一个单词 (语法高亮出问题)
-" set iskeyword-=_
 
 " tab
 set expandtab " tab use spaces

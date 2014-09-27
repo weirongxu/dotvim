@@ -37,7 +37,26 @@ if g:env#python
   NeoBundle 'editorconfig/editorconfig-vim'
   Include plugins.rc/editorconfig-vim
 endif
-NeoBundle 'kana/vim-fakeclip'
+" FIXME
+" NeoBundle 'kana/vim-fakeclip'
+" if !has('gui_running')
+"   " Do not connect to X server.
+"   set clipboard+=exclude:.*
+"   " But I want to use clipboard!
+"   let g:fakeclip_provide_clipboard_key_mappings = 1
+" endif
+autocmd BufEnter * :syntax sync fromstart
+NeoBundle 'farseer90718/vim-regionsyntax'
+" let g:regionsyntax_map = {
+"       \ 'mkd': [{
+"       \   'start': '\m^[ \t]*```[ \t]*<syntax>[ \t]*$',
+"       \   'end' : '^[ \t]*```[ \t]*$',
+"       \ }]
+"       \ }
+" let g:regionsyntax_ft_trans = {
+"       \ 'ini' : 'dosini',
+"       \ 'viml' : 'vim',
+"       \ }
 NeoBundle 'Shougo/context_filetype.vim'
 " NeoBundle 'osyo-manga/vim-precious'
 Include plugins.rc/context_filetype
@@ -989,6 +1008,7 @@ let g:incsearch#highlight = {
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NeoBundle 'tpope/vim-afterimage' " Crazy!
+" NeoBundle 'jszakmeister/vim-togglecursor'
 " NeoBundle 'vim-scripts/mru.vim' " 用ctrlp代替
 " NeoBundle 'Rykka/galaxy.vim' " 还用不上
 " NeoBundle 'sukima/xmledit' " 好像没什么用

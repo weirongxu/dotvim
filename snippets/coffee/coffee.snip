@@ -7,6 +7,9 @@ snippet req
 snippet log
 	console.log ${0}
 
+snippet dir
+	console.dir ${0}
+
 snippet unl
 	${1:#:action} unless ${2:#:condition}
 
@@ -55,13 +58,21 @@ snippet foro
 snippet fora
 	for ${1:#:name} in ${2:#:array}
 		${0:TARGET}
+	
+snippet f
+options word
+	->
+
+snippet fn
+options word
+	(${1})->${0}
 
 snippet fun
-	${1:#:name} = (${2:#:args}) ->
+	${1:#:name} = (${2:#:args})->
 		${0:TARGET}
 
 snippet bfun
-	(${1:#:args}) =>
+	(${1:#:args})=>
 		${0:TARGET}
 
 snippet re

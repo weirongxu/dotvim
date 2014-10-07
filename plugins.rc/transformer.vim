@@ -56,3 +56,21 @@ call transformer#cmd('Scss')
       \   M.pipe('sass -s'),
       \   M.smart()
       \)
+
+
+" let u_buffer = transformer#unite('buffer')
+"       \ .exec(
+"       \   M.ecec('Unite buffer')
+"       \ )
+" let u_bookmarking = transformer#unite('bookmark')
+"       \.exec(
+"       \   M.exec('Unite bookmark')
+"       \)
+" let u_resume = transformer#unite('bookmark')
+"       \.exec(
+"       \   M.exec('UniteResume')
+"       \)
+" let unite = transformer#cmd('U')
+"       \.exec(
+"       \   M.unite([u_buffer, u_bookmarking, u_resume])
+"       \ )

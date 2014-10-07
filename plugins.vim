@@ -45,22 +45,16 @@ endif
 "   " But I want to use clipboard!
 "   let g:fakeclip_provide_clipboard_key_mappings = 1
 " endif
-autocmd BufEnter * :syntax sync fromstart
 NeoBundle 'farseer90718/vim-regionsyntax'
-" let g:regionsyntax_map = {
-"       \ 'mkd': [{
-"       \   'start': '\m^[ \t]*```[ \t]*<syntax>[ \t]*$',
-"       \   'end' : '^[ \t]*```[ \t]*$',
-"       \ }]
-"       \ }
-" let g:regionsyntax_ft_trans = {
-"       \ 'ini' : 'dosini',
-"       \ 'viml' : 'vim',
-"       \ }
 NeoBundle 'Shougo/context_filetype.vim'
 " NeoBundle 'osyo-manga/vim-precious'
 Include plugins.rc/context_filetype
+NeoBundle 'bouzuya/vim-ibus'
+Include plugins.rc/ibus
+NeoBundle 'tpope/vim-characterize'
+NeoBundle 'salsifis/vim-transpose'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+NeoBundle 'jmcantrell/vim-virtualenv'
 " NeoBundle 'farseer90718/vim-taskwarrior'
 " NeoBundle 'kana/vim-tabpagecd'
 " NeoBundle 'chikatoike/concealedyank.vim'
@@ -225,7 +219,7 @@ NeoBundle 'tsukkee/unite-tag'
 let g:unite_source_tag_strict_truncate_string = 0
 autocmd BufEnter *
       \   if empty(&buftype)
-      \|      nnoremap <buffer> <c-]> :<C-u>UniteWithCursorWord -auto-preview tag<CR>
+      \|    nnoremap <buffer> <c-]> :<C-u>UniteWithCursorWord -auto-preview tag<CR>
       \|  endif
 set tags+=.tags,./.tags
 NeoBundle 'farseer90718/unite-workflow'
@@ -233,6 +227,10 @@ NeoBundle 'farseer90718/unite-workflow'
 " NeoBundle 'xolox/vim-easytags'
 " NeoBundle 'Shougo/neossh.vim' " toy
 """"""""""""""""""""""""""""""
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+NeoBundle 'kien/ctrlp.vim'
 if !g:env#gui && !g:env#win
   set rtp+=~/.fzf
   NeoBundle 'junegunn/fzf', {
@@ -241,9 +239,7 @@ if !g:env#gui && !g:env#win
         \ 'build' : 'yes | ./install',
         \ }
   map <c-p> :FZF<CR>
-  NeoBundleDisable 'kien/ctrlp.vim'
-else
-  NeoBundle 'kien/ctrlp.vim'
+  let g:loaded_ctrlp = 1
 endif
 
 NeoBundle 'Shougo/vimproc', {
@@ -342,15 +338,37 @@ let g:tcomment_types = {
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-NeoBundle 'itchyny/lightline.vim'
 let g:lightline = {
       \   'colorscheme': 'jellybeans',
+      \   'active': {
+      \     'left': [
+      \       ['mode', 'paste'],
+      \       ['fugitive'],
+      \       ['ibus'],
+      \       ['readonly', 'filename', 'modified'],
+      \     ],
+      \     'right': [
+      \       ['lineinfo'],
+      \       ['percent'],
+      \       ['fileformat', 'fileencoding', 'filetype'],
+      \       ['absolutepath'],
+      \     ]
+      \   },
+      \   'tabline': {
+      \     'right': [ ['close'], ['fixdir'] ],
+      \   },
       \   'component': {
-      \     'readonly': '%{&filetype=="help"?"":&readonly?"RO":""}',
-      \     'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
-      \     'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
+      \     'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}',
+      \     'ibus'    : '%{g:ibus#enabled?"汉":""}',
+      \     'fixdir'  : '%{fixdir#started()?"FD":""}',
+      \   },
+      \   'subseparator': { 'left': "", 'right': "" },
+      \   'component_expand': {
+      \     'tabs': 'lightline#tabs'
       \   }
       \ }
+NeoBundle 'itchyny/lightline.vim'
+set showtabline=2
 " 显示换行和制表符
 set list listchars=tab:\|\ ,trail:.
 
@@ -767,10 +785,12 @@ imap <c-=> <Plug>(eskk:toggle)
 NeoBundleLazy 'drmikehenry/vim-fontsize', {
       \ 'mappings' : '<Plug>Fontsize'
       \ }
-nmap <silent> <Leader>=   <Plug>FontsizeBegin
-nmap <C-ScrollWheelUp>    <Plug>FontsizeInc
-nmap <C-ScrollWheelDown>  <Plug>FontsizeDec
-nmap <silent> <Leader>0   <Plug>FontsizeDefault
+nmap <silent> <Leader>=           <Plug>FontsizeBegin
+nmap <silent> <C-ScrollWheelUp>   <Plug>FontsizeInc
+nmap <silent> <Leader>+           <Plug>FontsizeInc
+nmap <silent> <C-ScrollWheelDown> <Plug>FontsizeDec
+nmap <silent> <Leader>-           <Plug>FontsizeDec
+nmap <silent> <Leader>0           <Plug>FontsizeDefault
 NeoBundleLazy 'dhruvasagar/vim-table-mode', {
       \ 'mappings' : '<Leader>tm'
       \ }
@@ -827,10 +847,13 @@ NeoBundleLazy 'wesleyche/SrcExpl', {
 " NeoBundleLazy 'junegunn/goyo.vim', {
 "       \ 'commands' : ['Goyo']
 "       \ }
-NeoBundleLazy 'chenkaie/DirDiff.vim', {
-      \ 'commands': ['DirDiff', 'DirDiffOpen', 'DirDiffNext',
-      \              'DirDiffPrev', 'DirDiffUpdate', 'DirDiffQuit']
-      \ }
+" NeoBundleLazy 'joedicastro/DirDiff.vim', {
+NeoBundleLazy 'zhaocai/DirDiff.vim', {
+      \ 'commands': [
+      \   {'name' : 'DirDiff', 'complete' : 'dir'},
+      \   'DirDiffOpen', 'DirDiffNext',
+      \   'DirDiffPrev', 'DirDiffUpdate', 'DirDiffQuit'
+      \ ]}
 NeoBundleLazy 'matze/vim-move', {
       \ 'mappings': ['<M-k>', '<M-j>']
       \ }
@@ -884,6 +907,11 @@ NeoBundleLazy 'xieyu/pyclewn', {
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+NeoBundleLazy 'mbbill/undotree', {
+      \ 'commands' : [
+      \   'UndotreeToggle', 'UndotreeFocus', 'UndotreeShow', 'UndotreeHide'
+      \ ]}
+command! Undotree UndotreeToggle
 NeoBundleLazy 'sjl/gundo.vim', {
       \ 'commands' : [
       \   'GundoToggle', 'GundoHide', 'GundoRendGraph', 'GundoShow'

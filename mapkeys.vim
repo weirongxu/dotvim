@@ -3,7 +3,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " like <leader>w saves the current file
 let mapleader = ","
-let maplocalleader = ','
+let maplocalleader = ","
 
 " 快速保存
 " nmap <silent> <CR> :up<CR>

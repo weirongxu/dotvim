@@ -1,5 +1,21 @@
 map <Leader>u :Unite
 map <Leader>U :UniteResume<cr>
+map <space> :Unite buffer<cr>
+" let g:unite_source_menu_menus = {}
+" let g:unite_source_menu_menus.buffer = {
+"       \ 'description' : 'vim buffer',
+"       \ }
+" let g:unite_source_menu_menus.buffer.candidates = {
+"       \ 'Unite buffer' : 'Unite buffer',
+"       \ }
+" let g:unite_source_menu_menus.bookmarks = {
+"       \ 'description' : 'bookmarks',
+"       \}
+" let g:unite_source_menu_menus.bookmarks.command_candidates = [
+"       \ ['open bookmarks', 'Unite bookmark:*'],
+"       \ ['add bookmark', 'UniteBookmarkAdd'],
+"       \]
+
 " let g:unite_enable_start_insert = 1
 " let g:unite_split_rule = "botright"
 " let g:unite_winheight = 10
@@ -39,7 +55,7 @@ if executable('ag')
   let g:unite_source_grep_command = 'ag'
   let g:unite_source_grep_default_opts =
         \ '-i --line-numbers --nocolor --nogroup --hidden --ignore ' .
-        \  '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'' --ignore ''node_modules'''
+        \ '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'' --ignore ''node_modules'''
   let g:unite_source_grep_recursive_opt = ''
 elseif executable('pt')
   let g:unite_source_grep_command = 'pt'

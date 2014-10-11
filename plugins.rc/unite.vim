@@ -1,6 +1,5 @@
-map <Leader>u :Unite
-map <Leader>U :UniteResume<cr>
-map <space> :Unite buffer<cr>
+nmap U :Unite
+map <Leader>u :UniteResume<cr>
 " let g:unite_source_menu_menus = {}
 " let g:unite_source_menu_menus.buffer = {
 "       \ 'description' : 'vim buffer',

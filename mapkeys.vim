@@ -10,6 +10,10 @@ let maplocalleader = ","
 " 这么多插件不尊重update
 nmap <silent> <CR> :w<CR>
 
+" fold
+noremap <RightMouse> <LeftMouse>za
+noremap <2-LeftMouse> <LeftMouse>zA
+
 " 只留下一个窗口
 nmap <leader>o :only<CR>
 

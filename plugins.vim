@@ -20,6 +20,7 @@ let g:neobundle#types#git#clone_depth = 1
 " MUST
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'mbbill/fencview'
+NeoBundle 'LargeFile'
 NeoBundle 'dimasg/vim-mark'
 NeoBundle 'nacitar/a.vim'
 NeoBundle 'teranex/sessionman.vim'
@@ -37,6 +38,13 @@ if g:env#python
   NeoBundle 'editorconfig/editorconfig-vim'
   Include plugins.rc/editorconfig-vim
 endif
+NeoBundle 'farseer90718/vim-regionsyntax'
+NeoBundle 'Shougo/context_filetype.vim'
+" NeoBundle 'osyo-manga/vim-precious'
+Include plugins.rc/context_filetype
+NeoBundle 'bouzuya/vim-ibus'
+Include plugins.rc/ibus
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " FIXME
 " NeoBundle 'kana/vim-fakeclip'
 " if !has('gui_running')
@@ -45,16 +53,7 @@ endif
 "   " But I want to use clipboard!
 "   let g:fakeclip_provide_clipboard_key_mappings = 1
 " endif
-NeoBundle 'farseer90718/vim-regionsyntax'
-NeoBundle 'Shougo/context_filetype.vim'
-" NeoBundle 'osyo-manga/vim-precious'
-Include plugins.rc/context_filetype
-NeoBundle 'bouzuya/vim-ibus'
-Include plugins.rc/ibus
-NeoBundle 'tpope/vim-characterize'
-NeoBundle 'salsifis/vim-transpose'
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-NeoBundle 'jmcantrell/vim-virtualenv'
+" NeoBundle 'benmills/vimux'
 " NeoBundle 'farseer90718/vim-taskwarrior'
 " NeoBundle 'kana/vim-tabpagecd'
 " NeoBundle 'chikatoike/concealedyank.vim'
@@ -238,7 +237,11 @@ if !g:env#gui && !g:env#win
         \ 'base' : '~/.fzf',
         \ 'build' : 'yes | ./install',
         \ }
-  map <c-p> :FZF<CR>
+  " map <c-p> :FZF<CR>
+  nnoremap <silent> <c-p>p :call fzf#run({ 'options': '-m', 'sink': 'edit' })<CR>
+  nnoremap <silent> <c-p>s :call fzf#run({ 'options': '-m', 'tmux_height': '40%', 'sink': 'split' })<CR>
+  nnoremap <silent> <c-p>t :call fzf#run({ 'options': '-m', 'sink': 'tabedit' })<CR>
+  nnoremap <silent> <c-p>v :call fzf#run({ 'options': '-m', 'sink': 'vertical split' })<CR>
   let g:loaded_ctrlp = 1
 endif
 
@@ -344,6 +347,7 @@ let g:lightline = {
       \     'left': [
       \       ['mode', 'paste'],
       \       ['fugitive'],
+      \       ['virtualenv'],
       \       ['ibus'],
       \       ['readonly', 'filename', 'modified'],
       \     ],
@@ -354,13 +358,24 @@ let g:lightline = {
       \       ['absolutepath'],
       \     ]
       \   },
+      \   'inactive': {
+      \     'left': [
+      \       ['filename'],
+      \     ],
+      \     'right': [
+      \       ['lineinfo'],
+      \       ['percent'],
+      \       ['absolutepath'],
+      \     ],
+      \   },
       \   'tabline': {
       \     'right': [ ['close'], ['fixdir'] ],
       \   },
       \   'component': {
-      \     'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}',
-      \     'ibus'    : '%{g:ibus#enabled?"汉":""}',
-      \     'fixdir'  : '%{fixdir#started()?"FD":""}',
+      \     'fugitive':   '%{exists("*fugitive#head")?fugitive#head():""}',
+      \     'ibus':       '%{g:ibus#enabled?"汉":""}',
+      \     'fixdir':     '%{fixdir#started()?"FD":""}',
+      \     'virtualenv': '%{exists("*virtualenv#statusline")?virtualenv#statusline():""}'
       \   },
       \   'subseparator': { 'left': "", 'right': "" },
       \   'component_expand': {
@@ -467,11 +482,25 @@ let g:syntastic_mode_map = {
       \ }
 
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+NeoBundleLazy 'klen/python-mode', {
+      \ 'filetypes' : 'python',
+      \ }
+let g:pymode_folding = 1
+let g:pymode_virtualenv_path = '~/Envs'
+let g:pymode_lint_on_write = 1
+let g:pymode_lint_ignore = "E501"
+" let g:pymode_run = 0
+" let g:pymode_breakpoint = 0
+" let g:pymode_breakpoint_cmd = 'PymodeBreakpoints'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " FILETYPE
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+NeoBundleLazy "chase/vim-ansible-yaml", {
+      \ 'filetypes': ['yaml', 'ansible']
+      \ }
 NeoBundleLazy 'vim-scripts/matchit.zip', {
       \ 'filetypes' : ['html', 'jsp', 'xhtml', 'xml', 'htm', 'php', 'aspvbs', 'mason']
       \ }
@@ -764,6 +793,23 @@ NeoBundleLazy 'rhysd/vim-grammarous', {
       \ 'commands' : [{ 'name': 'GrammarousCheck',
       \                 'complete': 'customlist,grammarous#complete_opt'}
       \ ]}
+NeoBundleLazy 'salsifis/vim-transpose', {
+      \   'commands': [
+      \     'Transpose', 'TransposeWords', 'TransposeTab', 'TransposeCSV',
+      \   'TransposeInteractive', 'TransposeIndentToggle'
+      \ ]}
+NeoBundleLazy 'tpope/vim-characterize', {
+      \ 'mappings' : 'ga'
+      \ }
+" NeoBundleLazy 'jmcantrell/vim-virtualenv', {
+"       \ 'commands' : [{'name': 'VirtualEnvActivate',
+"       \                'complete': 'customlist,CompleteVirtualEnv' },
+"       \   'VirtualEnvDeactivate', 'VirtualEnvList'],
+"       \ }
+" function! CompleteVirtualEnv(arg_lead, cmd_line, cursor_pos)
+"     return virtualenv#names(a:arg_lead)
+" endfunction
+" let g:virtualenv_directory = '~/Envs'
 NeoBundleLazy 'weirongxu/fixdir.vim', {
       \ 'commands' : [{ 'name': 'FixDir',
       \                 'complete': 'customlist,fixdir#complete'}

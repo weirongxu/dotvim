@@ -487,7 +487,8 @@ NeoBundleLazy 'klen/python-mode', {
       \ 'filetypes' : 'python',
       \ }
 let g:pymode_folding = 1
-let g:pymode_virtualenv_path = '~/Envs'
+let g:pymode_virtualenv = 0
+" let g:pymode_virtualenv_path = expand('~/Envs')
 let g:pymode_lint_on_write = 1
 let g:pymode_lint_ignore = "E501"
 " let g:pymode_run = 0
@@ -801,15 +802,15 @@ NeoBundleLazy 'salsifis/vim-transpose', {
 NeoBundleLazy 'tpope/vim-characterize', {
       \ 'mappings' : 'ga'
       \ }
-" NeoBundleLazy 'jmcantrell/vim-virtualenv', {
-"       \ 'commands' : [{'name': 'VirtualEnvActivate',
-"       \                'complete': 'customlist,CompleteVirtualEnv' },
-"       \   'VirtualEnvDeactivate', 'VirtualEnvList'],
-"       \ }
-" function! CompleteVirtualEnv(arg_lead, cmd_line, cursor_pos)
-"     return virtualenv#names(a:arg_lead)
-" endfunction
-" let g:virtualenv_directory = '~/Envs'
+NeoBundleLazy 'jmcantrell/vim-virtualenv', {
+      \ 'commands' : [{'name': 'VirtualEnvActivate',
+      \                'complete': 'customlist,CompleteVirtualEnv' },
+      \   'VirtualEnvDeactivate', 'VirtualEnvList'],
+      \ }
+function! CompleteVirtualEnv(arg_lead, cmd_line, cursor_pos)
+    return virtualenv#names(a:arg_lead)
+endfunction
+let g:virtualenv_directory = '~/Envs'
 NeoBundleLazy 'weirongxu/fixdir.vim', {
       \ 'commands' : [{ 'name': 'FixDir',
       \                 'complete': 'customlist,fixdir#complete'}

@@ -1,5 +1,19 @@
 nmap U :Unite
-map <Leader>u :UniteResume<cr>
+map <Leader>u :UniteResume<CR>
+" map <space> :Unite
+map <space>b :Unite buffer<CR>
+map <space>t :Unite tab<CR>
+map <space>T :Unite tab:no-current<CR>
+map <space>j :Unite jump<CR>
+map <space>c :Unite change<CR>
+map <space>g :Unite grep:
+map <space>G :Unite grep:%<CR>
+map <space>f :Unite vimgrep:
+map <space>G :Unite vimgrep:%<CR>
+map <space>m :Unite mru<CR>
+map <space>hc :Unite history/command<CR>
+map <space>hs :Unite history/search<CR>
+map <space>hy :Unite history/yank<CR>
 " let g:unite_source_menu_menus = {}
 " let g:unite_source_menu_menus.buffer = {
 "       \ 'description' : 'vim buffer',
@@ -49,12 +63,14 @@ let g:unite_source_grep_max_candidates = 0
 let g:unite_source_find_max_candidates = 0
 call unite#custom_max_candidates('vimgrep', 0)
 
+let ag_ignore = ['.hg', '.svn', '.git', '.bzr', '.ropeproject', 'node_modules', 'bower_components']
+
 if executable('ag')
   " Use ag in unite grep source.
   let g:unite_source_grep_command = 'ag'
   let g:unite_source_grep_default_opts =
-        \ '-i --line-numbers --nocolor --nogroup --hidden --ignore ' .
-        \ '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'' --ignore ''node_modules'''
+        \ '-i --line-numbers --nocolor --nogroup --hidden ' .
+        \ join(map(ag_ignore, '"--ignore ''" . v:val . "''"'))
   let g:unite_source_grep_recursive_opt = ''
 elseif executable('pt')
   let g:unite_source_grep_command = 'pt'

@@ -23,8 +23,8 @@ NeoBundle 'mbbill/fencview'
 NeoBundle 'LargeFile'
 NeoBundle 'dimasg/vim-mark'
 NeoBundle 'nacitar/a.vim'
-NeoBundle 'teranex/sessionman.vim'
 NeoBundle 'drmikehenry/vim-fixkey'
+NeoBundle 'teranex/sessionman.vim'
 set sessionoptions=curdir,folds,help,resize,tabpages,unix
 let g:sessions_path = $HOME.'/.record/vim-sessions'
 NeoBundle 'kshenoy/vim-signature'
@@ -44,6 +44,7 @@ NeoBundle 'Shougo/context_filetype.vim'
 Include plugins.rc/context_filetype
 NeoBundle 'bouzuya/vim-ibus'
 Include plugins.rc/ibus
+NeoBundle 'craigemery/vim-autotag'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " FIXME
 " NeoBundle 'kana/vim-fakeclip'
@@ -69,6 +70,29 @@ Include plugins.rc/ibus
 " NeoBundle 'jiazhoulvke/googletranslate'
 " NeoBundle 'ianva/vim-youdao-translater'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" NeoBundle 'spf13/PIV'
+" NeoBundle 'arnaud-lb/vim-php-namespace'
+NeoBundle 'weirongxu/transformer.vim'
+Include plugins.rc/transformer
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+NeoBundleLazy 'szw/vim-ctrlspace', {
+      \ 'commands': [
+      \   'CtrlSpace', 'CtrlSpaceGoNext', 'CtrlSpaceGoPrevious',
+      \   'CtrlSpaceTabLabel', 'CtrlSpaceClearTabLabel',
+      \   'CtrlSpaceSaveWorkspace', 'CtrlSpaceLoadWorkspace',
+      \   'CtrlSpaceNewWorkspace',
+      \ ],
+      \ 'functions': 'ctrlspace'
+      \ }
+if executable("ag")
+  let g:ctrlspace_glob_command = 'ag -l --nocolor -g ""'
+endif
+map <Space><Space> :CtrlSpace<CR>
+let g:ctrlspace_save_workspace_on_exit=1
+let g:ctrlspace_use_tabline = 0
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -104,6 +128,7 @@ NeoBundle 'kana/vim-textobj-lastpat'
 NeoBundle 'kana/vim-textobj-syntax'
 NeoBundle 'kana/vim-textobj-fold'
 NeoBundle 'kana/vim-textobj-datetime'
+NeoBundle 'akiyan/vim-textobj-xml-attribute'
 NeoBundle 'rhysd/vim-textobj-anyblock'
 " NeoBundle 'osyo-manga/vim-textobj-multiblock'
 " omap aB <Plug>(textobj-multiblock-a)
@@ -122,16 +147,6 @@ NeoBundle 'rhysd/vim-textobj-anyblock'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-NeoBundle 'kana/vim-operator-user'
-NeoBundle 'kana/vim-operator-replace'
-map _ <Plug>(operator-replace)
-NeoBundle 'rhysd/vim-operator-surround'
-map sa <Plug>(operator-surround-append)
-map sd <Plug>(operator-surround-delete)
-map sr <Plug>(operator-surround-replace)
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'terryma/vim-expand-region'
 let g:expand_region_text_objects = {
       \ 'iw': 0,
@@ -142,12 +157,14 @@ let g:expand_region_text_objects = {
       \ 'ic': 0, 'ac': 0,
       \ 'il': 0,
       \ 'ii': 0,
+      \ 'i,': 0, 'a,': 0,
+      \ 'ixa': 0, 'axa': 0,
+      \ 'iy': 0, 'ay': 0,
       \ 'ip': 0,
       \ 'ie': 0,
       \ }
 call expand_region#custom_text_objects('php', {
-      \   'iP' : 0,
-      \   'aP' : 0,
+      \   'iP' : 0, 'aP' : 0,
       \ })
 if g:env#gui
   map <C-CR> <Plug>(expand_region_expand)
@@ -155,6 +172,16 @@ else
   map <NL> <Plug>(expand_region_expand)
 endif
 vmap <BS> <Plug>(expand_region_shrink)
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+NeoBundle 'kana/vim-operator-user'
+NeoBundle 'kana/vim-operator-replace'
+map _ <Plug>(operator-replace)
+NeoBundle 'rhysd/vim-operator-surround'
+map sa <Plug>(operator-surround-append)
+map sd <Plug>(operator-surround-delete)
+map sr <Plug>(operator-surround-replace)
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -230,6 +257,10 @@ NeoBundle 'farseer90718/unite-workflow'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'kien/ctrlp.vim'
+let g:ctrlp_custom_ignore = {
+      \ 'dir':  '\v[\/](\.(git|hg|svn|ropeproject)|(node_modules|bower_components))$',
+      \ 'file': '\v\.(exe|so|dll)$',
+      \ }
 if !g:env#gui && !g:env#win
   set rtp+=~/.fzf
   NeoBundle 'junegunn/fzf', {
@@ -341,47 +372,7 @@ let g:tcomment_types = {
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:lightline = {
-      \   'colorscheme': 'jellybeans',
-      \   'active': {
-      \     'left': [
-      \       ['mode', 'paste'],
-      \       ['fugitive'],
-      \       ['virtualenv'],
-      \       ['ibus'],
-      \       ['readonly', 'filename', 'modified'],
-      \     ],
-      \     'right': [
-      \       ['lineinfo'],
-      \       ['percent'],
-      \       ['fileformat', 'fileencoding', 'filetype'],
-      \       ['absolutepath'],
-      \     ]
-      \   },
-      \   'inactive': {
-      \     'left': [
-      \       ['filename'],
-      \     ],
-      \     'right': [
-      \       ['lineinfo'],
-      \       ['percent'],
-      \       ['absolutepath'],
-      \     ],
-      \   },
-      \   'tabline': {
-      \     'right': [ ['close'], ['fixdir'] ],
-      \   },
-      \   'component': {
-      \     'fugitive':   '%{exists("*fugitive#head")?fugitive#head():""}',
-      \     'ibus':       '%{g:ibus#enabled?"汉":""}',
-      \     'fixdir':     '%{fixdir#started()?"FD":""}',
-      \     'virtualenv': '%{exists("*virtualenv#statusline")?virtualenv#statusline():""}'
-      \   },
-      \   'subseparator': { 'left': "", 'right': "" },
-      \   'component_expand': {
-      \     'tabs': 'lightline#tabs'
-      \   }
-      \ }
+Include plugins.rc/lightline
 NeoBundle 'itchyny/lightline.vim'
 set showtabline=2
 " 显示换行和制表符
@@ -467,12 +458,29 @@ if g:env#win
   let g:syntastic_warning_symbol = '>>'
   let g:syntastic_style_warning_symbol = 'S>'
 else
-  let g:syntastic_error_symbol = '?'
-  let g:syntastic_style_error_symbol = 'Sx'
-  let g:syntastic_warning_symbol = '?'
+  " let g:syntastic_error_symbol = ">\u2717"
+  " let g:syntastic_style_error_symbol = "S\u2717"
+  let g:syntastic_warning_symbol = '>>'
   let g:syntastic_style_warning_symbol = 'S>'
 endif
 " let g:syntastic_php_checkers=['php']
+let quiet_php_messages = [
+      \ 'Missing file doc comment',
+      \ ]
+let g:syntastic_php_phpcs_quiet_messages = {
+      \ "regex": '\V\('.join(quiet_php_messages).'\|\)',
+      \ }
+let g:syntastic_python_checkers = ['flake8', 'pylint']
+let g:syntastic_python_flake8_quiet_messages = {
+      \ "regex": '\mE501',
+      \ }
+let quiet_coffee_messages = [
+      \ 'indentation Expected',
+      \ 'Line exceeds maximum',
+      \ ]
+let g:syntastic_coffee_coffeelint_quiet_messages = {
+      \ "regex": '\V\('.join(quiet_coffee_messages).'\|\)',
+      \ }
 map <Leader><space> :up<CR>:SyntasticCheck<CR>
       " \ 'mode': 'active',
 let g:syntastic_mode_map = {
@@ -488,9 +496,10 @@ NeoBundleLazy 'klen/python-mode', {
       \ }
 let g:pymode_folding = 1
 let g:pymode_virtualenv = 0
+let g:pymode_doc = 0
 " let g:pymode_virtualenv_path = expand('~/Envs')
-let g:pymode_lint_on_write = 1
-let g:pymode_lint_ignore = "E501"
+let g:pymode_lint_on_write = 0
+" let g:pymode_lint_ignore = "E501"
 " let g:pymode_run = 0
 " let g:pymode_breakpoint = 0
 " let g:pymode_breakpoint_cmd = 'PymodeBreakpoints'
@@ -526,9 +535,6 @@ NeoBundleLazy 'elzr/vim-json', {
 NeoBundleLazy 'digitaltoad/vim-jade', {
       \ 'filetypes' : 'jade'
       \ }
-" NeoBundleLazy 'spf13/PIV', {
-"       \ 'filetypes' : 'php'
-"       \ }
 NeoBundleLazy 'kepbod/php_indent', {
       \ 'filetypes' : 'php'
       \ }
@@ -790,6 +796,10 @@ NeoBundleLazy 'junegunn/vader.vim', {
       \ }
 NeoBundle 'thinca/vim-scall'
 NeoBundle 'kana/vim-vspec'
+NeoBundleLazy 'szw/vim-maximizer', {
+      \ 'commands': 'MaximizerToggle'
+      \ }
+map <space>a :MaximizerToggle<CR>
 NeoBundleLazy 'rhysd/vim-grammarous', {
       \ 'commands' : [{ 'name': 'GrammarousCheck',
       \                 'complete': 'customlist,grammarous#complete_opt'}
@@ -1098,7 +1108,6 @@ let g:incsearch#highlight = {
 " NeoBundle 'bling/vim-airline' " 因为lightline
 " NeoBundle 'Townk/vim-autoclose' " <esc>要刷新buffer，和neocomplete冲突。
 " NeoBundle 'Raimondi/delimitMate' " 用jiangmiao/auto-pairs
-" NeoBundle 'szw/vim-ctrlspace' " 用unite。。。
 " NeoBundle 'itchyny/vim-cmdline-ranges'
 " NeoBundle 'yuratomo/gmail.vim'
 " NeoBundle 'Rykka/easydigraph.vim'
@@ -1151,5 +1160,3 @@ let g:vimim_plugin = 'wubi,pinyin'
 let g:vimim_cloud=-1
 let g:vimim_map='no-search'
 " imap <c-c> <c-_>
-
-Include plugins.rc/transformer

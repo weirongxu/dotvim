@@ -2,52 +2,57 @@ snippet reqg
 	${1} = require 'gulp-$1'
 
 snippet gulp-copy
-  gulp.src 'assets/**'
-  .pipe plumber()
-  .pipe gulp.dest 'public/assets'
+	gulp.task 'copy', ->
+		gulp.src 'assets/**'
+			.pipe plumber()
+			.pipe gulp.dest 'public/assets'
 
 snippet gulp-jade
-  gulp.src ['jade/**/*.jade', '!jade/common/**']
-  .pipe plumber()
-  .pipe jade
-    locals:
-      data: require './jade/common/data'
-      _: require 'lodash-node'
-    # pretty: true
-  .pipe gulp.dest 'public'
+	gulp.task 'jade', ->
+		gulp.src ['jade/**/*.jade', '!jade/common/**']
+			.pipe plumber()
+			.pipe jade
+				locals:
+					data: require './jade/common/data'
+					_: require 'lodash-node'
+				# pretty: true
+			.pipe gulp.dest 'public'
 
 snippet gulp-stylus
-  gulp.src 'stylus/main.styl'
-  .pipe plumber()
-  .pipe sourcemaps.init()
-  .pipe stylus
-    use: [ nib() ]
-    compress: true
-  .pipe sourcemaps.write('./')
-  .pipe gulp.dest 'public/assets/css'
+	gulp.task 'stylus', ->
+		gulp.src 'stylus/main.styl'
+			.pipe plumber()
+			.pipe sourcemaps.init()
+			.pipe stylus
+				use: [ nib() ]
+				compress: true
+			.pipe sourcemaps.write('./')
+			.pipe gulp.dest 'public/assets/css'
 
 snippet gulp-coffee
-  gulp.src 'coffee/**/*.coffee'
-  .pipe plumber (error) ->
-    console.log error.message
-    console.log error.stack
-  .pipe sourcemaps.init()
-  .pipe coffee
-    bare: true
-  .pipe uglify()
-  .pipe sourcemaps.write('./')
-  .pipe gulp.dest 'public/assets/js'
+	gulp.task 'coffee', ->
+		gulp.src 'coffee/**/*.coffee'
+			.pipe plumber (error) ->
+				console.log error.message
+				console.log error.stack
+			.pipe sourcemaps.init()
+			.pipe coffee
+				bare: true
+			.pipe uglify()
+			.pipe sourcemaps.write('./')
+			.pipe gulp.dest 'public/assets/js'
 
 snippet gulp-less
-  gulp.src 'less/main.less'
-  .pipe plumber (error) ->
-    console.log error.message
-    console.log error.stack
-  .pipe sourcemaps.init()
-  .pipe less
-    compress: true
-  .pipe sourcemaps.write('./')
-  .pipe gulp.dest 'public/assets/css'
+	gulp.task 'less', ->
+		gulp.src 'less/main.less'
+			.pipe plumber (error) ->
+				console.log error.message
+				console.log error.stack
+			.pipe sourcemaps.init()
+			.pipe less
+				compress: true
+			.pipe sourcemaps.write('./')
+			.pipe gulp.dest 'public/assets/css'
 
 snippet gulp-watch
 	gulp.task 'watch', ->

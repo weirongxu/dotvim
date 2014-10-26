@@ -453,26 +453,30 @@ command! Snip NeoSnippetEdit -split -vertical
 
 NeoBundle 'scrooloose/syntastic'
 if g:env#win
-  let g:syntastic_error_symbol = 'x>'
+  let g:syntastic_error_symbol = '>x'
   let g:syntastic_style_error_symbol = 'Sx'
   let g:syntastic_warning_symbol = '>>'
   let g:syntastic_style_warning_symbol = 'S>'
 else
-  " let g:syntastic_error_symbol = ">\u2717"
-  " let g:syntastic_style_error_symbol = "S\u2717"
+  let g:syntastic_error_symbol = ">\u2717"
+  let g:syntastic_style_error_symbol = "S\u2717"
   let g:syntastic_warning_symbol = '>>'
   let g:syntastic_style_warning_symbol = 'S>'
 endif
-" let g:syntastic_php_checkers=['php']
+let g:syntastic_php_checkers=['php']
 let quiet_php_messages = [
-      \ 'Missing file doc comment',
+      \ 'comment',
       \ ]
 let g:syntastic_php_phpcs_quiet_messages = {
-      \ "regex": '\V\('.join(quiet_php_messages).'\|\)',
+      \ "regex": '\V\('.join(quiet_php_messages, '\|').'\)',
       \ }
 let g:syntastic_python_checkers = ['flake8', 'pylint']
+let quiet_python_messages = [
+      \ 'E501',
+      \ 'E111',
+      \ ]
 let g:syntastic_python_flake8_quiet_messages = {
-      \ "regex": '\mE501',
+      \ "regex": '\V\('.join(quiet_python_messages, '\|').'\)',
       \ }
 let quiet_coffee_messages = [
       \ 'indentation Expected',
@@ -491,9 +495,10 @@ let g:syntastic_mode_map = {
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-NeoBundleLazy 'klen/python-mode', {
+NeoBundleLazy 'klen/python-mode', 'develop', {
       \ 'filetypes' : 'python',
       \ }
+let g:pymode_indent = 0
 let g:pymode_folding = 1
 let g:pymode_virtualenv = 0
 let g:pymode_doc = 0
@@ -791,11 +796,17 @@ let g:marching_enable_neocomplete = 1
 " TOOLS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundleLazy 'junegunn/vader.vim', {
-      \ 'commands' : 'Vader',
-      \ 'filetypes' : 'vader',
+      \ 'commands': 'Vader',
+      \ 'filetypes': 'vader',
       \ }
 NeoBundle 'thinca/vim-scall'
 NeoBundle 'kana/vim-vspec'
+NeoBundleLazy 'KabbAmine/zeavim.vim', {
+      \ 'mappings': ['<leader>z', '<leader>z',
+      \ '<leader>Z', '<leader><leader>z',
+      \ ],
+      \ 'commands': ['Zeavim', 'ZvV', 'ZvK', 'ZvKD', 'Docset']
+      \ }
 NeoBundleLazy 'szw/vim-maximizer', {
       \ 'commands': 'MaximizerToggle'
       \ }

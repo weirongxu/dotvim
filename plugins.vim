@@ -807,6 +807,12 @@ NeoBundleLazy 'KabbAmine/zeavim.vim', {
       \ ],
       \ 'commands': ['Zeavim', 'ZvV', 'ZvK', 'ZvKD', 'Docset']
       \ }
+NeoBundleLazy 'januswel/tabshift.vim', {
+      \ 'commands': 'TabShift'
+      \}
+NeoBundleLazy 'januswel/sweepbuf.vim', {
+      \ 'commands': 'SweepBuffers'
+      \}
 NeoBundleLazy 'szw/vim-maximizer', {
       \ 'commands': 'MaximizerToggle'
       \ }

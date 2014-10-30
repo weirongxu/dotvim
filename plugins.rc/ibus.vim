@@ -1,4 +1,9 @@
-let g:ibus#enabled = 0
+try
+  let g:ibus#enabled = ibus#is_enabled()
+catch
+  finish
+endtry
+
 function! s:inseart_leave() "{{{
   let g:ibus#enabled = ibus#is_enabled()
   call ibus#disable()

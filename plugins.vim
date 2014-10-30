@@ -540,9 +540,6 @@ NeoBundleLazy 'elzr/vim-json', {
 NeoBundleLazy 'digitaltoad/vim-jade', {
       \ 'filetypes' : 'jade'
       \ }
-NeoBundleLazy 'kepbod/php_indent', {
-      \ 'filetypes' : 'php'
-      \ }
 NeoBundleLazy 'justinmk/vim-syntax-extra', {
       \ 'filetypes' : ['c', 'cpp', 'lex', 'yacc']
       \ }

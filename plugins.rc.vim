@@ -36,14 +36,14 @@ NeoBundle 'tpope/vim-repeat'
 " let g:goldenview__enable_default_mapping = 0
 if g:env#python
   NeoBundle 'editorconfig/editorconfig-vim'
-  Include plugins.rc/editorconfig-vim
+  Include rc/editorconfig-vim
 endif
 NeoBundle 'farseer90718/vim-regionsyntax'
 NeoBundle 'Shougo/context_filetype.vim'
 " NeoBundle 'osyo-manga/vim-precious'
-Include plugins.rc/context_filetype
+Include rc/context_filetype
 NeoBundle 'bouzuya/vim-ibus'
-Include plugins.rc/ibus
+Include rc/ibus
 NeoBundle 'craigemery/vim-autotag'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " FIXME
@@ -74,7 +74,7 @@ NeoBundle 'craigemery/vim-autotag'
 " NeoBundle 'spf13/PIV'
 " NeoBundle 'arnaud-lb/vim-php-namespace'
 NeoBundle 'weirongxu/transformer.vim'
-Include plugins.rc/transformer
+Include rc/transformer
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -115,7 +115,7 @@ let g:startify_list_order = [
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'kana/vim-textobj-user'
-Include plugins.rc/textobj-user
+Include rc/textobj-user
 NeoBundle 'kana/vim-textobj-indent'
 NeoBundle 'kana/vim-textobj-entire'
 NeoBundle 'kana/vim-textobj-line'
@@ -218,7 +218,7 @@ NeoBundleLazy 'Shougo/unite.vim', {
       \                 'complete' : 'customlist,unite#complete_source'},
       \                 'UniteWithCursorWord', 'UniteWithInput']
       \ }
-Include plugins.rc/unite
+Include rc/unite
 """"""""""""""""""""""""""""""
 NeoBundleLazy 'junkblocker/unite-tasklist'
 command! TaskList Unite tasklist
@@ -315,7 +315,7 @@ NeoBundleLazy 'Shougo/vimfiler.vim', {
       \     'complete' : 'customlist,vimfiler#complete' },
       \   'Read', 'Source',
       \ ]}
-Include plugins.rc/vimfiler
+Include rc/vimfiler
 " scrooloose版本在win下切换磁盘会有问题
 " NeoBundleLazy 'mixvin/nerdtree', {
 " NeoBundleLazy 'scrooloose/nerdtree', {
@@ -372,7 +372,7 @@ let g:tcomment_types = {
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Include plugins.rc/lightline
+Include rc/lightline
 NeoBundle 'itchyny/lightline.vim'
 set showtabline=2
 " 显示换行和制表符
@@ -405,11 +405,11 @@ let g:colorv_preview_ftype = 'css,html,php,jsp,aspvbs,mason,javascript,htm,less,
 " NeoBundle 'Valloric/YouCompleteMe'
 if has('lua')
   NeoBundle 'Shougo/neocomplete.vim'
-  Include plugins.rc/neocomplete
+  Include rc/neocomplete
   NeoBundleDisable 'Shougo/neocomplcache.vim'
 else
   NeoBundle 'Shougo/neocomplcache.vim'
-  Include plugins.rc/neocomplcache
+  Include rc/neocomplcache
   NeoBundleDisable 'Shougo/neocomplete.vim'
 endif
 NeoBundle 'hrsh7th/vim-neco-calc'
@@ -1007,7 +1007,7 @@ NeoBundleLazy 'majutsushi/tagbar', {
       \               'TagbarDebug', 'TagbarDebugEnd']
       \ }
 map gl :TagbarToggle<CR>
-Include plugins.rc/tagbar
+Include rc/tagbar
 let g:tagbar_show_linenumbers = 1
 
 
@@ -1035,7 +1035,7 @@ NeoBundleLazy 'vimwiki/vimwiki', {
       \               '<Plug>VimwikiMakeDiaryNote', '<Leader>w<Leader>t', '<Plug>VimwikiTabMakeDiaryNote',
       \               '<LocalLeader>cal', '<LocalLeader>caL']
       \ }
-Include plugins.rc/vimwiki
+Include rc/vimwiki
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

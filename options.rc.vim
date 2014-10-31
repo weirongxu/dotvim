@@ -40,7 +40,7 @@ if g:env#x
 endif
 if g:env#unix
   " set guifont=Menlo\ 10,*
-  set guifont=Monaco\ 10
+  set guifont=Monaco\ for\ Powerline\ 10
   " set guifont=Consolas\ 11
   " set guifont=Monofur\ For\ Powerline\ 10,*
   " set guifont=Source\ Code\ Pro\ 10,*

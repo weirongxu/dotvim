@@ -241,7 +241,8 @@ endfunction
 " 不同语言的设置
 """""""""""""""""""""""""""""""""""""
 
-au FileType c,cpp,objc,objcpp,cs,javascript,php,java,css,less,sass,matlab,sql map  <silent> <buffer> ; :call <SID>AppendMark(';')<CR>
+au FileType c,cpp,objc,objcpp,cs,javascript,php,java,css,less,sass,matlab,sql
+      \ map  <silent> <buffer> ;; :call <SID>AppendMark(';')<CR>
 fun! s:AppendMark(mark)
   let lines = getline('.')
   if match(lines, '[' . a:mark . '{}]\s*$') == -1

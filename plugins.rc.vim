@@ -39,7 +39,7 @@ if g:env#python
 endif
 if neobundle#tap('editorconfig-vim') "{{{
     let neobundle#hooks.on_source =
-          \ 'rc/editorconfig-vim.rc.vim'
+          \ '~/.vim/rc/editorconfig-vim.rc.vim'
 
     call neobundle#untap()
 endif "}}}
@@ -81,7 +81,7 @@ NeoBundle 'craigemery/vim-autotag'
 NeoBundle 'weirongxu/transformer.vim'
 if neobundle#tap('transformer.vim')
   let neobundle#hooks.on_source =
-        \ 'rc/transformer.rc.vim'
+        \ '~/.vim/rc/transformer.rc.vim'
   call neobundle#untap()
 endif
 
@@ -126,7 +126,7 @@ let g:startify_list_order = [
 NeoBundle 'kana/vim-textobj-user'
 if neobundle#tap('vim-textobj-user')
   let neobundle#hooks.on_source =
-        \ 'rc/textobj-user.rc.vim'
+        \ '~/.vim/rc/textobj-user.rc.vim'
   call neobundle#untap()
 endif
 NeoBundle 'kana/vim-textobj-indent'
@@ -239,7 +239,7 @@ NeoBundleLazy 'Shougo/unite.vim', {
       \ }
 if neobundle#tap('unite.vim')
   let neobundle#hooks.on_source =
-        \ 'rc/unite.rc.vim'
+        \ '~/.vim/rc/unite.rc.vim'
   call neobundle#untap()
 endif
 """"""""""""""""""""""""""""""
@@ -279,7 +279,7 @@ NeoBundle 'farseer90718/unite-workflow'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'ctrlpvim/ctrlp.vim'
 let g:ctrlp_custom_ignore = {
       \ 'dir':  '\v[\/](\.(git|hg|svn|ropeproject)|(node_modules|bower_components))$',
       \ 'file': '\v\.(exe|so|dll)$',

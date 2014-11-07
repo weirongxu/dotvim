@@ -3,7 +3,7 @@ if has('vim_starting')
   let &runtimepath = &runtimepath.','.$MYBUNDLEDIR.'/neobundle.vim'
 endif
 
-call neobundle#rc($MYBUNDLEDIR)
+call neobundle#begin($MYBUNDLEDIR)
 call neobundle#local($MYBUNDLEDIR.'-common', {})
 
 " if g:env#unix
@@ -12,7 +12,7 @@ call neobundle#local($MYBUNDLEDIR.'-common', {})
   " call neobundle#local($MYBUNDLEDIR.'-win32', {})
 " endif
 
-NeoBundle 'Shougo/neobundle.vim'
+NeoBundleFetch 'Shougo/neobundle.vim'
 let g:neobundle#types#git#clone_depth = 1
 
 
@@ -36,8 +36,13 @@ NeoBundle 'tpope/vim-repeat'
 " let g:goldenview__enable_default_mapping = 0
 if g:env#python
   NeoBundle 'editorconfig/editorconfig-vim'
-  Include rc/editorconfig-vim
 endif
+if neobundle#tap('editorconfig-vim') "{{{
+    let neobundle#hooks.on_source =
+          \ 'rc/editorconfig-vim.rc.vim'
+
+    call neobundle#untap()
+endif "}}}
 NeoBundle 'farseer90718/vim-regionsyntax'
 NeoBundle 'Shougo/context_filetype.vim'
 " NeoBundle 'osyo-manga/vim-precious'
@@ -74,7 +79,11 @@ NeoBundle 'craigemery/vim-autotag'
 " NeoBundle 'spf13/PIV'
 " NeoBundle 'arnaud-lb/vim-php-namespace'
 NeoBundle 'weirongxu/transformer.vim'
-Include rc/transformer
+if neobundle#tap('transformer.vim')
+  let neobundle#hooks.on_source =
+        \ 'rc/transformer.rc.vim'
+  call neobundle#untap()
+endif
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -115,7 +124,11 @@ let g:startify_list_order = [
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'kana/vim-textobj-user'
-Include rc/textobj-user
+if neobundle#tap('vim-textobj-user')
+  let neobundle#hooks.on_source =
+        \ 'rc/textobj-user.rc.vim'
+  call neobundle#untap()
+endif
 NeoBundle 'kana/vim-textobj-indent'
 NeoBundle 'kana/vim-textobj-entire'
 NeoBundle 'kana/vim-textobj-line'
@@ -163,15 +176,21 @@ let g:expand_region_text_objects = {
       \ 'ip': 0,
       \ 'ie': 0,
       \ }
-call expand_region#custom_text_objects('php', {
-      \   'iP' : 0, 'aP' : 0,
-      \ })
-if g:env#gui
-  map <C-CR> <Plug>(expand_region_expand)
-else
-  map <NL> <Plug>(expand_region_expand)
+if neobundle#tap('vim-expand-region')
+  function! neobundle#hooks.on_source(bundle)
+    call expand_region#custom_text_objects('php', {
+          \   'iP' : 0, 'aP' : 0,
+          \ })
+  endfunction
+  if g:env#gui
+    map <C-CR> <Plug>(expand_region_expand)
+  else
+    map <NL> <Plug>(expand_region_expand)
+  endif
+  vmap <BS> <Plug>(expand_region_shrink)
+
+  call neobundle#untap()
 endif
-vmap <BS> <Plug>(expand_region_shrink)
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -218,7 +237,11 @@ NeoBundleLazy 'Shougo/unite.vim', {
       \                 'complete' : 'customlist,unite#complete_source'},
       \                 'UniteWithCursorWord', 'UniteWithInput']
       \ }
-Include rc/unite
+if neobundle#tap('unite.vim')
+  let neobundle#hooks.on_source =
+        \ 'rc/unite.rc.vim'
+  call neobundle#untap()
+endif
 """"""""""""""""""""""""""""""
 NeoBundleLazy 'junkblocker/unite-tasklist'
 command! TaskList Unite tasklist
@@ -1157,6 +1180,7 @@ let g:incsearch#highlight = {
 " NeoBundle 'katono/rogue.vim'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+call neobundle#end()
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

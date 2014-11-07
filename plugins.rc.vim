@@ -3,7 +3,7 @@ if has('vim_starting')
   let &runtimepath = &runtimepath.','.$MYBUNDLEDIR.'/neobundle.vim'
 endif
 
-call neobundle#rc($MYBUNDLEDIR)
+call neobundle#begin($MYBUNDLEDIR)
 call neobundle#local($MYBUNDLEDIR.'-common', {})
 
 " if g:env#unix
@@ -12,7 +12,7 @@ call neobundle#local($MYBUNDLEDIR.'-common', {})
   " call neobundle#local($MYBUNDLEDIR.'-win32', {})
 " endif
 
-NeoBundle 'Shougo/neobundle.vim'
+NeoBundleFetch 'Shougo/neobundle.vim'
 let g:neobundle#types#git#clone_depth = 1
 
 
@@ -36,14 +36,19 @@ NeoBundle 'tpope/vim-repeat'
 " let g:goldenview__enable_default_mapping = 0
 if g:env#python
   NeoBundle 'editorconfig/editorconfig-vim'
-  Include plugins.rc/editorconfig-vim
 endif
+if neobundle#tap('editorconfig-vim') "{{{
+    let neobundle#hooks.on_source =
+          \ '~/.vim/rc/editorconfig-vim.rc.vim'
+
+    call neobundle#untap()
+endif "}}}
 NeoBundle 'farseer90718/vim-regionsyntax'
 NeoBundle 'Shougo/context_filetype.vim'
 " NeoBundle 'osyo-manga/vim-precious'
-Include plugins.rc/context_filetype
+Include rc/context_filetype
 NeoBundle 'bouzuya/vim-ibus'
-Include plugins.rc/ibus
+Include rc/ibus
 NeoBundle 'craigemery/vim-autotag'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " FIXME
@@ -74,7 +79,11 @@ NeoBundle 'craigemery/vim-autotag'
 " NeoBundle 'spf13/PIV'
 " NeoBundle 'arnaud-lb/vim-php-namespace'
 NeoBundle 'weirongxu/transformer.vim'
-Include plugins.rc/transformer
+if neobundle#tap('transformer.vim')
+  let neobundle#hooks.on_source =
+        \ '~/.vim/rc/transformer.rc.vim'
+  call neobundle#untap()
+endif
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -115,7 +124,11 @@ let g:startify_list_order = [
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'kana/vim-textobj-user'
-Include plugins.rc/textobj-user
+if neobundle#tap('vim-textobj-user')
+  let neobundle#hooks.on_source =
+        \ '~/.vim/rc/textobj-user.rc.vim'
+  call neobundle#untap()
+endif
 NeoBundle 'kana/vim-textobj-indent'
 NeoBundle 'kana/vim-textobj-entire'
 NeoBundle 'kana/vim-textobj-line'
@@ -163,15 +176,21 @@ let g:expand_region_text_objects = {
       \ 'ip': 0,
       \ 'ie': 0,
       \ }
-call expand_region#custom_text_objects('php', {
-      \   'iP' : 0, 'aP' : 0,
-      \ })
-if g:env#gui
-  map <C-CR> <Plug>(expand_region_expand)
-else
-  map <NL> <Plug>(expand_region_expand)
+if neobundle#tap('vim-expand-region')
+  function! neobundle#hooks.on_source(bundle)
+    call expand_region#custom_text_objects('php', {
+          \   'iP' : 0, 'aP' : 0,
+          \ })
+  endfunction
+  if g:env#gui
+    map <C-CR> <Plug>(expand_region_expand)
+  else
+    map <NL> <Plug>(expand_region_expand)
+  endif
+  vmap <BS> <Plug>(expand_region_shrink)
+
+  call neobundle#untap()
 endif
-vmap <BS> <Plug>(expand_region_shrink)
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -218,7 +237,11 @@ NeoBundleLazy 'Shougo/unite.vim', {
       \                 'complete' : 'customlist,unite#complete_source'},
       \                 'UniteWithCursorWord', 'UniteWithInput']
       \ }
-Include plugins.rc/unite
+if neobundle#tap('unite.vim')
+  let neobundle#hooks.on_source =
+        \ '~/.vim/rc/unite.rc.vim'
+  call neobundle#untap()
+endif
 """"""""""""""""""""""""""""""
 NeoBundleLazy 'junkblocker/unite-tasklist'
 command! TaskList Unite tasklist
@@ -256,7 +279,7 @@ NeoBundle 'farseer90718/unite-workflow'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'ctrlpvim/ctrlp.vim'
 let g:ctrlp_custom_ignore = {
       \ 'dir':  '\v[\/](\.(git|hg|svn|ropeproject)|(node_modules|bower_components))$',
       \ 'file': '\v\.(exe|so|dll)$',
@@ -315,7 +338,7 @@ NeoBundleLazy 'Shougo/vimfiler.vim', {
       \     'complete' : 'customlist,vimfiler#complete' },
       \   'Read', 'Source',
       \ ]}
-Include plugins.rc/vimfiler
+Include rc/vimfiler
 " scrooloose版本在win下切换磁盘会有问题
 " NeoBundleLazy 'mixvin/nerdtree', {
 " NeoBundleLazy 'scrooloose/nerdtree', {
@@ -372,7 +395,7 @@ let g:tcomment_types = {
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Include plugins.rc/lightline
+Include rc/lightline
 NeoBundle 'itchyny/lightline.vim'
 set showtabline=2
 " 显示换行和制表符
@@ -405,11 +428,11 @@ let g:colorv_preview_ftype = 'css,html,php,jsp,aspvbs,mason,javascript,htm,less,
 " NeoBundle 'Valloric/YouCompleteMe'
 if has('lua')
   NeoBundle 'Shougo/neocomplete.vim'
-  Include plugins.rc/neocomplete
+  Include rc/neocomplete
   NeoBundleDisable 'Shougo/neocomplcache.vim'
 else
   NeoBundle 'Shougo/neocomplcache.vim'
-  Include plugins.rc/neocomplcache
+  Include rc/neocomplcache
   NeoBundleDisable 'Shougo/neocomplete.vim'
 endif
 NeoBundle 'hrsh7th/vim-neco-calc'
@@ -1007,7 +1030,7 @@ NeoBundleLazy 'majutsushi/tagbar', {
       \               'TagbarDebug', 'TagbarDebugEnd']
       \ }
 map gl :TagbarToggle<CR>
-Include plugins.rc/tagbar
+Include rc/tagbar
 let g:tagbar_show_linenumbers = 1
 
 
@@ -1035,7 +1058,7 @@ NeoBundleLazy 'vimwiki/vimwiki', {
       \               '<Plug>VimwikiMakeDiaryNote', '<Leader>w<Leader>t', '<Plug>VimwikiTabMakeDiaryNote',
       \               '<LocalLeader>cal', '<LocalLeader>caL']
       \ }
-Include plugins.rc/vimwiki
+Include rc/vimwiki
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -1157,6 +1180,7 @@ let g:incsearch#highlight = {
 " NeoBundle 'katono/rogue.vim'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+call neobundle#end()
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

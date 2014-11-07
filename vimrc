@@ -24,10 +24,10 @@ endif
 let $MYVIMFILES = expand('~/.vim')
 let $MYPlugin = $MYVIMFILES . '/plugins.rc.vim'
 let $MYBUNDLEDIR = $MYVIMFILES . '/bundle'
+execute 'command! -nargs=1 Include source '.$MYVIMFILES.'/<args>.rc.vim'
 if has('vim_starting')
   let &runtimepath = &runtimepath.','.$MYVIMFILES.'/local'
 endif
-execute 'command! -nargs=1 Include source '.$MYVIMFILES.'/<args>.rc.vim'
 Include options
 Include mapkeys
 Include plugins

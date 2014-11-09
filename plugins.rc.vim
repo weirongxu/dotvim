@@ -518,22 +518,22 @@ let g:syntastic_mode_map = {
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-NeoBundleLazy 'python-rope/ropevim', {
-      \ 'filetypes' : 'python',
-      \ }
-" NeoBundleLazy 'klen/python-mode', 'develop', {
+" NeoBundleLazy 'python-rope/ropevim', {
 "       \ 'filetypes' : 'python',
 "       \ }
-" let g:pymode_indent = 0
-" let g:pymode_folding = 1
-" let g:pymode_virtualenv = 0
-" let g:pymode_doc = 0
-" " let g:pymode_virtualenv_path = expand('~/Envs')
-" let g:pymode_lint_on_write = 0
-" " let g:pymode_lint_ignore = "E501"
-" " let g:pymode_run = 0
-" " let g:pymode_breakpoint = 0
-" " let g:pymode_breakpoint_cmd = 'PymodeBreakpoints'
+NeoBundleLazy 'klen/python-mode', 'develop', {
+      \ 'filetypes' : 'python',
+      \ }
+let g:pymode_indent = 0
+let g:pymode_folding = 1
+let g:pymode_virtualenv = 0
+let g:pymode_doc = 0
+" let g:pymode_virtualenv_path = expand('~/Envs')
+let g:pymode_lint_on_write = 0
+" let g:pymode_lint_ignore = "E501"
+" let g:pymode_run = 0
+" let g:pymode_breakpoint = 0
+" let g:pymode_breakpoint_cmd = 'PymodeBreakpoints'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

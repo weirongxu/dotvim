@@ -518,6 +518,9 @@ let g:syntastic_mode_map = {
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" NeoBundleLazy 'python-rope/ropevim', {
+"       \ 'filetypes' : 'python',
+"       \ }
 NeoBundleLazy 'klen/python-mode', 'develop', {
       \ 'filetypes' : 'python',
       \ }

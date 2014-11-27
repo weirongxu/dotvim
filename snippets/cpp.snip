@@ -3,13 +3,13 @@ include c.snip
 # #include <...>
 snippet inc
 alias #inc, #include
-	#include <${1:iostream}>${0}
+	#include <${1:iostream}>
 
 snippet us
-	using ${1:std}::${2:cout};${0}
+	using ${0:std}::${1:cout};
 
 snippet usn
-	using namespace ${1:std};${0}
+	using namespace ${0:std};
 
 # iostream
 snippet cout

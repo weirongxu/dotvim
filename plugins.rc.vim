@@ -1104,12 +1104,18 @@ let g:EasyMotion_use_smartsign_us = 1
 nmap sl <Plug>(easymotion-sl)
 """"""""""""""""""""""""""""""
 NeoBundle 'saihoooooooo/glowshi-ft.vim'
+
+" NeoBundle 'junegunn/vim-pseudocl'
+" NeoBundle 'junegunn/vim-oblique'
+" let g:oblique#incsearch_highlight_all=1
+
 NeoBundle 'thinca/vim-visualstar'
 NeoBundleLazy 'osyo-manga/vim-anzu', {
       \ 'mappings' : '<Plug>(anzu-'
       \ }
 nmap n <Plug>(anzu-n-with-echo)
 nmap N <Plug>(anzu-N-with-echo)
+
 NeoBundleLazy 'haya14busa/incsearch.vim', {
       \ 'mappings' : '<Plug>(incsearch-'
       \ }

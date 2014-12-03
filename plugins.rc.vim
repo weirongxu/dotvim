@@ -570,9 +570,6 @@ NeoBundleLazy 'jnwhiteh/vim-golang', {
 NeoBundleLazy 'rcmdnk/vim-markdown', {
       \ 'filetypes' : 'markdown'
       \ }
-NeoBundleLazy 'lervag/vim-latex', {
-      \ 'filetypes' : 'tex'
-      \ }
 let g:vim_markdown_initial_foldlevel=99
 NeoBundleLazy 'kannokanno/previm', {
       \ 'filetypes' : ['markdown', 'rst'],

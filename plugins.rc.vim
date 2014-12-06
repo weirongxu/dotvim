@@ -4,7 +4,7 @@ if has('vim_starting')
 endif
 
 call neobundle#begin($MYBUNDLEDIR)
-call neobundle#local($MYBUNDLEDIR.'-common', {})
+call neobundle#local($MYBUNDLEDIR.'-local', {})
 
 " if g:env#unix
   " call neobundle#local($MYBUNDLEDIR.'-unix', {})

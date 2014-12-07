@@ -534,8 +534,11 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " FILETYPE
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-NeoBundleLazy "chase/vim-ansible-yaml", {
-      \ 'filetypes': ['yaml', 'ansible']
+NeoBundleLazy 'cespare/vim-toml', {
+      \ 'filetypes' : ['toml']
+      \ }
+NeoBundleLazy 'chase/vim-ansible-yaml', {
+      \ 'filetypes' : ['yaml', 'ansible']
       \ }
 NeoBundleLazy 'vim-scripts/matchit.zip', {
       \ 'filetypes' : ['html', 'jsp', 'xhtml', 'xml', 'htm', 'php', 'aspvbs', 'mason']

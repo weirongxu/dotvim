@@ -828,6 +828,10 @@ NeoBundleLazy 'KabbAmine/zeavim.vim', {
       \ ],
       \ 'commands': ['Zeavim', 'ZvV', 'ZvK', 'ZvKD', 'Docset']
       \ }
+NeoBundleLazy 'mtth/scratch.vim', {
+      \ 'mappings': ['gs'],
+      \ 'commands': ['Scratch'],
+      \ }
 NeoBundleLazy 'januswel/tabshift.vim', {
       \ 'commands': 'TabShift'
       \}

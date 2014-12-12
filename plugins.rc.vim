@@ -237,11 +237,7 @@ NeoBundleLazy 'Shougo/unite.vim', {
       \                 'complete' : 'customlist,unite#complete_source'},
       \                 'UniteWithCursorWord', 'UniteWithInput']
       \ }
-if neobundle#tap('unite.vim')
-  let neobundle#hooks.on_source =
-        \ '~/.vim/rc/unite.rc.vim'
-  call neobundle#untap()
-endif
+Include rc/unite
 """"""""""""""""""""""""""""""
 NeoBundleLazy 'junkblocker/unite-tasklist'
 command! TaskList Unite tasklist

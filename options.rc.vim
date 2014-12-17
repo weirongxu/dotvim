@@ -15,14 +15,11 @@ command! Menu if &guioptions =~# 'm' |
 set fileencodings=utf-8,gb18030,gbk,gb2312,cp936,ucs-bom,chinese,latin-1
 set fileformats=unix,dos,mac
 
+set fileencoding=utf-8 encoding=utf-8 termencoding=utf-8
 set fileformat=unix
-set fileencoding=utf-8
-if g:env#gui || g:env#unix
-  set encoding=utf-8
-  set termencoding=utf-8
-endif
-
-language en_US.UTF-8
+set langmenu=en_US.UTF-8
+language message en_US.UTF-8
+" language en_US.UTF-8
 
 " Colorscheme
 colo Tomorrow-Night-Eighties

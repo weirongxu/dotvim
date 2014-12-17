@@ -1077,24 +1077,32 @@ NeoBundle 'thinca/vim-visualstar'
 NeoBundleLazy 'osyo-manga/vim-anzu', {
       \ 'mappings' : '<Plug>(anzu-'
       \ }
-nmap n <Plug>(anzu-n-with-echo)
-nmap N <Plug>(anzu-N-with-echo)
+if neobundle#tap('vim-anzu') "{{{
+  function! neobundle#hooks.on_source(bundle)
+    nmap n <Plug>(anzu-n-with-echo)
+    nmap N <Plug>(anzu-N-with-echo)
+  endfunction
+endif "}}}
 
 NeoBundleLazy 'haya14busa/incsearch.vim', {
       \ 'mappings' : '<Plug>(incsearch-'
       \ }
-map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
-let g:incsearch#highlight = {
-\   'on_cursor' : {
-\     'priority' : '100'
-\   },
-\   'cursor' : {
-\     'group' : 'ErrorMsg',
-\     'priority' : '1000'
-\   }
-\ }
+if neobundle#tap('incsearch.vim') "{{{
+  function! neobundle#hooks.on_source(bundle)
+    map /  <Plug>(incsearch-forward)
+    map ?  <Plug>(incsearch-backward)
+    map g/ <Plug>(incsearch-stay)
+    let g:incsearch#highlight = {
+          \   'on_cursor' : {
+          \     'priority' : '100'
+          \   },
+          \   'cursor' : {
+          \     'group' : 'ErrorMsg',
+          \     'priority' : '1000'
+          \   }
+          \ }
+  endfunction
+endif "}}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NeoBundle 'tpope/vim-afterimage' " Crazy!

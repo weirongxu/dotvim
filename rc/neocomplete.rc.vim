@@ -12,17 +12,17 @@ let g:neocomplete#sources#dictionary#dictionaries = {
 let g:neocomplete#same_filetypes = {
       \ 'c': 'cpp',
       \ 'cpp': 'c',
-      \ 'html': 'html,xhtml,jsp,php,jade,css,javascript,coffee,stylus',
-      \ 'xhtml': 'html,xhtml,jsp,php,jade,css,javascript,coffee,stylus',
-      \ 'jsp': 'html,xhtml,jsp,php,jade,css,javascript,coffee,stylus',
-      \ 'php': 'html,xhtml,jsp,php,jade,css,javascript,coffee,stylus',
-      \ 'jade': 'html,xhtml,jsp,php,jade,css,javascript,coffee,stylus',
-      \ 'css': 'html,xhtml,jsp,php,jade,css,javascript,coffee,stylus',
-      \ 'javascript': 'html,xhtml,jsp,php,jade,css,javascript,coffee,stylus',
-      \ 'coffee': 'html,xhtml,jsp,php,jade,css,javascript,coffee,stylus',
-      \ 'stylus': 'html,xhtml,jsp,php,jade,css,javascript,coffee,stylus',
       \ 'zsh': 'sh'
       \ }
+" \ 'html': 'html,xhtml,jsp,php,jade,css,javascript,coffee,stylus',
+" \ 'xhtml': 'html,xhtml,jsp,php,jade,css,javascript,coffee,stylus',
+" \ 'jsp': 'html,xhtml,jsp,php,jade,css,javascript,coffee,stylus',
+" \ 'php': 'html,xhtml,jsp,php,jade,css,javascript,coffee,stylus',
+" \ 'jade': 'html,xhtml,jsp,php,jade,css,javascript,coffee,stylus',
+" \ 'css': 'html,xhtml,jsp,php,jade,css,javascript,coffee,stylus',
+" \ 'javascript': 'html,xhtml,jsp,php,jade,css,javascript,coffee,stylus',
+" \ 'coffee': 'html,xhtml,jsp,php,jade,css,javascript,coffee,stylus',
+" \ 'stylus': 'html,xhtml,jsp,php,jade,css,javascript,coffee,stylus',
 
 " if g:env#win && g:env#gui
 "   let g:neocomplete#use_vimproc = 0

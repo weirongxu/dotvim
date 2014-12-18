@@ -19,7 +19,9 @@ set fileencoding=utf-8 encoding=utf-8 termencoding=utf-8
 set fileformat=unix
 set langmenu=en_US.UTF-8
 language message en_US.UTF-8
-" language en_US.UTF-8
+if g:env#unix
+  language en_US.UTF-8
+endif
 
 " Colorscheme
 colo Tomorrow-Night-Eighties

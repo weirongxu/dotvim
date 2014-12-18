@@ -4,13 +4,23 @@ let g:neocomplete#enable_at_startup = 1
 " let g:neocomplete#disable_auto_complete = 1
 let g:neocomplete#sources#dictionary#dictionaries = {
       \ 'default' : '',
-      \ 'css' : $MYVIMFILES.'/dict/cssColorName.dict',
-      \ 'less' : $MYVIMFILES.'/dict/cssColorName.dict'
+      \ 'css' : $MYVIMFILES.'/bundle-local/my-local/dict/cssColorName.dict',
+      \ 'less' : $MYVIMFILES.'/bundle-local/my-local/dict/cssColorName.dict',
+      \ 'javascript' : $MYVIMFILES.'/bundle-local/my-local/dict/javascript.dict',
+      \ 'coffee' : $MYVIMFILES.'/bundle-local/my-local/dict/javascript.dict',
       \ }
 let g:neocomplete#same_filetypes = {
       \ 'c': 'cpp',
       \ 'cpp': 'c',
-      \ 'html': 'xhtml,jsp,php,jade,css,javascript,coffee,stylus',
+      \ 'html': 'html,xhtml,jsp,php,jade,css,javascript,coffee,stylus',
+      \ 'xhtml': 'html,xhtml,jsp,php,jade,css,javascript,coffee,stylus',
+      \ 'jsp': 'html,xhtml,jsp,php,jade,css,javascript,coffee,stylus',
+      \ 'php': 'html,xhtml,jsp,php,jade,css,javascript,coffee,stylus',
+      \ 'jade': 'html,xhtml,jsp,php,jade,css,javascript,coffee,stylus',
+      \ 'css': 'html,xhtml,jsp,php,jade,css,javascript,coffee,stylus',
+      \ 'javascript': 'html,xhtml,jsp,php,jade,css,javascript,coffee,stylus',
+      \ 'coffee': 'html,xhtml,jsp,php,jade,css,javascript,coffee,stylus',
+      \ 'stylus': 'html,xhtml,jsp,php,jade,css,javascript,coffee,stylus',
       \ 'zsh': 'sh'
       \ }
 

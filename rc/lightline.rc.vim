@@ -53,7 +53,11 @@ let g:lightline = {
       \ }
 
 function! CtrlspaceTabnum(n) "{{{
-  return a:n . ctrlspace#tab_buffers_number(a:n)
+  if exists('*ctrlspace#tab_buffers_number')
+    return a:n . ctrlspace#tab_buffers_number(a:n)
+  else
+    return a:n
+  endif
 endfunction "}}}
 
 " function! CtrlspaceTabtitle(n) "{{{

@@ -35,8 +35,4 @@ au BufRead,BufNewFile *.css set syntax=css3
 au FileType c,cpp set syntax=gtk
 
 syntax on
-syntax enable
-" Check file type
-filetype on
-filetype plugin on
 filetype plugin indent on

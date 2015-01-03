@@ -31,5 +31,4 @@ let g:vimfiler_ignore_pattern = '\V\%(\^\%('.start_pattern.'\)\|\%('.end_pattern
 let g:vimfiler_buf = 'VimFilerBufferDir -explorer -auto-cd -split'
 let g:vimfiler_cmd = 'VimFiler -explorer -auto-cd -split'
 execute 'map <silent> gn :' . g:vimfiler_buf .'<CR>'
-map gc :edit $MYVIMRC<CR>
 execute 'map <silent> gp :' . g:vimfiler_cmd . ' ' . $MYVIMFILES . '<CR>'

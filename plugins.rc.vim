@@ -347,46 +347,42 @@ Include rc/vimfiler
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-NeoBundle 'tomtom/tcomment_vim'
-let g:tcommentMaps = 0
-map <leader>; :TComment<cr>
-nmap <leader>: $v^:TCommentInline<cr>
-vmap <leader>: :TCommentInline<cr>
-map <Leader>' :TCommentRight<cr>
-map <leader>" :TCommentBlock<cr>
-      " \ 'less_block': '/* %s */',
-let g:tcomment_types = {
-      \ 'less': '// %s',
-      \ 'less_inline': '/* %s */',
-      \ 'htmlyiiprado': '<!--- %s --->',
-      \ 'htmlyiiprado_inline': '<!-- %s -->',
-      \ 'markdown': '<!-- %s -->',
-      \ 'markdown_inline': '<!-- %s -->',
-      \ 'blade.php': '<!-- %s -->',
-      \ 'jade': '//- %s',
-      \ 'jade_inline': '// %s',
-      \ 'vader': '# %s',
-      \ 'vader_inline': '# %s',
+NeoBundleLazy 'tyru/caw.vim', {
+      \ 'mappings' : [['nxo',
+      \   '<Plug>(caw:prefix)', '<Plug>(caw:i:toggle)', 'gc']]
       \ }
-
-" NeoBundle 'tpope/vim-commentary'
-" NeoBundleLazy 'tyru/caw.vim', {
-"       \ 'mappings' : [['nxo',
-"       \   '<Plug>(caw:prefix)', '<Plug>(caw:i:toggle)', 'gc']]
-"       \ }
-" let g:caw_a_sp_left = ' '
-
-" NerdCommenter
-" NeoBundle 'scrooloose/nerdcommenter'
-" let g:NERDSpaceDelims=1
-" map <leader>; <leader>ci
-" map <leader>: <leader>cm
-" map <leader>' <leader>cA
-" map <leader>" <leader>cs
-" let g:NERDCustomDelimiters = {
-"       \ 'htmlyiiprado': { 'left': '<!---', 'right': '--->', 'leftAlt': '<!--', 'rightAlt': '-->' },
-"       \ 'blade.php': { 'left': '<!--', 'right': '-->', 'leftAlt': '<!--', 'rightAlt': '-->' },
-"       \ 'less': { 'left': '//', 'leftAlt': '/*', 'rightAlt': '*/' }
+" let g:caw_no_default_keymappings = 1
+let g:caw_a_sp_left = '  '
+let g:caw_oneline_comment = {
+      \ 'less': '//',
+      \ 'jade': '//-',
+      \ 'vader': '#',
+}
+let g:caw_wrap_oneline_comment = {
+      \ 'less': ['/*', '*/'],
+      \ 'htmlyiiprado': ['<!---', '--->'],
+      \ 'blade.php': ['<!--', '-->'],
+}
+" NeoBundle 'tomtom/tcomment_vim'
+" let g:tcommentMaps = 0
+" map <leader>; :TComment<cr>
+" nmap <leader>: $v^:TCommentInline<cr>
+" vmap <leader>: :TCommentInline<cr>
+" map <Leader>' :TCommentRight<cr>
+" map <leader>" :TCommentBlock<cr>
+"       " \ 'less_block': '/* %s */',
+" let g:tcomment_types = {
+"       \ 'less': '// %s',
+"       \ 'less_inline': '/* %s */',
+"       \ 'htmlyiiprado': '<!--- %s --->',
+"       \ 'htmlyiiprado_inline': '<!-- %s -->',
+"       \ 'markdown': '<!-- %s -->',
+"       \ 'markdown_inline': '<!-- %s -->',
+"       \ 'blade.php': '<!-- %s -->',
+"       \ 'jade': '//- %s',
+"       \ 'jade_inline': '// %s',
+"       \ 'vader': '# %s',
+"       \ 'vader_inline': '# %s',
 "       \ }
 
 

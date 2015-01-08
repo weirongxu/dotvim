@@ -261,13 +261,34 @@ NeoBundle 'Shougo/unite-help'
 NeoBundle 'mattn/unite-gist'
 " NeoBundle 'hewes/unite-gtags'
 NeoBundle 'tsukkee/unite-tag'
-let g:unite_source_tag_strict_truncate_string = 0
-autocmd BufEnter *
-      \   if empty(&buftype)
-      \|    nnoremap <buffer> <c-]> :<C-u>UniteWithCursorWord -auto-preview tag<CR>
-      \|  endif
-set tags+=.tags,./.tags
+if neobundle#tap('unite-tag')
+  let g:unite_source_tag_strict_truncate_string = 0
+  autocmd BufEnter *
+        \   if empty(&buftype)
+        \|    nnoremap <buffer> <c-]> :<C-u>UniteWithCursorWord -auto-preview tag<CR>
+        \|  endif
+  set tags+=.tags,./.tags
+  call neobundle#untap()
+endif
 NeoBundle 'farseer90718/unite-workflow'
+if neobundle#tap('unite-workflow')
+  function! s:unite_youdao(visual)
+    if a:visual
+      let reg = '"'
+      let reg_save = getreg(reg)
+      let reg_type = getregtype(reg)
+      silent exe 'norm! gv"'.reg.'y'
+      let cont = getreg(reg)
+      call setreg(reg,reg_save,reg_type)
+    else
+      let cont = expand('<cword>')
+    endif
+    exec ":Unite youdao:".cont
+  endfunction
+  nnoremap <space>yd :<C-u>call <SID>unite_youdao(0)<CR>
+  vnoremap <space>yd :<C-u>call <SID>unite_youdao(1)<CR>
+  call neobundle#untap()
+endif
 " NeoBundle 'xolox/vim-misc'
 " NeoBundle 'xolox/vim-easytags'
 " NeoBundle 'Shougo/neossh.vim' " toy

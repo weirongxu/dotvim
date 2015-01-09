@@ -1091,15 +1091,18 @@ NeoBundleLazy 'Shougo/vimshell.vim', {
 " map <space> <Plug>SneakNext
 " map <s-space> <Plug>SneakPrevious
 NeoBundleLazy 'Lokaltog/vim-easymotion', {
-       \ 'mappings' : ['<Plug>(easymotion-', 's']
-       \ }
-let g:EasyMotion_leader_key = 's'
-let g:EasyMotion_use_upper = 1
-let g:EasyMotion_smartcase = 1
-let g:EasyMotion_use_smartsign_us = 1
-" nmap sS <Plug>(easymotion-s2)
-" nmap t <Plug>(easymotion-t2)
-nmap sl <Plug>(easymotion-sl)
+      \ 'mappings' : ['<Plug>(easymotion-', 's']
+      \ }
+if neobundle#tap('vim-easymotion')
+  let g:EasyMotion_leader_key = 's'
+  let g:EasyMotion_use_upper = 1
+  let g:EasyMotion_smartcase = 1
+  let g:EasyMotion_use_smartsign_us = 1
+  " nmap sS <Plug>(easymotion-s2)
+  " nmap t <Plug>(easymotion-t2)
+  nmap sl <Plug>(easymotion-sl)
+  call neobundle#untap()
+endif
 """"""""""""""""""""""""""""""
 NeoBundle 'saihoooooooo/glowshi-ft.vim'
 
@@ -1112,30 +1115,28 @@ NeoBundleLazy 'osyo-manga/vim-anzu', {
       \ 'mappings' : '<Plug>(anzu-'
       \ }
 if neobundle#tap('vim-anzu') "{{{
-  function! neobundle#hooks.on_source(bundle)
-    nmap n <Plug>(anzu-n-with-echo)
-    nmap N <Plug>(anzu-N-with-echo)
-  endfunction
+  nmap n <Plug>(anzu-n-with-echo)
+  nmap N <Plug>(anzu-N-with-echo)
+  call neobundle#untap()
 endif "}}}
 
 NeoBundleLazy 'haya14busa/incsearch.vim', {
       \ 'mappings' : '<Plug>(incsearch-'
       \ }
 if neobundle#tap('incsearch.vim') "{{{
-  function! neobundle#hooks.on_source(bundle)
-    map /  <Plug>(incsearch-forward)
-    map ?  <Plug>(incsearch-backward)
-    map g/ <Plug>(incsearch-stay)
-    let g:incsearch#highlight = {
-          \   'on_cursor' : {
-          \     'priority' : '100'
-          \   },
-          \   'cursor' : {
-          \     'group' : 'ErrorMsg',
-          \     'priority' : '1000'
-          \   }
-          \ }
-  endfunction
+  map /  <Plug>(incsearch-forward)
+  map ?  <Plug>(incsearch-backward)
+  map g/ <Plug>(incsearch-stay)
+  let g:incsearch#highlight = {
+        \   'on_cursor' : {
+        \     'priority' : '100'
+        \   },
+        \   'cursor' : {
+        \     'group' : 'ErrorMsg',
+        \     'priority' : '1000'
+        \   }
+        \ }
+  call neobundle#untap()
 endif "}}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

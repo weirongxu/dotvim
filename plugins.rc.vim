@@ -659,7 +659,8 @@ NeoBundleLazy 'kchmck/vim-coffee-script', {
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundleLazy 'mattn/emmet-vim', {
-      \ 'filetypes' : ['html', 'xhtml', 'xml', 'htm', 'jsp', 'markdown', 'css',
+      \ 'mappings': [['i', '<c-y>']],
+      \ 'filetypes': ['html', 'xhtml', 'xml', 'htm', 'jsp', 'markdown', 'css',
       \                'less', 'sass', 'scss', 'php', 'jade', 'aspvbs', 'mason']
       \ }
 let g:emmet_html5 = 0

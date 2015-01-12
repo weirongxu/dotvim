@@ -20,6 +20,34 @@ if !isdirectory(g:env#tmp)
   call mkdir(g:env#tmp)
 endif
 
+let g:env#html_type_list = [
+      \ 'html',
+      \ 'jsp',
+      \ 'xhtml',
+      \ 'xml',
+      \ 'htm',
+      \ 'php',
+      \ 'aspvbs',
+      \ 'mason',
+      \ 'htmldjango',
+      \ ]
+
+let g:env#styles_type_list = [
+      \ 'css',
+      \ 'less',
+      \ 'sass',
+      \ 'scss',
+      \ 'stylus',
+      \ ]
+
+let g:env#js_type_list = [
+      \ 'javascript',
+      \ 'coffee',
+      \ ]
+
+let g:env#web_assets_type_list = g:env#html_type_list + g:env#styles_type_list + g:env#js_type_list
+
+
 " Loading config
 let $MYVIMFILES = expand('~/.vim')
 let $MYPlugin = $MYVIMFILES . '/plugins.rc.vim'

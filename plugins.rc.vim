@@ -532,10 +532,10 @@ NeoBundleLazy 'chase/vim-ansible-yaml', {
       \ 'filetypes' : ['yaml', 'ansible']
       \ }
 NeoBundleLazy 'vim-scripts/matchit.zip', {
-      \ 'filetypes' : ['html', 'jsp', 'xhtml', 'xml', 'htm', 'php', 'aspvbs', 'mason']
+      \ 'filetypes' : g:env#html_type_list
       \ }
 NeoBundleLazy 'othree/html5.vim', {
-      \ 'filetypes' : ['html', 'jsp', 'xhtml', 'xml', 'htm', 'php', 'aspvbs', 'mason']
+      \ 'filetypes' : g:env#html_type_list
       \ }
 NeoBundleLazy 'jrestrepo/matlab', {
       \  'filetypes' : 'matlab'
@@ -679,7 +679,7 @@ let g:emmet_html5 = 0
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NeoBundleLazy 'vim-scripts/PDV--phpDocumentor-for-Vim', {
 NeoBundleLazy 'stephpy/vim-phpdoc', {
-      \ 'filetypes' : ['php' ,'html', 'xhtml', 'xml', 'htm']
+      \ 'filetypes' : g:env#html_type_list
       \ }
 " inoremap <leader>8 <ESC>:call PhpDocSingle()<CR>i
 " let g:pdv_cfg_Version = "$id$"
@@ -699,12 +699,10 @@ autocmd BufNewFile,BufRead *.tpl setfiletype yiiprado
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundleLazy 'gregsexton/MatchTag', {
-      \ 'filetypes' : ['html', 'jsp', 'xhtml', 'xml',
-      \                'htm', 'php', 'aspvbs', 'mason']
+      \ 'filetypes' : g:env#html_type_list
       \ }
 NeoBundleLazy 'gcmt/breeze.vim', {
-      \ 'filetypes' : ['html', 'jsp', 'xhtml', 'xml',
-      \                'htm', 'php', 'aspvbs', 'mason']
+      \ 'filetypes' : g:env#html_type_list
       \ }
 
 

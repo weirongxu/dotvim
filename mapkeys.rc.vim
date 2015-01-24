@@ -35,6 +35,7 @@ vnoremap <leader>y "+y
 " SHIFT-Insert 粘贴
 map <S-Insert> "+p
 map <leader>p "+p
+map <leader>P "+P
 
 " 在visual和select模式中使用<leader>p,粘贴但不复制
 " xnoremap <expr> <leader>p 'pgv"'.v:register.'y'

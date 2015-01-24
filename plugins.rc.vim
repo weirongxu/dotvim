@@ -213,7 +213,7 @@ let g:AutoPairs = {
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'tpope/vim-fugitive'
 NeoBundleLazy 'gregsexton/gitv', {
-      \ 'commands' : ['Gitv']
+      \ 'commands': ['Gitv']
       \ }
 if g:env#unix
   NeoBundle 'airblade/vim-gitgutter'
@@ -222,7 +222,7 @@ if g:env#unix
   let g:gitgutter_eager = 0
 endif
 NeoBundleLazy 'cohama/agit.vim', {
-      \ 'commands' : ['Agit', 'AgitFile', 'AgitGit']
+      \ 'commands': ['Agit', 'AgitFile', 'AgitGit']
       \ }
 " NeoBundle 'mhinz/vim-signify'
 
@@ -808,6 +808,9 @@ NeoBundleLazy 'junegunn/vader.vim', {
       \ }
 NeoBundle 'thinca/vim-scall'
 NeoBundle 'kana/vim-vspec'
+NeoBundleLazy 'nicwest/QQ.vim', {
+      \ 'mappings': ['QQ', 'QH', 'QCO', 'QCC', 'QCN', 'QG']
+      \ }
 NeoBundleLazy 'KabbAmine/zeavim.vim', {
       \ 'mappings': ['<leader>z', '<leader>z',
       \ '<leader>Z', '<leader><leader>z',

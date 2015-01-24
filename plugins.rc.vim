@@ -60,20 +60,13 @@ NeoBundle 'craigemery/vim-autotag'
 "   let g:fakeclip_provide_clipboard_key_mappings = 1
 " endif
 " NeoBundle 'benmills/vimux'
-" NeoBundle 'farseer90718/vim-taskwarrior'
 " NeoBundle 'kana/vim-tabpagecd'
-" NeoBundle 'chikatoike/concealedyank.vim'
-" NeoBundle 'thinca/vim-guicolorscheme'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""
 " Temp
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Translate
 " neobundle 'Rykka/trans.vim'
-" NeoBundle 'bolasblack/gtrans.vim'
-" NeoBundle 'jiazhoulvke/googletranslate'
-" NeoBundle 'ianva/vim-youdao-translater'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " NeoBundle 'spf13/PIV'
@@ -228,6 +221,9 @@ if g:env#unix
   let g:gitgutter_realtime = 0
   let g:gitgutter_eager = 0
 endif
+NeoBundleLazy 'cohama/agit.vim', {
+      \ 'commands' : ['Agit', 'AgitFile', 'AgitGit']
+      \ }
 " NeoBundle 'mhinz/vim-signify'
 
 

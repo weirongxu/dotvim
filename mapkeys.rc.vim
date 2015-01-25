@@ -4,6 +4,7 @@
 " like <leader>w saves the current file
 let mapleader = ","
 let maplocalleader = ","
+noremap ,; ,
 
 " 快速保存
 " nmap <silent> <CR> :up<CR>
@@ -246,7 +247,7 @@ endfunction
 """""""""""""""""""""""""""""""""""""
 
 au FileType c,cpp,objc,objcpp,cs,javascript,php,java,css,less,sass,matlab,sql
-      \ map  <silent> <buffer> ;; :call <SID>AppendMark(';')<CR>
+      \ nmap  <silent> <buffer> <M-;> :call <SID>AppendMark(';')<CR>
 fun! s:AppendMark(mark)
   let lines = getline('.')
   if match(lines, '[' . a:mark . '{}]\s*$') == -1

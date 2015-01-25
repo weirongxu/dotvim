@@ -1102,7 +1102,7 @@ if neobundle#tap('vim-easymotion')
   call neobundle#untap()
 endif
 """"""""""""""""""""""""""""""
-NeoBundle 'saihoooooooo/glowshi-ft.vim'
+" NeoBundle 'saihoooooooo/glowshi-ft.vim'
 
 " NeoBundle 'junegunn/vim-pseudocl'
 " NeoBundle 'junegunn/vim-oblique'

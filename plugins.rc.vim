@@ -103,7 +103,11 @@ let g:startify_custom_header = [
       \ '  Raidou''s vim',
       \ '',
       \ ]
-let g:startify_bookmarks = [ $MYVIMRC, $MYPlugin ]
+let g:startify_bookmarks = [
+      \ $MYVIMRC,
+      \ $MYPlugin,
+      \ $HOME.'/Working/ubuntu-use-recoder/my-software.mkd',
+      \ ]
 " FIXME
       " \ ['   Current directory:'],
       " \ 'dir',

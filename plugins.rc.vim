@@ -40,7 +40,6 @@ endif
 if neobundle#tap('editorconfig-vim') "{{{
     let neobundle#hooks.on_source =
           \ '~/.vim/rc/editorconfig-vim.rc.vim'
-
     call neobundle#untap()
 endif "}}}
 NeoBundle 'farseer90718/vim-regionsyntax'
@@ -99,8 +98,12 @@ let g:ctrlspace_use_tabline = 0
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'mhinz/vim-startify'
+let g:startify_session_dir = '~/.cache/vim-session'
+let g:startify_session_autoload = 1
+let g:startify_session_persistence = 1
 let g:startify_custom_header = [
-      \ '  Raidou''s vim',
+      \ ' ⣏⡱ ⢀⣀ ⠄ ⢀⣸ ⢀⡀ ⡀⢀ ⠃ ⢀⣀   ⡀⢀ ⠄ ⣀⣀ ',
+      \ ' ⠇⠱ ⠣⠼ ⠇ ⠣⠼ ⠣⠜ ⠣⠼   ⠭⠕   ⠱⠃ ⠇ ⠇⠇⠇',
       \ '',
       \ ]
 let g:startify_bookmarks = [
@@ -108,12 +111,11 @@ let g:startify_bookmarks = [
       \ $MYPlugin,
       \ $HOME.'/Working/ubuntu-use-recoder/my-software.mkd',
       \ ]
-" FIXME
-      " \ ['   Current directory:'],
-      " \ 'dir',
 let g:startify_list_order = [
       \ ['   Vimfile:'],
       \ 'bookmarks',
+      \ ['   Sessions:'],
+      \ 'sessions',
       \ ['   Last Recently Use:'],
       \ 'files',
       \ ]
@@ -283,7 +285,7 @@ if neobundle#tap('unite-workflow')
     else
       let cont = expand('<cword>')
     endif
-    exec ":Unite youdao:".cont
+    exec ":Unite youdao:".escape(cont, ' :\')
   endfunction
   nnoremap <space>yd :<C-u>call <SID>unite_youdao(0)<CR>
   vnoremap <space>yd :<C-u>call <SID>unite_youdao(1)<CR>

@@ -141,7 +141,7 @@ NeoBundle 'kana/vim-textobj-syntax'
 NeoBundle 'kana/vim-textobj-fold'
 NeoBundle 'kana/vim-textobj-datetime'
 NeoBundle 'akiyan/vim-textobj-xml-attribute'
-NeoBundle 'rhysd/vim-textobj-anyblock'
+" NeoBundle 'rhysd/vim-textobj-anyblock'
 " NeoBundle 'osyo-manga/vim-textobj-multiblock'
 " omap aB <Plug>(textobj-multiblock-a)
 " omap iB <Plug>(textobj-multiblock-i)
@@ -161,9 +161,14 @@ NeoBundle 'rhysd/vim-textobj-anyblock'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'terryma/vim-expand-region'
 let g:expand_region_text_objects = {
+      \ 'i(': 1, 'a(': 1,
+      \ 'i[': 1, 'a[': 1,
+      \ 'i{': 1, 'a{': 1,
+      \ 'i<': 1, 'a<': 1,
+      \ 'i''': 1, 'a''': 1,
+      \ 'i"': 1, 'a"': 1,
       \ 'iw': 0,
       \ 'iW': 0,
-      \ 'ib': 1, 'ab': 1,
       \ 'it': 1, 'at': 1,
       \ 'iu': 0, 'au': 0,
       \ 'ic': 0, 'ac': 0,
@@ -817,19 +822,15 @@ NeoBundle 'kana/vim-vspec'
 NeoBundleLazy 'nicwest/QQ.vim', {
       \ 'mappings': ['QQ', 'QH', 'QCO', 'QCC', 'QCN', 'QG']
       \ }
+NeoBundleLazy 'junegunn/vim-peekaboo', {
+      \ 'mappings': ['"'],
+      \ }
 NeoBundleLazy 'KabbAmine/zeavim.vim', {
       \ 'mappings': ['<leader>z', '<leader>z',
       \ '<leader>Z', '<leader><leader>z',
       \ ],
       \ 'commands': ['Zeavim', 'ZvV', 'ZvK', 'ZvKD', 'Docset']
       \ }
-NeoBundleLazy 'mtth/scratch.vim', {
-      \ 'mappings': ['gs'],
-      \ 'commands': ['Scratch'],
-      \ }
-NeoBundleLazy 'januswel/tabshift.vim', {
-      \ 'commands': 'TabShift'
-      \}
 NeoBundleLazy 'januswel/sweepbuf.vim', {
       \ 'commands': 'SweepBuffers'
       \}
@@ -938,9 +939,6 @@ NeoBundleLazy 'vim-jp/vital.vim', {
 NeoBundleLazy 'wesleyche/SrcExpl', {
       \ 'commands' : ['SrcExpl', 'SrcExplClose', 'SrcExplToggle']
       \ }
-" NeoBundleLazy 'junegunn/goyo.vim', {
-"       \ 'commands' : ['Goyo']
-"       \ }
 " NeoBundleLazy 'joedicastro/DirDiff.vim', {
 NeoBundleLazy 'zhaocai/DirDiff.vim', {
       \ 'commands': [
@@ -1146,18 +1144,7 @@ endif "}}}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NeoBundle 'tpope/vim-afterimage' " Crazy!
 " NeoBundle 'jszakmeister/vim-togglecursor'
-" NeoBundle 'vim-scripts/mru.vim' " 用ctrlp代替
-" NeoBundle 'Rykka/galaxy.vim' " 还用不上
-" NeoBundle 'sukima/xmledit' " 好像没什么用
-" NeoBundle 'vim-scripts/jsbeautify' " 用vim-jsbeautify
-" NeoBundle 'vim-scripts/colorizer' " 用colorv
-" NeoBundle 'vim-scripts/taglist.vim' " 用tagbar
-" NeoBundle 'vim-scripts/Color-Sampler-Pack' " 没怎么用
-" NeoBundleLazy 'jceb/vim-orgmode' " vimwiki
-" NeoBundleLazy 'vim-scripts/utl.vim' " 打开链接,不好用
-" NeoBundle 'millermedeiros/vim-statline' " 用airline
-" NeoBundle 'Lokaltog/powerline' " 用airline
-" NeoBundle 'bling/vim-airline' " 因为lightline
+" NeoBundleLazy 'vim-scripts/utl.vim' " 不好用
 " NeoBundle 'Townk/vim-autoclose' " <esc>要刷新buffer，和neocomplete冲突。
 " NeoBundle 'Raimondi/delimitMate' " 用jiangmiao/auto-pairs
 " NeoBundle 'itchyny/vim-cmdline-ranges'

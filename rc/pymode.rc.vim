@@ -1,4 +1,4 @@
-let g:pymode_indent = 1
+let g:pymode_indent = 0
 let g:pymode_folding = 1
 let g:pymode_doc = 0
 let g:pymode_virtualenv = 1

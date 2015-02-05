@@ -822,9 +822,6 @@ NeoBundle 'kana/vim-vspec'
 NeoBundleLazy 'nicwest/QQ.vim', {
       \ 'mappings': ['QQ', 'QH', 'QCO', 'QCC', 'QCN', 'QG']
       \ }
-NeoBundleLazy 'junegunn/vim-peekaboo', {
-      \ 'mappings': ['"'],
-      \ }
 NeoBundleLazy 'KabbAmine/zeavim.vim', {
       \ 'mappings': ['<leader>z', '<leader>z',
       \ '<leader>Z', '<leader><leader>z',

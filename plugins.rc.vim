@@ -388,7 +388,7 @@ let s:caw_oneline_comment = {
 let s:caw_wrap_oneline_comment = {
       \ 'less': ['/*', '*/'],
       \ 'htmlyiiprado': ['<!---', '--->'],
-      \ 'blade.php': ['<!--', '-->'],
+      \ 'blade.php': ['{{--', '--}}'],
       \ }
 function! s:caw_filetype_changed() "{{{
   if exists('*context_filetype#get_filetype')
@@ -404,7 +404,7 @@ function! s:caw_filetype_changed() "{{{
   if has_key(s:caw_wrap_oneline_comment, filetype)
     let b:caw_wrap_oneline_comment = s:caw_wrap_oneline_comment[filetype]
   else
-    let b:caw_wrap_oneline_comment = ''
+    let b:caw_wrap_oneline_comment = []
   endif
 endfunction "}}}
 autocmd FileType * call s:caw_filetype_changed()
@@ -717,6 +717,8 @@ NeoBundleLazy 'gcmt/breeze.vim', {
 NeoBundleLazy 'xsbeats/vim-blade', {
       \  'filetypes' : 'blade'
       \ }
+autocmd BufNewFile,BufRead *.blade.php set filetype=blade.php
+autocmd FileType blade set filetype=blade.php
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

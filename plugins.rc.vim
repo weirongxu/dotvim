@@ -46,6 +46,7 @@ NeoBundle 'farseer90718/vim-regionsyntax'
 NeoBundle 'Shougo/context_filetype.vim'
 " NeoBundle 'osyo-manga/vim-precious'
 Include rc/context_filetype
+NeoBundle 'itchyny/vim-cursorword'
 NeoBundle 'bouzuya/vim-ibus'
 Include rc/ibus
 NeoBundle 'craigemery/vim-autotag'

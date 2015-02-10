@@ -116,7 +116,7 @@ function! s:autoTabLen(n)
 endfunction
 command! -nargs=1 AutoTabLen call <sid>autoTabLen(<f-args>)
 " autoindent
-set smartindent autoindent smarttab cindent
+set nosmartindent autoindent smarttab nocindent
 
 " search
 set incsearch hlsearch ignorecase smartcase magic

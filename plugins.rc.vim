@@ -102,11 +102,18 @@ NeoBundle 'mhinz/vim-startify'
 let g:startify_session_dir = '~/.cache/vim-session'
 let g:startify_session_autoload = 1
 let g:startify_session_persistence = 1
-let g:startify_custom_header = [
-      \ ' ⣏⡱ ⢀⣀ ⠄ ⢀⣸ ⢀⡀ ⡀⢀ ⠃ ⢀⣀   ⡀⢀ ⠄ ⣀⣀ ',
-      \ ' ⠇⠱ ⠣⠼ ⠇ ⠣⠼ ⠣⠜ ⠣⠼   ⠭⠕   ⠱⠃ ⠇ ⠇⠇⠇',
-      \ '',
-      \ ]
+if g:env#win
+  let g:startify_custom_header = [
+        \ 'Raidou',
+        \ '',
+        \ ]
+else
+  let g:startify_custom_header = [
+        \ ' \u28cf\u2871 \u2880\u28c0 \u2804 \u2880\u28f8 \u2880\u2840 \u2840\u2880 \u2803 \u2880\u28c0   \u2840\u2880 \u2804 \u28c0\u28c0 ',
+        \ ' \u2807\u2831 \u2823\u2830 \u2807 \u2823\u283c \u2823\u281c \u2823\u283c   \u282d\u2815   \u2831\u2803 \u2807 \u2807\u2807\u2807',
+        \ '',
+        \ ]
+endif
 let g:startify_bookmarks = [
       \ $MYVIMRC,
       \ $MYPlugin,
@@ -648,7 +655,7 @@ let g:nodejs_complete_config = {
 \  'js_compl_fn': 'jscomplete#CompleteJS',
 \  'max_node_compl_len': 15
 \}
-NeoBundleLazy 'kchmck/vim-coffee-script', {
+NeoBundleLazy 'weirongxu/vim-coffee-script', {
       \  'filetypes' : ['coffee', 'jade']
       \ }
 

@@ -280,7 +280,7 @@ if neobundle#tap('unite-tag')
   let g:unite_source_tag_strict_truncate_string = 0
   autocmd BufEnter *
         \   if empty(&buftype)
-        \|    nnoremap <buffer> <c-]> :<C-u>UniteWithCursorWord -auto-preview tag<CR>
+        \|    nnoremap <buffer> <c-]> :<C-u>UniteWithCursorWord -wrap -auto-preview tag<CR>
         \|  endif
   set tags+=.tags,./.tags
   call neobundle#untap()
@@ -298,7 +298,7 @@ if neobundle#tap('unite-workflow')
     else
       let cont = expand('<cword>')
     endif
-    exec ":Unite youdao:".escape(cont, ' :\')
+    exec ":Unite -wipe youdao:".escape(cont, ' :\')
   endfunction
   nnoremap <space>yd :<C-u>call <SID>unite_youdao(0)<CR>
   vnoremap <space>yd :<C-u>call <SID>unite_youdao(1)<CR>
@@ -313,23 +313,23 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'ctrlpvim/ctrlp.vim'
 let g:ctrlp_custom_ignore = {
-      \ 'dir':  '\v[\/](\.(git|hg|svn|ropeproject)|(node_modules|bower_components))$',
+      \ 'dir':  '\v[\/](\.(git|hg|svn|ropeproject)|(node_modules|bower_components|vendor))$',
       \ 'file': '\v\.(exe|so|dll)$',
       \ }
-if !g:env#gui && !g:env#win
-  set rtp+=~/.fzf
-  NeoBundle 'junegunn/fzf', {
-        \ 'commands' : 'FZF',
-        \ 'base' : '~/.fzf',
-        \ 'build' : 'yes | ./install',
-        \ }
-  " map <c-p> :FZF<CR>
-  nnoremap <silent> <c-p>p :call fzf#run({ 'options': '-m', 'sink': 'edit' })<CR>
-  nnoremap <silent> <c-p>s :call fzf#run({ 'options': '-m', 'tmux_height': '40%', 'sink': 'split' })<CR>
-  nnoremap <silent> <c-p>t :call fzf#run({ 'options': '-m', 'sink': 'tabedit' })<CR>
-  nnoremap <silent> <c-p>v :call fzf#run({ 'options': '-m', 'sink': 'vertical split' })<CR>
-  let g:loaded_ctrlp = 1
-endif
+" if !g:env#gui && !g:env#win
+"   set rtp+=~/.fzf
+"   NeoBundle 'junegunn/fzf', {
+"         \ 'commands' : 'FZF',
+"         \ 'base' : '~/.fzf',
+"         \ 'build' : 'yes | ./install',
+"         \ }
+"   " map <c-p> :FZF<CR>
+"   nnoremap <silent> <c-p>p :call fzf#run({ 'options': '-m', 'sink': 'edit' })<CR>
+"   nnoremap <silent> <c-p>s :call fzf#run({ 'options': '-m', 'tmux_height': '40%', 'sink': 'split' })<CR>
+"   nnoremap <silent> <c-p>t :call fzf#run({ 'options': '-m', 'sink': 'tabedit' })<CR>
+"   nnoremap <silent> <c-p>v :call fzf#run({ 'options': '-m', 'sink': 'vertical split' })<CR>
+"   let g:loaded_ctrlp = 1
+" endif
 
 NeoBundle 'Shougo/vimproc', {
       \ 'build' : {

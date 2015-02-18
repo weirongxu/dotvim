@@ -54,9 +54,11 @@ if neobundle#tap('unite.vim')
           map <silent><buffer><expr> s unite#do_action('split')
           map <silent><buffer><expr> v unite#do_action('vsplit')
 
-          imap <buffer> <c-q> <Plug>(unite_exit)
-          nmap <buffer> <c-q> <Plug>(unite_exit)
-          nmap <buffer> <ESC> <Plug>(unite_exit)
+          imap <silent><buffer> <c-q> <Plug>(unite_exit)
+          nmap <silent><buffer> <c-q> <Plug>(unite_exit)
+          nmap <silent><buffer> <ESC> <Plug>(unite_exit)
+          nunmap <silent><buffer> <C-l>
+          nmap <silent><buffer> R <Plug>(unite_redraw)
       endfunction
       """"""""""""""""""""""""""""""
       let g:unite_source_history_yank_enable = 1

@@ -540,6 +540,9 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " FILETYPE
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+NeoBundleLazy '2072/PHP-Indenting-for-VIm', {
+      \ 'filetypes' : g:env#html_type_list
+      \ }
 NeoBundleLazy 'cespare/vim-toml', {
       \ 'filetypes' : ['toml']
       \ }

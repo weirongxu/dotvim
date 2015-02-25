@@ -36,12 +36,12 @@ NeoBundle 'tpope/vim-repeat'
 " let g:goldenview__enable_default_mapping = 0
 if g:env#python
   NeoBundle 'editorconfig/editorconfig-vim'
+  if neobundle#tap('editorconfig-vim') "{{{
+      let neobundle#hooks.on_source =
+                  \ '~/.vim/rc/editorconfig-vim.rc.vim'
+      call neobundle#untap()
+  endif "}}}
 endif
-if neobundle#tap('editorconfig-vim') "{{{
-    let neobundle#hooks.on_source =
-          \ '~/.vim/rc/editorconfig-vim.rc.vim'
-    call neobundle#untap()
-endif "}}}
 NeoBundle 'farseer90718/vim-regionsyntax'
 NeoBundle 'Shougo/context_filetype.vim'
 " NeoBundle 'osyo-manga/vim-precious'
@@ -240,9 +240,9 @@ if g:env#unix
   let g:gitgutter_realtime = 0
   let g:gitgutter_eager = 0
 endif
-NeoBundleLazy 'cohama/agit.vim', {
-      \ 'commands': ['Agit', 'AgitFile', 'AgitGit']
-      \ }
+" NeoBundleLazy 'cohama/agit.vim', {
+"       \ 'commands': ['Agit', 'AgitFile', 'AgitGit']
+"       \ }
 " NeoBundle 'mhinz/vim-signify'
 
 
@@ -472,7 +472,7 @@ let g:colorv_preview_ftype = 'css,html,php,jsp,aspvbs,mason,javascript,htm,less,
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NeoBundle 'Valloric/YouCompleteMe'
 if has('lua')
-  NeoBundle 'Shougo/neocomplete.vim'
+  NeoBundle 'Shougo/neocomplete.vim', '30497b751fe3c8d6cc25a8abbc17a0d6d8dc1e38'
   Include rc/neocomplete
   NeoBundleDisable 'Shougo/neocomplcache.vim'
 else
@@ -661,6 +661,7 @@ let g:nodejs_complete_config = {
 NeoBundleLazy 'weirongxu/vim-coffee-script', {
       \  'filetypes' : ['coffee', 'jade']
       \ }
+NeoBundleLazy 'mtscout6/vim-cjsx'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

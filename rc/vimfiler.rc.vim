@@ -7,16 +7,16 @@ function! s:vimfiler_settings()
 
   nmap <2-LeftMouse> <Plug>(vimfiler_edit_file)
 
-  nunmap <silent><buffer> <C-l>
-  nmap <silent><buffer> R <Plug>(vimfiler_redraw_screen)
+  nunmap <buffer><silent> <C-l>
+  nmap <buffer><silent> R <Plug>(vimfiler_redraw_screen)
 
-  nunmap <silent><buffer> <C-j>
+  nunmap <buffer><silent> <C-j>
   command -buffer History call feedkeys("\<Plug>(vimfiler_switch_to_history_directory)")
 
-  nunmap <silent><buffer> H
+  nunmap <buffer><silent> H
   command -buffer Shell call feedkeys("\<Plug>(vimfiler_popup_shell)")
 
-  nunmap <silent><buffer> L
+  nunmap <buffer><silent> L
   command -buffer Drive call feedkeys("\<Plug>(vimfiler_switch_to_drive)")
 endfunction
 " autocmd BufEnter * setlocal autochdir " fixed some buf, in 

@@ -396,7 +396,7 @@ let s:caw_oneline_comment = {
 let s:caw_wrap_oneline_comment = {
       \ 'less': ['/*', '*/'],
       \ 'htmlyiiprado': ['<!---', '--->'],
-      \ 'blade.php': ['{{--', '--}}'],
+      \ 'blade': ['{{--', '--}}'],
       \ }
 function! s:caw_filetype_changed() "{{{
   if exists('*context_filetype#get_filetype')
@@ -466,13 +466,13 @@ endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'Rykka/colorv.vim'
-let g:colorv_preview_ftype = 'css,html,php,jsp,aspvbs,mason,javascript,htm,less,stylus'
+let g:colorv_preview_ftype = join(g:env#web_assets_type_list, ',')
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NeoBundle 'Valloric/YouCompleteMe'
 if has('lua')
-  NeoBundle 'Shougo/neocomplete.vim', '30497b751fe3c8d6cc25a8abbc17a0d6d8dc1e38'
+  NeoBundle 'Shougo/neocomplete.vim'
   Include rc/neocomplete
   NeoBundleDisable 'Shougo/neocomplcache.vim'
 else
@@ -540,6 +540,7 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " FILETYPE
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+NeoBundle 'elixir-lang/vim-elixir'
 NeoBundleLazy '2072/PHP-Indenting-for-VIm', {
       \ 'filetypes' : g:env#html_type_list
       \ }
@@ -729,8 +730,6 @@ NeoBundleLazy 'gcmt/breeze.vim', {
 NeoBundleLazy 'xsbeats/vim-blade', {
       \  'filetypes' : 'blade'
       \ }
-autocmd BufNewFile,BufRead *.blade.php set filetype=blade.php
-autocmd FileType blade set filetype=blade.php
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

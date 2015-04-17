@@ -175,8 +175,6 @@ let g:expand_region_text_objects = {
       \ 'i<': 1, 'a<': 1,
       \ 'i''': 1, 'a''': 1,
       \ 'i"': 1, 'a"': 1,
-      \ 'iw': 0,
-      \ 'iW': 0,
       \ 'it': 1, 'at': 1,
       \ 'iu': 0, 'au': 0,
       \ 'ic': 0, 'ac': 0,

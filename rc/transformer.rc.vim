@@ -36,7 +36,7 @@ call transformer#cmd('Marked')
       \   M.smart()
       \)
 
-call transformer#cmd('Stylus')
+call transformer#cmd('TStylus')
       \.src(S.smart())
       \.stream(
       \   M.pipe('stylus'),

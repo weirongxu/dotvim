@@ -30,6 +30,7 @@ let g:env#html_type_list = [
       \ 'aspvbs',
       \ 'mason',
       \ 'htmldjango',
+      \ 'blade.php',
       \ ]
 
 let g:env#styles_type_list = [

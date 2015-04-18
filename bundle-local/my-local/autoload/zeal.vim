@@ -13,22 +13,19 @@ else
 endif
 " A dictionary who contains the docset names of some file extensions
 let s:zeavimDocsetNames = {
-      \ 'c': 'C',
-      \ 'cpp': 'C++',
-      \ 'css': 'Css',
-      \ 'html': 'Html',
-      \ 'java': 'Java',
-      \ 'js': 'Javascript',
-      \ 'markdown': 'Markdown',
-      \ 'md': 'Markdown',
-      \ 'mdown': 'Markdown',
-      \ 'mkd': 'Markdown',
-      \ 'mkdn': 'Markdown',
-      \ 'php': 'Php',
-      \ 'py': 'Python',
+      \ 'cpp': 'c++',
+      \ 'html': 'html',
+      \ 'java': 'java',
+      \ 'js': 'javascript',
+      \ 'markdown': 'markdown',
+      \ 'md': 'markdown',
+      \ 'mdown': 'markdown',
+      \ 'mkd': 'markdown',
+      \ 'mkdn': 'markdown',
+      \ 'py': 'python',
       \ 'scss': 'Sass',
-      \ 'sh': 'Bash',
-      \ 'tex': 'Latex',
+      \ 'sh': 'bash',
+      \ 'tex': 'latex',
       \ }
 " Add the external docset names from a global variable
 if exists("g:zv_added_files_type")

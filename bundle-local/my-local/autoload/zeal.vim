@@ -12,7 +12,7 @@ else
   let s:zealExecCmd = "! ".g:zv_zeal_directory.""
 endif
 " A dictionary who contains the docset names of some file extensions
-let s:zeavimDocsetNames = {
+let s:zealDocsetNames = {
       \ 'cpp': 'c++',
       \ 'html': 'html',
       \ 'java': 'java',
@@ -29,7 +29,7 @@ let s:zeavimDocsetNames = {
       \ }
 " Add the external docset names from a global variable
 if exists("g:zv_added_files_type")
-  call extend(s:zeavimDocsetNames, g:zv_added_files_type, "error")
+  call extend(s:zealDocsetNames, g:zv_added_files_type, "error")
 else
   let g:zv_added_files_type = {}
 endif
@@ -38,8 +38,8 @@ function! zeal#execute(docsetName, selection)
   " Execute Zeal with the docset and selection passed in the arguments.
 
   if (a:docsetName != "")
-    if has_key(s:zeavimDocsetNames, a:docsetName)
-      let docsetName = s:zeavimDocsetNames[a:docsetName]
+    if has_key(s:zealDocsetNames, a:docsetName)
+      let docsetName = s:zealDocsetNames[a:docsetName]
     else
       let docsetName = a:docsetName
     endif

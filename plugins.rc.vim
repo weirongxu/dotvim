@@ -401,11 +401,11 @@ let s:caw_wrap_oneline_comment = {
       \ 'blade': ['{{--', '--}}'],
       \ }
 function! s:caw_filetype_changed() "{{{
-  if exists('*context_filetype#get_filetype')
-    let filetype = context_filetype#get_filetype()
-  else
-    let filetype = &filetype
-  endif
+  " if exists('*context_filetype#get_filetype')
+  let filetype = context_filetype#get_filetype()
+  " else
+  "   let filetype = &filetype
+  " endif
   if has_key(s:caw_oneline_comment, filetype)
     let b:caw_oneline_comment = s:caw_oneline_comment[filetype]
   else

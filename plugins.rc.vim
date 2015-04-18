@@ -837,12 +837,7 @@ NeoBundle 'kana/vim-vspec'
 NeoBundleLazy 'nicwest/QQ.vim', {
       \ 'mappings': ['QQ', 'QH', 'QCO', 'QCC', 'QCN', 'QG']
       \ }
-NeoBundleLazy 'KabbAmine/zeavim.vim', {
-      \ 'mappings': ['<leader>z', '<leader>z',
-      \ '<leader>Z', '<leader><leader>z',
-      \ ],
-      \ 'commands': ['Zeavim', 'ZvV', 'ZvK', 'ZvKD', 'Docset']
-      \ }
+map <leader>z :call zeal#execute(context_filetype#get_filetype(), expand("<cword>"))<CR>
 NeoBundleLazy 'januswel/sweepbuf.vim', {
       \ 'commands': 'SweepBuffers'
       \}

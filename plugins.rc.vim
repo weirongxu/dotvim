@@ -385,7 +385,8 @@ Include rc/vimfiler
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundleLazy 'tyru/caw.vim', {
       \ 'mappings' : [['nxo',
-      \   '<Plug>(caw:prefix)', '<Plug>(caw:i:toggle)', 'gc']]
+      \   '<Plug>(caw:prefix)', '<Plug>(caw:i:toggle)', 'gc']],
+      \ 'depends' : 'Shougo/context_filetype.vim'
       \ }
 let g:caw_a_sp_left = '  '
 let s:caw_oneline_comment = {
@@ -394,6 +395,7 @@ let s:caw_oneline_comment = {
       \ 'vader': '#',
       \ }
 let s:caw_wrap_oneline_comment = {
+      \ 'css': ['/*', '*/'],
       \ 'less': ['/*', '*/'],
       \ 'htmlyiiprado': ['<!---', '--->'],
       \ 'blade': ['{{--', '--}}'],
@@ -415,7 +417,7 @@ function! s:caw_filetype_changed() "{{{
     let b:caw_wrap_oneline_comment = []
   endif
 endfunction "}}}
-autocmd FileType * call s:caw_filetype_changed()
+autocmd CursorMoved * call s:caw_filetype_changed()
 " NeoBundle 'tomtom/tcomment_vim'
 " let g:tcommentMaps = 0
 " map <leader>; :TComment<cr>

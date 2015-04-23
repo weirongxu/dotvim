@@ -383,7 +383,8 @@ Include rc/vimfiler
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundleLazy 'tyru/caw.vim', {
       \ 'mappings' : [['nxo',
-      \   '<Plug>(caw:prefix)', '<Plug>(caw:i:toggle)', 'gc']]
+      \   '<Plug>(caw:prefix)', '<Plug>(caw:i:toggle)', 'gc']],
+      \ 'depends' : 'Shougo/context_filetype.vim'
       \ }
 let g:caw_a_sp_left = '  '
 let s:caw_oneline_comment = {
@@ -392,16 +393,17 @@ let s:caw_oneline_comment = {
       \ 'vader': '#',
       \ }
 let s:caw_wrap_oneline_comment = {
+      \ 'css': ['/*', '*/'],
       \ 'less': ['/*', '*/'],
       \ 'htmlyiiprado': ['<!---', '--->'],
       \ 'blade': ['{{--', '--}}'],
       \ }
 function! s:caw_filetype_changed() "{{{
-  if exists('*context_filetype#get_filetype')
-    let filetype = context_filetype#get_filetype()
-  else
-    let filetype = &filetype
-  endif
+  " if exists('*context_filetype#get_filetype')
+  let filetype = context_filetype#get_filetype()
+  " else
+  "   let filetype = &filetype
+  " endif
   if has_key(s:caw_oneline_comment, filetype)
     let b:caw_oneline_comment = s:caw_oneline_comment[filetype]
   else
@@ -413,7 +415,7 @@ function! s:caw_filetype_changed() "{{{
     let b:caw_wrap_oneline_comment = []
   endif
 endfunction "}}}
-autocmd FileType * call s:caw_filetype_changed()
+autocmd CursorMoved * call s:caw_filetype_changed()
 " NeoBundle 'tomtom/tcomment_vim'
 " let g:tcommentMaps = 0
 " map <leader>; :TComment<cr>
@@ -833,12 +835,7 @@ NeoBundle 'kana/vim-vspec'
 NeoBundleLazy 'nicwest/QQ.vim', {
       \ 'mappings': ['QQ', 'QH', 'QCO', 'QCC', 'QCN', 'QG']
       \ }
-NeoBundleLazy 'KabbAmine/zeavim.vim', {
-      \ 'mappings': ['<leader>z', '<leader>z',
-      \ '<leader>Z', '<leader><leader>z',
-      \ ],
-      \ 'commands': ['Zeavim', 'ZvV', 'ZvK', 'ZvKD', 'Docset']
-      \ }
+map <leader>z :call zeal#execute(context_filetype#get_filetype(), expand("<cword>"))<CR>
 NeoBundleLazy 'januswel/sweepbuf.vim', {
       \ 'commands': 'SweepBuffers'
       \}

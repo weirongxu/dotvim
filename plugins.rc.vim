@@ -232,6 +232,7 @@ let g:AutoPairs = {
 NeoBundle 'lambdalisue/vim-gita'
 command! Gstatus Gita status
 command! Gpush Gita push
+command! Gpull Gita pull
 NeoBundleLazy 'gregsexton/gitv', {
       \ 'commands': ['Gitv']
       \ }

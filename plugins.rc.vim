@@ -182,7 +182,6 @@ let g:expand_region_text_objects = {
       \ 'ii': 0,
       \ 'i,': 0, 'a,': 0,
       \ 'ixa': 0, 'axa': 0,
-      \ 'iy': 0, 'ay': 0,
       \ 'ip': 0,
       \ 'ie': 0,
       \ }
@@ -228,7 +227,10 @@ let g:AutoPairs = {
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-NeoBundle 'tpope/vim-fugitive'
+" NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'lambdalisue/vim-gita'
+command! Gstatus Gita status
+command! Gpush Gita push
 NeoBundleLazy 'gregsexton/gitv', {
       \ 'commands': ['Gitv']
       \ }
@@ -238,9 +240,9 @@ if g:env#unix
   let g:gitgutter_realtime = 0
   let g:gitgutter_eager = 0
 endif
-" NeoBundleLazy 'cohama/agit.vim', {
-"       \ 'commands': ['Agit', 'AgitFile', 'AgitGit']
-"       \ }
+NeoBundleLazy 'cohama/agit.vim', {
+      \ 'commands': ['Agit', 'AgitFile', 'AgitGit']
+      \ }
 " NeoBundle 'mhinz/vim-signify'
 
 

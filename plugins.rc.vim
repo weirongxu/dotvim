@@ -67,6 +67,7 @@ NeoBundle 'craigemery/vim-autotag'
 " Temp
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " neobundle 'Rykka/trans.vim'
+" NeoBundle 'zefei/vim-colortuner'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " NeoBundle 'spf13/PIV'

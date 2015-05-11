@@ -3,7 +3,7 @@ let g:lightline = {
       \   'active': {
       \     'left': [
       \       ['mode', 'paste'],
-      \       ['fugitive'],
+      \       ['git_branch', 'git_traffic', 'git_status'],
       \       ['virtualenv'],
       \       ['ibus'],
       \       ['readonly', 'filename', 'modified'],
@@ -45,14 +45,21 @@ let g:lightline = {
       \     'fixdir':     '%{fixdir#started()?"FD":""}',
       \     'virtualenv': '%{exists("*virtualenv#statusline")?"[".virtualenv#statusline()."]":""}',
       \   },
+      \   'component_function': {
+      \     'git_branch': 'g:lightline.my.git_branch',
+      \     'git_traffic': 'g:lightline.my.git_traffic',
+      \     'git_status': 'g:lightline.my.git_status',
+      \   },
       \   'tab_component_function': {
-      \     'ctrlspace_tabnum': 'CtrlspaceTabnum',
-      \     'ctrlspace_filename': 'CtrlspaceTabtitle',
+      \     'ctrlspace_tabnum': 'g:lightline.my.CtrlspaceTabnum',
+      \     'ctrlspace_filename': 'g:lightline.my.CtrlspaceTabtitle',
       \   },
       \   'subseparator': { 'left': "", 'right': "" },
       \ }
 
-function! CtrlspaceTabnum(n) "{{{
+let g:lightline.my = {}
+
+function! g:lightline.my.CtrlspaceTabnum(n) "{{{
   if exists('*ctrlspace#tab_buffers_number')
     return a:n . ctrlspace#tab_buffers_number(a:n)
   else
@@ -60,7 +67,17 @@ function! CtrlspaceTabnum(n) "{{{
   endif
 endfunction "}}}
 
-" function! CtrlspaceTabtitle(n) "{{{
+" function! g:lightline.my.CtrlspaceTabtitle(n) "{{{
 "   let t:ctrlspace_start_window = winnr()
 "   return ctrlspace#tab_title(a:n, 0, 0)
 " endfunction "}}}
+
+function! g:lightline.my.git_branch() " {{{
+  return winwidth(0) > 70 ? gita#statusline#preset('branch') : ''
+endfunction " }}}
+function! g:lightline.my.git_traffic() " {{{
+  return winwidth(0) > 70 ? gita#statusline#preset('traffic') : ''
+endfunction " }}}
+function! g:lightline.my.git_status() " {{{
+  return winwidth(0) > 70 ? gita#statusline#preset('status') : ''
+endfunction " }}}

@@ -72,20 +72,24 @@ endfunction "}}}
 "   return ctrlspace#tab_title(a:n, 0, 0)
 " endfunction "}}}
 
+let g:lightline.my._git_branch = ''
+function! g:lightline.my.git_branch() dict " {{{
+  return winwidth(0) > 70 ? self._git_branch : ''
+endfunction " }}}
+let g:lightline.my._git_traffic = ''
+function! g:lightline.my.git_traffic() dict " {{{
+  return winwidth(0) > 70 ? self._git_traffic : ''
+endfunction " }}}
+let g:lightline.my._git_status = ''
+function! g:lightline.my.git_status() dict " {{{
+  return winwidth(0) > 70 ? self._git_status : ''
+endfunction " }}}
 
-autocmd BufEnter * call g:lightline.my.git_flash()
+
 function g:lightline.my.git_flash() " {{{
     let g:lightline.my._git_branch = gita#statusline#preset('branch')
     let g:lightline.my._git_traffic = gita#statusline#preset('traffic')
     let g:lightline.my._git_status = gita#statusline#preset('status')
 endfunction " }}}
 
-function! g:lightline.my.git_branch() dict " {{{
-  return winwidth(0) > 70 ? self._git_branch : ''
-endfunction " }}}
-function! g:lightline.my.git_traffic() dict " {{{
-  return winwidth(0) > 70 ? self._git_traffic : ''
-endfunction " }}}
-function! g:lightline.my.git_status() dict " {{{
-  return winwidth(0) > 70 ? self._git_status : ''
-endfunction " }}}
+autocmd BufEnter * call g:lightline.my.git_flash()

@@ -15,7 +15,7 @@ endif
 let s:zealDocsetNames = {
       \ 'cpp': 'c++',
       \ 'html': 'html',
-      \ 'java': 'java',
+      \ 'java': 'java se8',
       \ 'js': 'javascript',
       \ 'markdown': 'markdown',
       \ 'md': 'markdown',

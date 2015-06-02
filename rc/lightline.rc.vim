@@ -73,7 +73,10 @@ endfunction "}}}
 " endfunction "}}}
 
 
-autocmd BufEnter * call g:lightline.my.git_flash()
+autocmd BufEnter,BufWritePost * call g:lightline.my.git_flash()
+let g:lightline.my._git_branch = ''
+let g:lightline.my._git_traffic = ''
+let g:lightline.my._git_status = ''
 function g:lightline.my.git_flash() " {{{
     let g:lightline.my._git_branch = gita#statusline#preset('branch')
     let g:lightline.my._git_traffic = gita#statusline#preset('traffic')

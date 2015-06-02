@@ -72,7 +72,6 @@ endfunction "}}}
 "   return ctrlspace#tab_title(a:n, 0, 0)
 " endfunction "}}}
 
-
 autocmd BufEnter,BufWritePost * call g:lightline.my.git_flash()
 let g:lightline.my._git_branch = ''
 let g:lightline.my._git_traffic = ''

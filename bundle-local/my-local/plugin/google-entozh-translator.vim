@@ -132,6 +132,6 @@ if result.get('others'):
 EOF
 
 endfunc
-nmap <Leader>t :call <SID>Translate(0)<cr>
+nmap <Leader>tr :call <SID>Translate(0)<cr>
 nmap <Leader>lt :call <SID>Translate(1)<cr>
-vmap <Leader>t :<C-u>call <SID>Translate(2)<cr>
+vmap <Leader>tr :<C-u>call <SID>Translate(2)<cr>

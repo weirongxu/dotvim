@@ -1,3 +1,4 @@
+call trans#data#init()
 let g:trans_default_api = 'youdao'
 let g:trans_has_python = 0
 let g:trans_api.google = {

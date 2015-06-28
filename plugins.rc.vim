@@ -314,7 +314,11 @@ endif
 NeoBundleLazy 'Rykka/trans.vim', {
       \ 'mappings' : '<leader>t'
       \ }
-Include rc/trans
+if neobundle#tap('trans.vim')
+  let neobundle#hooks.on_source =
+        \ '~/.vim/rc/trans.rc.vim'
+  call neobundle#untap()
+endif
 """"""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

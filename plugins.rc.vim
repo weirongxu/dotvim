@@ -412,24 +412,26 @@ if neobundle#tap('caw.vim')
         \ 'htmlyiiprado': ['<!---', '--->'],
         \ 'blade': ['{{--', '--}}'],
         \ }
-  function! s:caw_filetype_changed() "{{{
-    " if exists('*context_filetype#get_filetype')
-    let filetype = context_filetype#get_filetype()
-    " else
-    "   let filetype = &filetype
-    " endif
-    if has_key(s:caw_oneline_comment, filetype)
-      let b:caw_oneline_comment = s:caw_oneline_comment[filetype]
-    else
-      let b:caw_oneline_comment = ''
-    endif
-    if has_key(s:caw_wrap_oneline_comment, filetype)
-      let b:caw_wrap_oneline_comment = s:caw_wrap_oneline_comment[filetype]
-    else
-      let b:caw_wrap_oneline_comment = []
-    endif
-  endfunction "}}}
-  autocmd CursorMoved * call s:caw_filetype_changed()
+  function! neobundle#hooks.on_source(bundle)
+    function! s:caw_filetype_changed() "{{{
+      if exists('*context_filetype#get_filetype')
+        let filetype = context_filetype#get_filetype()
+      else
+        let filetype = &filetype
+      endif
+      if has_key(s:caw_oneline_comment, filetype)
+        let b:caw_oneline_comment = s:caw_oneline_comment[filetype]
+      else
+        let b:caw_oneline_comment = ''
+      endif
+      if has_key(s:caw_wrap_oneline_comment, filetype)
+        let b:caw_wrap_oneline_comment = s:caw_wrap_oneline_comment[filetype]
+      else
+        let b:caw_wrap_oneline_comment = []
+      endif
+    endfunction "}}}
+    autocmd CursorMoved * call s:caw_filetype_changed()
+  endfunction
   call neobundle#untap()
 endif
 " NeoBundle 'tomtom/tcomment_vim'

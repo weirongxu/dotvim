@@ -77,9 +77,11 @@ let g:lightline.my._git_branch = ''
 let g:lightline.my._git_traffic = ''
 let g:lightline.my._git_status = ''
 function g:lightline.my.git_flash() " {{{
+  if exists('*gita#statusline#preset')
     let g:lightline.my._git_branch = gita#statusline#preset('branch')
     let g:lightline.my._git_traffic = gita#statusline#preset('traffic')
     let g:lightline.my._git_status = gita#statusline#preset('status')
+  endif
 endfunction " }}}
 
 function! g:lightline.my.git_branch() dict " {{{

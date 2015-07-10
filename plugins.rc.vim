@@ -430,7 +430,7 @@ if neobundle#tap('caw.vim')
     endif
   endfunction "}}}
   autocmd CursorMoved * call s:caw_filetype_changed()
-  neobundle#untap()
+  call neobundle#untap()
 endif
 " NeoBundle 'tomtom/tcomment_vim'
 " let g:tcommentMaps = 0

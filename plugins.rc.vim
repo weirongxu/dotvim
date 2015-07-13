@@ -227,11 +227,11 @@ let g:AutoPairs = {
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'lambdalisue/vim-gita'
-command! Gstatus Gita status
-command! Gpush Gita push
-command! Gpull Gita pull
+" command! Gstatus Gita status
+" command! Gpush Gita push
+" command! Gpull Gita pull
 NeoBundleLazy 'gregsexton/gitv', {
       \ 'commands': ['Gitv']
       \ }

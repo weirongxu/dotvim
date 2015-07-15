@@ -233,7 +233,7 @@ if neobundle#tap('vim-gita')
   command! GAstatus Gita status
   command! GApush Gita push
   command! GApull Gita pull
-  neobundle#untap()
+  call neobundle#untap()
 endif
 NeoBundleLazy 'gregsexton/gitv', {
       \ 'commands': ['Gitv']
@@ -244,6 +244,7 @@ if g:env#unix
     let g:gitgutter_enabled = 1
     let g:gitgutter_realtime = 0
     let g:gitgutter_eager = 0
+    call neobundle#untap()
   endif
 endif
 NeoBundleLazy 'cohama/agit.vim', {

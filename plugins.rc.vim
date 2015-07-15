@@ -229,17 +229,22 @@ let g:AutoPairs = {
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'lambdalisue/vim-gita'
-" command! Gstatus Gita status
-" command! Gpush Gita push
-" command! Gpull Gita pull
+if neobundle#tap('vim-gita')
+  command! GAstatus Gita status
+  command! GApush Gita push
+  command! GApull Gita pull
+  neobundle#untap()
+endif
 NeoBundleLazy 'gregsexton/gitv', {
       \ 'commands': ['Gitv']
       \ }
 if g:env#unix
   NeoBundle 'airblade/vim-gitgutter'
-  let g:gitgutter_enabled = 1
-  let g:gitgutter_realtime = 0
-  let g:gitgutter_eager = 0
+  if neobundle#tap('vim-gitgutter')
+    let g:gitgutter_enabled = 1
+    let g:gitgutter_realtime = 0
+    let g:gitgutter_eager = 0
+  endif
 endif
 NeoBundleLazy 'cohama/agit.vim', {
       \ 'commands': ['Agit', 'AgitFile', 'AgitGit']

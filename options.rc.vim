@@ -104,7 +104,7 @@ function! s:autoTabLenOpen(open) "{{{
     let s:auto_tab_opened = 0
   endif
 endfunction "}}}
-" call s:autoTabLenOpen(1)
+call s:autoTabLenOpen(1)
 command! AutoTabLenOpen call <sid>autoTabLenOpen(1)
 command! AutoTabLenClose call <sid>autoTabLenOpen(0)
 function! s:autoTabLen(n)

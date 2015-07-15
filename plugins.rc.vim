@@ -37,9 +37,9 @@ NeoBundle 'tpope/vim-repeat'
 if g:env#python
   NeoBundle 'editorconfig/editorconfig-vim'
   if neobundle#tap('editorconfig-vim') "{{{
-      let neobundle#hooks.on_source =
-                  \ '~/.vim/rc/editorconfig-vim.rc.vim'
-      call neobundle#untap()
+    let neobundle#hooks.on_source =
+          \ '~/.vim/rc/editorconfig-vim.rc.vim'
+    call neobundle#untap()
   endif "}}}
 endif
 NeoBundle 'farseer90718/vim-regionsyntax'

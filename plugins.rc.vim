@@ -230,9 +230,9 @@ let g:AutoPairs = {
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'lambdalisue/vim-gita'
 if neobundle#tap('vim-gita')
-  command! GAstatus Gita status
-  command! GApush Gita push
-  command! GApull Gita pull
+  command! Gastatus Gita status
+  command! Gap Gita push
+  command! Gal Gita pull
   call neobundle#untap()
 endif
 NeoBundleLazy 'gregsexton/gitv', {

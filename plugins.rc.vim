@@ -686,6 +686,9 @@ let g:nodejs_complete_config = {
 NeoBundleLazy 'weirongxu/vim-coffee-script', {
       \  'filetypes' : ['coffee', 'jade']
       \ }
+NeoBundleLazy 'leafgarland/typescript-vim', {
+      \  'filetypes' : ['typescript', 'jade']
+      \ }
 NeoBundleLazy 'mtscout6/vim-cjsx'
 
 

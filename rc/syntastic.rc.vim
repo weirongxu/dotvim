@@ -9,7 +9,7 @@ else
   let g:syntastic_warning_symbol = '>>'
   let g:syntastic_style_warning_symbol = 'S>'
 endif
-let g:syntastic_php_checkers=['php']
+" let g:syntastic_php_checkers=['php']
 let quiet_php_messages = [
       \ 'comment',
       \ ]

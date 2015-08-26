@@ -222,7 +222,7 @@ map <S-h> :tabprevious<cr>
 
 " jump to end of line while in Insert Mode
 inoremap <C-e> <C-o>$
-inoremap <C-a> <C-o>0
+inoremap <C-a> <C-o>I
 
 " Tab 长度 设置
 command! -nargs=1 TabLen call <sid>TabLen(<f-args>)

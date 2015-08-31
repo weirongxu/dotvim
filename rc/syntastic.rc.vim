@@ -4,8 +4,10 @@ if g:env#win
   let g:syntastic_warning_symbol = '>>'
   let g:syntastic_style_warning_symbol = 'S>'
 else
-  let g:syntastic_error_symbol = ">\u2717"
-  let g:syntastic_style_error_symbol = "S\u2717"
+  " let g:syntastic_error_symbol = ">\u2717"
+  " let g:syntastic_style_error_symbol = "S\u2717"
+  let g:syntastic_error_symbol = '>x'
+  let g:syntastic_style_error_symbol = 'Sx'
   let g:syntastic_warning_symbol = '>>'
   let g:syntastic_style_warning_symbol = 'S>'
 endif

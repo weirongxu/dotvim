@@ -218,12 +218,14 @@ let g:AutoPairs = {
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'lambdalisue/vim-gita'
-if neobundle#tap('vim-gita')
-  command! Gastatus Gita status
-  command! Gap Gita push
-  command! Gal Gita pull
-  call neobundle#untap()
+if g:env#unix
+    NeoBundle 'lambdalisue/vim-gita'
+    if neobundle#tap('vim-gita')
+        command! Gastatus Gita status
+        command! Gap Gita push
+        command! Gal Gita pull
+        call neobundle#untap()
+    endif
 endif
 NeoBundleLazy 'gregsexton/gitv', {
       \ 'commands': ['Gitv']

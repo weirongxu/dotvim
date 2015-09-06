@@ -11,28 +11,35 @@ else
   let g:syntastic_warning_symbol = '>>'
   let g:syntastic_style_warning_symbol = 'S>'
 endif
+
+function! s:config(type, quiet_messages) "{{{
+  let quiet_messages = a:quiet_messages
+  let g:syntastic_{a:type}_quiet_messages = {
+        \ "regex": '\V\('.join(quiet_messages, '\|').'\)',
+        \ }
+endfunction "}}}
+
 " let g:syntastic_php_checkers=['php']
-let quiet_php_messages = [
+call s:config('php_phpcs', [
       \ 'comment',
-      \ ]
-let g:syntastic_php_phpcs_quiet_messages = {
-      \ "regex": '\V\('.join(quiet_php_messages, '\|').'\)',
-      \ }
+      \ ])
+
 let g:syntastic_python_checkers = ['flake8']
-let quiet_python_messages = [
+call s:config('python_flake8', [
       \ 'E501',
       \ 'E111',
-      \ ]
-let g:syntastic_python_flake8_quiet_messages = {
-      \ "regex": '\V\('.join(quiet_python_messages, '\|').'\)',
-      \ }
-let quiet_coffee_messages = [
+      \ ])
+
+call s:config('coffee_coffeelint', [
       \ 'indentation Expected',
       \ 'Line exceeds maximum',
-      \ ]
-let g:syntastic_coffee_coffeelint_quiet_messages = {
-      \ "regex": '\V\('.join(quiet_coffee_messages).'\|\)',
-      \ }
+      \ ])
+
+call s:config('javascript_jshint', [
+      \ 'Missing semicolon.',
+      \ ])
+
+
 map <Leader><space> :up<CR>:SyntasticCheck<CR>
       " \ 'mode': 'active',
 let g:syntastic_mode_map = {

@@ -487,15 +487,8 @@ let g:colorv_preview_ftype = join(g:env#web_assets_type_list, ',')
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NeoBundle 'Valloric/YouCompleteMe'
-if has('lua')
-  NeoBundle 'Shougo/neocomplete.vim'
-  Include rc/neocomplete
-  NeoBundleDisable 'Shougo/neocomplcache.vim'
-else
-  NeoBundle 'Shougo/neocomplcache.vim'
-  Include rc/neocomplcache
-  NeoBundleDisable 'Shougo/neocomplete.vim'
-endif
+NeoBundle 'Shougo/neocomplete.vim'
+Include rc/neocomplete
 NeoBundle 'hrsh7th/vim-neco-calc'
 
 

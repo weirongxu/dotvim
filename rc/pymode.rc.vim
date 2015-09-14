@@ -33,7 +33,11 @@ function! PymodeRopeCompletions(findstart, base) "{{{
 endfunction "}}}
 
 function! s:pymodeRopeCompleteOnDot() "{{{
-  return  s:check() ? pymode#rope#complete_on_dot() : ''
+  return (g:pymode_rope &&
+        \ g:pymode_rope_completion &&
+        \ g:pymode_rope_complete_on_dot &&
+        \ s:check()) ? pymode#rope#complete_on_dot() : ''
+  endif
 endfunction "}}}
 
 function! s:regenerate() "{{{

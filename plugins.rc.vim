@@ -944,7 +944,7 @@ NeoBundleLazy 'thinca/vim-ref', {
       \ 'commands' : 'Ref',
       \ 'mappings' : '<Plug>(ref-keyword)'
       \ }
-let g:ref_phpmanual_path = expand('~/Document/ref/php-chunked-xhtml/')
+let g:ref_phpmanual_path = expand('~/document/ref/php-chunked-xhtml/')
 map K <Plug>(ref-keyword)
 " NeoBundleLazy 'tpope/vim-dispatch', {
 "       \ 'commands' : ['Make', 'Copen', 'Dispatch', 'FocusDispatch', 'Start']

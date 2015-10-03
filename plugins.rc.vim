@@ -220,9 +220,11 @@ let g:AutoPairs = {
 NeoBundle 'tpope/vim-fugitive'
 if g:env#unix
     NeoBundle 'lambdalisue/vim-gita'
+    exec
     if neobundle#tap('vim-gita')
         command! Gastatus Gita status
         command! Gap Gita push
+        command! Galp execute "Gita pull" | execute "Gita push"
         command! Gal Gita pull
         call neobundle#untap()
     endif
@@ -951,7 +953,7 @@ NeoBundleLazy 'thinca/vim-ref', {
       \ 'commands' : 'Ref',
       \ 'mappings' : '<Plug>(ref-keyword)'
       \ }
-let g:ref_phpmanual_path = expand('~/Document/ref/php-chunked-xhtml/')
+let g:ref_phpmanual_path = expand('~/document/ref/php-chunked-xhtml/')
 map K <Plug>(ref-keyword)
 " NeoBundleLazy 'tpope/vim-dispatch', {
 "       \ 'commands' : ['Make', 'Copen', 'Dispatch', 'FocusDispatch', 'Start']

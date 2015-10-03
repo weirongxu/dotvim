@@ -652,12 +652,21 @@ command! JavaApi
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-NeoBundleLazy 'jelera/vim-javascript-syntax', {
+NeoBundleLazy 'pangloss/vim-javascript', {
       \ 'filetypes' : 'javascript'
       \ }
-" NeoBundleLazy 'pangloss/vim-javascript', {
-"       \ 'filetypes' : 'javascript'
-"       \ }
+let g:javascript_enable_domhtmlcss = 1
+if g:env#unix
+    let g:javascript_conceal_function  = "ƒ"
+    let g:javascript_conceal_null      = "ø"
+    let g:javascript_conceal_this      = "@"
+    let g:javascript_conceal_return    = "⇚"
+    let g:javascript_conceal_undefined = "¿"
+    let g:javascript_conceal_NaN       = "ℕ"
+    let g:javascript_conceal_prototype = "¶"
+    let g:javascript_conceal_static    = "•"
+    let g:javascript_conceal_super     = "Ω"
+endif
 NeoBundleLazy 'aereal/jscomplete-vim', {
       \ 'filetypes' : 'javascript'
       \ }

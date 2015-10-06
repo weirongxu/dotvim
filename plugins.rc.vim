@@ -955,8 +955,11 @@ let babel_loading = join([
 let g:quickrun_config['javascript/babel'] = {
       \ 'command': 'babel',
       \ 'cmdopt': '--experimental',
-      \ 'exec': ['%c %s %o -o %s', 'echo "' . babel_loading . '\$(cat %s)" | node'],
-      \   'hook/sweep/files': ['%S'],
+      \ 'exec': [
+      \   '%c %s %o -o %s',
+      \   'echo "' . babel_loading . '\$(cat %s)" | node',
+      \ ],
+      \ 'hook/sweep/files': ['%S'],
       \ }
 NeoBundleLazy 'joonty/vdebug', {
       \ 'commands' : ['VdebugEval', 'VdebugOpt', 'VdebugStart']

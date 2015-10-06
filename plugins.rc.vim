@@ -658,17 +658,17 @@ NeoBundleLazy 'pangloss/vim-javascript', {
       \ 'filetypes' : 'javascript'
       \ }
 let g:javascript_enable_domhtmlcss = 1
-if g:env#unix
-    let g:javascript_conceal_function  = "ƒ"
-    let g:javascript_conceal_null      = "ø"
-    let g:javascript_conceal_this      = "@"
-    let g:javascript_conceal_return    = "⇚"
-    let g:javascript_conceal_undefined = "¿"
-    let g:javascript_conceal_NaN       = "ℕ"
-    let g:javascript_conceal_prototype = "¶"
-    let g:javascript_conceal_static    = "•"
-    let g:javascript_conceal_super     = "Ω"
-endif
+" if g:env#unix
+"     let g:javascript_conceal_function  = "ƒ"
+"     let g:javascript_conceal_null      = "ø"
+"     let g:javascript_conceal_this      = "@"
+"     let g:javascript_conceal_return    = "⇚"
+"     let g:javascript_conceal_undefined = "¿"
+"     let g:javascript_conceal_NaN       = "ℕ"
+"     let g:javascript_conceal_prototype = "¶"
+"     let g:javascript_conceal_static    = "•"
+"     let g:javascript_conceal_super     = "Ω"
+" endif
 NeoBundleLazy 'aereal/jscomplete-vim', {
       \ 'filetypes' : 'javascript'
       \ }
@@ -1233,17 +1233,11 @@ call neobundle#end()
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 其它插件设置
+" Other
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" 打开 javascript 对 dom、html 和 css 的支持
-let javascript_enable_domhtmlcss = 1
-
-" 设置 javascriptlint
-" autocmd FileType javascript set makeprg=jsl\ -process\ %
-
-" 设置vimIM
-let g:vimim_plugin = 'wubi,pinyin'
-let g:vimim_cloud=-1
-let g:vimim_map='no-search'
+" vimIM
+" let g:vimim_plugin = 'wubi,pinyin'
+" let g:vimim_cloud=-1
+" let g:vimim_map='no-search'
 " imap <c-c> <c-_>

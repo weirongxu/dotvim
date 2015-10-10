@@ -886,7 +886,7 @@ NeoBundleLazy 'jmcantrell/vim-virtualenv', {
 function! CompleteVirtualEnv(arg_lead, cmd_line, cursor_pos)
     return virtualenv#names(a:arg_lead)
 endfunction
-let g:virtualenv_directory = '~/Envs'
+let g:virtualenv_directory = '~/.virtualenv'
 NeoBundleLazy 'weirongxu/fixdir.vim', {
       \ 'commands' : [{ 'name': 'FixDir',
       \                 'complete': 'customlist,fixdir#complete'}

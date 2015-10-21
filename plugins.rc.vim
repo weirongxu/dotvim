@@ -820,6 +820,7 @@ let g:marching_enable_neocomplete = 1
 NeoBundleLazy 'nicwest/QQ.vim', {
       \ 'mappings': ['QQ', 'QH', 'QCO', 'QCC', 'QCN', 'QG']
       \ }
+" zeal
 map <leader>z :call zeal#execute(context_filetype#get_filetype(), expand("<cword>"))<CR>
 NeoBundleLazy 'januswel/sweepbuf.vim', {
       \ 'commands': 'SweepBuffers'
@@ -1157,9 +1158,7 @@ NeoBundle 'kana/vim-vspec'
 NeoBundleLazy 'thinca/vim-prettyprint', {
       \ 'commands' : 'PP'
       \ }
-NeoBundleLazy 'vim-jp/vital.vim', {
-      \ 'commands' : 'Vitalize'
-      \ }
+NeoBundle 'vim-jp/vital.vim'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

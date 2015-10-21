@@ -80,24 +80,6 @@ endif
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-NeoBundleLazy 'szw/vim-ctrlspace', {
-      \ 'commands': [
-      \   'CtrlSpace', 'CtrlSpaceGoNext', 'CtrlSpaceGoPrevious',
-      \   'CtrlSpaceTabLabel', 'CtrlSpaceClearTabLabel',
-      \   'CtrlSpaceSaveWorkspace', 'CtrlSpaceLoadWorkspace',
-      \   'CtrlSpaceNewWorkspace',
-      \ ],
-      \ 'functions': 'ctrlspace'
-      \ }
-if executable("ag")
-  let g:ctrlspace_glob_command = 'ag -l --nocolor -g ""'
-endif
-map <Space><Space> :CtrlSpace<CR>
-let g:ctrlspace_save_workspace_on_exit=1
-let g:ctrlspace_use_tabline = 0
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'mhinz/vim-startify'
 let g:startify_session_dir = '~/.cache/vim-session'
 let g:startify_session_autoload = 1
@@ -311,9 +293,9 @@ endif
 """"""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-NeoBundleLazy 'Rykka/trans.vim', {
-      \ 'mappings' : '<leader>t'
-      \ }
+" NeoBundleLazy 'Rykka/trans.vim', {
+"       \ 'mappings' : '<leader>t'
+"       \ }
 if neobundle#tap('trans.vim')
   let neobundle#hooks.on_source =
         \ '~/.vim/rc/trans.rc.vim'
@@ -619,20 +601,20 @@ NeoBundleLazy 'kamichidu/javacomplete', {
       \  'filetypes' : 'java'
       \ }
 " let g:neocomplete#sources#omni#functions.java = 'javacomplete#Complete'
-NeoBundleLazy 'yuratomo/java-api-complete', {
-      \  'filetypes' : 'java'
-      \ }
-NeoBundleLazy 'yuratomo/java-api-javax', {
-      \  'filetypes' : 'java'
-      \ }
-
-NeoBundleLazy 'yuratomo/java-api-org'
-NeoBundleLazy 'yuratomo/java-api-sun'
-NeoBundleLazy 'yuratomo/java-api-servlet2.3'
-NeoBundleLazy 'yuratomo/java-api-android'
-" command! JavaApi setlocal omnifunc=javaapi#complete
-command! JavaApi 
-      \ let g:neocomplete#sources#omni#functions.java = 'javaapi#complete'
+" NeoBundleLazy 'yuratomo/java-api-complete', {
+"       \  'filetypes' : 'java'
+"       \ }
+" NeoBundleLazy 'yuratomo/java-api-javax', {
+"       \  'filetypes' : 'java'
+"       \ }
+"
+" NeoBundleLazy 'yuratomo/java-api-org'
+" NeoBundleLazy 'yuratomo/java-api-sun'
+" NeoBundleLazy 'yuratomo/java-api-servlet2.3'
+" NeoBundleLazy 'yuratomo/java-api-android'
+" " command! JavaApi setlocal omnifunc=javaapi#complete
+" command! JavaApi 
+"       \ let g:neocomplete#sources#omni#functions.java = 'javaapi#complete'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -676,9 +658,9 @@ NeoBundleLazy 'myhere/vim-nodejs-complete', {
       \ 'filetypes' : 'javascript'
       \ }
 let g:nodejs_complete_config = {
-\  'js_compl_fn': 'jscomplete#CompleteJS',
-\  'max_node_compl_len': 15
-\}
+      \  'js_compl_fn': 'jscomplete#CompleteJS',
+      \  'max_node_compl_len': 15,
+      \ }
 NeoBundleLazy 'weirongxu/vim-coffee-script', {
       \  'filetypes' : ['coffee', 'jade']
       \ }
@@ -767,13 +749,6 @@ NeoBundleLazy 'wavded/vim-stylus', {
       \ }
 autocmd BufNewFile,BufRead *.styl set filetype=stylus
 autocmd BufNewFile,BufRead *.stylus set filetype=stylus
-" NeoBundleLazy 'weirongxu/vim-less', {
-"       \  'filetypes' : ['less']
-"       \ }
-" " less 自动编译
-" let g:less_auto_compile = 0
-" let g:less_compile_buffer_key = '<F5>'
-" let g:less_compile_option = '-x'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -840,21 +815,8 @@ let g:marching_enable_neocomplete = 1
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" NeoBundleLazy 'weirongxu/mkdview.vim', {
-"       \  'filetypes' : 'markdown'
-"       \ }
-" let g:mkdview#css = 'github.css'
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " TOOLS
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-NeoBundleLazy 'junegunn/vader.vim', {
-      \ 'commands': 'Vader',
-      \ 'filetypes': 'vader',
-      \ }
-NeoBundle 'thinca/vim-scall'
-NeoBundle 'kana/vim-vspec'
 NeoBundleLazy 'nicwest/QQ.vim', {
       \ 'mappings': ['QQ', 'QH', 'QCO', 'QCC', 'QCN', 'QG']
       \ }
@@ -891,20 +853,17 @@ NeoBundleLazy 'weirongxu/fixdir.vim', {
       \ 'commands' : [{ 'name': 'FixDir',
       \                 'complete': 'customlist,fixdir#complete'}
       \ ]}
-NeoBundleLazy 'thinca/vim-prettyprint', {
-      \ 'commands' : 'PP'
-      \ }
-NeoBundleLazy 'kana/vim-narrow', {
-      \ 'commands' : 'Narrow'
-      \ }
+" NeoBundleLazy 'kana/vim-narrow', {
+"       \ 'commands' : 'Narrow'
+"       \ }
 NeoBundleLazy 'Shougo/vinarise.vim', {
       \ 'commands' : ['Vinarise', 'VinariseScript2Hex', 'VinariseHex2Script',
       \               'VinarisePluginDump', 'VinarisePluginViewBitmapView']
       \ }
-NeoBundleLazy 'tyru/eskk.vim', {
-      \ 'commands' : '<Plug>(eskk:toggle)'
-      \ }
-imap <c-=> <Plug>(eskk:toggle)
+" NeoBundleLazy 'tyru/eskk.vim', {
+"       \ 'commands' : '<Plug>(eskk:toggle)'
+"       \ }
+" imap <c-=> <Plug>(eskk:toggle)
 NeoBundleLazy 'drmikehenry/vim-fontsize', {
       \ 'mappings' : '<Plug>Fontsize'
       \ }
@@ -979,9 +938,6 @@ map K <Plug>(ref-keyword)
 "       \ }
 NeoBundleLazy 'justinmk/vim-gtfo', {
       \ 'mappings' : ['got', 'goT', 'gof', 'goF']
-      \ }
-NeoBundleLazy 'vim-jp/vital.vim', {
-      \ 'commands' : 'Vitalize'
       \ }
 NeoBundleLazy 'wesleyche/SrcExpl', {
       \ 'commands' : ['SrcExpl', 'SrcExplClose', 'SrcExplToggle']
@@ -1187,6 +1143,24 @@ if neobundle#tap('incsearch.vim') "{{{
         \ }
   call neobundle#untap()
 endif "}}}
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Vimscript
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+NeoBundleLazy 'junegunn/vader.vim', {
+      \ 'commands': 'Vader',
+      \ 'filetypes': 'vader',
+      \ }
+NeoBundle 'thinca/vim-scall'
+NeoBundle 'kana/vim-vspec'
+NeoBundleLazy 'thinca/vim-prettyprint', {
+      \ 'commands' : 'PP'
+      \ }
+NeoBundleLazy 'vim-jp/vital.vim', {
+      \ 'commands' : 'Vitalize'
+      \ }
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NeoBundle 'tpope/vim-afterimage' " Crazy!

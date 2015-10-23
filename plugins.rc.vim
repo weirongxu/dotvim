@@ -234,6 +234,7 @@ let g:gita#features#browse#extra_translation_patterns = {
       \     '\vssh://git\@git.coding\.net/(.{-})/(.{-})%(\.git)?$',
       \   ], {
       \     '_': 'https://coding.net/u/\1/p/\2/git/blob/%r1/%pt%{#L|}ls%{-}le',
+      \     'blame': 'https://coding.net/u/\1/p/\2/git/blame/%r1/%pt%{#L|}ls%{-}le'
       \   },
       \ ],
       \ }

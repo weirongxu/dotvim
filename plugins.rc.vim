@@ -202,7 +202,6 @@ let g:AutoPairs = {
 NeoBundle 'tpope/vim-fugitive'
 if g:env#unix
     NeoBundle 'lambdalisue/vim-gita'
-    exec
     if neobundle#tap('vim-gita')
         command! Gastatus Gita status
         command! Gap Gita push
@@ -227,6 +226,7 @@ NeoBundleLazy 'cohama/agit.vim', {
       \ 'commands': ['Agit', 'AgitFile', 'AgitGit']
       \ }
 " NeoBundle 'mhinz/vim-signify'
+" NeoBundle 'rhysd/committia.vim'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

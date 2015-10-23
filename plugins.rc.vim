@@ -225,6 +225,18 @@ endif
 NeoBundleLazy 'cohama/agit.vim', {
       \ 'commands': ['Agit', 'AgitFile', 'AgitGit']
       \ }
+let g:gita#features#browse#extra_translation_patterns = {
+      \ 'coding.net': [
+      \   [
+      \     '\vhttps?://git.coding\.net/(.{-})/(.{-})%(\.git)?$',
+      \     '\vgit://git.coding\.net/(.{-})/(.{-})%(\.git)?$',
+      \     '\vgit\@git.coding\.net:(.{-})/(.{-})%(\.git)?$',
+      \     '\vssh://git\@git.coding\.net/(.{-})/(.{-})%(\.git)?$',
+      \   ], {
+      \     '_': 'https://coding.net/u/\1/p/\2/git/blob/%r1/%pt%{#L|}ls%{-}le',
+      \   },
+      \ ],
+      \ }
 " NeoBundle 'mhinz/vim-signify'
 " NeoBundle 'rhysd/committia.vim'
 

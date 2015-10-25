@@ -17,6 +17,21 @@ let g:neobundle#types#git#clone_depth = 1
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Vimscript
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+NeoBundleLazy 'junegunn/vader.vim', {
+      \ 'commands': 'Vader',
+      \ 'filetypes': 'vader',
+      \ }
+NeoBundle 'thinca/vim-scall'
+NeoBundle 'kana/vim-vspec'
+NeoBundleLazy 'thinca/vim-prettyprint', {
+      \ 'commands' : 'PP'
+      \ }
+NeoBundle 'vim-jp/vital.vim'
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MUST
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'mbbill/fencview'
@@ -483,10 +498,143 @@ let g:colorv_preview_ftype = join(g:env#web_assets_type_list, ',')
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" NeoBundle 'Valloric/YouCompleteMe'
 NeoBundle 'Shougo/neocomplete.vim'
 Include rc/neocomplete
 NeoBundle 'hrsh7th/vim-neco-calc'
+" NeoBundle 'Valloric/YouCompleteMe', {
+"       \ 'build': {
+"       \   'mac': './install.py',
+"       \   'unix': './install.py',
+"       \   'windows': 'install.py',
+"       \   'cygwin': './install.py',
+"       \ },
+"       \ }
+" let g:ycm_key_list_select_completion = ['<Down>']
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+NeoBundleLazy 'marijnh/tern_for_vim', {
+      \ 'filetypes' : 'javascript',
+      \ 'build': {
+      \   'others': 'npm install',
+      \ },
+      \ }
+call UniteFileTypeTool('javascript', [
+      \ ['tern-doc', 'TernDoc'],
+      \ ['tern-doc-browse', 'TernDocBrowse'],
+      \ ['tern-type', 'TernType'],
+      \ ['tern-def', 'TernDef'],
+      \ ['tern-def-preview', 'TernDefPreview'],
+      \ ['tern-def-split', 'TernDefSplit'],
+      \ ['tern-def-tab', 'TernDefTab'],
+      \ ['tern-refs', 'TernRefs'],
+      \ ['tern-rename', 'TernRename'],
+      \ ])
+" NeoBundleLazy 'aereal/jscomplete-vim', {
+"       \ 'filetypes' : 'javascript'
+"       \ }
+" NeoBundleLazy 'myhere/vim-nodejs-complete', {
+"       \ 'filetypes' : 'javascript'
+"       \ }
+" let g:nodejs_complete_config = {
+"       \  'js_compl_fn': 'jscomplete#CompleteJS',
+"       \  'max_node_compl_len': 15,
+"       \ }
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" NeoBundleLazy 'python-rope/ropevim', {
+"       \ 'filetypes' : 'python',
+"       \ }
+" NeoBundleLazy 'klen/python-mode', 'develop', {
+"       \ 'filetypes' : 'python',
+"       \ }
+" if neobundle#tap('python-mode')
+"   let neobundle#hooks.on_source =
+"         \ '~/.vim/rc/pymode.rc.vim'
+"   call neobundle#untap()
+" endif
+
+NeoBundleLazy 'davidhalter/jedi-vim', {
+      \  'filetypes' : 'python'
+      \ }
+let g:jedi#auto_initialization = 0
+autocmd FileType python setlocal omnifunc=jedi#completions
+let g:neocomplete#force_omni_input_patterns.python =
+      \ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
+call UniteFileTypeTool('python', [
+      \ ['jedi-goto', 'call jedi#goto()'],
+      \ ['jedi-goto_assignments', 'call jedi#goto_assignments()'],
+      \ ['jedi-goto_definitions', 'call jedi#goto_definitions()'],
+      \ ['jedi-usages', 'call jedi#usages()'],
+      \ ['jedi-rename', 'call jedi#rename()'],
+      \ ['jedi-rename_visual', 'call jedi#rename_visual()'],
+      \ ['jedi-document', 'call jedi#show_documentation()'],
+      \ ])
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" NeoBundleLazy 'vim-scripts/OmniCppComplete', {
+"       \  'filetypes' : ['cpp', 'c']
+"       \ }
+" 自动生成tags文件
+" autocmd! BufWritePost,FileWritePost *.h,*.hpp,*.c,*.cpp call <SID>CompileCtags()
+" func! s:CompileCtags()
+  " " call system('ctags -R --c++-kinds=+p --fields=+iaS --extra=+q')
+  " call system('ctags * --c++-kinds=+p --fields=+iaS --extra=+q')
+" endfunc
+" let &tags .= ','.$MYVIMFILES.'/tags/cppstl'
+" execute 'set tags+='.$MYVIMFILES.'/tags/cppstl'
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+NeoBundleLazy 'osyo-manga/vim-marching', {
+      \  'filetypes' : ['cpp', 'c']
+      \ }
+let g:marching_clang_command = "/usr/bin/clang"
+let g:marching_include_paths = [
+\   "/usr/include"
+\]
+
+if !exists('g:neocomplete#force_omni_input_patterns')
+    let g:neocomplete#force_omni_input_patterns = {}
+endif
+
+let g:neocomplete#force_omni_input_patterns.c =
+      \ '[^.[:digit:] *\t]\%(\.\|->\)\w*'
+let g:neocomplete#force_omni_input_patterns.cpp =
+      \ '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
+let g:neocomplete#force_omni_input_patterns.objc =
+      \ '[^.[:digit:] *\t]\%(\.\|->\)\w*'
+let g:neocomplete#force_omni_input_patterns.objcpp =
+      \ '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
+
+let g:marching_enable_neocomplete = 1
+
+" if g:env#unix && executable('clang')
+"   NeoBundleLazy 'Rip-Rip/clang_complete', {
+"         \  'filetypes' : ['cpp', 'c']
+"         \ }
+"   " let g:clang_complete_copen = 1
+"   let g:clang_complete_auto = 0
+"   let g:clang_auto_select = 0
+"   let g:clang_use_library = 1
+"   let g:clang_library_path = '/usr/lib/'
+"   let g:neocomplete#force_omni_input_patterns.c =
+"         \ '[^.[:digit:] *\t]\%(\.\|->\)\w*'
+"   let g:neocomplete#force_omni_input_patterns.cpp =
+"         \ '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
+"   let g:neocomplete#force_omni_input_patterns.objc =
+"         \ '[^.[:digit:] *\t]\%(\.\|->\)\w*'
+"   let g:neocomplete#force_omni_input_patterns.objcpp =
+"         \ '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
+"   let g:neocomplete#sources#omni#functions.c = 'ClangComplete'
+"   let g:neocomplete#sources#omni#functions.cpp = 'ClangComplete'
+"   let g:neocomplete#sources#omni#functions.objc = 'ClangComplete'
+"   let g:neocomplete#sources#omni#functions.objcpp = 'ClangComplete'
+" else
+"     NeoBundleLazy 'Rip-Rip/clang_complete'
+" endif
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -527,20 +675,6 @@ command! Snip NeoSnippetEdit -split -vertical
 
 NeoBundle 'scrooloose/syntastic'
 Include rc/syntastic
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" NeoBundleLazy 'python-rope/ropevim', {
-"       \ 'filetypes' : 'python',
-"       \ }
-NeoBundleLazy 'klen/python-mode', 'develop', {
-      \ 'filetypes' : 'python',
-      \ }
-if neobundle#tap('python-mode')
-  let neobundle#hooks.on_source =
-        \ '~/.vim/rc/pymode.rc.vim'
-  call neobundle#untap()
-endif
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -598,6 +732,18 @@ NeoBundleLazy 'tyru/open-browser.vim', {
       \ 'mappings' : '<Plug>',
       \ }
 NeoBundle 'maksimr/vim-jsbeautify'
+call UniteFileTypeTool(['javascript', 'css', 'html', 'jsx', 'json'], [
+      \ ['jsbf-RangeJsBeautify', 'call RangeJsBeautify()'],
+      \ ['jsbf-JsBeautify', 'call JsBeautify()'],
+      \ ['jsbf-JsxBeautify', 'call JsxBeautify()'],
+      \ ['jsbf-RangeJsxBeautify', 'call RangeJsxBeautify()'],
+      \ ['jsbf-JsonBeautify', 'call JsonBeautify()'],
+      \ ['jsbf-RangeJsonBeautify', 'call RangeJsonBeautify()'],
+      \ ['jsbf-RangeHtmlBeautify', 'call RangeHtmlBeautify()'],
+      \ ['jsbf-HtmlBeautify', 'call HtmlBeautify()'],
+      \ ['jsbf-RangeCSSBeautify', 'call RangeCSSBeautify()'],
+      \ ['jsbf-CSSBeautify', 'call CSSBeautify()'],
+      \ ])
 NeoBundleLazy 'Chiel92/vim-autoformat', {
       \ 'commands' : [
       \   { 'name' : 'Autoformat',
@@ -664,16 +810,6 @@ let g:javascript_enable_domhtmlcss = 1
 "     let g:javascript_conceal_static    = "•"
 "     let g:javascript_conceal_super     = "Ω"
 " endif
-NeoBundleLazy 'aereal/jscomplete-vim', {
-      \ 'filetypes' : 'javascript'
-      \ }
-NeoBundleLazy 'myhere/vim-nodejs-complete', {
-      \ 'filetypes' : 'javascript'
-      \ }
-let g:nodejs_complete_config = {
-      \  'js_compl_fn': 'jscomplete#CompleteJS',
-      \  'max_node_compl_len': 15,
-      \ }
 NeoBundleLazy 'weirongxu/vim-coffee-script', {
       \  'filetypes' : ['coffee', 'jade']
       \ }
@@ -681,18 +817,6 @@ NeoBundleLazy 'leafgarland/typescript-vim', {
       \  'filetypes' : ['typescript', 'jade']
       \ }
 NeoBundleLazy 'mtscout6/vim-cjsx'
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" if g:env#unix
-"   NeoBundleLazy 'davidhalter/jedi-vim', {
-"         \  'filetypes' : 'python'
-"         \ }
-"   let g:jedi#popup_select_first = 0
-"   let g:jedi#popup_on_dot = 0
-"   let g:jedi#auto_close_doc = 0
-"   let g:jedi#show_call_signatures = 0
-" endif
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -762,69 +886,6 @@ NeoBundleLazy 'wavded/vim-stylus', {
       \ }
 autocmd BufNewFile,BufRead *.styl set filetype=stylus
 autocmd BufNewFile,BufRead *.stylus set filetype=stylus
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" NeoBundleLazy 'vim-scripts/OmniCppComplete', {
-"       \  'filetypes' : ['cpp', 'c']
-"       \ }
-" 自动生成tags文件
-" autocmd! BufWritePost,FileWritePost *.h,*.hpp,*.c,*.cpp call <SID>CompileCtags()
-" func! s:CompileCtags()
-  " " call system('ctags -R --c++-kinds=+p --fields=+iaS --extra=+q')
-  " call system('ctags * --c++-kinds=+p --fields=+iaS --extra=+q')
-" endfunc
-" let &tags .= ','.$MYVIMFILES.'/tags/cppstl'
-" execute 'set tags+='.$MYVIMFILES.'/tags/cppstl'
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-NeoBundleLazy 'osyo-manga/vim-marching', {
-      \  'filetypes' : ['cpp', 'c']
-      \ }
-let g:marching_clang_command = "/usr/bin/clang"
-let g:marching_include_paths = [
-\   "/usr/include"
-\]
-
-if !exists('g:neocomplete#force_omni_input_patterns')
-    let g:neocomplete#force_omni_input_patterns = {}
-endif
-
-let g:neocomplete#force_omni_input_patterns.c =
-      \ '[^.[:digit:] *\t]\%(\.\|->\)\w*'
-let g:neocomplete#force_omni_input_patterns.cpp =
-      \ '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
-let g:neocomplete#force_omni_input_patterns.objc =
-      \ '[^.[:digit:] *\t]\%(\.\|->\)\w*'
-let g:neocomplete#force_omni_input_patterns.objcpp =
-      \ '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
-
-let g:marching_enable_neocomplete = 1
-" if g:env#unix && executable('clang')
-"   NeoBundleLazy 'Rip-Rip/clang_complete', {
-"         \  'filetypes' : ['cpp', 'c']
-"         \ }
-"   " let g:clang_complete_copen = 1
-"   let g:clang_complete_auto = 0
-"   let g:clang_auto_select = 0
-"   let g:clang_use_library = 1
-"   let g:clang_library_path = '/usr/lib/'
-"   let g:neocomplete#force_omni_input_patterns.c =
-"         \ '[^.[:digit:] *\t]\%(\.\|->\)\w*'
-"   let g:neocomplete#force_omni_input_patterns.cpp =
-"         \ '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
-"   let g:neocomplete#force_omni_input_patterns.objc =
-"         \ '[^.[:digit:] *\t]\%(\.\|->\)\w*'
-"   let g:neocomplete#force_omni_input_patterns.objcpp =
-"         \ '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
-"   let g:neocomplete#sources#omni#functions.c = 'ClangComplete'
-"   let g:neocomplete#sources#omni#functions.cpp = 'ClangComplete'
-"   let g:neocomplete#sources#omni#functions.objc = 'ClangComplete'
-"   let g:neocomplete#sources#omni#functions.objcpp = 'ClangComplete'
-" else
-"     NeoBundleLazy 'Rip-Rip/clang_complete'
-" endif
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -1160,21 +1221,6 @@ endif "}}}
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Vimscript
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-NeoBundleLazy 'junegunn/vader.vim', {
-      \ 'commands': 'Vader',
-      \ 'filetypes': 'vader',
-      \ }
-NeoBundle 'thinca/vim-scall'
-NeoBundle 'kana/vim-vspec'
-NeoBundleLazy 'thinca/vim-prettyprint', {
-      \ 'commands' : 'PP'
-      \ }
-NeoBundle 'vim-jp/vital.vim'
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NeoBundle 'tpope/vim-afterimage' " Crazy!
 " NeoBundle 'jszakmeister/vim-togglecursor'
 " NeoBundleLazy 'vim-scripts/utl.vim' " 不好用
@@ -1200,8 +1246,6 @@ NeoBundle 'vim-jp/vital.vim'
 " NeoBundleLazy 'rhysd/accelerated-jk'
 " NeoBundle 'thinca/vim-painter' " toy
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" NeoBundle 'Valloric/YouCompleteMe' " waitting
-""""""""""""""""""""""""""""""
 " UI
 " NeoBundle 'rbtnn/rabbit-ui.vim'
 " NeoBundle 'itchyny/thumbnail.vim' " 速度不行

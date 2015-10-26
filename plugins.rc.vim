@@ -315,6 +315,13 @@ if neobundle#tap('unite-workflow')
   vnoremap <space>yd :<C-u>call <SID>unite_youdao(1)<CR>
   call neobundle#untap()
 endif
+NeoBundle 'osyo-manga/unite-quickfix'
+if neobundle#tap('unite-quickfix')
+  function! neobundle#hooks.on_source(bundle) "{{{
+    autocmd FileType qf q | Unite quickfix
+  endfunction "}}}
+  call neobundle#untap()
+endif
 " NeoBundle 'xolox/vim-misc'
 " NeoBundle 'xolox/vim-easytags'
 " NeoBundle 'Shougo/neossh.vim' " toy

@@ -559,9 +559,10 @@ NeoBundleLazy 'davidhalter/jedi-vim', {
       \  'filetypes' : 'python'
       \ }
 let g:jedi#auto_initialization = 0
+let g:jedi#show_call_signatures = 0
 autocmd FileType python setlocal omnifunc=jedi#completions
 let g:neocomplete#force_omni_input_patterns.python =
-      \ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
+      \ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import\s\(\w*,\s\)\?\|^\s*from \|^\s*import \)\w*'
 call UniteFileTypeTool('python', [
       \ ['jedi-goto', 'call jedi#goto()'],
       \ ['jedi-goto_assignments', 'call jedi#goto_assignments()'],

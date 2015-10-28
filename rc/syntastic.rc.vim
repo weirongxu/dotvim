@@ -37,6 +37,7 @@ call s:config('coffee_coffeelint', [
 
 call s:config('javascript_jshint', [
       \ 'Missing semicolon.',
+      \ 'ES6',
       \ ])
 
 

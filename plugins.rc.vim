@@ -716,6 +716,9 @@ NeoBundleLazy 'vim-scripts/autohotkey-ahk', {
 NeoBundleLazy 'hdima/python-syntax', {
       \  'filetypes' : 'python'
       \ }
+" NeoBundleLazy 'hynek/vim-python-pep8-indent', {
+"       \  'filetypes' : 'python'
+"       \ }
 NeoBundleLazy 'elzr/vim-json', {
       \  'filetypes' : 'json'
       \ }

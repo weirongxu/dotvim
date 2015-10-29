@@ -28,6 +28,7 @@ let g:syntastic_python_checkers = ['flake8']
 call s:config('python_flake8', [
       \ 'E501',
       \ 'E111',
+      \ 'E121',
       \ ])
 
 call s:config('coffee_coffeelint', [

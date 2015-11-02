@@ -12,6 +12,10 @@ function! s:exec_fixer() "{{{
 endfunction "}}}
 command PhpFixer call <SID>exec_fixer()
 
+call UniteFileTypeTool('php', [
+      \ ['php-fixer', 'PhpFixer']
+      \ ])
+
 let &cpo = s:save_cpo
 unlet s:save_cpo
 " vim: fdm=marker

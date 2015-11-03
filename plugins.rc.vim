@@ -827,7 +827,7 @@ NeoBundleLazy 'weirongxu/vim-coffee-script', {
 NeoBundleLazy 'leafgarland/typescript-vim', {
       \  'filetypes' : ['typescript', 'jade']
       \ }
-NeoBundleLazy 'mtscout6/vim-cjsx'
+" NeoBundleLazy 'mtscout6/vim-cjsx'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -1067,18 +1067,18 @@ endif
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-NeoBundleLazy 'weirongxu/evervim', {
-      \ 'commands' : ['EvervimNotebookList', 'EvervimListTags',
-      \               'EvervimSearchByQuery', 'EvervimPageNext',
-      \               'EvervimPagePrev', 'EvervimCreateNote',
-      \               'EvervimOpenBrowser', 'EvervimOpenClient',
-      \               'EvervimSetup', 'EvervimReloadPref']
-      \ }
-let g:evervim_host = 'app.yinxiang.com'
-let devtoken_file = expand("~/.evernote-devtoken")
-if filereadable(devtoken_file)
-  let g:evervim_devtoken = readfile(devtoken_file)[0]
-endif
+" NeoBundleLazy 'weirongxu/evervim', {
+"       \ 'commands' : ['EvervimNotebookList', 'EvervimListTags',
+"       \               'EvervimSearchByQuery', 'EvervimPageNext',
+"       \               'EvervimPagePrev', 'EvervimCreateNote',
+"       \               'EvervimOpenBrowser', 'EvervimOpenClient',
+"       \               'EvervimSetup', 'EvervimReloadPref']
+"       \ }
+" let g:evervim_host = 'app.yinxiang.com'
+" let devtoken_file = expand("~/.evernote-devtoken")
+" if filereadable(devtoken_file)
+"   let g:evervim_devtoken = readfile(devtoken_file)[0]
+" endif
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -1215,18 +1215,20 @@ NeoBundleLazy 'haya14busa/incsearch.vim', {
       \ 'mappings' : '<Plug>(incsearch-'
       \ }
 if neobundle#tap('incsearch.vim') "{{{
-  map /  <Plug>(incsearch-forward)
-  map ?  <Plug>(incsearch-backward)
-  map g/ <Plug>(incsearch-stay)
-  let g:incsearch#highlight = {
-        \   'on_cursor' : {
-        \     'priority' : '100'
-        \   },
-        \   'cursor' : {
-        \     'group' : 'ErrorMsg',
-        \     'priority' : '1000'
-        \   }
-        \ }
+  function! neobundle#hooks.on_source(bundle)
+    map /  <Plug>(incsearch-forward)
+    map ?  <Plug>(incsearch-backward)
+    map g/ <Plug>(incsearch-stay)
+    let g:incsearch#highlight = {
+          \   'on_cursor' : {
+          \     'priority' : '100'
+          \   },
+          \   'cursor' : {
+          \     'group' : 'ErrorMsg',
+          \     'priority' : '1000'
+          \   }
+          \ }
+  endfunction
   call neobundle#untap()
 endif "}}}
 

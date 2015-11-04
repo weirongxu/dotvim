@@ -24,6 +24,15 @@ call s:config('php_phpcs', [
       \ 'comment',
       \ ])
 
+call s:config('php_phpmd', [
+      \ 'variables with short names',
+      \ 'Cyclomatic complexity',
+      \ 'NPath complexity',
+      \ 'Avoid really long methods',
+      \ 'keep the number of fields under',
+      \ 'contains an exit expression',
+      \ ])
+
 let g:syntastic_python_checkers = ['flake8']
 call s:config('python_flake8', [
       \ 'E501',

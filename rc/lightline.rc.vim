@@ -42,7 +42,7 @@ let g:lightline = {
       \   'component': {
       \     'fugitive':   '%{exists("*fugitive#head")?fugitive#head():""}',
       \     'ibus':       '%{exists("g:ibus#enabled")&&g:ibus#enabled?"汉":""}',
-      \     'fixdir':     '%{fixdir#started()?"FD":""}',
+      \     'fixdir':     '%{exists("fixdir#started")&&fixdir#started()?"FD":""}',
       \     'virtualenv': '%{exists("*virtualenv#statusline")?"[".virtualenv#statusline()."]":""}',
       \   },
       \   'component_function': {

@@ -90,7 +90,7 @@ let s:unite_source_menu_menus = {
       \ 'common-tools': {
       \   'description': 'Common Tools',
       \   'command_candidates': [
-      \     ['rand password', "call setreg('\"', RandPasswordInput())"],
+      \     ['rand password to reg', "call setreg('\"', RandPasswordInput())"],
       \   ],
       \ },
       \ }

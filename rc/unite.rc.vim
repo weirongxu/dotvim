@@ -86,7 +86,14 @@ map <space>u :Unite menu<CR>
 " map <space>ut :Unite -start-insert menu:tools<CR>
 map <space>ut :Unite menu:tools<CR>
 
-let s:unite_source_menu_menus = {}
+let s:unite_source_menu_menus = {
+      \ 'common-tools': {
+      \   'description': 'Common Tools',
+      \   'command_candidates': [
+      \     ['rand password', "call setreg('\"', RandPasswordInput())"],
+      \   ],
+      \ },
+      \ }
 let s:unite_filetype_tools = {}
 function! UniteFileTypeTool(types, conf) "{{{
   if type(a:types) == type('')
@@ -112,12 +119,10 @@ function! s:unite_filetype_tool_set(type, conf) "{{{
 endfunction "}}}
 
 function! s:unite_menu_init() "{{{
-  let g:unite_source_menu_menus = {}
-  call extend(g:unite_source_menu_menus, s:unite_source_menu_menus)
 
   if has_key(s:unite_filetype_tools, &filetype)
     call extend(g:unite_source_menu_menus, {
-          \ 'tools': {
+          \ 'lang-tools': {
           \   'description': 'Lang tools',
           \   'command_candidates': s:unite_filetype_tools[&filetype]
           \  }
@@ -125,4 +130,6 @@ function! s:unite_menu_init() "{{{
   endif
 endfunction "}}}
 
+let g:unite_source_menu_menus = {}
+call extend(g:unite_source_menu_menus, s:unite_source_menu_menus)
 autocmd BufEnter,BufWritePost * call <SID>unite_menu_init()

@@ -84,7 +84,7 @@ endif
 " source menu
 map <space>u :Unite menu<CR>
 " map <space>ut :Unite -start-insert menu:tools<CR>
-map <space>ut :Unite menu:tools<CR>
+map <space>ut :Unite menu:lang-tools<CR>
 
 let s:unite_source_menu_menus = {
       \ 'common-tools': {
@@ -132,4 +132,4 @@ endfunction "}}}
 
 let g:unite_source_menu_menus = {}
 call extend(g:unite_source_menu_menus, s:unite_source_menu_menus)
-autocmd BufEnter,BufWritePost * call <SID>unite_menu_init()
+autocmd BufEnter,FileType * call <SID>unite_menu_init()

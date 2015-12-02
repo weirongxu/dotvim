@@ -31,6 +31,8 @@ call s:config('php_phpmd', [
       \ 'Avoid really long methods',
       \ 'keep the number of fields under',
       \ 'contains an exit expression',
+      \ 'returns a boolean should be named',
+      \ 'has an overall complexity',
       \ ])
 
 let g:syntastic_python_checkers = ['flake8']

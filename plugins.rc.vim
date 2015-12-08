@@ -221,6 +221,7 @@ if g:env#unix
         command! Gastatus Gita status
         command! Gap Gita push
         command! Galp execute "Gita pull" | execute "Gita push"
+        command! Gablp execute "Gita pull --rebase" | execute "Gita push"
         command! Gal Gita pull
         call neobundle#untap()
     endif

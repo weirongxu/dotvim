@@ -9,7 +9,7 @@ map <space>c :Unite change<CR>
 map <space>g :Unite grep:
 map <space>G :Unite grep:%<CR>
 map <space>f :Unite vimgrep:
-map <space>G :Unite vimgrep:%<CR>
+map <space>F :Unite vimgrep:%<CR>
 map <space>m :Unite mru<CR>
 map <space>hc :Unite history/command<CR>
 map <space>hs :Unite history/search<CR>
@@ -85,6 +85,7 @@ endif
 map <space>u :Unite menu<CR>
 " map <space>ut :Unite -start-insert menu:tools<CR>
 map <space>ut :Unite menu:lang-tools<CR>
+map <space>ug :Unite menu:git-commands<CR>
 
 let s:unite_source_menu_menus = {
       \ 'common-tools': {
@@ -93,6 +94,17 @@ let s:unite_source_menu_menus = {
       \     ['rand password to reg', "call setreg('\"', RandPasswordInput())"],
       \   ],
       \ },
+      \ 'git-commands': {
+      \   'description': 'Git Commands',
+      \   'command_candidates': [
+      \     ['git pull', 'Gita pull'],
+      \     ['git pull --rebase', 'Gita pull --rebase'],
+      \     ['git push width pull', 'execute "Gita pull" | execute "Gita push"'],
+      \     ['git push width pull rebase', 'execute "Gita pull --rebase" | execute "Gita push"'],
+      \     ['git push', 'Gita push'],
+      \     ['git status', 'Gita status'],
+      \   ],
+      \ }
       \ }
 let s:unite_filetype_tools = {}
 function! UniteFileTypeTool(types, conf) "{{{

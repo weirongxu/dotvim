@@ -808,7 +808,7 @@ NeoBundleLazy 'kamichidu/javacomplete', {
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundleLazy 'pangloss/vim-javascript', {
-      \ 'filetypes' : 'javascript'
+      \ 'filetypes' : 'javascript',
       \ }
 let g:javascript_enable_domhtmlcss = 1
 " if g:env#unix
@@ -822,11 +822,15 @@ let g:javascript_enable_domhtmlcss = 1
 "     let g:javascript_conceal_static    = "•"
 "     let g:javascript_conceal_super     = "Ω"
 " endif
+NeoBundleLazy 'othree/javascript-libraries-syntax.vim', {
+      \  'filetypes': ['javascript'],
+      \ }
+let g:used_javascript_libs = 'jquery,underscore,backbone,angularjs,angularui,angularuirouter,react,flux,requirejs,jasmine,chai,handlebars'
 NeoBundleLazy 'weirongxu/vim-coffee-script', {
-      \  'filetypes' : ['coffee', 'jade']
+      \  'filetypes' : ['coffee', 'jade'],
       \ }
 NeoBundleLazy 'leafgarland/typescript-vim', {
-      \  'filetypes' : ['typescript', 'jade']
+      \  'filetypes' : ['typescript', 'jade'],
       \ }
 " NeoBundleLazy 'mtscout6/vim-cjsx'
 

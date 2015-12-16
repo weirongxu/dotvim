@@ -1,7 +1,11 @@
 autocmd FileType vimfiler call <SID>vimfiler_settings()
 function! s:vimfiler_settings()
-  nmap <buffer> t
-        \ :<C-u>call vimfiler#mappings#do_action('tabopen')<CR>
+  nnoremap <silent><buffer><expr> <c-v>
+        \ vimfiler#do_switch_action('vsplit')
+  nnoremap <silent><buffer><expr> <c-s>
+        \ vimfiler#do_switch_action('split')
+  nnoremap <silent><buffer><expr> <c-t>
+        \ vimfiler#do_switch_action('tabopen')
 
   nmap <buffer> u <Plug>(vimfiler_switch_to_parent_directory)
 
@@ -30,5 +34,13 @@ let g:vimfiler_ignore_pattern = '\V\%(\^\%('.start_pattern.'\)\|\%('.end_pattern
 
 let g:vimfiler_buf = 'VimFilerBufferDir -explorer -auto-cd -split'
 let g:vimfiler_cmd = 'VimFiler -explorer -auto-cd -split'
-execute 'map <silent> gn :' . g:vimfiler_buf .'<CR>'
-execute 'map <silent> gp :' . g:vimfiler_cmd . ' ' . $MYVIMFILES . '<CR>'
+
+function! VimFilerExplorer()
+  execute 'VimFilerBufferDir -explorer -auto-cd -split -buffer-name=' . tabpagenr()
+endfunction
+
+function! VimFilerExplorerDotVim()
+  execute 'VimFiler -explorer -auto-cd -split -buffer-name=' . tabpagenr() . ' ' . $MYVIMFILES
+endfunction
+nnoremap <silent> gn :call VimFilerExplorer()<CR>
+nnoremap <silent> gp :call VimFilerExplorerDotVim()<CR>

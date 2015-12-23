@@ -32,15 +32,21 @@ let start_pattern = join(['.', '~'], '\|')
 let end_pattern = join(['.DS_Store', '.pyc', '.o'], '\|')
 let g:vimfiler_ignore_pattern = '\V\%(\^\%('.start_pattern.'\)\|\%('.end_pattern.'\)\$\)'
 
-let g:vimfiler_buf = 'VimFilerBufferDir -explorer -auto-cd -split'
-let g:vimfiler_cmd = 'VimFiler -explorer -auto-cd -split'
+let g:vimfiler_tab_index = 0
+function! s:tab_id() "{{{
+  if ! exists('t:vimfilter_tab_id')
+    let g:vimfiler_tab_index = g:vimfiler_tab_index + 1
+    let t:vimfilter_tab_id = g:vimfiler_tab_index
+  endif
+  return t:vimfilter_tab_id
+endfunction "}}}
 
 function! VimFilerExplorer()
-  execute 'VimFilerBufferDir -explorer -auto-cd -split -buffer-name=' . tabpagenr()
+  execute 'VimFilerBufferDir -explorer -auto-cd -split -buffer-name=' . s:tab_id()
 endfunction
 
 function! VimFilerExplorerDotVim()
-  execute 'VimFiler -explorer -auto-cd -split -buffer-name=' . tabpagenr() . ' ' . $MYVIMFILES
+  execute 'VimFiler -explorer -auto-cd -split -buffer-name=' . s:tab_id() . ' ' . $MYVIMFILES
 endfunction
 nnoremap <silent> gn :call VimFilerExplorer()<CR>
 nnoremap <silent> gp :call VimFilerExplorerDotVim()<CR>

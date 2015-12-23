@@ -131,7 +131,6 @@ function! s:unite_filetype_tool_set(type, conf) "{{{
 endfunction "}}}
 
 function! s:unite_menu_init() "{{{
-
   if has_key(s:unite_filetype_tools, &filetype)
     call extend(g:unite_source_menu_menus, {
           \ 'lang-tools': {

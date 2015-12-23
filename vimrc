@@ -46,7 +46,7 @@ let g:env#js_type_list = [
       \ 'coffee',
       \ ]
 
-let g:env#web_assets_type_list = g:env#html_type_list + g:env#styles_type_list + g:env#js_type_list
+let g:env#web_assets_type_list = ['json'] + g:env#html_type_list + g:env#styles_type_list + g:env#js_type_list
 
 
 " Loading config

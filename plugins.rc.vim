@@ -744,7 +744,7 @@ NeoBundleLazy 'tyru/open-browser.vim', {
       \ 'mappings' : '<Plug>',
       \ }
 NeoBundle 'maksimr/vim-jsbeautify'
-call UniteFileTypeTool(['javascript', 'css', 'html', 'jsx', 'json'], [
+call UniteFileTypeTool(g:env#web_assets_type_list, [
       \ ['jsbf-RangeJsBeautify', 'call RangeJsBeautify()'],
       \ ['jsbf-JsBeautify', 'call JsBeautify()'],
       \ ['jsbf-JsxBeautify', 'call JsxBeautify()'],

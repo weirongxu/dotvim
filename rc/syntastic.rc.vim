@@ -54,7 +54,6 @@ call s:config('javascript_jshint', [
 
 
 map <Leader><space> :up<CR>:SyntasticCheck<CR>
-      " \ 'mode': 'active',
 let g:syntastic_mode_map = {
       \   'mode': 'passive',
       \   'active_filetypes': [],

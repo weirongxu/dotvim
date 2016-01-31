@@ -50,7 +50,7 @@ let g:env#web_assets_type_list = ['json'] + g:env#html_type_list + g:env#styles_
 
 
 " Loading config
-let $MYVIMFILES = expand('~/.vim')
+let $MYVIMFILES = expand('<sfile>:p:h')
 let $MYPlugin = $MYVIMFILES . '/plugins.rc.vim'
 let $MYBUNDLEDIR = $MYVIMFILES . '/bundle'
 execute 'command! -nargs=1 Include source '.$MYVIMFILES.'/<args>.rc.vim'

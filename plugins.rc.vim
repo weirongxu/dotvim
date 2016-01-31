@@ -551,6 +551,14 @@ call UniteFileTypeTool('javascript', [
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+NeoBundleLazy 'osyo-manga/vim-monster', {
+      \ 'filetypes' : 'ruby',
+      \ }
+let g:neocomplete#force_omni_input_patterns.ruby =
+      \ '[^. *\t]\.\w*\|\h\w*::'
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NeoBundleLazy 'python-rope/ropevim', {
 "       \ 'filetypes' : 'python',
 "       \ }
@@ -971,9 +979,6 @@ NeoBundleLazy 'jaxbot/semantic-highlight.vim', {
       \ 'commands' : 'SemanticHighlightToggle'
       \ }
 nnoremap <Leader>s :SemanticHighlightToggle<cr>
-NeoBundleLazy 'osyo-manga/vim-over', {
-      \ 'commands' : 'OverCommandLine'
-      \ }
 NeoBundleLazy 'vim-scripts/DrawIt', {
       \ 'commands' : ['DIstart', 'DIsngl', 'DIdbl', 'DIstop', 'DrawIt'],
       \ 'mappings' : ['<leader>di', '<leader>ds']
@@ -1218,6 +1223,10 @@ if neobundle#tap('incsearch.vim') "{{{
   endfunction
   call neobundle#untap()
 endif "}}}
+
+NeoBundleLazy 'osyo-manga/vim-over', {
+      \ 'commands' : 'OverCommandLine'
+      \ }
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

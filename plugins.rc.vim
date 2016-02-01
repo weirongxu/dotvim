@@ -214,17 +214,14 @@ let g:AutoPairs = {
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-NeoBundle 'tpope/vim-fugitive'
-if g:env#unix
-    NeoBundle 'lambdalisue/vim-gita'
-    if neobundle#tap('vim-gita')
-        command! Gastatus Gita status
-        command! Gap Gita push
-        command! Galp execute "Gita pull" | execute "Gita push"
-        command! Gablp execute "Gita pull --rebase" | execute "Gita push"
-        command! Gal Gita pull
-        call neobundle#untap()
-    endif
+NeoBundle 'lambdalisue/vim-gita'
+if neobundle#tap('vim-gita')
+  command! Gstatus Gita status
+  command! Gp Gita push
+  command! Glp execute "Gita pull" | execute "Gita push"
+  command! Gblp execute "Gita pull --rebase" | execute "Gita push"
+  command! Gl Gita pull
+  call neobundle#untap()
 endif
 NeoBundleLazy 'gregsexton/gitv', {
       \ 'commands': ['Gitv']
@@ -521,23 +518,25 @@ NeoBundle 'hrsh7th/vim-neco-calc'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-NeoBundleLazy 'marijnh/tern_for_vim', {
-      \ 'filetypes' : 'javascript',
-      \ 'build': {
-      \   'others': 'npm install',
-      \ },
-      \ }
-call UniteFileTypeTool('javascript', [
-      \ ['tern-doc', 'TernDoc'],
-      \ ['tern-doc-browse', 'TernDocBrowse'],
-      \ ['tern-type', 'TernType'],
-      \ ['tern-def', 'TernDef'],
-      \ ['tern-def-preview', 'TernDefPreview'],
-      \ ['tern-def-split', 'TernDefSplit'],
-      \ ['tern-def-tab', 'TernDefTab'],
-      \ ['tern-refs', 'TernRefs'],
-      \ ['tern-rename', 'TernRename'],
-      \ ])
+if g:env#unix
+  NeoBundleLazy 'marijnh/tern_for_vim', {
+        \ 'filetypes' : 'javascript',
+        \ 'build': {
+        \   'others': 'npm install',
+        \ },
+        \ }
+  call UniteFileTypeTool('javascript', [
+        \ ['tern-doc', 'TernDoc'],
+        \ ['tern-doc-browse', 'TernDocBrowse'],
+        \ ['tern-type', 'TernType'],
+        \ ['tern-def', 'TernDef'],
+        \ ['tern-def-preview', 'TernDefPreview'],
+        \ ['tern-def-split', 'TernDefSplit'],
+        \ ['tern-def-tab', 'TernDefTab'],
+        \ ['tern-refs', 'TernRefs'],
+        \ ['tern-rename', 'TernRename'],
+        \ ])
+endif
 " NeoBundleLazy 'aereal/jscomplete-vim', {
 "       \ 'filetypes' : 'javascript'
 "       \ }

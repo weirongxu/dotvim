@@ -39,9 +39,6 @@ NeoBundle 'LargeFile'
 NeoBundle 'dimasg/vim-mark'
 NeoBundle 'nacitar/a.vim'
 NeoBundle 'drmikehenry/vim-fixkey'
-NeoBundle 'teranex/sessionman.vim'
-set sessionoptions=curdir,folds,help,resize,tabpages,unix
-let g:sessions_path = $HOME.'/.record/vim-sessions'
 NeoBundle 'kshenoy/vim-signature'
 let g:SignatureErrorIfNoAvailableMarks = 0
 NeoBundle 'tpope/vim-repeat'
@@ -96,8 +93,8 @@ endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'mhinz/vim-startify'
-let g:startify_session_dir = '~/.cache/vim-session'
-let g:startify_session_autoload = 1
+set sessionoptions=curdir,folds,help,resize,tabpages,unix
+let g:startify_session_dir = $HOME.'/.record/vim-sessions'
 let g:startify_session_persistence = 1
 let g:startify_custom_header = [
     \ "Raidou's vim",

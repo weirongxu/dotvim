@@ -2,14 +2,14 @@
 if g:env#gui
   set guioptions=
   set showtabline=1
-endif
 
-" Menu
-command! Menu if &guioptions =~# 'm' |
-      \set guioptions-=mr |
-      \else |
-      \set guioptions+=mr |
-      \endif
+  " Menu
+  command! Menu if &guioptions =~# 'm' |
+        \set guioptions-=mr |
+        \else |
+        \set guioptions+=mr |
+        \endif
+endif
 
 " encoding
 set fileencodings=utf-8,gb18030,gbk,gb2312,cp936,ucs-bom,chinese,latin-1
@@ -17,8 +17,12 @@ set fileformats=unix,dos,mac
 
 set fileencoding=utf-8 encoding=utf-8 termencoding=utf-8
 set fileformat=unix
-set langmenu=en_US.UTF-8
-language message en_US.UTF-8
+if g:env#gui
+  set langmenu=en_US.UTF-8
+endif
+if ! has('nvim')
+  language message en_US.UTF-8
+endif
 if g:env#unix
   language en_US.UTF-8
 endif
@@ -59,6 +63,7 @@ set mouse=a " support mouse
 
 " edit show
 set nobomb linespace=0 ambiwidth=double
+set concealcursor=
 " set cursorline cursorcolumn
 
 " interface

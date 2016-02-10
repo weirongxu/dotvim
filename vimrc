@@ -58,10 +58,5 @@ Include mapkeys
 Include plugins
 Include options
 
-" Syntax
-au BufRead,BufNewFile *.js set syntax=jquery
-au BufRead,BufNewFile *.css set syntax=css3
-au FileType c,cpp set syntax=gtk
-
 syntax on
 filetype plugin indent on

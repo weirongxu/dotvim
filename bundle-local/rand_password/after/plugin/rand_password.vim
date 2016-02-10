@@ -4,7 +4,7 @@ endif
 
 function! s:random() "{{{
   if ! exists('*vital#of')
-      finish
+    finish
   endif
   if ! exists('s:R')
     let s:V = vital#of('vital')
@@ -16,7 +16,6 @@ endfunction "}}}
 
 
 function! RandPassword(length) "{{{
-
   let ret = ''
   for i in range(1, str2nr(a:length))
     let ret .= s:random().sample(g:rand_password_chars)

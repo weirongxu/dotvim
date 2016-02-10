@@ -1,7 +1,7 @@
 " UI
 if g:env#gui
   set guioptions=
-  set showtabline=1
+  set showtabline=2
 
   " Menu
   command! Menu if &guioptions =~# 'm' |
@@ -17,15 +17,8 @@ set fileformats=unix,dos,mac
 
 set fileencoding=utf-8 encoding=utf-8 termencoding=utf-8
 set fileformat=unix
-if g:env#gui
-  set langmenu=en_US.UTF-8
-endif
-if ! has('nvim')
-  language message en_US.UTF-8
-endif
-if g:env#unix
-  language en_US.UTF-8
-endif
+
+language en
 
 " Colorscheme
 colo Tomorrow-Night-Eighties
@@ -64,6 +57,7 @@ set mouse=a " support mouse
 " edit show
 set nobomb linespace=0 ambiwidth=double
 set concealcursor=
+set list listchars=tab:\|\ ,trail:.
 " set cursorline cursorcolumn
 
 " interface

@@ -6,27 +6,31 @@ endif
 call neobundle#begin($MYBUNDLEDIR)
 call neobundle#local($MYBUNDLEDIR.'-local', {})
 
-" if g:env#unix
-  " call neobundle#local($MYBUNDLEDIR.'-unix', {})
-" elseif g:env#win
-  " call neobundle#local($MYBUNDLEDIR.'-win32', {})
-" endif
-
 NeoBundleFetch 'Shougo/neobundle.vim'
 let g:neobundle#types#git#clone_depth = 1
 
+function! s:rc(name) "{{{
+  return $MYVIMFILES . '/rc/' . a:name . '.rc.vim'
+endfunction "}}}
+
+function! s:load_source(plugin_name, rc_name) "{{{
+  let bundle = neobundle#get(a:plugin_name)
+  if ! empty(bundle)
+    let bundle.hooks.on_source = s:rc(a:rc_name)
+  endif
+endfunction "}}}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vimscript
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundleLazy 'junegunn/vader.vim', {
-      \ 'commands': 'Vader',
-      \ 'filetypes': 'vader',
+      \ 'on_cmd': 'Vader',
+      \ 'on_ft': 'vader',
       \ }
 NeoBundle 'thinca/vim-scall'
 NeoBundle 'kana/vim-vspec'
 NeoBundleLazy 'thinca/vim-prettyprint', {
-      \ 'commands' : 'PP'
+      \ 'on_cmd' : 'PP'
       \ }
 NeoBundle 'vim-jp/vital.vim'
 
@@ -42,20 +46,11 @@ NeoBundle 'drmikehenry/vim-fixkey'
 NeoBundle 'kshenoy/vim-signature'
 let g:SignatureErrorIfNoAvailableMarks = 0
 NeoBundle 'tpope/vim-repeat'
-" NeoBundle 'benatkin/vim-move-between-tabs' " map tN tP
-" NeoBundle 'jrhorn424/vim-multiple-cursors'
-" NeoBundle 'zhaocai/GoldenView.Vim'
-" let g:goldenview__enable_default_mapping = 0
-if g:env#python
-  NeoBundle 'editorconfig/editorconfig-vim'
-  if neobundle#tap('editorconfig-vim') "{{{
-    let neobundle#hooks.on_source =
-          \ '~/.vim/rc/editorconfig-vim.rc.vim'
-    call neobundle#untap()
-  endif "}}}
-endif
-NeoBundle 'farseer90718/vim-regionsyntax'
+NeoBundle 'tyru/open-browser.vim'
+NeoBundle 'editorconfig/editorconfig-vim', {'disabled': ! g:env#python}
+call s:load_source('editorconfig-vim', 'editorconfig-vim')
 NeoBundle 'Shougo/context_filetype.vim'
+NeoBundle 'farseer90718/vim-regionsyntax'
 " NeoBundle 'osyo-manga/vim-precious'
 Include rc/context_filetype
 NeoBundle 'itchyny/vim-cursorword'
@@ -63,7 +58,7 @@ NeoBundle 'bouzuya/vim-ibus'
 Include rc/ibus
 NeoBundle 'craigemery/vim-autotag'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" FIXME
+" TODO
 " NeoBundle 'kana/vim-fakeclip'
 " if !has('gui_running')
 "   " Do not connect to X server.
@@ -73,6 +68,22 @@ NeoBundle 'craigemery/vim-autotag'
 " endif
 " NeoBundle 'benmills/vimux'
 " NeoBundle 'kana/vim-tabpagecd'
+" NeoBundle 'zhaocai/GoldenView.Vim'
+" let g:goldenview__enable_default_mapping = 0
+"
+" NeoBundle 'kana/vim-smartchr'
+" inoremap <expr> - smartchr#one_of('->', '-')
+" NeoBundle 'kana/vim-smartword', {
+"       \ 'on_map' : '<Plug>(smartword-'
+"       \ }
+" nmap w  <Plug>(smartword-w)
+" nmap b  <Plug>(smartword-b)
+" nmap e  <Plug>(smartword-e)
+" nmap ge <Plug>(smartword-ge)
+" vmap w  <Plug>(smartword-w)
+" vmap b  <Plug>(smartword-b)
+" vmap e  <Plug>(smartword-e)
+" vmap ge <Plug>(smartword-ge)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""
@@ -81,14 +92,8 @@ NeoBundle 'craigemery/vim-autotag'
 " NeoBundle 'zefei/vim-colortuner'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" NeoBundle 'spf13/PIV'
-" NeoBundle 'arnaud-lb/vim-php-namespace'
 NeoBundle 'weirongxu/transformer.vim'
-if neobundle#tap('transformer.vim')
-  let neobundle#hooks.on_source =
-        \ '~/.vim/rc/transformer.rc.vim'
-  call neobundle#untap()
-endif
+call s:load_source('transformer.vim', 'transformer')
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -115,11 +120,7 @@ let g:startify_list_order = [
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'kana/vim-textobj-user'
-if neobundle#tap('vim-textobj-user')
-  let neobundle#hooks.on_source =
-        \ '~/.vim/rc/textobj-user.rc.vim'
-  call neobundle#untap()
-endif
+call s:load_source('vim-textobj-user', 'textobj-user')
 NeoBundle 'kana/vim-textobj-indent'
 NeoBundle 'kana/vim-textobj-entire'
 NeoBundle 'kana/vim-textobj-line'
@@ -132,22 +133,7 @@ NeoBundle 'kana/vim-textobj-lastpat'
 NeoBundle 'kana/vim-textobj-syntax'
 NeoBundle 'kana/vim-textobj-fold'
 NeoBundle 'kana/vim-textobj-datetime'
-NeoBundle 'akiyan/vim-textobj-xml-attribute'
-" NeoBundle 'rhysd/vim-textobj-anyblock'
-" NeoBundle 'osyo-manga/vim-textobj-multiblock'
-" omap aB <Plug>(textobj-multiblock-a)
-" omap iB <Plug>(textobj-multiblock-i)
-" xmap aB <Plug>(textobj-multiblock-a)
-" xmap iB <Plug>(textobj-multiblock-i)
-" NeoBundle 'thinca/vim-textobj-comment'
-" let g:loaded_textobj_comment = 1
-" call textobj#user#plugin('comment', {
-" \      '-': {
-" \        '*sfile*': expand('<sfile>:p'),
-" \        'select-a': 'a/', '*select-a-function*': 'textobj#comment#select_a',
-" \        'select-i': 'i/', '*select-i-function*': 'textobj#comment#select_i',
-" \      }
-" \    })
+NeoBundle 'whatyouhide/vim-textobj-xmlattr'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -220,9 +206,6 @@ if neobundle#tap('vim-gita')
   command! Gl Gita pull
   call neobundle#untap()
 endif
-NeoBundleLazy 'gregsexton/gitv', {
-      \ 'commands': ['Gitv']
-      \ }
 if g:env#unix
   NeoBundle 'airblade/vim-gitgutter'
   if neobundle#tap('vim-gitgutter')
@@ -233,7 +216,7 @@ if g:env#unix
   endif
 endif
 NeoBundleLazy 'cohama/agit.vim', {
-      \ 'commands': ['Agit', 'AgitFile', 'AgitGit']
+      \ 'on_cmd': ['Agit', 'AgitFile', 'AgitGit']
       \ }
 let g:gita#features#browse#extra_translation_patterns = {
       \ 'coding.net': [
@@ -254,27 +237,21 @@ let g:gita#features#browse#extra_translation_patterns = {
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundleLazy 'Shougo/unite.vim', {
-      \ 'commands' : [{ 'name' : 'Unite',
-      \                 'complete' : 'customlist,unite#complete_source'},
-      \                 'UniteWithCursorWord', 'UniteWithInput']
+      \ 'on_cmd' : [{ 'name' : 'Unite',
+      \               'complete' : 'customlist,unite#complete_source'},
+      \               'UniteWithCursorWord', 'UniteWithInput'],
       \ }
 Include rc/unite
+
 """"""""""""""""""""""""""""""
-NeoBundleLazy 'junkblocker/unite-tasklist'
+NeoBundle 'junkblocker/unite-tasklist'
 command! TaskList Unite tasklist
 command! TList Unite tasklist
-""""""""""""""""""""""""""""""
-NeoBundle 'Shougo/neomru.vim'
-let g:unite_source_alias_aliases = {
-      \   'mru' : {
-      \     'source': 'file_mru'
-      \   },
-      \ }
-command! MRU :Unite mru
 """"""""""""""""""""""""""""""
 NeoBundle 'ujihisa/unite-colorscheme'
 NeoBundle 'Shougo/unite-outline'
 NeoBundle 'Shougo/junkfile.vim'
+NeoBundle 'Shougo/neoyank.vim'
 NeoBundle 'Kocha/vim-unite-tig'
 " NeoBundle 'supermomonga/unite-kawaii-calc'
 NeoBundle 'thinca/vim-unite-history'
@@ -283,12 +260,14 @@ NeoBundle 'mattn/unite-gist'
 " NeoBundle 'hewes/unite-gtags'
 NeoBundle 'tsukkee/unite-tag'
 if neobundle#tap('unite-tag')
-  let g:unite_source_tag_strict_truncate_string = 0
-  autocmd BufEnter *
-        \   if empty(&buftype)
-        \|    nnoremap <buffer> <c-]> :<C-u>UniteWithCursorWord -wrap -auto-preview tag<CR>
-        \|  endif
-  set tags+=.tags,./.tags
+  function! neobundle#hooks.on_source(bundle) "{{{
+    let g:unite_source_tag_strict_truncate_string = 0
+    autocmd BufEnter *
+          \   if empty(&buftype)
+          \|    nnoremap <buffer> <c-]> :<C-u>UniteWithCursorWord -wrap -auto-preview tag<CR>
+          \|  endif
+    set tags+=.tags,./.tags
+  endfunction "}}}
   call neobundle#untap()
 endif
 NeoBundle 'farseer90718/unite-workflow'
@@ -317,20 +296,14 @@ if neobundle#tap('unite-quickfix')
   endfunction "}}}
   call neobundle#untap()
 endif
-" NeoBundle 'xolox/vim-misc'
-" NeoBundle 'xolox/vim-easytags'
-" NeoBundle 'Shougo/neossh.vim' " toy
+" NeoBundle 'Shougo/neossh.vim'
 """"""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NeoBundleLazy 'Rykka/trans.vim', {
-"       \ 'mappings' : '<leader>t'
+"       \ 'on_map' : '<leader>t'
 "       \ }
-if neobundle#tap('trans.vim')
-  let neobundle#hooks.on_source =
-        \ '~/.vim/rc/trans.rc.vim'
-  call neobundle#untap()
-endif
+" call s:load_source('trans.vim', 'trans')
 """"""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -342,7 +315,7 @@ let g:ctrlp_custom_ignore = {
 " if !g:env#gui && !g:env#win
 "   set rtp+=~/.fzf
 "   NeoBundle 'junegunn/fzf', {
-"         \ 'commands' : 'FZF',
+"         \ 'on_cmd' : 'FZF',
 "         \ 'base' : '~/.fzf',
 "         \ 'build' : 'yes | ./install',
 "         \ }
@@ -354,6 +327,8 @@ let g:ctrlp_custom_ignore = {
 "   let g:loaded_ctrlp = 1
 " endif
 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'Shougo/vimproc', {
       \ 'build' : {
       \     'windows' : 'make -f make_mingw32.mak',
@@ -366,7 +341,7 @@ NeoBundle 'Shougo/vimproc', {
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundleLazy 'Shougo/vimfiler.vim', {
-      \ 'commands' : [
+      \ 'on_cmd' : [
       \   { 'name' : 'VimFiler',
       \     'complete' : 'customlist,vimfiler#complete' },
       \   { 'name' : 'VimFilerTab',
@@ -392,22 +367,15 @@ NeoBundleLazy 'Shougo/vimfiler.vim', {
       \   { 'name' : 'VimFilerExplorer',
       \     'complete' : 'customlist,vimfiler#complete' },
       \   'Read', 'Source',
-      \ ]}
-Include rc/vimfiler
-" scrooloose版本在win下切换磁盘会有问题
-" NeoBundleLazy 'mixvin/nerdtree', {
-" NeoBundleLazy 'scrooloose/nerdtree', {
-"       \ 'commands' : ['NERDTree', 'NERDTreeFromBookmark',
-"       \               'NERDTreeToggle', 'NERDTreeMirror',
-"       \               'NERDTreeClose', 'NERDTreeFind',
-"       \               'NERDTreeCWD']
-"       \ }
-" map gn :NERDTreeToggle<cr>
+      \ ],
+      \ 'on_map': ['gn', 'gp'],
+      \ }
+call s:load_source('vimfiler.vim', 'vimfiler')
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundleLazy 'tyru/caw.vim', {
-      \ 'mappings' : [['nxo',
+      \ 'on_map' : [['nxo',
       \   '<Plug>(caw:prefix)', '<Plug>(caw:i:toggle)', 'gc']],
       \ 'depends' : 'Shougo/context_filetype.vim'
       \ }
@@ -446,35 +414,13 @@ if neobundle#tap('caw.vim')
   endfunction
   call neobundle#untap()
 endif
-" NeoBundle 'tomtom/tcomment_vim'
-" let g:tcommentMaps = 0
-" map <leader>; :TComment<cr>
-" nmap <leader>: $v^:TCommentInline<cr>
-" vmap <leader>: :TCommentInline<cr>
-" map <Leader>' :TCommentRight<cr>
-" map <leader>" :TCommentBlock<cr>
-"       " \ 'less_block': '/* %s */',
-" let g:tcomment_types = {
-"       \ 'less': '// %s',
-"       \ 'less_inline': '/* %s */',
-"       \ 'htmlyiiprado': '<!--- %s --->',
-"       \ 'htmlyiiprado_inline': '<!-- %s -->',
-"       \ 'markdown': '<!-- %s -->',
-"       \ 'markdown_inline': '<!-- %s -->',
-"       \ 'blade.php': '<!-- %s -->',
-"       \ 'jade': '//- %s',
-"       \ 'jade_inline': '// %s',
-"       \ 'vader': '# %s',
-"       \ 'vader_inline': '# %s',
-"       \ }
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Include rc/lightline
 NeoBundle 'itchyny/lightline.vim'
-set showtabline=2
-" 显示换行和制表符
-set list listchars=tab:\|\ ,trail:.
+call s:load_source('lightline.vim', 'lightline')
+NeoBundle 'gcavallanti/vim-noscrollbar'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -486,8 +432,8 @@ if !g:env#x
   let g:indentLine_color_term = 8
 endif
 " NeoBundleLazy 'nathanaelkane/vim-indent-guides', {
-"       \ 'commands' : ['IndentGuidesToggle', 'IndentGuidesEnable', 'IndentGuidesDisable'],
-"       \ 'mappings' : ['<Plug>IndentGuidesToggle', '<Plug>IndentGuidesEnable', '<Plug>IndentGuidesDisable'],
+"       \ 'on_cmd' : ['IndentGuidesToggle', 'IndentGuidesEnable', 'IndentGuidesDisable'],
+"       \ 'on_map' : ['<Plug>IndentGuidesToggle', '<Plug>IndentGuidesEnable', '<Plug>IndentGuidesDisable'],
 "       \ 'gui': 1
 "       \ }
 " let g:indent_guides_guide_size = 1
@@ -515,30 +461,29 @@ NeoBundle 'hrsh7th/vim-neco-calc'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if g:env#unix
-  NeoBundleLazy 'marijnh/tern_for_vim', {
-        \ 'filetypes' : 'javascript',
-        \ 'build': {
-        \   'others': 'npm install',
-        \ },
-        \ }
-  call UniteFileTypeTool('javascript', [
-        \ ['tern-doc', 'TernDoc'],
-        \ ['tern-doc-browse', 'TernDocBrowse'],
-        \ ['tern-type', 'TernType'],
-        \ ['tern-def', 'TernDef'],
-        \ ['tern-def-preview', 'TernDefPreview'],
-        \ ['tern-def-split', 'TernDefSplit'],
-        \ ['tern-def-tab', 'TernDefTab'],
-        \ ['tern-refs', 'TernRefs'],
-        \ ['tern-rename', 'TernRename'],
-        \ ])
-endif
+NeoBundleLazy 'marijnh/tern_for_vim', {
+      \ 'disabled': ! g:env#unix,
+      \ 'on_ft' : 'javascript',
+      \ 'build': {
+      \   'others': 'npm install',
+      \ },
+      \ }
+call UniteFileTypeTool('javascript', [
+      \ ['tern-doc', 'TernDoc'],
+      \ ['tern-doc-browse', 'TernDocBrowse'],
+      \ ['tern-type', 'TernType'],
+      \ ['tern-def', 'TernDef'],
+      \ ['tern-def-preview', 'TernDefPreview'],
+      \ ['tern-def-split', 'TernDefSplit'],
+      \ ['tern-def-tab', 'TernDefTab'],
+      \ ['tern-refs', 'TernRefs'],
+      \ ['tern-rename', 'TernRename'],
+      \ ])
 " NeoBundleLazy 'aereal/jscomplete-vim', {
-"       \ 'filetypes' : 'javascript'
+"       \ 'on_ft' : 'javascript'
 "       \ }
 " NeoBundleLazy 'myhere/vim-nodejs-complete', {
-"       \ 'filetypes' : 'javascript'
+"       \ 'on_ft' : 'javascript'
 "       \ }
 " let g:nodejs_complete_config = {
 "       \  'js_compl_fn': 'jscomplete#CompleteJS',
@@ -548,27 +493,15 @@ endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundleLazy 'osyo-manga/vim-monster', {
-      \ 'filetypes' : 'ruby',
+      \ 'on_ft' : 'ruby',
       \ }
 let g:neocomplete#force_omni_input_patterns.ruby =
       \ '[^. *\t]\.\w*\|\h\w*::'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" NeoBundleLazy 'python-rope/ropevim', {
-"       \ 'filetypes' : 'python',
-"       \ }
-" NeoBundleLazy 'klen/python-mode', 'develop', {
-"       \ 'filetypes' : 'python',
-"       \ }
-" if neobundle#tap('python-mode')
-"   let neobundle#hooks.on_source =
-"         \ '~/.vim/rc/pymode.rc.vim'
-"   call neobundle#untap()
-" endif
-
 NeoBundleLazy 'davidhalter/jedi-vim', {
-      \  'filetypes' : 'python'
+      \  'on_ft' : 'python'
       \ }
 let g:jedi#auto_initialization = 0
 let g:jedi#show_call_signatures = 0
@@ -587,22 +520,8 @@ call UniteFileTypeTool('python', [
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" NeoBundleLazy 'vim-scripts/OmniCppComplete', {
-"       \  'filetypes' : ['cpp', 'c']
-"       \ }
-" 自动生成tags文件
-" autocmd! BufWritePost,FileWritePost *.h,*.hpp,*.c,*.cpp call <SID>CompileCtags()
-" func! s:CompileCtags()
-  " " call system('ctags -R --c++-kinds=+p --fields=+iaS --extra=+q')
-  " call system('ctags * --c++-kinds=+p --fields=+iaS --extra=+q')
-" endfunc
-" let &tags .= ','.$MYVIMFILES.'/tags/cppstl'
-" execute 'set tags+='.$MYVIMFILES.'/tags/cppstl'
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundleLazy 'osyo-manga/vim-marching', {
-      \  'filetypes' : ['cpp', 'c']
+      \  'on_ft' : ['cpp', 'c']
       \ }
 let g:marching_clang_command = "/usr/bin/clang"
 let g:marching_include_paths = [
@@ -626,7 +545,7 @@ let g:marching_enable_neocomplete = 1
 
 " if g:env#unix && executable('clang')
 "   NeoBundleLazy 'Rip-Rip/clang_complete', {
-"         \  'filetypes' : ['cpp', 'c']
+"         \  'on_ft' : ['cpp', 'c']
 "         \ }
 "   " let g:clang_complete_copen = 1
 "   let g:clang_complete_auto = 0
@@ -648,6 +567,12 @@ let g:marching_enable_neocomplete = 1
 " else
 "     NeoBundleLazy 'Rip-Rip/clang_complete'
 " endif
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" NeoBundleLazy 'artur-shaik/vim-javacomplete2', {
+"       \  'on_ft' : 'java'
+"       \ }
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -680,73 +605,94 @@ command! Snip NeoSnippetEdit -split -vertical
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" NeoBundle 'osyo-manga/shabadou.vim'
+NeoBundle 'osyo-manga/shabadou.vim'
+NeoBundle 'osyo-manga/vim-watchdogs'
 " NeoBundle 'jceb/vim-hier'
 " NeoBundle 'dannyob/quickfixstatus'
-" NeoBundle 'osyo-manga/vim-watchdogs'
-" let g:watchdogs_check_BufWritePost_enable = 1
+let g:watchdogs_check_BufWritePost_enable = 1
 
 NeoBundle 'scrooloose/syntastic'
-Include rc/syntastic
+call s:load_source('syntastic', 'syntastic')
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " FILETYPE
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-NeoBundle 'elixir-lang/vim-elixir'
-NeoBundleLazy '2072/PHP-Indenting-for-VIm', {
-      \ 'filetypes' : g:env#html_type_list
+NeoBundle 'sheerun/vim-polyglot'
+let g:polyglot_disabled = ['coffee']
+NeoBundleLazy 'weirongxu/vim-coffee-script', {
+      \  'on_ft': ['coffee', 'jade'],
       \ }
-NeoBundleLazy 'cespare/vim-toml', {
-      \ 'filetypes' : ['toml']
+" NeoBundleLazy 'rcmdnk/vim-markdown', {
+"       \ 'on_ft' : 'markdown'
+"       \ }
+" let g:vim_markdown_initial_foldlevel=99
+" NeoBundleLazy 'elzr/vim-json', {
+"       \  'on_ft' : 'json'
+"       \ }
+" NeoBundleLazy '2072/PHP-Indenting-for-VIm', {
+"       \ 'on_ft' : g:env#html_type_list
+"       \ }
+" NeoBundleLazy 'hdima/python-syntax', {
+"       \  'on_ft' : 'python'
+"       \ }
+" NeoBundleLazy 'hynek/vim-python-pep8-indent', {
+"       \  'on_ft' : 'python'
+"       \ }
+" NeoBundleLazy 'pangloss/vim-javascript', {
+"       \ 'on_ft' : 'javascript',
+"       \ }
+" let g:javascript_enable_domhtmlcss = 1
+
+NeoBundleLazy 'othree/javascript-libraries-syntax.vim', {
+      \  'on_ft': ['javascript'],
       \ }
-NeoBundleLazy 'chase/vim-ansible-yaml', {
-      \ 'filetypes' : ['yaml', 'ansible']
-      \ }
-NeoBundleLazy 'vim-scripts/matchit.zip', {
-      \ 'filetypes' : g:env#html_type_list
-      \ }
-NeoBundleLazy 'othree/html5.vim', {
-      \ 'filetypes' : g:env#html_type_list
+let g:used_javascript_libs = 'jquery,underscore,backbone,angularjs,angularui,angularuirouter,react,flux,requirejs,jasmine,chai,handlebars'
+NeoBundleLazy 'justinmk/vim-syntax-extra', {
+      \ 'on_ft' : ['c', 'cpp', 'lex', 'yacc']
       \ }
 NeoBundleLazy 'jrestrepo/matlab', {
-      \  'filetypes' : 'matlab'
+      \  'on_ft' : 'matlab'
       \ }
 NeoBundleLazy 'vim-scripts/autohotkey-ahk', {
-      \  'filetypes' : 'autohotkey'
+      \  'on_ft' : 'autohotkey'
       \ }
-" NeoBundleLazy 'tpope/vim-speeddating', {
-"       \  'filetypes' : ['org', 'vimwiki']
-"       \ }
-NeoBundleLazy 'hdima/python-syntax', {
-      \  'filetypes' : 'python'
+NeoBundleLazy 'gabesoft/vim-java', {
+      \  'on_ft' : 'java'
       \ }
-" NeoBundleLazy 'hynek/vim-python-pep8-indent', {
-"       \  'filetypes' : 'python'
-"       \ }
-NeoBundleLazy 'elzr/vim-json', {
-      \  'filetypes' : 'json'
+NeoBundleLazy 'weirongxu/yiiprado.vim', {
+      \  'on_ft' : 'yiiprado'
       \ }
-NeoBundleLazy 'digitaltoad/vim-jade', {
-      \ 'filetypes' : 'jade'
+autocmd BufNewFile,BufRead *.tpl setfiletype yiiprado
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+NeoBundleLazy 'gregsexton/MatchTag', {
+      \ 'on_ft' : g:env#html_type_list
       \ }
-NeoBundleLazy 'justinmk/vim-syntax-extra', {
-      \ 'filetypes' : ['c', 'cpp', 'lex', 'yacc']
+NeoBundleLazy 'gcmt/breeze.vim', {
+      \ 'on_ft' : g:env#html_type_list
       \ }
-NeoBundleLazy 'jnwhiteh/vim-golang', {
-      \ 'filetypes' : 'go'
+NeoBundleLazy 'vim-scripts/matchit.zip', {
+      \ 'on_ft' : g:env#html_type_list
       \ }
-NeoBundleLazy 'rcmdnk/vim-markdown', {
-      \ 'filetypes' : 'markdown'
-      \ }
-let g:vim_markdown_initial_foldlevel=99
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" TOOLS
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundleLazy 'kannokanno/previm', {
-      \ 'filetypes' : ['markdown', 'rst'],
+      \ 'on_ft' : ['markdown', 'rst'],
       \ 'depends' : 'tyru/open-browser.vim',
       \ }
-NeoBundleLazy 'tyru/open-browser.vim', {
-      \ 'mappings' : '<Plug>',
+NeoBundleLazy 'Chiel92/vim-autoformat', {
+      \ 'on_cmd' : [
+      \   { 'name' : 'Autoformat',
+      \     'complete' : 'filetype' },
+      \ ]}
+NeoBundleLazy 'mattn/emmet-vim', {
+      \ 'on_map': [['i', '<c-y>']],
+      \ 'on_ft': g:env#web_assets_type_list,
       \ }
+let g:emmet_html5 = 0
 NeoBundle 'maksimr/vim-jsbeautify'
 call UniteFileTypeTool(g:env#web_assets_type_list, [
       \ ['jsbf-RangeJsBeautify', 'call RangeJsBeautify()'],
@@ -760,183 +706,39 @@ call UniteFileTypeTool(g:env#web_assets_type_list, [
       \ ['jsbf-RangeCSSBeautify', 'call RangeCSSBeautify()'],
       \ ['jsbf-CSSBeautify', 'call CSSBeautify()'],
       \ ])
-NeoBundleLazy 'Chiel92/vim-autoformat', {
-      \ 'commands' : [
-      \   { 'name' : 'Autoformat',
-      \     'complete' : 'filetype' },
-      \ ]}
-NeoBundle 'briancollins/vim-jst'
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-NeoBundleLazy 'gabesoft/vim-java', {
-      \  'filetypes' : 'java'
-      \ }
-NeoBundleLazy 'kamichidu/javacomplete', {
-      \  'filetypes' : 'java'
-      \ }
-" let g:neocomplete#sources#omni#functions.java = 'javacomplete#Complete'
-" NeoBundleLazy 'yuratomo/java-api-complete', {
-"       \  'filetypes' : 'java'
-"       \ }
-" NeoBundleLazy 'yuratomo/java-api-javax', {
-"       \  'filetypes' : 'java'
-"       \ }
-"
-" NeoBundleLazy 'yuratomo/java-api-org'
-" NeoBundleLazy 'yuratomo/java-api-sun'
-" NeoBundleLazy 'yuratomo/java-api-servlet2.3'
-" NeoBundleLazy 'yuratomo/java-api-android'
-" " command! JavaApi setlocal omnifunc=javaapi#complete
-" command! JavaApi 
-"       \ let g:neocomplete#sources#omni#functions.java = 'javaapi#complete'
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" NeoBundleLazy 'cstrahan/vim-eclim', {
-"       \ 'filetypes' : 'java',
-"       \ 'commands' : 'Eclim'
-"       \ }
-" " if exists('*eclim#PingEclim') && eclim#PingEclim(0)
-" let g:EclimCompletionMethod = 'omnifunc'
-" " endif
-" let g:EclimHtmlValidate = 0
-" let g:EclimPythonValidate = 0
-" let g:EclimJavascriptValidate = 0
-" let g:EclimCValidate = 0
-" let g:EclimPhpValidate = 0
-" let g:EclimRubyValidate = 0
-" let g:EclimScalaValidate = 0
-" let g:EclimXmlValidate = 0
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-NeoBundleLazy 'pangloss/vim-javascript', {
-      \ 'filetypes' : 'javascript',
-      \ }
-let g:javascript_enable_domhtmlcss = 1
-" if g:env#unix
-"     let g:javascript_conceal_function  = "ƒ"
-"     let g:javascript_conceal_null      = "ø"
-"     let g:javascript_conceal_this      = "@"
-"     let g:javascript_conceal_return    = "⇚"
-"     let g:javascript_conceal_undefined = "¿"
-"     let g:javascript_conceal_NaN       = "ℕ"
-"     let g:javascript_conceal_prototype = "¶"
-"     let g:javascript_conceal_static    = "•"
-"     let g:javascript_conceal_super     = "Ω"
-" endif
-NeoBundleLazy 'othree/javascript-libraries-syntax.vim', {
-      \  'filetypes': ['javascript'],
-      \ }
-let g:used_javascript_libs = 'jquery,underscore,backbone,angularjs,angularui,angularuirouter,react,flux,requirejs,jasmine,chai,handlebars'
-NeoBundleLazy 'weirongxu/vim-coffee-script', {
-      \  'filetypes' : ['coffee', 'jade'],
-      \ }
-NeoBundleLazy 'leafgarland/typescript-vim', {
-      \  'filetypes' : ['typescript', 'jade'],
-      \ }
-" NeoBundleLazy 'mtscout6/vim-cjsx'
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-NeoBundleLazy 'mattn/emmet-vim', {
-      \ 'mappings': [['i', '<c-y>']],
-      \ 'filetypes': ['html', 'xhtml', 'xml', 'htm', 'jsp', 'markdown', 'css',
-      \                'less', 'sass', 'scss', 'php', 'jade', 'aspvbs', 'mason']
-      \ }
-let g:emmet_html5 = 0
-" let g:user_emmet_expandabbr_key = "<c-y>y,"
-" imap <C-Y>, <c-o>:call <SID>CallEmmet("EmmetExpandAbbr")<CR>
-" nmap <C-Y>, :call emmet#expandAbbr(3,"")<cr>
-" vmap <C-Y>, :call emmet#expandAbbr(2,"")<cr>
-" function! s:CallEmmet(plug)
-"   call feedkeys("\<plug>(".a:plug.")")
-" endfunction
-" let g:user_emmet_expandabbr_key = '<c-y>y,'
-" autocmd FileType html,xhtml,xml,htm,jsp,css,less,sass,scss,php imap <buffer> <c-y>, <ESC><c-y>y,a
-" autocmd FileType html,xhtml,xml,htm,jsp,css,less,sass,scss,php vmap <buffer> <c-y>, <c-y>y,
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" NeoBundleLazy 'vim-scripts/PDV--phpDocumentor-for-Vim', {
 NeoBundleLazy 'stephpy/vim-phpdoc', {
-      \ 'filetypes' : g:env#html_type_list
+      \ 'on_ft' : g:env#html_type_list
       \ }
-" inoremap <leader>8 <ESC>:call PhpDocSingle()<CR>i
+nnoremap <leader>8 :call PhpDocSingle()<CR>
+vnoremap <leader>8 :call PhpDocRange()<CR>
 " let g:pdv_cfg_Version = "$id$"
 let g:pdv_cfg_Author = "Raidou <weirongxu.raidou@gmail.com> ".strftime("%Y-%m-%d")
 " let g:pdv_cfg_Copyright = "20013-2013 ".g:pdv_cfg_Author
 " let g:pdv_cfg_License = ""
-nnoremap <leader>8 :call PhpDocSingle()<CR>
-vnoremap <leader>8 :call PhpDocRange()<CR>
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-NeoBundleLazy 'weirongxu/yiiprado.vim', {
-      \  'filetypes' : 'yiiprado'
-      \ }
-autocmd BufNewFile,BufRead *.tpl setfiletype yiiprado
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-NeoBundleLazy 'gregsexton/MatchTag', {
-      \ 'filetypes' : g:env#html_type_list
-      \ }
-NeoBundleLazy 'gcmt/breeze.vim', {
-      \ 'filetypes' : g:env#html_type_list
-      \ }
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-NeoBundleLazy 'xsbeats/vim-blade', {
-      \  'filetypes' : 'blade'
-      \ }
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-NeoBundleLazy 'hail2u/vim-css3-syntax', {
-      \  'filetypes' : ['css', 'less', 'stylus']
-      \ }
-NeoBundleLazy 'groenewege/vim-less', {
-      \  'filetypes' : 'less'
-      \ }
-NeoBundleLazy 'wavded/vim-stylus', {
-      \  'filetypes' : ['stylus', 'jade']
-      \ }
-autocmd BufNewFile,BufRead *.styl set filetype=stylus
-autocmd BufNewFile,BufRead *.stylus set filetype=stylus
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" TOOLS
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundleLazy 'nicwest/QQ.vim', {
-      \ 'mappings': ['QQ', 'QH', 'QCO', 'QCC', 'QCN', 'QG']
+      \ 'on_map': ['QQ', 'QH', 'QCO', 'QCC', 'QCN', 'QG']
       \ }
-" zeal
-map <leader>z :call zeal#execute(context_filetype#get_filetype(), expand("<cword>"))<CR>
 NeoBundleLazy 'januswel/sweepbuf.vim', {
-      \ 'commands': 'SweepBuffers'
+      \ 'on_cmd': 'SweepBuffers'
       \}
 NeoBundleLazy 'szw/vim-maximizer', {
-      \ 'commands': 'MaximizerToggle'
+      \ 'on_cmd': 'MaximizerToggle'
       \ }
 map <space>a :MaximizerToggle<CR>
 NeoBundleLazy 'rhysd/vim-grammarous', {
-      \ 'commands' : [{ 'name': 'GrammarousCheck',
+      \ 'on_cmd' : [{ 'name': 'GrammarousCheck',
       \                 'complete': 'customlist,grammarous#complete_opt'}
       \ ]}
 NeoBundleLazy 'salsifis/vim-transpose', {
-      \   'commands': [
+      \   'on_cmd': [
       \     'Transpose', 'TransposeWords', 'TransposeTab', 'TransposeCSV',
       \   'TransposeInteractive', 'TransposeIndentToggle'
       \ ]}
 NeoBundleLazy 'tpope/vim-characterize', {
-      \ 'mappings' : 'ga'
+      \ 'on_map' : 'ga'
       \ }
 NeoBundleLazy 'jmcantrell/vim-virtualenv', {
-      \ 'commands' : [{'name': 'VirtualEnvActivate',
+      \ 'on_cmd' : [{'name': 'VirtualEnvActivate',
       \                'complete': 'customlist,CompleteVirtualEnv' },
       \   'VirtualEnvDeactivate', 'VirtualEnvList'],
       \ }
@@ -945,22 +747,22 @@ function! CompleteVirtualEnv(arg_lead, cmd_line, cursor_pos)
 endfunction
 let g:virtualenv_directory = '~/.virtualenv'
 NeoBundleLazy 'weirongxu/fixdir.vim', {
-      \ 'commands' : [{ 'name': 'FixDir',
+      \ 'on_cmd' : [{ 'name': 'FixDir',
       \                 'complete': 'customlist,fixdir#complete'}
       \ ]}
 " NeoBundleLazy 'kana/vim-narrow', {
-"       \ 'commands' : 'Narrow'
+"       \ 'on_cmd' : 'Narrow'
 "       \ }
 NeoBundleLazy 'Shougo/vinarise.vim', {
-      \ 'commands' : ['Vinarise', 'VinariseScript2Hex', 'VinariseHex2Script',
+      \ 'on_cmd' : ['Vinarise', 'VinariseScript2Hex', 'VinariseHex2Script',
       \               'VinarisePluginDump', 'VinarisePluginViewBitmapView']
       \ }
 " NeoBundleLazy 'tyru/eskk.vim', {
-"       \ 'commands' : '<Plug>(eskk:toggle)'
+"       \ 'on_cmd' : '<Plug>(eskk:toggle)'
 "       \ }
 " imap <c-=> <Plug>(eskk:toggle)
 NeoBundleLazy 'drmikehenry/vim-fontsize', {
-      \ 'mappings' : '<Plug>Fontsize'
+      \ 'on_map' : '<Plug>Fontsize'
       \ }
 nmap <silent> <Leader>=           <Plug>FontsizeBegin
 nmap <silent> <C-ScrollWheelUp>   <Plug>FontsizeInc
@@ -969,70 +771,69 @@ nmap <silent> <C-ScrollWheelDown> <Plug>FontsizeDec
 nmap <silent> <Leader>-           <Plug>FontsizeDec
 nmap <silent> <Leader>0           <Plug>FontsizeDefault
 NeoBundleLazy 'dhruvasagar/vim-table-mode', {
-      \ 'mappings' : '<Leader>tm'
+      \ 'on_map' : '<Leader>tm'
       \ }
 NeoBundleLazy 'jaxbot/semantic-highlight.vim', {
-      \ 'commands' : 'SemanticHighlightToggle'
+      \ 'on_cmd' : 'SemanticHighlightToggle'
       \ }
 nnoremap <Leader>s :SemanticHighlightToggle<cr>
 NeoBundleLazy 'vim-scripts/DrawIt', {
-      \ 'commands' : ['DIstart', 'DIsngl', 'DIdbl', 'DIstop', 'DrawIt'],
-      \ 'mappings' : ['<leader>di', '<leader>ds']
+      \ 'on_cmd' : ['DIstart', 'DIsngl', 'DIdbl', 'DIstop', 'DrawIt'],
+      \ 'on_map' : ['<leader>di', '<leader>ds']
       \ }
 NeoBundleLazy 'vim-scripts/VisIncr', {
-      \ 'commands' : [
+      \ 'on_cmd' : [
       \   'I', 'II', 'IB', 'IIB', 'IO', 'IIO',
       \   'IX', 'IIX', 'IYMD', 'IMDY', 'IDMY',
       \   'IA', 'ID', 'IM', 'IPOW', 'IIPOW'
       \ ]}
 NeoBundleLazy 'tpope/vim-eunuch', {
-      \ 'commands' : ['Unlink', 'Remove', 'Move',
+      \ 'on_cmd' : ['Unlink', 'Remove', 'Move',
       \               'Rename', 'Chmod', 'Find',
       \               'Locate', 'SudoWrite', 'W']
       \ }
 NeoBundleLazy 'thinca/vim-quickrun', {
-      \ 'commands' : 'QuickRun'
+      \ 'on_cmd' : 'QuickRun'
       \ }
-Include rc/quickrun
 NeoBundleLazy 'joonty/vdebug', {
-      \ 'commands' : ['VdebugEval', 'VdebugOpt', 'VdebugStart']
+      \ 'on_cmd' : ['VdebugEval', 'VdebugOpt', 'VdebugStart']
       \ }
 NeoBundleLazy 'mattn/emoji-vim', {
-      \ 'commands' : 'Emoji',
+      \ 'on_cmd' : 'Emoji',
       \ 'type' : 'nosync'
       \ }
 NeoBundleLazy 'thinca/vim-ref', {
-      \ 'commands' : 'Ref',
-      \ 'mappings' : '<Plug>(ref-keyword)'
+      \ 'on_cmd' : 'Ref',
+      \ 'on_map' : '<Plug>(ref-keyword)'
       \ }
 let g:ref_phpmanual_path = expand('~/document/ref/php-chunked-xhtml/')
 map K <Plug>(ref-keyword)
 " NeoBundleLazy 'tpope/vim-dispatch', {
-"       \ 'commands' : ['Make', 'Copen', 'Dispatch', 'FocusDispatch', 'Start']
+"       \ 'on_cmd' : ['Make', 'Copen', 'Dispatch', 'FocusDispatch', 'Start']
 "       \ }
 NeoBundleLazy 'justinmk/vim-gtfo', {
-      \ 'mappings' : ['got', 'goT', 'gof', 'goF']
+      \ 'on_map' : ['got', 'goT', 'gof', 'goF']
       \ }
 NeoBundleLazy 'wesleyche/SrcExpl', {
-      \ 'commands' : ['SrcExpl', 'SrcExplClose', 'SrcExplToggle']
+      \ 'on_cmd' : ['SrcExpl', 'SrcExplClose', 'SrcExplToggle']
       \ }
 " NeoBundleLazy 'joedicastro/DirDiff.vim', {
 NeoBundleLazy 'zhaocai/DirDiff.vim', {
-      \ 'commands': [
+      \ 'on_cmd': [
       \   {'name' : 'DirDiff', 'complete' : 'dir'},
       \   'DirDiffOpen', 'DirDiffNext',
       \   'DirDiffPrev', 'DirDiffUpdate', 'DirDiffQuit'
       \ ]}
 NeoBundleLazy 'matze/vim-move', {
-      \ 'mappings': ['<M-k>', '<M-j>']
+      \ 'on_map': ['<M-k>', '<M-j>']
       \ }
 let g:move_key_modifier = 'M'
 let g:move_auto_indent = 0
 NeoBundleLazy 'AndrewRadev/splitjoin.vim', {
-      \ 'mappings': ['gS', 'gJ']
+      \ 'on_map': ['gS', 'gJ']
       \ }
 NeoBundleLazy 'osyo-manga/vim-jplus', {
-      \ 'mappings': '<Plug>(jplus'
+      \ 'on_map': '<Plug>(jplus'
       \ }
 nmap J <Plug>(jplus)
 vmap J <Plug>(jplus)
@@ -1040,13 +841,13 @@ nmap <Leader>J <Plug>(jplus-getchar)
 vmap <Leader>J <Plug>(jplus-getchar)
 NeoBundle 'mattn/webapi-vim'
 NeoBundleLazy 'mattn/gist-vim', {
-      \ 'commands': 'Gist',
-      \ 'functions' : 'gist#list'
+      \ 'on_cmd': 'Gist',
+      \ 'on_func' : 'gist#list'
       \ }
 let g:gist_token_file = expand('~/.record/github-token')
 
 NeoBundleLazy 'jaxbot/github-issues.vim', {
-      \ 'commands': ['Gissues', 'Giadd', 'Giedit', 'Giupdate', 'Gmiles']
+      \ 'on_cmd': ['Gissues', 'Giadd', 'Giedit', 'Giupdate', 'Gmiles']
       \ }
 let github_token_file = g:gist_token_file
 if filereadable(github_token_file)
@@ -1055,34 +856,13 @@ endif
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" NeoBundleLazy 'weirongxu/evervim', {
-"       \ 'commands' : ['EvervimNotebookList', 'EvervimListTags',
-"       \               'EvervimSearchByQuery', 'EvervimPageNext',
-"       \               'EvervimPagePrev', 'EvervimCreateNote',
-"       \               'EvervimOpenBrowser', 'EvervimOpenClient',
-"       \               'EvervimSetup', 'EvervimReloadPref']
-"       \ }
-" let g:evervim_host = 'app.yinxiang.com'
-" let devtoken_file = expand("~/.evernote-devtoken")
-" if filereadable(devtoken_file)
-"   let g:evervim_devtoken = readfile(devtoken_file)[0]
-" endif
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-NeoBundleLazy 'xieyu/pyclewn', {
-      \ 'commands' : 'Pyclewn'
-      \ }
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundleLazy 'mbbill/undotree', {
-      \ 'commands' : [
+      \ 'on_cmd' : [
       \   'UndotreeToggle', 'UndotreeFocus', 'UndotreeShow', 'UndotreeHide'
       \ ]}
 command! Undotree UndotreeToggle
 NeoBundleLazy 'sjl/gundo.vim', {
-      \ 'commands' : [
+      \ 'on_cmd' : [
       \   'GundoToggle', 'GundoHide', 'GundoRendGraph', 'GundoShow'
       \ ]}
 command! Gundo GundoToggle
@@ -1090,15 +870,15 @@ command! Gundo GundoToggle
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundleLazy 'junegunn/vim-easy-align', {
-      \ 'mappings' : ['<Plug>(EasyAlign)', '<Plug>(LiveEasyAlign)'],
-      \ 'commands' : ['EasyAlign', 'LiveEasyAlign']
+      \ 'on_map' : ['<Plug>(EasyAlign)', '<Plug>(LiveEasyAlign)'],
+      \ 'on_cmd' : ['EasyAlign', 'LiveEasyAlign']
       \ }
 vmap <Enter> <Plug>(LiveEasyAlign)
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundleLazy 'majutsushi/tagbar', {
-      \ 'commands' : ['TagbarOpen', 'TagbarClose', 'TagbarToggle', 'Tagbar',
+      \ 'on_cmd' : ['TagbarOpen', 'TagbarClose', 'TagbarToggle', 'Tagbar',
       \               'TagbarOpenAutoClose', 'TagbarTogglePause',
       \               'TagbarSetFoldlevel', 'TagbarShowTag',
       \               'TagbarCurrentTag', 'TagbarGetTypeConfig',
@@ -1111,7 +891,7 @@ let g:tagbar_show_linenumbers = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundleLazy 'mattn/vim-sunday', {
-      \ 'mappings' : ['<c-a>', '<c-x>']
+      \ 'on_map' : ['<c-a>', '<c-x>']
       \ }
 let g:sunday_pairs = [
     \   ['extends', 'implements'],
@@ -1121,34 +901,18 @@ let g:sunday_pairs = [
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" NeoBundleLazy 'vimwiki/vimwiki', 'dev', { " 用dev版的todo列表没有样式了
-NeoBundleLazy 'vimwiki/vimwiki', {
-      \ 'filetypes' : 'vimwiki',
-      \ 'commands' : ['VimwikiIndex', 'VimwikiTabIndex', 'VimwikiUISelect',
-      \               'VimwikiDiaryIndex', 'VimwikiMakeDiaryNote',
-      \               'VimwikiTabMakeDiaryNote'],
-      \ 'mappings' : ['<Leader>ww', '<Plug>VimwikiIndex', '<Leader>wt',
-      \               '<Plug>VimwikiTabIndex', '<Leader>ws', '<Plug>VimwikiUISelect',
-      \               '<Leader>wi', '<Plug>VimwikiDiaryIndex', '<Leader>w<Leader>w',
-      \               '<Plug>VimwikiMakeDiaryNote', '<Leader>w<Leader>t', '<Plug>VimwikiTabMakeDiaryNote',
-      \               '<LocalLeader>cal', '<LocalLeader>caL']
-      \ }
-Include rc/vimwiki
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" NeoBundle 'itchyny/calendar.vim' " XXX wait
+" NeoBundle 'itchyny/calendar.vim'
 " let g:calendar_google_task = 1
 NeoBundleLazy 'mattn/calendar-vim', {
-      \ 'commands' : ['Calendar', 'CalendarH', 'CalendarT'],
-      \ 'mappings' : ['<LocalLeader>cal', '<LocalLeader>caL']
+      \ 'on_cmd' : ['Calendar', 'CalendarH', 'CalendarT'],
+      \ 'on_map' : ['<LocalLeader>cal', '<LocalLeader>caL']
       \ }
 map gC :Calendar<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundleLazy 'Shougo/vimshell.vim', {
-      \ 'commands' : ['VimShell', 'VimShellCreate', 'VimShellTab', 'VimShellPop',
+      \ 'on_cmd' : ['VimShell', 'VimShellCreate', 'VimShellTab', 'VimShellPop',
       \               'VimShellCurrentDir', 'VimShellBufferDir', 'VimShellExecute',
       \               'VimShellInteractive', 'VimShellTerminal', 'VimShellSendString',
       \               'VimShellSendBuffer']
@@ -1156,21 +920,8 @@ NeoBundleLazy 'Shougo/vimshell.vim', {
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" NeoBundleLazy 't9md/vim-smalls', {
-"       \ 'mappings' : ['<Plug>(smalls)']
-"       \ }
-" nmap s <Plug>(smalls)
-" omap s <Plug>(smalls)
-" xmap s <Plug>(smalls)
-" NeoBundleLazy 'justinmk/vim-sneak'
-"       \ 'mappings' : ['<Plug>Sneak']
-"       \ }
-" let g:sneak#f_reset = 1
-" let g:sneak#t_reset = 1
-" map <space> <Plug>SneakNext
-" map <s-space> <Plug>SneakPrevious
 NeoBundleLazy 'Lokaltog/vim-easymotion', {
-      \ 'mappings' : ['<Plug>(easymotion-', 's']
+      \ 'on_map' : ['<Plug>(easymotion-', 's']
       \ }
 if neobundle#tap('vim-easymotion')
   let g:EasyMotion_leader_key = 's'
@@ -1183,24 +934,13 @@ if neobundle#tap('vim-easymotion')
   call neobundle#untap()
 endif
 """"""""""""""""""""""""""""""
-" NeoBundle 'saihoooooooo/glowshi-ft.vim'
-
 " NeoBundle 'junegunn/vim-pseudocl'
 " NeoBundle 'junegunn/vim-oblique'
 " let g:oblique#incsearch_highlight_all=1
 
-NeoBundle 'thinca/vim-visualstar'
-NeoBundleLazy 'osyo-manga/vim-anzu', {
-      \ 'mappings' : '<Plug>(anzu-'
-      \ }
-if neobundle#tap('vim-anzu') "{{{
-  nmap n <Plug>(anzu-n-with-echo)
-  nmap N <Plug>(anzu-N-with-echo)
-  call neobundle#untap()
-endif "}}}
-
+""""""""""""""""""""""""""""""
 NeoBundleLazy 'haya14busa/incsearch.vim', {
-      \ 'mappings' : '<Plug>(incsearch-'
+      \ 'on_map' : ['/', '<Plug>(incsearch-']
       \ }
 if neobundle#tap('incsearch.vim') "{{{
   function! neobundle#hooks.on_source(bundle)
@@ -1221,58 +961,27 @@ if neobundle#tap('incsearch.vim') "{{{
 endif "}}}
 
 NeoBundleLazy 'osyo-manga/vim-over', {
-      \ 'commands' : 'OverCommandLine'
+      \ 'on_cmd' : 'OverCommandLine'
       \ }
 
+NeoBundle 'thinca/vim-visualstar'
+NeoBundleLazy 'osyo-manga/vim-anzu', {
+      \ 'on_map' : '<Plug>(anzu-'
+      \ }
+if neobundle#tap('vim-anzu') "{{{
+  nmap n <Plug>(anzu-n-with-echo)
+  nmap N <Plug>(anzu-N-with-echo)
+  call neobundle#untap()
+endif "}}}
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" NeoBundle 'tpope/vim-afterimage' " Crazy!
-" NeoBundle 'jszakmeister/vim-togglecursor'
-" NeoBundleLazy 'vim-scripts/utl.vim' " 不好用
-" NeoBundle 'Townk/vim-autoclose' " <esc>要刷新buffer，和neocomplete冲突。
-" NeoBundle 'Raimondi/delimitMate' " 用jiangmiao/auto-pairs
-" NeoBundle 'itchyny/vim-cmdline-ranges'
-" NeoBundle 'yuratomo/gmail.vim'
-" NeoBundle 'Rykka/easydigraph.vim'
-" NeoBundle 'FredKSchott/CoVim'
-" NeoBundle 'kana/vim-smartchr'
-" inoremap <expr> - smartchr#one_of('->', '-')
-" NeoBundle 'kana/vim-smartword', {
-"       \ 'mappings' : '<Plug>(smartword-'
-"       \ }
-" nmap w  <Plug>(smartword-w)
-" nmap b  <Plug>(smartword-b)
-" nmap e  <Plug>(smartword-e)
-" nmap ge <Plug>(smartword-ge)
-" vmap w  <Plug>(smartword-w)
-" vmap b  <Plug>(smartword-b)
-" vmap e  <Plug>(smartword-e)
-" vmap ge <Plug>(smartword-ge)
-" NeoBundleLazy 'rhysd/accelerated-jk'
-" NeoBundle 'thinca/vim-painter' " toy
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " UI
 " NeoBundle 'rbtnn/rabbit-ui.vim'
-" NeoBundle 'itchyny/thumbnail.vim' " 速度不行
-" NeoBundleLazy 't9md/vim-choosewin' " 速度慢
-""""""""""""""""""""""""""""""
-" Game
-" NeoBundle 'rbtnn/game_engine.vim'
-" NeoBundle 'rbtnn/puyo.vim'
-" NeoBundle 'rbtnn/mario.vim'
-" NeoBundle 'rbtnn/vimconsole.vim'
-" NeoBundle 'katono/rogue.vim'
+" NeoBundle 'itchyny/thumbnail.vim'
+" NeoBundleLazy 't9md/vim-choosewin'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 call neobundle#end()
 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Other
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" vimIM
-" let g:vimim_plugin = 'wubi,pinyin'
-" let g:vimim_cloud=-1
-" let g:vimim_map='no-search'
-" imap <c-c> <c-_>
+" zeal
+map <leader>z :call zeal#execute(context_filetype#get_filetype(), expand("<cword>"))<CR>

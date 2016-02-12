@@ -5,6 +5,4 @@
 *~
 .netrwhist
 bundle/*
-vimwiki/docs/*
-vimwiki/html/*
 tags

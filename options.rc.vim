@@ -18,8 +18,6 @@ set fileformats=unix,dos,mac
 set fileencoding=utf-8 encoding=utf-8 termencoding=utf-8
 set fileformat=unix
 
-language en
-
 " Colorscheme
 colo Tomorrow-Night-Eighties
 " colo manuscript

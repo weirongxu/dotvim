@@ -74,10 +74,13 @@ set shortmess=aoOtT
 " set linebreak
 " set textwidth=500
 set backspace=indent,eol,start
+set whichwrap+=<,>,[,],h,l
 
 " complete
 set completeopt=longest,menu
-set whichwrap+=<,>,[,],h,l
+
+" pairs
+set matchpairs+=（:）,《:》
 
 " tab
 set expandtab " tab use spaces
@@ -85,33 +88,6 @@ set shiftround
 set tabstop=4 " Tab len
 set softtabstop=4
 set shiftwidth=4 " << >>
-let s:auto_tablen = 2
-let s:auto_tab_opened = 0
-function! s:autoTabLenOpen(open) "{{{
-  if a:open
-    augroup MyTablen
-      au!
-      execute 'autocmd FileType css,less,vim,python,javascript,coffee,stylus,sass,scss setl tabstop='.s:auto_tablen.' softtabstop='.s:auto_tablen.' shiftwidth='.s:auto_tablen
-    augroup END
-    let s:auto_tab_opened = 1
-  else
-    augroup MyTablen
-      au!
-    augroup END
-    let s:auto_tab_opened = 0
-  endif
-endfunction "}}}
-call s:autoTabLenOpen(0)
-command! AutoTabLenOpen call <sid>autoTabLenOpen(1)
-command! AutoTabLenClose call <sid>autoTabLenOpen(0)
-function! s:autoTabLen(n)
-  let s:auto_tablen = a:n
-  if s:auto_tab_opened
-    call s:autoTabLenOpen(0)
-    call s:autoTabLenOpen(1)
-  endif
-endfunction
-command! -nargs=1 AutoTabLen call <sid>autoTabLen(<f-args>)
 " autoindent
 set nosmartindent autoindent smarttab nocindent
 
@@ -136,10 +112,13 @@ set backup writebackup swapfile
 " highlight 80 columns
 function! s:set_colorcolumn() "{{{
   if &ft !~ '\v(^$|markdown|vimfiler|unite|tagbar)'
-      setlocal colorcolumn=81
+    set colorcolumn=81
+  else
+    set colorcolumn=
   endif
 endfunction "}}}
 autocmd FileType * call s:set_colorcolumn()
 
+" fold
 autocmd FileType coffee,jade,stylus,sass setl foldmethod=indent foldlevel=0
 set foldignore=

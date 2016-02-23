@@ -98,7 +98,7 @@ call s:load_source('transformer.vim', 'transformer')
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'mhinz/vim-startify'
-set sessionoptions=blank,curdir,folds,help,resize,tabpages,unix
+set sessionoptions=curdir,folds,help,resize,tabpages,unix
 let g:startify_session_dir = $HOME.'/.record/vim-sessions'
 let g:startify_session_autoload = 1
 let g:startify_session_delete_buffers = 1
@@ -623,12 +623,17 @@ call s:load_source('syntastic', 'syntastic')
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'sheerun/vim-polyglot'
 let g:polyglot_disabled = ['coffee', 'javascript']
-NeoBundleLazy 'othree/yajs.vim', {
-      \   'on_ft': 'javascript',
+" NeoBundle 'othree/yajs.vim'
+" NeoBundleLazy 'othree/es.next.syntax.vim', {
+"       \   'on_ft': 'javascript',
+"       \ }
+NeoBundle 'pangloss/vim-javascript'
+let g:javascript_enable_domhtmlcss = 1
+NeoBundleLazy 'othree/javascript-libraries-syntax.vim', {
+      \  'on_ft': ['javascript'],
       \ }
-NeoBundleLazy 'othree/es.next.syntax.vim', {
-      \   'on_ft': 'javascript',
-      \ }
+let g:used_javascript_libs = 'jquery,underscore,backbone,angularjs,angularui,angularuirouter,react,flux,requirejs,jasmine,chai,handlebars'
+NeoBundle 'posva/vim-vue'
 NeoBundleLazy 'weirongxu/vim-coffee-script', {
       \   'on_ft': ['coffee', 'jade'],
       \ }
@@ -648,15 +653,6 @@ NeoBundleLazy 'weirongxu/vim-coffee-script', {
 " NeoBundleLazy 'hynek/vim-python-pep8-indent', {
 "       \  'on_ft': 'python'
 "       \ }
-" NeoBundleLazy 'pangloss/vim-javascript', {
-"       \ 'on_ft': 'javascript',
-"       \ }
-" let g:javascript_enable_domhtmlcss = 1
-
-NeoBundleLazy 'othree/javascript-libraries-syntax.vim', {
-      \  'on_ft': ['javascript'],
-      \ }
-let g:used_javascript_libs = 'jquery,underscore,backbone,angularjs,angularui,angularuirouter,react,flux,requirejs,jasmine,chai,handlebars'
 NeoBundleLazy 'justinmk/vim-syntax-extra', {
       \ 'on_ft': ['c', 'cpp', 'lex', 'yacc']
       \ }

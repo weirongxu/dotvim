@@ -31,6 +31,7 @@ let g:env#html_type_list = [
       \ 'mason',
       \ 'htmldjango',
       \ 'blade.php',
+      \ 'vue',
       \ ]
 
 let g:env#styles_type_list = [

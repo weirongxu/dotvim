@@ -32,6 +32,7 @@ let g:env#html_type_list = [
       \ 'htmldjango',
       \ 'blade.php',
       \ 'vue',
+      \ 'eruby',
       \ ]
 
 let g:env#styles_type_list = [

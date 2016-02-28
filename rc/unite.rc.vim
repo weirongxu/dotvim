@@ -86,8 +86,8 @@ let s:unite_source_menu_menus = {
       \   'command_candidates': [
       \     ['git pull', 'Gita pull'],
       \     ['git pull --rebase', 'Gita pull --rebase'],
-      \     ['git push width pull', 'execute "Gita pull" | execute "Gita push"'],
-      \     ['git push width pull rebase', 'execute "Gita pull --rebase" | execute "Gita push"'],
+      \     ['git push with pull', 'execute "Gita pull" | execute "Gita push"'],
+      \     ['git push with pull rebase', 'execute "Gita pull --rebase" | execute "Gita push"'],
       \     ['git push', 'Gita push'],
       \     ['git status', 'Gita status'],
       \   ],

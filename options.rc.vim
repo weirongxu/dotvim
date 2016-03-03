@@ -101,8 +101,9 @@ set wildignore=*.o,*~,*.pyc " ignore file
 
 set autoread " auto read when file changed outside of Vim
 
-" sound
-set noerrorbells novisualbell t_vb= tm=500
+" bell
+set noerrorbells visualbell t_vb= tm=500
+autocmd GUIEnter * set vb t_vb=
 
 " backup
 let &backupdir = g:env#tmp

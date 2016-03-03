@@ -137,7 +137,6 @@ NeoBundle 'kana/vim-textobj-fold'
 NeoBundle 'kana/vim-textobj-datetime'
 NeoBundle 'whatyouhide/vim-textobj-xmlattr'
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'terryma/vim-expand-region'
 let g:expand_region_text_objects = {
@@ -623,15 +622,11 @@ call s:load_source('syntastic', 'syntastic')
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'sheerun/vim-polyglot'
 let g:polyglot_disabled = ['coffee', 'javascript']
-" NeoBundle 'othree/yajs.vim'
-" NeoBundleLazy 'othree/es.next.syntax.vim', {
-"       \   'on_ft': 'javascript',
-"       \ }
-NeoBundle 'pangloss/vim-javascript'
-let g:javascript_enable_domhtmlcss = 1
-NeoBundleLazy 'othree/javascript-libraries-syntax.vim', {
-      \  'on_ft': ['javascript'],
-      \ }
+NeoBundle 'othree/yajs.vim'
+NeoBundle 'othree/es.next.syntax.vim'
+" NeoBundle 'pangloss/vim-javascript'
+" let g:javascript_enable_domhtmlcss = 1
+NeoBundle 'othree/javascript-libraries-syntax.vim'
 let g:used_javascript_libs = 'jquery,underscore,backbone,angularjs,angularui,angularuirouter,react,flux,requirejs,jasmine,chai,handlebars'
 NeoBundle 'posva/vim-vue'
 NeoBundleLazy 'weirongxu/vim-coffee-script', {

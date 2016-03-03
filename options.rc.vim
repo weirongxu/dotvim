@@ -111,11 +111,12 @@ set backup writebackup swapfile
 
 " highlight 80 columns
 function! s:set_colorcolumn() "{{{
-  if &ft !~ '\v(^$|markdown|vimfiler|unite|tagbar)'
-    set colorcolumn=81
-  else
+  let exclude_ft_list = ['startify|vimfiler|unite|tagbar'] + g:env#html_type_list
+  if &ft =~ '\v(^$|'. join(exclude_ft_list, '|') .')'
     set colorcolumn=
+    return
   endif
+  set colorcolumn=81
 endfunction "}}}
 autocmd FileType * call s:set_colorcolumn()
 

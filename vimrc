@@ -21,6 +21,7 @@ if !isdirectory(g:env#tmp)
 endif
 
 let g:env#html_type_list = [
+      \ 'markdown',
       \ 'html',
       \ 'jsp',
       \ 'xhtml',
@@ -33,6 +34,7 @@ let g:env#html_type_list = [
       \ 'blade.php',
       \ 'vue',
       \ 'eruby',
+      \ 'liquid',
       \ ]
 
 let g:env#styles_type_list = [

@@ -666,15 +666,22 @@ NeoBundleLazy 'weirongxu/yiiprado.vim', {
 autocmd BufNewFile,BufRead *.tpl setfiletype yiiprado
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-NeoBundleLazy 'gregsexton/MatchTag', {
-      \ 'on_ft': g:env#html_type_list
-      \ }
-NeoBundleLazy 'gcmt/breeze.vim', {
-      \ 'on_ft': g:env#html_type_list
-      \ }
-NeoBundleLazy 'vim-scripts/matchit.zip', {
-      \ 'on_ft': g:env#html_type_list
-      \ }
+if g:env#python
+  NeoBundleLazy 'Valloric/MatchTagAlways', {
+        \ 'on_ft': g:env#html_type_list,
+        \ 'disabled': ! g:env#python,
+        \ }
+  let g:mta_filetypes = {}
+  for val in g:env#html_type_list
+    let g:mta_filetypes[val] = 1
+  endfor
+  nnoremap <Leader>% :MtaJumpToOtherTag<cr>
+else
+  NeoBundleLazy 'gregsexton/MatchTag', {
+        \ 'on_ft': g:env#html_type_list,
+        \ 'disabled': g:env#python,
+        \ }
+endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " TOOLS

@@ -35,6 +35,7 @@ let g:env#html_type_list = [
       \ 'vue',
       \ 'eruby',
       \ 'liquid',
+      \ 'jst',
       \ ]
 
 let g:env#styles_type_list = [

@@ -181,44 +181,16 @@ map <silent> <C-h> :wincmd h<cr>
 map <silent> <C-j> :wincmd j<cr>
 map <silent> <C-k> :wincmd k<cr>
 map <silent> <C-l> :wincmd l<cr>
-if g:env#gui
-  nmap <silent> <S-Up> :call <SID>MoveUp(20)<CR>
-  nmap <silent> <S-Down> :call <SID>MoveDown(20)<CR>
-  nmap <silent> <S-Left> :call <SID>MoveLeft(20)<CR>
-  nmap <silent> <S-Right> :call <SID>MoveRight(20)<CR>
-
-  function! s:MoveDown(d)
-    let x = getwinposx()
-    let y = getwinposy() + a:d
-    execute "winp " . x . " " . y
-  endfunction
-
-  function! s:MoveUp(d)
-    let x = getwinposx()
-    let y = getwinposy() - a:d
-    execute "winp " . x . " " . y
-  endfunction
-
-  function! s:MoveRight(d)
-    let x = getwinposx() + a:d
-    let y = getwinposy()
-    execute "winp " . x . " " . y
-  endfunction
-
-  function! s:MoveLeft(d)
-    let x = getwinposx() - a:d
-    let y = getwinposy()
-    execute "winp " . x . " " . y
-  endfunction
-endif
 
 " tab control
-map gN :tab split<cr>
+map <silent> gN :tab split<cr>
 " map gq :tabclose<cr>
-map <C-tab> :tabnext<cr>
-map <S-l> :tabnext<cr>
-map <C-S-tab> :tabprevious<cr>
-map <S-h> :tabprevious<cr>
+map <silent> <C-tab> :tabnext<cr>
+map <silent> <S-l> :tabnext<cr>
+map <silent> <C-S-tab> :tabprevious<cr>
+map <silent> <S-h> :tabprevious<cr>
+map <silent> <S-Left> :tabmove -1<cr>
+map <silent> <S-Right> :tabmove +1<cr>
 
 " jump to end of line while in Insert Mode
 inoremap <C-e> <C-o>$

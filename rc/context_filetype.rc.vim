@@ -10,7 +10,17 @@ let g:context_filetype_common_config = {
       \     'end' : '</\%(style\|script\)>',
       \   },
       \   {
-      \     'start' : '<\%(style\|script\)\%( [^>]*\)\? lang="<syntax>"\%( [^>]*\)\?>',
+      \     'start' : '<\%(style\|script\)\%( [^>]*\)\? lang="sass"\%( [^>]*\)\?>',
+      \     'end' : '</\%(style\|script\)>',
+      \     'ft': 'scss',
+      \   },
+      \   {
+      \     'start' : '<\%(style\|script\)\%( [^>]*\)\? lang="sass?indentedSyntax"\%( [^>]*\)\?>',
+      \     'end' : '</\%(style\|script\)>',
+      \     'ft': 'sass',
+      \   },
+      \   {
+      \     'start' : '<\%(style\|script\)\%( [^>]*\)\? lang="<syntax>?\?\%([^>]*\)"\%( [^>]*\)\?>',
       \     'end' : '</\%(style\|script\)>',
       \   },
       \   {

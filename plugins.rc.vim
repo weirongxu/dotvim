@@ -42,7 +42,9 @@ NeoBundle 'mbbill/fencview'
 NeoBundle 'LargeFile'
 NeoBundle 'dimasg/vim-mark'
 NeoBundle 'nacitar/a.vim'
-NeoBundle 'drmikehenry/vim-fixkey'
+if !has('nvim')
+  NeoBundle 'drmikehenry/vim-fixkey'
+endif
 NeoBundle 'kshenoy/vim-signature'
 let g:SignatureErrorIfNoAvailableMarks = 0
 NeoBundle 'tpope/vim-repeat'
@@ -57,6 +59,7 @@ NeoBundle 'itchyny/vim-cursorword'
 NeoBundle 'bouzuya/vim-ibus'
 Include rc/ibus
 NeoBundle 'craigemery/vim-autotag'
+NeoBundle 'airblade/vim-rooter'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " TODO
 " NeoBundle 'kana/vim-fakeclip'
@@ -392,6 +395,7 @@ if neobundle#tap('caw.vim')
         \ 'less': ['/*', '*/'],
         \ 'htmlyiiprado': ['<!---', '--->'],
         \ 'blade': ['{{--', '--}}'],
+        \ 'jinja': ['{#', '#}'],
         \ }
   function! neobundle#hooks.on_source(bundle)
     function! s:caw_filetype_changed() "{{{
@@ -628,7 +632,6 @@ NeoBundle 'othree/es.next.syntax.vim'
 " let g:javascript_enable_domhtmlcss = 1
 NeoBundle 'othree/javascript-libraries-syntax.vim'
 let g:used_javascript_libs = 'jquery,underscore,backbone,angularjs,angularui,angularuirouter,react,flux,requirejs,jasmine,chai,handlebars'
-NeoBundle 'posva/vim-vue'
 NeoBundleLazy 'weirongxu/vim-coffee-script', {
       \   'on_ft': ['coffee', 'jade'],
       \ }
@@ -802,6 +805,7 @@ NeoBundleLazy 'tpope/vim-eunuch', {
 NeoBundleLazy 'thinca/vim-quickrun', {
       \ 'on_cmd': 'QuickRun'
       \ }
+Include rc/quickrun
 NeoBundleLazy 'weirongxu/quickrun-babel.vim', {
       \ 'on_ft': 'javascript',
       \ }
@@ -834,11 +838,16 @@ NeoBundleLazy 'zhaocai/DirDiff.vim', {
       \   'DirDiffOpen', 'DirDiffNext',
       \   'DirDiffPrev', 'DirDiffUpdate', 'DirDiffQuit'
       \ ]}
+NeoBundleLazy 'AndrewRadev/linediff.vim', {
+      \ 'on_cmd': ['Linediff', 'LinediffReset'],
+      \ }
 NeoBundleLazy 'matze/vim-move', {
       \ 'on_map': ['<M-k>', '<M-j>']
       \ }
 let g:move_key_modifier = 'M'
 let g:move_auto_indent = 0
+map <S-Up> <M-k>
+map <S-Down> <M-j>
 NeoBundleLazy 'AndrewRadev/splitjoin.vim', {
       \ 'on_map': ['gS', 'gJ']
       \ }

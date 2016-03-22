@@ -576,9 +576,25 @@ let g:marching_enable_neocomplete = 1
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" NeoBundleLazy 'artur-shaik/vim-javacomplete2', {
-"       \  'on_ft': 'java'
-"       \ }
+NeoBundleLazy 'artur-shaik/vim-javacomplete2', {
+      \  'on_ft': 'java'
+      \ }
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
+call UniteFileTypeTool('java', [
+      \ ['Imports-AddSmart', 'JCimportAddSmart'],
+      \ ['Imports-Add', 'JCimportAdd'],
+      \ ['Imports-AddMissing', 'JCimportsAddMissing'],
+      \ ['Imports-RemoveUnused', 'JCimportsRemoveUnused'],
+      \ ['Imports-RemoveUnused', 'JCserverShowPort'],
+      \ ['Server-ShowPID', 'JCserverShowPID'],
+      \ ['Server-Start', 'JCserverStart'],
+      \ ['Server-Terminate', 'JCserverTerminate'],
+      \ ['Server-Compile', 'JCserverCompile'],
+      \ ['Debug-EnableLogs', 'JCdebugEnableLogs'],
+      \ ['Debug-DisableLogs', 'JCdebugDisableLogs'],
+      \ ['Debug-GetLogContent', 'JCdebugGetLogContent'],
+      \ ['Cache-Clear', 'JCcacheClear'],
+      \ ])
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -917,16 +933,6 @@ let g:sunday_pairs = [
     \   ['require', 'require_once', 'include', 'include_once'],
     \   ['NeoBundle', 'NeoBundleLazy'],
     \ ]
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" NeoBundle 'itchyny/calendar.vim'
-" let g:calendar_google_task = 1
-NeoBundleLazy 'mattn/calendar-vim', {
-      \ 'on_cmd': ['Calendar', 'CalendarH', 'CalendarT'],
-      \ 'on_map': ['<LocalLeader>cal', '<LocalLeader>caL']
-      \ }
-map gC :Calendar<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

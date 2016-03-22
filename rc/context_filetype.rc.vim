@@ -47,33 +47,6 @@ let g:context_filetype_common_config = {
       \     'ft' : 'vim',
       \   },
       \ ],
-      \ 'php': [
-      \   {
-      \     'start': '<script>',
-      \     'end': '<\/script>',
-      \     'ft': 'javascript',
-      \   },
-      \   {
-      \     'start': '<script\%( [^>]*\)charset="[^\"]*"\%( [^>]*\)\?>',
-      \     'end': '<\/script>',
-      \     'ft': 'javascript',
-      \   },
-      \   {
-      \     'start': '<script\%( [^>]*\)\? type="text\/javascript"\%( [^>]*\)\?>',
-      \     'end': '<\/script>',
-      \     'ft': 'javascript',
-      \   },
-      \   {
-      \     'start': '<script\%( [^>]*\)\? type="text\/coffeescript"\%( [^>]*\)\?>',
-      \     'end': '<\/script>',
-      \     'ft': 'coffee',
-      \   },
-      \   {
-      \     'start': '<style\%( [^>]*\)\? type="text\/css"\%( [^>]*\)\?>',
-      \     'end': '<\/style>',
-      \     'ft': 'css',
-      \   },
-      \ ],
       \}
 
 function! s:context_filetype_convert(config) "{{{

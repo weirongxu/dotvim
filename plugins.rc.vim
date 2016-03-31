@@ -650,6 +650,8 @@ NeoBundleLazy 'weirongxu/yiiprado.vim', {
 autocmd BufNewFile,BufRead *.tpl setfiletype yiiprado
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:loaded_matchparen = 1
+NeoBundle 'itchyny/vim-parenmatch'
 if g:env#python
   NeoBundleLazy 'Valloric/MatchTagAlways', {
         \ 'on_ft': g:env#html_type_list,
@@ -666,6 +668,21 @@ else
         \ 'disabled': g:env#python,
         \ }
 endif
+
+NeoBundle 'edsono/vim-matchit'
+function! s:set_matchit() "{{{
+  let l:list = ['[:]', '{:}', '<:>', '(:)']
+  if exists('b:match_words') && strlen(b:match_words) > 0
+    for l in l:list
+      if b:match_words !~ '\V' . l
+        let b:match_words .= ',' . l
+      endif
+    endfor
+  else
+    let b:match_words = join(l:list, ',')
+  endif
+endfunction "}}}
+autocmd FileType,BufEnter * call s:set_matchit()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " TOOLS

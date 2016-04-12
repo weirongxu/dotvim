@@ -641,6 +641,9 @@ NeoBundleLazy 'jrestrepo/matlab', {
 NeoBundleLazy 'vim-scripts/autohotkey-ahk', {
       \  'on_ft': 'autohotkey'
       \ }
+NeoBundleLazy 'tpope/vim-endwise', {
+      \ 'on_ft': 'ruby',
+      \ }
 NeoBundleLazy 'gabesoft/vim-java', {
       \  'on_ft': 'java'
       \ }
@@ -650,8 +653,10 @@ NeoBundleLazy 'weirongxu/yiiprado.vim', {
 autocmd BufNewFile,BufRead *.tpl setfiletype yiiprado
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:loaded_matchparen = 1
-NeoBundle 'itchyny/vim-parenmatch'
+if exists('#OptionSet')
+  let g:loaded_matchparen = 1
+  NeoBundle 'itchyny/vim-parenmatch'
+endif
 if g:env#python
   NeoBundleLazy 'Valloric/MatchTagAlways', {
         \ 'on_ft': g:env#html_type_list,

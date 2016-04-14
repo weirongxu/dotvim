@@ -383,7 +383,7 @@ NeoBundleLazy 'tyru/caw.vim', {
       \   '<Plug>(caw:prefix)', '<Plug>(caw:i:toggle)', 'gc']],
       \ 'depends': 'Shougo/context_filetype.vim'
       \ }
-let g:caw_a_sp_left = '  '
+let g:caw_dollarpos_sp_left = '  '
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

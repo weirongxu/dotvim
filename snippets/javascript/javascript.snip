@@ -4,14 +4,14 @@ snippet #!
 snippet wo
 	window.onload = function(){
 		${1}
-	};
+	}
 
 snippet alert
 alias al
-	alert(${0});
+	alert(${0})
 
 snippet af
-	(function(${1:#:attribute}) {${0:TARGET}})();
+	(function(${1:#:attribute}) {${0:TARGET}})()
 
 snippet :f
 options head
@@ -43,7 +43,7 @@ snippet proto
 options head
 	${1:#:class_name}.prototype.${2:#:method_name} = function(${3:#:first_argument}) {
 		${0:TARGET}
-	};
+	}
 
 snippet if
 	if (${1:true}) {
@@ -103,7 +103,7 @@ snippet switch
 	switch (${1:#:var}) {
 			case ${2:#:val}:
 					${3}
-					break;
+					break
 			default:
 					${0:TARGET}
 	}
@@ -119,20 +119,20 @@ options word
 
 snippet setTimeout-function
 options head
-	setTimeout(function() { ${0} }, ${1:10});
+	setTimeout(function() { ${0} }, ${1:10})
 snippet setInterval-function
 options head
-	setInterval(function() { ${0} }, ${1:10});
+	setInterval(function() { ${0} }, ${1:10})
 
 snippet log
 alias cl
 options head
-	console.log(${0:TARGET});
+	console.log(${0:TARGET})
 
 snippet dir
 alias cd
 options head
-	console.dir(${0:TARGET});
+	console.dir(${0:TARGET})
 
 snippet grunt
 	module.exports = function(grunt){
@@ -190,17 +190,17 @@ snippet grunt
 					tasks: ['jade:development'],
 				}
 			},
-		});
+		})
 
-		grunt.loadNpmTasks('grunt-contrib-uglify');
-		grunt.loadNpmTasks('grunt-contrib-stylus');
-		grunt.loadNpmTasks('grunt-contrib-jade');
-		grunt.loadNpmTasks('grunt-contrib-watch');
+		grunt.loadNpmTasks('grunt-contrib-uglify')
+		grunt.loadNpmTasks('grunt-contrib-stylus')
+		grunt.loadNpmTasks('grunt-contrib-jade')
+		grunt.loadNpmTasks('grunt-contrib-watch')
 
-		grunt.registerTask('init', ['uglify:development', 'jade:development', 'stylus:development']);
-		grunt.registerTask('default', ['watch']);
-		grunt.registerTask('build', ['uglify:production', 'stylus:production', 'jade:production']);
-	};
+		grunt.registerTask('init', ['uglify:development', 'jade:development', 'stylus:development'])
+		grunt.registerTask('default', ['watch'])
+		grunt.registerTask('build', ['uglify:production', 'stylus:production', 'jade:production'])
+	}
 
 snippet grunt-less
 	less: {
@@ -216,7 +216,7 @@ snippet grunt-less
 			}
 		}
 	}
-	grunt.loadNpmTasks('grunt-contrib-less');
+	grunt.loadNpmTasks('grunt-contrib-less')
 
 snippet grunt-jade
 	jade: {
@@ -232,7 +232,7 @@ snippet grunt-jade
 			}
 		}
 	}
-	grunt.loadNpmTasks('grunt-contrib-jade');
+	grunt.loadNpmTasks('grunt-contrib-jade')
 
 snippet grunt-stylus
 	stylus: {
@@ -248,7 +248,8 @@ snippet grunt-stylus
 			}
 		}
 	}
-	grunt.loadNpmTasks('grunt-contrib-stylus');
+	grunt.loadNpmTasks('grunt-contrib-stylus')
+
 snippet grunt-watch
 	watch: {
 		uglify: {
@@ -264,7 +265,7 @@ snippet grunt-watch
 			tasks: ['jade:development'],
 		}
 	}
-	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.loadNpmTasks('grunt-contrib-watch')
 
 snippet grunt-uglify
 	uglify: {
@@ -280,4 +281,4 @@ snippet grunt-uglify
 			}
 		},
 	}
-	grunt.loadNpmTasks('grunt-contrib-uglify');
+	grunt.loadNpmTasks('grunt-contrib-uglify')

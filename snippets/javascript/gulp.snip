@@ -3,15 +3,15 @@ snippet reqg
 
 snippet gulp-copy
 	gulp.task('copy', function() {
-		var dest = 'public/assets';
+		var dest = 'public/assets'
 		return gulp.src('assets/**')
 			.pipe(plumber())
-			.pipe(gulp.dest(dest));
-	});
+			.pipe(gulp.dest(dest))
+	})
 
 snippet gulp-jade
 	gulp.task('jade', function() {
-		var dest = 'public';
+		var dest = 'public'
 		return gulp.src(['jade/**/*.jade', '!jade/common/**'])
 			.pipe(plumber())
 			.pipe(jade({
@@ -20,13 +20,13 @@ snippet gulp-jade
 					_: require('lodash-node')
 				}
 			}))
-			.pipe(gulp.dest(dest));
-	});
+			.pipe(gulp.dest(dest))
+	})
 
 
 snippet gulp-stylus
 	gulp.task('stylus', function() {
-		var dest = 'public/assets/css';
+		var dest = 'public/assets/css'
 		return gulp.src('stylus/main.styl')
 			.pipe(plumber())
 			.pipe(sourcemaps.init())
@@ -35,17 +35,17 @@ snippet gulp-stylus
 				compress: true
 			}))
 			.pipe(sourcemaps.write('./'))
-			.pipe(gulp.dest(dest));
-	});
+			.pipe(gulp.dest(dest))
+	})
 
 
 snippet gulp-coffee
 	gulp.task('coffee', function() {
-		var dest = 'public/assets/js';
+		var dest = 'public/assets/js'
 		return gulp.src('coffee/**/*.coffee')
 			.pipe(plumber(function(error) {
-				console.dir(error.message);
-				return console.log(error.stack);
+				console.dir(error.message)
+				return console.log(error.stack)
 			}))
 			.pipe(sourcemaps.init())
 			.pipe(coffee({
@@ -53,32 +53,31 @@ snippet gulp-coffee
 			}))
 			.pipe(uglify())
 			.pipe(sourcemaps.write('./'))
-			.pipe(gulp.dest(dest));
-	});
+			.pipe(gulp.dest(dest))
+	})
 
 
 snippet gulp-watch
 	gulp.task('watch', function() {
-		gulp.watch('assets/**', ['copy']);
-		gulp.watch('stylus/**/*.styl', ['stylus']);
-		gulp.watch('coffee/**/*.coffee', ['coffee']);
-		return gulp.watch('jade/**/*.jade', ['jade']);
-	});
+		gulp.watch('assets/**', ['copy'])
+		gulp.watch('stylus/**/*.styl', ['stylus'])
+		gulp.watch('coffee/**/*.coffee', ['coffee'])
+		return gulp.watch('jade/**/*.jade', ['jade'])
+	})
 
 
 snippet gulp-less
 	gulp.task('less', function() {
-		var dest = 'public/assets/css';
+		var dest = 'public/assets/css'
 		return gulp.src('less/main.less')
 			.pipe(plumber(function(error) {
-				console.log(error.message);
-				return console.log(error.stack);
+				console.log(error.message)
+				return console.log(error.stack)
 			}))
 			.pipe(sourcemaps.init())
 			.pipe(less({
 				compress: true
 			}))
 			.pipe(sourcemaps.write('./'))
-			.pipe(gulp.dest(dest));
-	});
-
+			.pipe(gulp.dest(dest))
+	})

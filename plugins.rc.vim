@@ -36,7 +36,7 @@ NeoBundle 'vim-jp/vital.vim'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" MUST
+" BASE
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 NeoBundle 'mbbill/fencview'
 NeoBundle 'LargeFile'
@@ -60,6 +60,7 @@ NeoBundle 'bouzuya/vim-ibus'
 Include rc/ibus
 NeoBundle 'craigemery/vim-autotag'
 NeoBundle 'airblade/vim-rooter'
+NeoBundle 'gioele/vim-autoswap'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " TODO
 " NeoBundle 'kana/vim-fakeclip'
@@ -632,6 +633,7 @@ NeoBundleLazy 'weirongxu/vim-coffee-script', {
 " NeoBundleLazy 'hynek/vim-python-pep8-indent', {
 "       \  'on_ft': 'python'
 "       \ }
+NeoBundle 'hallison/vim-rdoc'
 NeoBundleLazy 'justinmk/vim-syntax-extra', {
       \ 'on_ft': ['c', 'cpp', 'lex', 'yacc']
       \ }
@@ -642,7 +644,7 @@ NeoBundleLazy 'vim-scripts/autohotkey-ahk', {
       \  'on_ft': 'autohotkey'
       \ }
 NeoBundleLazy 'tpope/vim-endwise', {
-      \ 'on_ft': 'ruby',
+      \  'on_ft': ['ruby', 'lua', 'c', 'cpp', 'shell', 'zsh', 'bash'],
       \ }
 NeoBundleLazy 'gabesoft/vim-java', {
       \  'on_ft': 'java'
@@ -695,6 +697,9 @@ autocmd FileType,BufEnter * call s:set_matchit()
 NeoBundleLazy 'kannokanno/previm', {
       \ 'on_ft': ['markdown', 'rst'],
       \ 'depends': 'tyru/open-browser.vim',
+      \ }
+NeoBundleLazy 'machakann/vim-swap', {
+      \ 'on_map': ['g<', 'g>', 'gs'],
       \ }
 NeoBundleLazy 'Chiel92/vim-autoformat', {
       \ 'on_cmd': [

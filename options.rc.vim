@@ -32,7 +32,13 @@ set background=dark
 if g:env#x
   set t_Co=256
 endif
-if g:env#unix
+if g:env#mac
+  set guifont=Monaco:h12
+elseif g:env#win
+  set guifont=Monaco:h10,Consolas:h11:cANSI,Courier_New_for_Powerline:h10:cANSI,*
+  " set guifont=Source_Code_Pro:h9:cANSI
+  " set guifont=monofur_for_Powerline:h10.5:w5,Courier_new:h10,*
+else
   " set guifont=Menlo\ 10,*
   set guifont=Monaco\ for\ Powerline\ 10
   " set guifont=Consolas\ 11
@@ -40,15 +46,14 @@ if g:env#unix
   " set guifont=Source\ Code\ Pro\ 10,*
   " set guifont=SimSun\ for\ Powerline\ 10
   " set guifont=Courier\ New\ for\ Powerline\ 10
-elseif g:env#win
-  set guifont=Monaco:h10,Consolas:h11:cANSI,Courier_New_for_Powerline:h10:cANSI,*
-  " set guifont=Source_Code_Pro:h9:cANSI
-  " set guifont=monofur_for_Powerline:h10.5:w5,Courier_new:h10,*
 endif
 
 " set verbose=1
 
 " compatible
+if exists('&macmeta')
+  set macmeta
+endif
 set nocompatible " vi-compatible,
 set mouse=a " support mouse
 

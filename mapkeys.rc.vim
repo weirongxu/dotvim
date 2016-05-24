@@ -38,9 +38,6 @@ map <S-Insert> "+p
 map <leader>p "+p
 map <leader>P "+P
 
-" 在visual和select模式中使用<leader>p,粘贴但不复制
-" xnoremap <expr> <leader>p 'pgv"'.v:register.'y'
-
 " F4                 使用宏q
 map <F4> @q
 
@@ -150,22 +147,6 @@ vmap <silent> <Leader>hu :call <SID>HtmlUnEscape()<CR>
 " 界面和控制
 """""""""""""""""""""""""""""""""""""
 
-" 移动一整行通过 ALT+[jk] 或 Comamnd+[jk] 在 mac
-" nmap <silent> <M-j> mz:m+<cr>`z
-" nmap <silent> <M-k> mz:m-2<cr>`z
-" vmap <silent> <M-j> :m'>+<cr>`<my`>mzgv`yo`z
-" vmap <silent> <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
-" nmap <silent> <leader>j mz:m+<cr>`z
-" nmap <silent> <leader>k mz:m-2<cr>`z
-" vmap <silent> <leader>j :m'>+<cr>`<my`>mzgv`yo`z
-" vmap <silent> <leader>k :m'<-2<cr>`>my`<mzgv`yo`z
-if g:env#mac
-  nmap <silent> <D-j> <M-j>
-  nmap <silent> <D-k> <M-k>
-  vmap <silent> <D-j> <M-j>
-  vmap <silent> <D-k> <M-k>
-endif
-
 " 用alt键在插入模式下移动光标
 imap <silent> <M-h> <ESC>i
 imap <silent> <M-j> <ESC>ja
@@ -173,10 +154,10 @@ imap <silent> <M-k> <ESC>ka
 imap <silent> <M-l> <ESC>la
 
 " 窗口控制
-map <silent> <C-Up> 5<c-w>+
-map <silent> <C-Down> 5<c-w>-
-map <silent> <C-Right> 5<c-w>>
-map <silent> <C-Left> 5<c-w><
+map <silent> <C-W><Up> 5<c-w>+
+map <silent> <C-W><Down> 5<c-w>-
+map <silent> <C-W><Right> 5<c-w>>
+map <silent> <C-W><Left> 5<c-w><
 map <silent> <C-h> :wincmd h<cr>
 map <silent> <C-j> :wincmd j<cr>
 map <silent> <C-k> :wincmd k<cr>

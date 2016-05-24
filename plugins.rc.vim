@@ -90,14 +90,8 @@ NeoBundle 'gioele/vim-autoswap'
 " vmap ge <Plug>(smartword-ge)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-""""""""""""""""""""""""""""""
-" Temp
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" NeoBundle 'zefei/vim-colortuner'
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-NeoBundle 'weirongxu/transformer.vim'
-call s:load_source('transformer.vim', 'transformer')
+" NeoBundle 'weirongxu/transformer.vim'
+" call s:load_source('transformer.vim', 'transformer')
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

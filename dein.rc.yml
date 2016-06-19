@@ -26,7 +26,7 @@ plugins:
     if: g:env#python
     hook_source: Inc /plugins/editorconfig-vim
   - repo: Shougo/context_filetype.vim
-    hook_source: Inc /plugins/context_filetype
+    hook_add: Inc /plugins/context_filetype
   - repo: farseer90718/vim-regionsyntax
   # osyo-manga/vim-precious:
   - repo: itchyny/vim-cursorword
@@ -252,7 +252,7 @@ plugins:
 
   - repo: tyru/caw.vim
     on_map: gc
-    depends: Shougo/context_filetype.vim
+    depends: context_filetype.vim
     hook_add: |
       let g:caw_dollarpos_sp_left = '  '
       Inc /plugins/caw
@@ -481,7 +481,7 @@ plugins:
   # tools
   - repo: kannokanno/previm
     on_ft: ['markdown', 'rst']
-    depends: 'tyru/open-browser.vim'
+    depends: open-browser.vim
   - repo: machakann/vim-swap
     on_map: ['g<', 'g>', 'gs']
   - repo: Chiel92/vim-autoformat

@@ -4,5 +4,5 @@
 *.swm
 *~
 .netrwhist
-bundle/*
 tags
+/dein.rc.vim

@@ -15,5 +15,3 @@ command! DeinInstall
       \   call dein#install() |
       \ endif
 command! -nargs=* DeinUpdate call dein#update(<f-args>)
-
-DeinInstall

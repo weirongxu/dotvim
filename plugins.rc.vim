@@ -1,4 +1,5 @@
 let &runtimepath .= ','.$DEIN_DIR.'/repos/github.com/Shougo/dein.vim'
+let g:dein#types#git#clone_depth = 1
 
 call dein#begin($DEIN_DIR)
 call dein#local($DEIN_DIR.'-local')

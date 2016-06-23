@@ -51,7 +51,7 @@ function! VimFilerExplorer()
 endfunction
 
 function! VimFilerExplorerDotVim()
-  execute 'VimFiler -explorer -auto-cd -split -buffer-name=' . s:tab_id() . ' ' . $MYVIMFILES
+  execute 'VimFiler -explorer -auto-cd -split -buffer-name=' . s:tab_id() . ' ' . $MY_VIMFILES
 endfunction
 nnoremap <silent> gn :call VimFilerExplorer()<CR>
 nnoremap <silent> gp :call VimFilerExplorerDotVim()<CR>

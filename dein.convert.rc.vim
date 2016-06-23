@@ -1,8 +1,8 @@
-let s:source = $MYVIMFILES.'/dein.rc.yml'
-let s:target = $MYVIMFILES.'/dein.rc.vim'
+let s:source = $MY_VIMFILES.'/dein.rc.yml'
+let s:target = $MY_VIMFILES.'/dein.rc.vim'
 
 function! DeinParse() "{{{
-  let ret = system($MYVIMFILES.'/dein.convert.py ' . s:source . ' ' . s:target, '2>&1')
+  let ret = system($MY_VIMFILES.'/dein.convert.py ' . s:source . ' ' . s:target, '2>&1')
   if !empty(ret)
     echo ret
   endif

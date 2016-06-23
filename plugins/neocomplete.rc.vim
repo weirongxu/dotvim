@@ -4,10 +4,10 @@ let g:neocomplete#enable_at_startup = 1
 " let g:neocomplete#disable_auto_complete = 1
 let g:neocomplete#sources#dictionary#dictionaries = {
       \ 'default' : '',
-      \ 'css' : $MYVIMFILES.'/bundle-local/my-local/dict/cssColorName.dict',
-      \ 'less' : $MYVIMFILES.'/bundle-local/my-local/dict/cssColorName.dict',
-      \ 'javascript' : $MYVIMFILES.'/bundle-local/my-local/dict/javascript.dict',
-      \ 'coffee' : $MYVIMFILES.'/bundle-local/my-local/dict/javascript.dict',
+      \ 'css' : $MY_VIMFILES.'/dein-local/my-local/dict/cssColorName.dict',
+      \ 'less' : $MY_VIMFILES.'/dein-local/my-local/dict/cssColorName.dict',
+      \ 'javascript' : $MY_VIMFILES.'/dein-local/my-local/dict/javascript.dict',
+      \ 'coffee' : $MY_VIMFILES.'/dein-local/my-local/dict/javascript.dict',
       \ }
 let g:neocomplete#same_filetypes = {
       \ 'c': 'cpp',

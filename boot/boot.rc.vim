@@ -1,7 +1,7 @@
 function Include(path, current) "{{{
   try
     if a:path[0] == '/'
-      let path = $MYVIMFILES . a:path
+      let path = $MY_VIMFILES . a:path
     else
       let path = a:current . '/' . a:path
     endif

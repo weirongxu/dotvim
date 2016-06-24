@@ -28,8 +28,11 @@ class Config(object):
         self.vimscript_content.append(
           "call dein#add('{}', {})".format(repo, json.dumps(options)))
     elif 'repos_include' in plugin:
-      
-      plugins = self.load(open(os.path.join(os.path.dirname(source), 'dein-repos-yml', plugin['repos_include'])))
+      plugins = self.load(open(
+        os.path.join(
+          os.path.dirname(source), 'dein-repos-yml', plugin['repos_include']
+        )
+      ))
       self.add_plugins(plugins or [])
 
   def get_vim_script(self):

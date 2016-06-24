@@ -1,0 +1,48 @@
+- repo: mbbill/fencview
+- repo: LargeFile
+# - repo: dimasg/vim-mark
+- repo: nacitar/a.vim
+- repo: drmikehenry/vim-fixkey
+  if: "! has('nvim')"
+- repo: kshenoy/vim-signature
+  hook_source: let g:SignatureErrorIfNoAvailableMarks = 0
+- repo: tpope/vim-repeat
+- repo: editorconfig/editorconfig-vim
+  if: g:env#python
+  hook_source: Inc /plugins/editorconfig-vim
+- repo: Shougo/context_filetype.vim
+  hook_add: Inc /plugins/context_filetype
+- repo: farseer90718/vim-regionsyntax
+# osyo-manga/vim-precious:
+- repo: itchyny/vim-cursorword
+- repo: bouzuya/vim-ibus
+  hook_source: Inc /plugins/ibus
+- repo: craigemery/vim-autotag
+- repo: airblade/vim-rooter
+- repo: gioele/vim-autoswap
+
+- repo: mhinz/vim-startify
+  hook_add: |
+    set sessionoptions=curdir,folds,help,resize,tabpages,unix
+    let g:startify_session_dir = $HOME.'/.record/vim-sessions'
+    let g:startify_session_autoload = 1
+    let g:startify_session_delete_buffers = 1
+    let g:startify_session_persistence = 1
+    let g:startify_custom_header = [
+      \ 'Raidou vim',
+      \ ]
+    let g:startify_bookmarks = [
+      \ $MYVIMRC,
+      \ $MY_PLUGINS,
+      \ ]
+    let g:startify_list_order = [
+      \ ['   Vimfile:'],
+      \ 'bookmarks',
+      \ ['   Sessions:'],
+      \ 'sessions',
+      \ ['   Last Recently Use:'],
+      \ 'files',
+      \ ]
+
+- repo: Shougo/vimproc
+  build: make

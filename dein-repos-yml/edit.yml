@@ -1,0 +1,10 @@
+- repo: mbbill/undotree
+  on_cmd:
+    - UndotreeToggle
+    - UndotreeFocus
+    - UndotreeShow
+    - UndotreeHide
+  hook_add: command! Undotree UndotreeToggle
+- repo: sjl/gundo.vim
+  on_cmd: ['GundoToggle', 'GundoHide', 'GundoRendGraph', 'GundoShow']
+  hook_add: command! Gundo GundoToggle

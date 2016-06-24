@@ -1,0 +1,9 @@
+# - repo: osyo-manga/shabadou.vim
+# - repo: osyo-manga/vim-watchdogs
+# - repo: jceb/vim-hier
+# - repo: dannyob/quickfixstatus
+# let g:watchdogs_check_BufWritePost_enable = 1
+- repo: scrooloose/syntastic
+  hook_add: Inc /plugins/syntastic
+- repo: rhysd/vim-grammarous
+  on_cmd: GrammarousCheck

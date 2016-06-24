@@ -1,0 +1,10 @@
+- repo: zhaocai/DirDiff.vim
+  on_cmd:
+    - DirDiff
+    - DirDiffOpen
+    - DirDiffNext
+    - DirDiffPrev
+    - DirDiffUpdate
+    - DirDiffQuit
+- repo: AndrewRadev/linediff.vim
+  on_cmd: ['Linediff', 'LinediffReset']

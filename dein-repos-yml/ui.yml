@@ -1,0 +1,30 @@
+- repo: itchyny/lightline.vim
+  hook_add: |
+    Inc /plugins/lightline
+- repo: gcavallanti/vim-noscrollbar
+
+- repo: Yggdroot/indentLine
+  hook_add: |
+    let g:indentLine_conceallevel = 1
+    let g:indentLine_concealcursor = ''
+    let g:indentLine_fileTypeExclude = ['', 'stylus', 'jade', 'vimfiler', 'unite', 'tagbar', 'yaml']
+    let g:indentLine_faster = 1
+    if !g:env#x
+      let g:indentLine_color_term = 8
+    endif
+- repo: nathanaelkane/vim-indent-guides
+  on_cmd: ['IndentGuidesToggle', 'IndentGuidesEnable', 'IndentGuidesDisable']
+  on_map: ['<Plug>IndentGuidesToggle', '<Plug>IndentGuidesEnable', '<Plug>IndentGuidesDisable']
+  gui: 1
+  hook_add: |
+    let g:indent_guides_guide_size = 1
+    nmap <silent> gL <Plug>IndentGuidesToggle
+- repo: drmikehenry/vim-fontsize
+  on_map: <Plug>Fontsize
+  hook_add: |
+    nmap <silent> <Leader>=           <Plug>FontsizeBegin
+    nmap <silent> <C-ScrollWheelUp>   <Plug>FontsizeInc
+    nmap <silent> <Leader>+           <Plug>FontsizeInc
+    nmap <silent> <C-ScrollWheelDown> <Plug>FontsizeDec
+    nmap <silent> <Leader>-           <Plug>FontsizeDec
+    nmap <silent> <Leader>0           <Plug>FontsizeDefault

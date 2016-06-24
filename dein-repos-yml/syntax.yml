@@ -1,0 +1,39 @@
+- repo: sheerun/vim-polyglot
+  hook_add: |
+    let g:polyglot_disabled = ['coffee', 'javascript']
+- repo: othree/yajs.vim
+- repo: othree/es.next.syntax.vim
+# - repo: pangloss/vim-javascript
+#   hook_add: let g:javascript_enable_domhtmlcss = 1
+- repo: othree/javascript-libraries-syntax.vim
+  hook_add: |
+    let g:used_javascript_libs = 'jquery,underscore,backbone,angularjs,angularui,angularuirouter,react,flux,requirejs,jasmine,chai,handlebars'
+- repo: weirongxu/vim-coffee-script
+  on_ft: ['coffee', 'jade']
+# - repo: rcmdnk/vim-markdown
+#   on_ft: markdown
+#   let g:vim_markdown_initial_foldlevel=99
+# - repo: elzr/vim-json
+#   on_ft: json
+# - repo: 2072/PHP-Indenting-for-VIm
+#   on_ft: g:env#html_type_list
+# - repo: hdima/python-syntax
+#   on_ft: python
+# - repo: hynek/vim-python-pep8-indent
+#   on_ft: python
+- repo: hallison/vim-rdoc
+- repo: justinmk/vim-syntax-extra
+  on_ft: ['c', 'cpp', 'lex', 'yacc']
+- repo: jrestrepo/matlab
+  on_ft: matlab
+- repo: vim-scripts/autohotkey-ahk
+  on_ft: autohotkey
+- repo: gabesoft/vim-java
+  on_ft: java
+- repo: weirongxu/yiiprado.vim
+  on_ft: yiiprado
+  hook_add: |
+    autocmd BufNewFile,BufRead *.tpl setfiletype yiiprado
+- repo: jaxbot/semantic-highlight.vim
+  on_cmd: SemanticHighlightToggle
+  hook_add: nnoremap <Leader>s :SemanticHighlightToggle<cr>

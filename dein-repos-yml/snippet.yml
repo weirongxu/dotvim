@@ -1,0 +1,34 @@
+- repo: Shougo/neosnippet.vim
+  hook_add: |
+    imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+      \ "\<Plug>(neosnippet_expand_or_jump)"
+      \: "\<TAB>"
+    imap <expr><C-j> neosnippet#jumpable() ?
+      \ "\<Plug>(neosnippet_jump)"
+      \: "\<C-j>"
+    imap <expr><C-CR> neosnippet#expandable() ?
+      \ "\<Plug>(neosnippet_expand)"
+      \: "\<C-CR>"
+    smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+      \ "\<Plug>(neosnippet_expand_or_jump)"
+      \: "\<TAB>"
+    smap <expr><C-j> neosnippet#jumpable() ?
+      \ "\<Plug>(neosnippet_jump)"
+      \: "\<C-j>"
+    smap <expr><C-CR> neosnippet#expandable() ?
+      \ "\<Plug>(neosnippet_expand)"
+      \: "\<C-CR>"
+    let g:neosnippet#snippets_directory = $MY_VIMFILES.'/snippets'
+    let g:neosnippet#disable_runtime_snippets = {
+      \   '_': 1
+      \ }
+    set clipboard-=autoselect 
+    command! Snip NeoSnippetEdit -split -vertical
+- repo: mattn/emmet-vim
+  on_map: [['i', '<c-y>']]
+  on_ft: g:env#web_assets_type_list
+- repo: stephpy/vim-phpdoc
+  on_ft: g:env#html_type_list
+  hook_add: |
+    nnoremap <leader>8 :call PhpDocSingle()<CR>
+    vnoremap <leader>8 :call PhpDocRange()<CR>

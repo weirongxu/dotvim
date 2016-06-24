@@ -1,0 +1,19 @@
+- repo: salsifis/vim-transpose
+  on_cmd:
+    - Transpose
+    - TransposeWords
+    - TransposeTab
+    - TransposeCSV
+    - TransposeInteractive
+    - TransposeIndentToggle
+- repo: dhruvasagar/vim-table-mode
+  on_map: <Leader>tm
+- repo: mattn/vim-sunday
+  on_map: ['<c-a>', '<c-x>']
+  hook_add: |
+    let g:sunday_pairs = [
+      \   ['extends', 'implements'],
+      \   ['require', 'require_once', 'include', 'include_once'],
+      \ ]
+- repo: machakann/vim-swap
+  on_map: ['g<', 'g>', 'gs']

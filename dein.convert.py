@@ -4,24 +4,41 @@ import yaml
 import json
 import sys
 
-def parse(text):
-  configs = yaml.load(text)
-  vim_content = []
-  for config in configs.get('plugins', {}):
-    repo = config['repo']
-    options = {k: v for k, v in config.items() if k != 'repo'}
-    if not options:
-      vim_content.append(
-        "call dein#add('{}')".format(repo))
-    else:
-      vim_content.append(
-        "call dein#add('{}', {})".format(repo, json.dumps(options)))
-  return '\n'.join(vim_content)
+class Config(object):
+  def __init__(self, f):
+    self.vimscript_content = []
+    self.configs = self.load(f)
+    self.add_plugins(self.configs.get('plugins', []))
+
+  def load(self, f):
+    return yaml.load(f)
+
+  def add_plugins(self, plugins):
+    for plugin in plugins:
+      self.add_plugin(plugin)
+
+  def add_plugin(self, plugin):
+    if 'repo' in plugin:
+      repo = plugin['repo']
+      options = {k: v for k, v in plugin.items() if k != 'repo'}
+      if not options:
+        self.vimscript_content.append(
+          "call dein#add('{}')".format(repo))
+      else:
+        self.vimscript_content.append(
+          "call dein#add('{}', {})".format(repo, json.dumps(options)))
+    elif 'repos_include' in plugin:
+      
+      plugins = self.load(open(os.path.join(os.path.dirname(source), 'dein-repos-yml', plugin['repos_include'])))
+      self.add_plugins(plugins or [])
+
+  def get_vim_script(self):
+    return '\n'.join(self.vimscript_content)
 
 source = sys.argv[1]
 target = sys.argv[2]
 try:
-  text = parse(open(source).read())
+  text = Config(open(source)).get_vim_script()
   target_file = open(target, 'w+')
   target_file.write(text)
 except Exception as e:

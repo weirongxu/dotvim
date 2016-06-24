@@ -1,0 +1,20 @@
+- repo: Chiel92/vim-autoformat
+  on_cmd: Autoformat
+- repo: maksimr/vim-jsbeautify
+  hook_add: |
+    call UniteFileTypeTool(g:env#web_assets_type_list, [
+      \ ['jsbf-RangeJsBeautify', 'call RangeJsBeautify()'],
+      \ ['jsbf-JsBeautify', 'call JsBeautify()'],
+      \ ['jsbf-JsxBeautify', 'call JsxBeautify()'],
+      \ ['jsbf-RangeJsxBeautify', 'call RangeJsxBeautify()'],
+      \ ['jsbf-JsonBeautify', 'call JsonBeautify()'],
+      \ ['jsbf-RangeJsonBeautify', 'call RangeJsonBeautify()'],
+      \ ['jsbf-RangeHtmlBeautify', 'call RangeHtmlBeautify()'],
+      \ ['jsbf-HtmlBeautify', 'call HtmlBeautify()'],
+      \ ['jsbf-RangeCSSBeautify', 'call RangeCSSBeautify()'],
+      \ ['jsbf-CSSBeautify', 'call CSSBeautify()'],
+      \ ])
+- repo: junegunn/vim-easy-align
+  on_map: ['<Plug>(EasyAlign)', '<Plug>(LiveEasyAlign)']
+  on_cmd: ['EasyAlign', 'LiveEasyAlign']
+  hook_add: vmap <Enter> <Plug>(LiveEasyAlign)

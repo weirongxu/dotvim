@@ -1,0 +1,45 @@
+- repo: kana/vim-textobj-user
+  hook_source: Inc /plugins/textobj-user
+- repo: kana/vim-textobj-indent
+- repo: kana/vim-textobj-entire
+- repo: kana/vim-textobj-line
+- repo: rhysd/vim-textobj-continuous-line
+- repo: mattn/vim-textobj-url
+- repo: coderifous/textobj-word-column.vim
+- repo: thinca/vim-textobj-between
+- repo: sgur/vim-textobj-parameter
+- repo: kana/vim-textobj-lastpat
+- repo: kana/vim-textobj-syntax
+- repo: kana/vim-textobj-fold
+- repo: kana/vim-textobj-datetime
+- repo: whatyouhide/vim-textobj-xmlattr
+
+- repo: terryma/vim-expand-region
+  hook_add: |
+    let g:expand_region_text_objects = {
+      \ 'i(': 1, 'a(': 1,
+      \ 'i[': 1, 'a[': 1,
+      \ 'i{': 1, 'a{': 1,
+      \ 'i<': 1, 'a<': 1,
+      \ "i\'": 1, "a\'": 1,
+      \ 'i"': 1, 'a"': 1,
+      \ 'it': 1, 'at': 1,
+      \ 'iu': 0, 'au': 0,
+      \ 'ic': 0, 'ac': 0,
+      \ 'il': 0,
+      \ 'ii': 0,
+      \ 'i,': 0, 'a,': 0,
+      \ 'ixa': 0, 'axa': 0,
+      \ 'ip': 0,
+      \ 'ie': 0,
+      \ }
+    if g:env#gui
+      map <C-CR> <Plug>(expand_region_expand)
+    else
+      map <NL> <Plug>(expand_region_expand)
+    endif
+    vmap <BS> <Plug>(expand_region_shrink)
+  hook_post_source: |
+    call expand_region#custom_text_objects('php', {
+      \   'iP': 0, 'aP': 0,
+      \ })

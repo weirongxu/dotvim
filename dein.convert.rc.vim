@@ -8,8 +8,19 @@ function! DeinParse() "{{{
   endif
 endfunction "}}}
 
-if getftime(s:source) > getftime(s:target)
-  call DeinParse()
-endif
+function! s:checkUpdate() "{{{
+  if getftime(s:source) > getftime(s:target)
+    call DeinParse()
+  else
+    for name in split(glob($MY_VIMFILES.'/dein-repos-yml/*.yml'), '\n')
+      if getftime(name) > getftime(s:target)
+        call DeinParse()
+        break
+      endif
+    endfor
+  endif
+endfunction "}}}
+
+call s:checkUpdate()
 
 Inc dein

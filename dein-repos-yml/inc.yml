@@ -1,0 +1,39 @@
+# - repo: junegunn/vim-pseudocl
+# - repo: junegunn/vim-oblique
+#   hook_add: let g:oblique#incsearch_highlight_all=1
+- repo: haya14busa/incsearch.vim
+  on_map: ['/', '<Plug>(incsearch-']
+  hook_post_source: |
+    map /  <Plug>(incsearch-forward)
+    map ?  <Plug>(incsearch-backward)
+    map g/ <Plug>(incsearch-stay)
+    let g:incsearch#highlight = {
+      \   'on_cursor': {
+      \     'priority': '100'
+      \   },
+      \   'cursor': {
+      \     'group': 'ErrorMsg',
+      \     'priority': '1000'
+      \   }
+      \ }
+- repo: osyo-manga/vim-over
+  on_cmd: 'OverCommandLine'
+- repo: thinca/vim-visualstar
+- repo: osyo-manga/vim-anzu
+  on_map: '<Plug>(anzu-'
+  hook_add: |
+    nmap n <Plug>(anzu-n-with-echo)
+    nmap N <Plug>(anzu-N-with-echo)
+- repo: thinca/vim-ref
+  on_cmd: Ref
+  on_map: <Plug>(ref-keyword)
+  hook_add: |
+    let g:ref_phpmanual_path = expand('~/document/ref/php-chunked-xhtml/')
+    map K <Plug>(ref-keyword)
+- repo: matze/vim-move
+  on_map: ['<M-k>', '<M-j>']
+  hook_add: |
+    let g:move_key_modifier = 'M'
+    let g:move_auto_indent = 0
+    map <S-Up> <M-k>
+    map <S-Down> <M-j>

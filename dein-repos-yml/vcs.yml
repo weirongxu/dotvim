@@ -1,0 +1,42 @@
+- repo: lambdalisue/vim-gita
+  hook_add: |
+    command! Gstatus Gita status
+    command! Gp Gita push
+    command! Glp execute "Gita pull" | execute "Gita push"
+    command! Gblp execute "Gita pull --rebase" | execute "Gita push"
+    command! Gl Gita pull
+    let g:gita#features#browse#extra_translation_patterns = {
+      \ 'coding.net': [
+      \   [
+      \     '\vhttps?://git.coding\.net/(.{-})/(.{-})%(\.git)?$',
+      \     '\vgit://git.coding\.net/(.{-})/(.{-})%(\.git)?$',
+      \     '\vgit\@git.coding\.net:(.{-})/(.{-})%(\.git)?$',
+      \     '\vssh://git\@git.coding\.net/(.{-})/(.{-})%(\.git)?$',
+      \   ], {
+      \     '_': 'https://coding.net/u/\1/p/\2/git/blob/%r1/%pt%{#L|}ls%{-}le',
+      \     'blame': 'https://coding.net/u/\1/p/\2/git/blame/%r1/%pt%{#L|}ls%{-}le'
+      \   },
+      \ ],
+      \ }
+- repo: airblade/vim-gitgutter
+  if: g:env#unix
+  hook_add: |
+    let g:gitgutter_enabled = 1
+    let g:gitgutter_realtime = 0
+    let g:gitgutter_eager = 0
+- repo: cohama/agit.vim
+  on_cmd: ['Agit', 'AgitFile', 'AgitGit']
+# - repo: mhinz/vim-signify
+# - repo: rhysd/committia.vim
+- repo: mattn/gist-vim
+  on_cmd: 'Gist'
+  on_func: 'gist#list'
+  hook_add: |
+    let g:gist_token_file = expand('~/.record/github-token')
+- repo: jaxbot/github-issues.vim
+  on_cmd: ['Gissues', 'Giadd', 'Giedit', 'Giupdate', 'Gmiles']
+  hook_add: |
+    let github_token_file = g:gist_token_file
+    if filereadable(github_token_file)
+      let g:github_access_token = strpart(join(readfile(github_token_file), ""), 6)
+    endif

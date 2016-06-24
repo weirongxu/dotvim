@@ -1,254 +1,20 @@
 plugins:
   - repo: Shougo/dein.vim
 
-  # vimscript
-  # - repo: junegunn/vader.vim
-  #   on_cmd: Vader
-  #   on_ft: Vader
-  - repo: thinca/vim-scall
-  # - repo: kana/vim-vspec
-  - repo: thinca/vim-prettyprint
-    on_cmd: PP
-  - repo: vim-jp/vital.vim
-
-  # base
-  - repo: mbbill/fencview
-  - repo: LargeFile
-  # - repo: dimasg/vim-mark
-  - repo: nacitar/a.vim
-  - repo: drmikehenry/vim-fixkey
-    if: "! has('nvim')"
-  - repo: kshenoy/vim-signature
-    hook_source: let g:SignatureErrorIfNoAvailableMarks = 0
-  - repo: tpope/vim-repeat
-  - repo: tyru/open-browser.vim
-  - repo: editorconfig/editorconfig-vim
-    if: g:env#python
-    hook_source: Inc /plugins/editorconfig-vim
-  - repo: Shougo/context_filetype.vim
-    hook_add: Inc /plugins/context_filetype
-  - repo: farseer90718/vim-regionsyntax
-  # osyo-manga/vim-precious:
-  - repo: itchyny/vim-cursorword
-  - repo: bouzuya/vim-ibus
-    hook_source: Inc /plugins/ibus
-  - repo: craigemery/vim-autotag
-  - repo: airblade/vim-rooter
-  - repo: gioele/vim-autoswap
-
-  - repo: mhinz/vim-startify
-    hook_add: |
-      set sessionoptions=curdir,folds,help,resize,tabpages,unix
-      let g:startify_session_dir = $HOME.'/.record/vim-sessions'
-      let g:startify_session_autoload = 1
-      let g:startify_session_delete_buffers = 1
-      let g:startify_session_persistence = 1
-      let g:startify_custom_header = [
-        \ 'Raidou vim',
-        \ ]
-      let g:startify_bookmarks = [
-        \ $MYVIMRC,
-        \ $MY_PLUGINS,
-        \ ]
-      let g:startify_list_order = [
-        \ ['   Vimfile:'],
-        \ 'bookmarks',
-        \ ['   Sessions:'],
-        \ 'sessions',
-        \ ['   Last Recently Use:'],
-        \ 'files',
-        \ ]
-
-  # vim-textobj
-  - repo: kana/vim-textobj-user
-    hook_source: Inc /plugins/textobj-user
-  - repo: kana/vim-textobj-indent
-  - repo: kana/vim-textobj-entire
-  - repo: kana/vim-textobj-line
-  - repo: rhysd/vim-textobj-continuous-line
-  - repo: mattn/vim-textobj-url
-  - repo: coderifous/textobj-word-column.vim
-  - repo: thinca/vim-textobj-between
-  - repo: sgur/vim-textobj-parameter
-  - repo: kana/vim-textobj-lastpat
-  - repo: kana/vim-textobj-syntax
-  - repo: kana/vim-textobj-fold
-  - repo: kana/vim-textobj-datetime
-  - repo: whatyouhide/vim-textobj-xmlattr
-
-  - repo: terryma/vim-expand-region
-    hook_add: |
-      let g:expand_region_text_objects = {
-        \ 'i(': 1, 'a(': 1,
-        \ 'i[': 1, 'a[': 1,
-        \ 'i{': 1, 'a{': 1,
-        \ 'i<': 1, 'a<': 1,
-        \ "i\'": 1, "a\'": 1,
-        \ 'i"': 1, 'a"': 1,
-        \ 'it': 1, 'at': 1,
-        \ 'iu': 0, 'au': 0,
-        \ 'ic': 0, 'ac': 0,
-        \ 'il': 0,
-        \ 'ii': 0,
-        \ 'i,': 0, 'a,': 0,
-        \ 'ixa': 0, 'axa': 0,
-        \ 'ip': 0,
-        \ 'ie': 0,
-        \ }
-      if g:env#gui
-        map <C-CR> <Plug>(expand_region_expand)
-      else
-        map <NL> <Plug>(expand_region_expand)
-      endif
-      vmap <BS> <Plug>(expand_region_shrink)
-    hook_post_source: |
-      call expand_region#custom_text_objects('php', {
-        \   'iP': 0, 'aP': 0,
-        \ })
-
-  - repo: kana/vim-operator-user
-  - repo: kana/vim-operator-replace
-    on_map: _
-    hook_source: |
-      map _ <Plug>(operator-replace)
-  - repo: rhysd/vim-operator-surround
-    on_map:
-      - sa
-      - sd
-      - sr
-    hook_source: |
-      map sa <Plug>(operator-surround-append)
-      map sd <Plug>(operator-surround-delete)
-      map sr <Plug>(operator-surround-replace)
-
-  - repo: jiangmiao/auto-pairs
-    hook_source: |
-      let g:AutoPairsFlyMode = 1
-      let g:AutoPairsMapSpace = 0
-      let g:AutoPairs = {
-        \ '(': ')',
-        \ '[': ']',
-        \ "'": "'",
-        \ '"': '"',
-        \ '`': '`',
-        \ '{': '}'}
-
-  # git
-  - repo: lambdalisue/vim-gita
-    hook_add: |
-      command! Gstatus Gita status
-      command! Gp Gita push
-      command! Glp execute "Gita pull" | execute "Gita push"
-      command! Gblp execute "Gita pull --rebase" | execute "Gita push"
-      command! Gl Gita pull
-      let g:gita#features#browse#extra_translation_patterns = {
-        \ 'coding.net': [
-        \   [
-        \     '\vhttps?://git.coding\.net/(.{-})/(.{-})%(\.git)?$',
-        \     '\vgit://git.coding\.net/(.{-})/(.{-})%(\.git)?$',
-        \     '\vgit\@git.coding\.net:(.{-})/(.{-})%(\.git)?$',
-        \     '\vssh://git\@git.coding\.net/(.{-})/(.{-})%(\.git)?$',
-        \   ], {
-        \     '_': 'https://coding.net/u/\1/p/\2/git/blob/%r1/%pt%{#L|}ls%{-}le',
-        \     'blame': 'https://coding.net/u/\1/p/\2/git/blame/%r1/%pt%{#L|}ls%{-}le'
-        \   },
-        \ ],
-        \ }
-  - repo: airblade/vim-gitgutter
-    if: g:env#unix
-    hook_add: |
-      let g:gitgutter_enabled = 1
-      let g:gitgutter_realtime = 0
-      let g:gitgutter_eager = 0
-  - repo: cohama/agit.vim
-    on_cmd: ['Agit', 'AgitFile', 'AgitGit']
-  # - repo: mhinz/vim-signify
-  # - repo: rhysd/committia.vim
-
-  # unite
-  - repo: Shougo/unite.vim
-    on_cmd:
-      - Unite
-      - UniteWithCursorWord
-      - UniteWithInput
-    hook_post_source: Inc /plugins/unite
-
-  - repo: junkblocker/unite-tasklist
-    hook_add: |
-      command! TaskList Unite tasklist
-      command! TList Unite tasklist
-
-  - repo: ujihisa/unite-colorscheme
-  - repo: Shougo/unite-outline
-  - repo: Shougo/junkfile.vim
-  - repo: Shougo/neoyank.vim
-  - repo: Kocha/vim-unite-tig
-  # - repo: 'supermomonga/unite-kawaii-calc'
-  - repo: thinca/vim-unite-history
-  - repo: Shougo/unite-help
-  - repo: mattn/unite-gist
-  # - repo: 'hewes/unite-gtags'
-  - repo: tsukkee/unite-tag
-    hook_add: |
-      let g:unite_source_tag_strict_truncate_string = 0
-      autocmd BufEnter *
-        \   if empty(&buftype)
-        \|    nnoremap <buffer> <c-]> :<C-u>UniteWithCursorWord -wrap -auto-preview tag<CR>
-        \|  endif
-      set tags+=.tags,./.tags
-  - repo: farseer90718/unite-workflow
-    hook_add: |
-      function! s:unite_youdao(visual)
-        if a:visual
-          let reg = '"'
-          let reg_save = getreg(reg)
-          let reg_type = getregtype(reg)
-          silent exe 'norm! gv"'.reg.'y'
-          let cont = getreg(reg)
-          call setreg(reg,reg_save,reg_type)
-        else
-          let cont = expand('<cword>')
-        endif
-        exec ":Unite -wipe youdao:".escape(cont, " :\\")
-      endfunction
-      nnoremap <space>yd :<C-u>call <SID>unite_youdao(0)<CR>
-      vnoremap <space>yd :<C-u>call <SID>unite_youdao(1)<CR>
-  - repo: osyo-manga/unite-quickfix
-    hook_post_source: autocmd FileType qf q | Unite quickfix
+  - repos_include: vimscript.yml
+  - repos_include: base.yml
+  - repos_include: utils.yml
+  - repos_include: textobj.yml
+  - repos_include: operator-user.yml
+  - repos_include: vcs.yml
+  - repos_include: unite.yml
   # - repo: Shougo/neossh.vim
 
   # - repo: Rykka/trans.vim
   #   on_map: <leader>t
   #   on_add: Inc /plugins/trans
 
-  - repo: ctrlpvim/ctrlp.vim
-    hook_add: |
-      let g:ctrlp_custom_ignore = {
-        \ 'dir':  '\v[\/](\.(git|hg|svn|ropeproject)|(node_modules|bower_components|vendor))$',
-        \ 'file': '\v\.(exe|so|dll)$',
-        \ }
-
-  - repo: Shougo/vimproc
-    build: make
-
-  - repo: Shougo/vimfiler.vim
-    on_cmd:
-      - VimFiler
-      - VimFilerTab
-      - VimFilerExplorer
-      - Edit
-      - Write
-      - VimFilerCreate
-      - VimFilerSimple
-      - VimFilerSplit
-      - VimFilerDouble
-      - VimFilerCurrentDir
-      - VimFilerBufferDir
-      - VimFilerExplorer
-      - Read
-      - Source
-    hook_add:
-      Inc /plugins/vimfiler
+  - repos_include: file.yml
 
   - repo: tyru/caw.vim
     on_map: gc
@@ -257,275 +23,34 @@ plugins:
       let g:caw_dollarpos_sp_left = '  '
       Inc /plugins/caw
 
-  - repo: itchyny/lightline.vim
-    hook_add: |
-      Inc /plugins/lightline
-  - repo: gcavallanti/vim-noscrollbar
-
-  - repo: Yggdroot/indentLine
-    hook_add: |
-      let g:indentLine_conceallevel = 1
-      let g:indentLine_concealcursor = ''
-      let g:indentLine_fileTypeExclude = ['', 'stylus', 'jade', 'vimfiler', 'unite', 'tagbar', 'yaml']
-      let g:indentLine_faster = 1
-      if !g:env#x
-        let g:indentLine_color_term = 8
-      endif
-  - repo: nathanaelkane/vim-indent-guides
-    on_cmd: ['IndentGuidesToggle', 'IndentGuidesEnable', 'IndentGuidesDisable']
-    on_map: ['<Plug>IndentGuidesToggle', '<Plug>IndentGuidesEnable', '<Plug>IndentGuidesDisable']
-    gui: 1
-    hook_add: |
-      let g:indent_guides_guide_size = 1
-      nmap <silent> gL <Plug>IndentGuidesToggle
+  - repos_include: ui.yml
 
   - repo: Rykka/colorv.vim
     hook_add: let g:colorv_preview_ftype = join(g:env#web_assets_type_list, ',')
 
-
-  # complete
-  - repo: Shougo/neocomplete.vim
-    hook_add: Inc /plugins/neocomplete
-  - repo: hrsh7th/vim-neco-calc
-
-  - repo: marijnh/tern_for_vim
-    if: g:env#unix
-    on_ft: javascript
-    build: npm install
-    hook_add: |
-      call UniteFileTypeTool('javascript', [
-        \ ['tern-doc', 'TernDoc'],
-        \ ['tern-doc-browse', 'TernDocBrowse'],
-        \ ['tern-type', 'TernType'],
-        \ ['tern-def', 'TernDef'],
-        \ ['tern-def-preview', 'TernDefPreview'],
-        \ ['tern-def-split', 'TernDefSplit'],
-        \ ['tern-def-tab', 'TernDefTab'],
-        \ ['tern-refs', 'TernRefs'],
-        \ ['tern-rename', 'TernRename'],
-        \ ])
-
-  - repo: osyo-manga/vim-monster
-    on_ft: ruby
-    hook_add: |
-      let g:neocomplete#force_omni_input_patterns.ruby =
-        \ '[^. *\t]\.\w*\|\h\w*::'
-
-  - repo: davidhalter/jedi-vim
-    on_ft: python
-    hook_add: |
-      let g:jedi#auto_initialization = 0
-      let g:jedi#show_call_signatures = 0
-      autocmd FileType python setlocal omnifunc=jedi#completions
-      let g:neocomplete#force_omni_input_patterns.python =
-        \ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import\s\(\w*,\s\)\?\|^\s*from \|^\s*import \)\w*'
-      call UniteFileTypeTool('python', [
-        \ ['jedi-goto', 'call jedi#goto()'],
-        \ ['jedi-goto_assignments', 'call jedi#goto_assignments()'],
-        \ ['jedi-goto_definitions', 'call jedi#goto_definitions()'],
-        \ ['jedi-usages', 'call jedi#usages()'],
-        \ ['jedi-rename', 'call jedi#rename()'],
-        \ ['jedi-rename_visual', 'call jedi#rename_visual()'],
-        \ ['jedi-document', 'call jedi#show_documentation()'],
-        \ ])
-  - repo: osyo-manga/vim-marching
-    on_ft: ['cpp', 'c']
-    hook_add: |
-      let g:marching_clang_command = "/usr/bin/clang"
-      let g:marching_include_paths = [
-        \   "/usr/include"
-        \]
-
-      if !exists('g:neocomplete#force_omni_input_patterns')
-          let g:neocomplete#force_omni_input_patterns = {}
-      endif
-
-      let g:neocomplete#force_omni_input_patterns.c =
-            \ '[^.[:digit:] *\t]\%(\.\|->\)\w*'
-      let g:neocomplete#force_omni_input_patterns.cpp =
-            \ '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
-      let g:neocomplete#force_omni_input_patterns.objc =
-            \ '[^.[:digit:] *\t]\%(\.\|->\)\w*'
-      let g:neocomplete#force_omni_input_patterns.objcpp =
-            \ '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
-
-      let g:marching_enable_neocomplete = 1
-
-  - repo: artur-shaik/vim-javacomplete2
-    on_ft: java
-    hook_add: |
-      autocmd FileType java setlocal omnifunc=javacomplete#Complete
-      call UniteFileTypeTool('java', [
-        \ ['Imports-AddSmart', 'JCimportAddSmart'],
-        \ ['Imports-Add', 'JCimportAdd'],
-        \ ['Imports-AddMissing', 'JCimportsAddMissing'],
-        \ ['Imports-RemoveUnused', 'JCimportsRemoveUnused'],
-        \ ['Imports-RemoveUnused', 'JCserverShowPort'],
-        \ ['Server-ShowPID', 'JCserverShowPID'],
-        \ ['Server-Start', 'JCserverStart'],
-        \ ['Server-Terminate', 'JCserverTerminate'],
-        \ ['Server-Compile', 'JCserverCompile'],
-        \ ['Debug-EnableLogs', 'JCdebugEnableLogs'],
-        \ ['Debug-DisableLogs', 'JCdebugDisableLogs'],
-        \ ['Debug-GetLogContent', 'JCdebugGetLogContent'],
-        \ ['Cache-Clear', 'JCcacheClear'],
-        \ ])
-
-  - repo: Shougo/neosnippet.vim
-    hook_add: |
-      imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-        \ "\<Plug>(neosnippet_expand_or_jump)"
-        \: "\<TAB>"
-      imap <expr><C-j> neosnippet#jumpable() ?
-        \ "\<Plug>(neosnippet_jump)"
-        \: "\<C-j>"
-      imap <expr><C-CR> neosnippet#expandable() ?
-        \ "\<Plug>(neosnippet_expand)"
-        \: "\<C-CR>"
-      smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-        \ "\<Plug>(neosnippet_expand_or_jump)"
-        \: "\<TAB>"
-      smap <expr><C-j> neosnippet#jumpable() ?
-        \ "\<Plug>(neosnippet_jump)"
-        \: "\<C-j>"
-      smap <expr><C-CR> neosnippet#expandable() ?
-        \ "\<Plug>(neosnippet_expand)"
-        \: "\<C-CR>"
-      let g:neosnippet#snippets_directory = $MY_VIMFILES.'/snippets'
-      let g:neosnippet#disable_runtime_snippets = {
-        \   '_': 1
-        \ }
-      set clipboard-=autoselect 
-      command! Snip NeoSnippetEdit -split -vertical
-
-    # - repo: osyo-manga/shabadou.vim
-    # - repo: osyo-manga/vim-watchdogs
-    # - repo: jceb/vim-hier
-    # - repo: dannyob/quickfixstatus
-    # let g:watchdogs_check_BufWritePost_enable = 1
-
-  - repo: scrooloose/syntastic
-    hook_add: Inc /plugins/syntastic
+  - repos_include: complete.yml
+  - repos_include: snippet.yml
+  - repos_include: checker.yml
 
   # filetype
-  - repo: sheerun/vim-polyglot
-    hook_add: |
-      let g:polyglot_disabled = ['coffee', 'javascript']
-  - repo: othree/yajs.vim
-  - repo: othree/es.next.syntax.vim
-  # - repo: pangloss/vim-javascript
-  #   hook_add: let g:javascript_enable_domhtmlcss = 1
-  - repo: othree/javascript-libraries-syntax.vim
-    hook_add: |
-      let g:used_javascript_libs = 'jquery,underscore,backbone,angularjs,angularui,angularuirouter,react,flux,requirejs,jasmine,chai,handlebars'
-  - repo: weirongxu/vim-coffee-script
-    on_ft: ['coffee', 'jade']
-  # - repo: rcmdnk/vim-markdown
-  #   on_ft: markdown
-  #   let g:vim_markdown_initial_foldlevel=99
-  # - repo: elzr/vim-json
-  #   on_ft: json
-  # - repo: 2072/PHP-Indenting-for-VIm
-  #   on_ft: g:env#html_type_list
-  # - repo: hdima/python-syntax
-  #   on_ft: python
-  # - repo: hynek/vim-python-pep8-indent
-  #   on_ft: python
-  - repo: hallison/vim-rdoc
-  - repo: justinmk/vim-syntax-extra
-    on_ft: ['c', 'cpp', 'lex', 'yacc']
-  - repo: jrestrepo/matlab
-    on_ft: matlab
-  - repo: vim-scripts/autohotkey-ahk
-    on_ft: autohotkey
-  - repo: tpope/vim-endwise
-    on_ft: ['ruby', 'lua', 'c', 'cpp', 'shell', 'zsh', 'bash']
-  - repo: gabesoft/vim-java
-    on_ft: java
-  - repo: weirongxu/yiiprado.vim
-    on_ft: yiiprado
-    hook_add: |
-      autocmd BufNewFile,BufRead *.tpl setfiletype yiiprado
-  - repo: itchyny/vim-parenmatch
-    if: exists('#OptionSet')
-    hook_add: let g:loaded_matchparen = 1
-  - repo: Valloric/MatchTagAlways
-    if: g:env#python
-    on_ft: g:env#html_type_list
-    hook_add: |
-      let g:mta_filetypes = {}
-      for val in g:env#html_type_list
-        let g:mta_filetypes[val] = 1
-      endfor
-      nnoremap <Leader>% :MtaJumpToOtherTag<cr>
-  - repo: gregsexton/MatchTag
-    on_ft: g:env#html_type_list
-    if: "! g:env#python"
-
-  - repo: edsono/vim-matchit
-    hook_add: |
-      function! s:set_matchit()
-        let l:list = ['[:]', '{:}', '<:>', '(:)']
-        if exists('b:match_words') && strlen(b:match_words) > 0
-          for l in l:list
-            if b:match_words !~ '\V' . l
-              let b:match_words .= ',' . l
-            endif
-          endfor
-        else
-          let b:match_words = join(l:list, ',')
-        endif
-      endfunction
-      autocmd FileType,BufEnter * call s:set_matchit()
+  - repos_include: syntax.yml
+  - repos_include: match.yml
 
   # tools
+  - repos_include: format.yml
+  - repos_include: jump.yml
+  - repos_include: convert.yml
   - repo: kannokanno/previm
     on_ft: ['markdown', 'rst']
     depends: open-browser.vim
-  - repo: machakann/vim-swap
-    on_map: ['g<', 'g>', 'gs']
-  - repo: Chiel92/vim-autoformat
-    on_cmd: Autoformat
-  - repo: mattn/emmet-vim
-    on_map: [['i', '<c-y>']]
-    on_ft: g:env#web_assets_type_list
-  - repo: maksimr/vim-jsbeautify
-    hook_add: |
-      call UniteFileTypeTool(g:env#web_assets_type_list, [
-        \ ['jsbf-RangeJsBeautify', 'call RangeJsBeautify()'],
-        \ ['jsbf-JsBeautify', 'call JsBeautify()'],
-        \ ['jsbf-JsxBeautify', 'call JsxBeautify()'],
-        \ ['jsbf-RangeJsxBeautify', 'call RangeJsxBeautify()'],
-        \ ['jsbf-JsonBeautify', 'call JsonBeautify()'],
-        \ ['jsbf-RangeJsonBeautify', 'call RangeJsonBeautify()'],
-        \ ['jsbf-RangeHtmlBeautify', 'call RangeHtmlBeautify()'],
-        \ ['jsbf-HtmlBeautify', 'call HtmlBeautify()'],
-        \ ['jsbf-RangeCSSBeautify', 'call RangeCSSBeautify()'],
-        \ ['jsbf-CSSBeautify', 'call CSSBeautify()'],
-        \ ])
-  - repo: stephpy/vim-phpdoc
-    on_ft: g:env#html_type_list
-    hook_add: |
-      nnoremap <leader>8 :call PhpDocSingle()<CR>
-      vnoremap <leader>8 :call PhpDocRange()<CR>
-  - repo: nicwest/QQ.vim
-    on_map: ['QQ', 'QH', 'QCO', 'QCC', 'QCN', 'QG']
+  # - repo: nicwest/QQ.vim
+  #   on_map: ['QQ', 'QH', 'QCO', 'QCC', 'QCN', 'QG']
   - repo: januswel/sweepbuf.vim
     on_cmd: SweepBuffers
   - repo: szw/vim-maximizer
     on_cmd: MaximizerToggle
     hook_add: |
       map <space>a :MaximizerToggle<CR>
-  - repo: rhysd/vim-grammarous
-    on_cmd: GrammarousCheck
-  - repo: salsifis/vim-transpose
-    on_cmd:
-      - Transpose
-      - TransposeWords
-      - TransposeTab
-      - TransposeCSV
-      - TransposeInteractive
-      - TransposeIndentToggle
   - repo: tpope/vim-characterize
     on_map: ga
   - repo: jmcantrell/vim-virtualenv
@@ -552,20 +77,6 @@ plugins:
   # - repo: tyru/eskk.vim
   #   on_cmd: <Plug>(eskk:toggle)
   #   hook_add: imap <c-=> <Plug>(eskk:toggle)
-  - repo: drmikehenry/vim-fontsize
-    on_map: <Plug>Fontsize
-    hook_add: |
-      nmap <silent> <Leader>=           <Plug>FontsizeBegin
-      nmap <silent> <C-ScrollWheelUp>   <Plug>FontsizeInc
-      nmap <silent> <Leader>+           <Plug>FontsizeInc
-      nmap <silent> <C-ScrollWheelDown> <Plug>FontsizeDec
-      nmap <silent> <Leader>-           <Plug>FontsizeDec
-      nmap <silent> <Leader>0           <Plug>FontsizeDefault
-  - repo: dhruvasagar/vim-table-mode
-    on_map: <Leader>tm
-  - repo: jaxbot/semantic-highlight.vim
-    on_cmd: SemanticHighlightToggle
-    hook_add: nnoremap <Leader>s :SemanticHighlightToggle<cr>
   - repo: vim-scripts/DrawIt
     on_cmd: ['DIstart', 'DIsngl', 'DIdbl', 'DIstop', 'DrawIt']
     on_map: ['<leader>di', '<leader>ds']
@@ -581,101 +92,15 @@ plugins:
       'Rename', 'Chmod', 'Find',
       'Locate', 'SudoWrite', 'W',
     ]
-  - repo: thinca/vim-quickrun
-    on_cmd: QuickRun
-    hook_add:
-      Inc /plugins/quickrun
-  - repo: weirongxu/quickrun-babel.vim
-    on_ft: javascript
+  - repos_include: quickrun.yml
   - repo: joonty/vdebug
     on_cmd: ['VdebugEval', 'VdebugOpt', 'VdebugStart']
   # - repo: mattn/emoji-vim
   #   on_cmd: Emoji
   #   type: nosync
-  - repo: thinca/vim-ref
-    on_cmd: Ref
-    on_map: <Plug>(ref-keyword)
-    hook_add: |
-      let g:ref_phpmanual_path = expand('~/document/ref/php-chunked-xhtml/')
-      map K <Plug>(ref-keyword)
-  - repo: justinmk/vim-gtfo
-    on_map: ['got', 'goT', 'gof', 'goF']
-  - repo: wesleyche/SrcExpl
-    on_cmd: ['SrcExpl', 'SrcExplClose', 'SrcExplToggle']
-  - repo: zhaocai/DirDiff.vim
-    on_cmd:
-      - DirDiff
-      - DirDiffOpen
-      - DirDiffNext
-      - DirDiffPrev
-      - DirDiffUpdate
-      - DirDiffQuit
-  - repo: AndrewRadev/linediff.vim
-    on_cmd: ['Linediff', 'LinediffReset']
-  - repo: matze/vim-move
-    on_map: ['<M-k>', '<M-j>']
-    hook_add: |
-      let g:move_key_modifier = 'M'
-      let g:move_auto_indent = 0
-      map <S-Up> <M-k>
-      map <S-Down> <M-j>
-  - repo: AndrewRadev/splitjoin.vim
-    on_map: ['gS', 'gJ']
-  - repo: osyo-manga/vim-jplus
-    on_map: '<Plug>(jplus'
-    hook_add: |
-      nmap J <Plug>(jplus)
-      vmap J <Plug>(jplus)
-      nmap <Leader>J <Plug>(jplus-getchar)
-      vmap <Leader>J <Plug>(jplus-getchar)
-  - repo: mattn/webapi-vim
-  - repo: mattn/gist-vim
-    on_cmd: 'Gist'
-    on_func: 'gist#list'
-    hook_add: |
-      let g:gist_token_file = expand('~/.record/github-token')
-  - repo: jaxbot/github-issues.vim
-    on_cmd: ['Gissues', 'Giadd', 'Giedit', 'Giupdate', 'Gmiles']
-    hook_add: |
-      let github_token_file = g:gist_token_file
-      if filereadable(github_token_file)
-        let g:github_access_token = strpart(join(readfile(github_token_file), ""), 6)
-      endif
-
-  - repo: mbbill/undotree
-    on_cmd:
-      - UndotreeToggle
-      - UndotreeFocus
-      - UndotreeShow
-      - UndotreeHide
-    hook_add: command! Undotree UndotreeToggle
-  - repo: sjl/gundo.vim
-    on_cmd: ['GundoToggle', 'GundoHide', 'GundoRendGraph', 'GundoShow']
-    hook_add: command! Gundo GundoToggle
-
-  - repo: junegunn/vim-easy-align
-    on_map: ['<Plug>(EasyAlign)', '<Plug>(LiveEasyAlign)']
-    on_cmd: ['EasyAlign', 'LiveEasyAlign']
-    hook_add: vmap <Enter> <Plug>(LiveEasyAlign)
-
-  - repo: majutsushi/tagbar
-    on_cmd: ['TagbarOpen', 'TagbarClose', 'TagbarToggle', 'Tagbar',
-      'TagbarOpenAutoClose', 'TagbarTogglePause',
-      'TagbarSetFoldlevel', 'TagbarShowTag',
-      'TagbarCurrentTag', 'TagbarGetTypeConfig',
-      'TagbarDebug', 'TagbarDebugEnd']
-    hook_add: |
-      map gl :TagbarToggle<CR>
-      Inc /plugins/tagbar
-      let g:tagbar_show_linenumbers = 1
-
-  - repo: mattn/vim-sunday
-    on_map: ['<c-a>', '<c-x>']
-    hook_add: |
-      let g:sunday_pairs = [
-        \   ['extends', 'implements'],
-        \   ['require', 'require_once', 'include', 'include_once'],
-        \ ]
+  - repos_include: diff.yml
+  - repos_include: vcs.yml
+  - repos_include: edit.yml
 
   - repo: Shougo/vimshell.vim
     on_cmd: ['VimShell', 'VimShellCreate', 'VimShellTab', 'VimShellPop',
@@ -693,35 +118,7 @@ plugins:
       " nmap sS <Plug>(easymotion-s2)
       " nmap t <Plug>(easymotion-t2)
       nmap sl <Plug>(easymotion-sl)
-  # - repo: junegunn/vim-pseudocl
-  # - repo: junegunn/vim-oblique
-  #   hook_add: let g:oblique#incsearch_highlight_all=1
-
-  - repo: haya14busa/incsearch.vim
-    on_map: ['/', '<Plug>(incsearch-']
-    hook_post_source: |
-      map /  <Plug>(incsearch-forward)
-      map ?  <Plug>(incsearch-backward)
-      map g/ <Plug>(incsearch-stay)
-      let g:incsearch#highlight = {
-        \   'on_cursor': {
-        \     'priority': '100'
-        \   },
-        \   'cursor': {
-        \     'group': 'ErrorMsg',
-        \     'priority': '1000'
-        \   }
-        \ }
-
-  - repo: osyo-manga/vim-over
-    on_cmd: 'OverCommandLine'
-
-  - repo: thinca/vim-visualstar
-  - repo: osyo-manga/vim-anzu
-    on_map: '<Plug>(anzu-'
-    hook_add: |
-      nmap n <Plug>(anzu-n-with-echo)
-      nmap N <Plug>(anzu-N-with-echo)
+  - repos_include: inc.yml
 
   # - repo: Shougo/deoplete.nvim
   # - repo: shawncplus/phpcomplete.vim

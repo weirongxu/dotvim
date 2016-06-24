@@ -1,0 +1,55 @@
+- repo: Shougo/unite.vim
+  on_cmd:
+    - Unite
+    - UniteWithCursorWord
+    - UniteWithInput
+    - UniteResume
+  hook_add: Inc /plugins/unite
+  hook_post_source: |
+    call unite#filters#matcher_default#use(['matcher_fuzzy'])
+    call unite#filters#sorter_default#use(['sorter_rank'])
+    call unite#custom_max_candidates('vimgrep', 0)
+
+- repo: junkblocker/unite-tasklist
+  hook_add: |
+    command! TaskList Unite tasklist
+    command! TList Unite tasklist
+
+- repo: ujihisa/unite-colorscheme
+- repo: Shougo/unite-outline
+- repo: Shougo/junkfile.vim
+- repo: Shougo/neoyank.vim
+- repo: Kocha/vim-unite-tig
+# - repo: 'supermomonga/unite-kawaii-calc'
+- repo: thinca/vim-unite-history
+- repo: Shougo/unite-help
+- repo: mattn/unite-gist
+# - repo: 'hewes/unite-gtags'
+- repo: tsukkee/unite-tag
+  hook_add: |
+    let g:unite_source_tag_strict_truncate_string = 0
+    autocmd BufEnter *
+      \   if empty(&buftype)
+      \|    nnoremap <buffer> <c-]> :<C-u>UniteWithCursorWord -wrap -auto-preview tag<CR>
+      \|  endif
+    set tags+=.tags,./.tags
+- repo: farseer90718/unite-workflow
+  hook_add: |
+    function! s:unite_youdao(visual)
+      if a:visual
+        let reg = '"'
+        let reg_save = getreg(reg)
+        let reg_type = getregtype(reg)
+        silent exe 'norm! gv"'.reg.'y'
+        let cont = getreg(reg)
+        call setreg(reg,reg_save,reg_type)
+      else
+        let cont = expand('<cword>')
+      endif
+      exec ":Unite -wipe youdao:".escape(cont, " :\\")
+    endfunction
+    nnoremap <space>yd :<C-u>call <SID>unite_youdao(0)<CR>
+    vnoremap <space>yd :<C-u>call <SID>unite_youdao(1)<CR>
+- repo: osyo-manga/unite-quickfix
+  hook_post_source: autocmd FileType qf q | Unite quickfix
+- repo: osyo-manga/unite-option

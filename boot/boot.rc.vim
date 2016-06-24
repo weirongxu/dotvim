@@ -1,4 +1,4 @@
-function Include(path, current) "{{{
+function! Include(path, current) "{{{
   try
     if a:path[0] == '/'
       let path = $MY_VIMFILES . a:path

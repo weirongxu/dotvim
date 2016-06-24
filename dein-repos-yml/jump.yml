@@ -1,0 +1,12 @@
+- repo: majutsushi/tagbar
+  on_cmd: ['TagbarOpen', 'TagbarClose', 'TagbarToggle', 'Tagbar',
+    'TagbarOpenAutoClose', 'TagbarTogglePause',
+    'TagbarSetFoldlevel', 'TagbarShowTag',
+    'TagbarCurrentTag', 'TagbarGetTypeConfig',
+    'TagbarDebug', 'TagbarDebugEnd']
+  hook_add: |
+    map gl :TagbarToggle<CR>
+    Inc /plugins/tagbar
+    let g:tagbar_show_linenumbers = 1
+- repo: wesleyche/SrcExpl
+  on_cmd: ['SrcExpl', 'SrcExplClose', 'SrcExplToggle']

@@ -1,0 +1,9 @@
+# vimscript
+# - repo: junegunn/vader.vim
+#   on_cmd: Vader
+#   on_ft: Vader
+- repo: thinca/vim-scall
+# - repo: kana/vim-vspec
+- repo: thinca/vim-prettyprint
+  on_cmd: PP
+- repo: vim-jp/vital.vim

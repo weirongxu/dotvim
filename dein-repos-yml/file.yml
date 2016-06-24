@@ -1,0 +1,26 @@
+- repo: ctrlpvim/ctrlp.vim
+  hook_add: |
+    let g:ctrlp_custom_ignore = {
+      \ 'dir':  '\v[\/](\.(git|hg|svn|ropeproject)|(node_modules|bower_components|vendor))$',
+      \ 'file': '\v\.(exe|so|dll)$',
+      \ }
+- repo: Shougo/vimfiler.vim
+  on_cmd:
+    - VimFiler
+    - VimFilerTab
+    - VimFilerExplorer
+    - Edit
+    - Write
+    - VimFilerCreate
+    - VimFilerSimple
+    - VimFilerSplit
+    - VimFilerDouble
+    - VimFilerCurrentDir
+    - VimFilerBufferDir
+    - VimFilerExplorer
+    - Read
+    - Source
+  hook_add:
+    Inc /plugins/vimfiler
+- repo: justinmk/vim-gtfo
+  on_map: ['got', 'goT', 'gof', 'goF']

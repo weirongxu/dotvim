@@ -2,22 +2,22 @@
   hook_add: Inc /plugins/neocomplete
 - repo: hrsh7th/vim-neco-calc
 
-- repo: marijnh/tern_for_vim
-  if: g:env#unix
-  on_ft: javascript
-  build: npm install
-  hook_add: |
-    call UniteFileTypeTool('javascript', [
-      \ ['tern-doc', 'TernDoc'],
-      \ ['tern-doc-browse', 'TernDocBrowse'],
-      \ ['tern-type', 'TernType'],
-      \ ['tern-def', 'TernDef'],
-      \ ['tern-def-preview', 'TernDefPreview'],
-      \ ['tern-def-split', 'TernDefSplit'],
-      \ ['tern-def-tab', 'TernDefTab'],
-      \ ['tern-refs', 'TernRefs'],
-      \ ['tern-rename', 'TernRename'],
-      \ ])
+# - repo: marijnh/tern_for_vim
+#   if: g:env#unix
+#   on_ft: javascript
+#   build: npm install
+#   hook_add: |
+#     call UniteFileTypeTool('javascript', [
+#       \ ['tern-doc', 'TernDoc'],
+#       \ ['tern-doc-browse', 'TernDocBrowse'],
+#       \ ['tern-type', 'TernType'],
+#       \ ['tern-def', 'TernDef'],
+#       \ ['tern-def-preview', 'TernDefPreview'],
+#       \ ['tern-def-split', 'TernDefSplit'],
+#       \ ['tern-def-tab', 'TernDefTab'],
+#       \ ['tern-refs', 'TernRefs'],
+#       \ ['tern-rename', 'TernRename'],
+#       \ ])
 
 - repo: osyo-manga/vim-monster
   on_ft: ruby

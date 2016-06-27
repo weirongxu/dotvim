@@ -1,3 +1,27 @@
+- repo: jiangmiao/auto-pairs
+  hook_add: |
+    let g:AutoPairsFlyMode = 1
+    let g:AutoPairsMapSpace = 0
+    let g:AutoPairs = {
+      \ '(': ')',
+      \ '[': ']',
+      \ "'": "'",
+      \ '"': '"',
+      \ '`': '`',
+      \ '{': '}'}
+- repo: tpope/vim-endwise
+  on_ft: ['ruby', 'lua', 'c', 'cpp', 'shell', 'zsh', 'bash']
+- repo: AndrewRadev/splitjoin.vim
+  on_map: ['gS', 'gJ']
+- repo: osyo-manga/vim-jplus
+  on_map: '<Plug>(jplus'
+  hook_add: |
+    nmap J <Plug>(jplus)
+    vmap J <Plug>(jplus)
+    nmap <Leader>J <Plug>(jplus-getchar)
+    vmap <Leader>J <Plug>(jplus-getchar)
+
+
 # - repo: junegunn/vim-pseudocl
 # - repo: junegunn/vim-oblique
 #   hook_add: let g:oblique#incsearch_highlight_all=1

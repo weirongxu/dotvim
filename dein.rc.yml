@@ -37,6 +37,7 @@ plugins:
   # filetype
   - repos_include: syntax.yml
   - repos_include: match.yml
+  - repos_include: integration.yml
 
   # tools
   - repos_include: format.yml

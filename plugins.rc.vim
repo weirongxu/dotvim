@@ -10,9 +10,3 @@ Inc dein.convert
 call dein#end()
 
 map <leader>z :call zeal#execute(context_filetype#get_filetype(), expand("<cword>"))<CR>
-
-command! DeinInstall
-      \ if dein#check_install() |
-      \   call dein#install() |
-      \ endif
-command! -nargs=* DeinUpdate call dein#update(<f-args>)

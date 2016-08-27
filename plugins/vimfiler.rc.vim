@@ -27,13 +27,13 @@ function! s:vimfiler_settings()
   nmap <silent><buffer> R <Plug>(vimfiler_redraw_screen)
 
   nunmap <silent><buffer> <C-j>
-  command -buffer History call feedkeys("\<Plug>(vimfiler_switch_to_history_directory)")
+  command! -buffer History call feedkeys("\<Plug>(vimfiler_switch_to_history_directory)")
 
   nunmap <silent><buffer> H
-  command -buffer Shell call feedkeys("\<Plug>(vimfiler_popup_shell)")
+  command! -buffer Shell call feedkeys("\<Plug>(vimfiler_popup_shell)")
 
   nunmap <silent><buffer> L
-  command -buffer Drive call feedkeys("\<Plug>(vimfiler_switch_to_drive)")
+  command! -buffer Drive call feedkeys("\<Plug>(vimfiler_switch_to_drive)")
 endfunction
 
 " isolate vimfiler by tab

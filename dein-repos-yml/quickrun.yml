@@ -4,3 +4,6 @@
     Inc /plugins/quickrun
 - repo: weirongxu/quickrun-babel.vim
   on_ft: javascript
+
+- repo: metakirby5/codi.vim
+  on_cmd: Codi

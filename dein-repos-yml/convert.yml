@@ -17,3 +17,8 @@
       \ ]
 - repo: machakann/vim-swap
   on_map: ['g<', 'g>', 'gs']
+- repo: kana/vim-smartchr
+  on_event: InsertCharPre
+  hook_add: |
+    autocmd FileType c,cpp,perl,php inoremap <buffer> <expr> -
+      \ smartchr#one_of('-', '->', '--')

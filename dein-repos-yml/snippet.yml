@@ -25,10 +25,10 @@
     set clipboard-=autoselect 
     command! Snip NeoSnippetEdit -split -vertical
 - repo: mattn/emmet-vim
-  on_map: [['i', '<c-y>']]
-  on_ft: g:env#web_assets_type_list
+  on_map: ['<c-y>']
+  on_ft: EVAL(g:env#web_assets_type_list)
 - repo: stephpy/vim-phpdoc
-  on_ft: g:env#html_type_list
+  on_ft: EVAL(g:env#html_type_list)
   hook_add: |
     nnoremap <leader>8 :call PhpDocSingle()<CR>
     vnoremap <leader>8 :call PhpDocRange()<CR>

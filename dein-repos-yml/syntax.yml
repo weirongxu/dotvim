@@ -16,7 +16,7 @@
 # - repo: elzr/vim-json
 #   on_ft: json
 # - repo: 2072/PHP-Indenting-for-VIm
-#   on_ft: g:env#html_type_list
+#   on_ft: EVAL(g:env#html_type_list)
 # - repo: hdima/python-syntax
 #   on_ft: python
 # - repo: hynek/vim-python-pep8-indent

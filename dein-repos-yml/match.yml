@@ -3,7 +3,7 @@
   hook_add: let g:loaded_matchparen = 1
 - repo: Valloric/MatchTagAlways
   if: g:env#python
-  on_ft: g:env#html_type_list
+  on_ft: EVAL(g:env#html_type_list)
   hook_add: |
     let g:mta_filetypes = {}
     for val in g:env#html_type_list
@@ -11,7 +11,7 @@
     endfor
     nnoremap <Leader>% :MtaJumpToOtherTag<cr>
 - repo: gregsexton/MatchTag
-  on_ft: g:env#html_type_list
+  on_ft: EVAL(g:env#html_type_list)
   if: "! g:env#python"
 
 - repo: edsono/vim-matchit

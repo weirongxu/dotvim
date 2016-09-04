@@ -1,7 +1,8 @@
 - repo: jiangmiao/auto-pairs
   hook_add: |
-    let g:AutoPairsFlyMode = 1
-    let g:AutoPairsMapSpace = 0
+    # let g:AutoPairsFlyMode = 1
+    # let g:AutoPairsMapSpace = 0
+    let g:AutoPairsMultilineClose = 0
     let g:AutoPairs = {
       \ '(': ')',
       \ '[': ']',

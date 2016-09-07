@@ -9,8 +9,8 @@ import traceback
 class Config(object):
   def __init__(self, f):
     self.vimscript_content = []
-    self.configs = self.load(f)
-    self.add_plugins(self.configs.get('plugins', []))
+    self.configs = self.load(f) or []
+    self.add_plugins(self.configs)
 
   def load(self, f):
     lines = [line for line in f.readlines() if re.search(r'^\s*#', line) is None]
@@ -22,7 +22,11 @@ class Config(object):
 
   def add_plugin(self, plugin):
     def parse_eval(str):
-      return re.sub(r'EVAL\((.*)\)', '"."\\1"."', str)
+      str = re.sub(r'"EVAL\((.*)\)"', '\\1', str)
+      str = re.sub(r'EVAL\((.*)\)', '".\\1."', str)
+      str = re.sub(r': ""\.', ': ', str)
+      str = re.sub(r'\."",', ',', str)
+      return str
     if 'repo' in plugin:
       repo = plugin['repo']
       options = {k: v for k, v in plugin.items() if k != 'repo'}

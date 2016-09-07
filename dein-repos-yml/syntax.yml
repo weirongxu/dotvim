@@ -37,3 +37,15 @@
 - repo: jaxbot/semantic-highlight.vim
   on_cmd: SemanticHighlightToggle
   hook_add: nnoremap <Leader>s :SemanticHighlightToggle<cr>
+- repo: slashmili/alchemist.vim
+  on_ft: elixir
+- repo: jmcantrell/vim-virtualenv
+  on_cmd:
+    - VirtualEnvActivate
+    - VirtualEnvDeactivate
+    - VirtualEnvList
+  hook_add: |
+    function! CompleteVirtualEnv(arg_lead, cmd_line, cursor_pos)
+        return virtualenv#names(a:arg_lead)
+    endfunction
+    let g:virtualenv_directory = '~/.virtualenv'

@@ -1,127 +1,46 @@
-plugins:
-  - repo: Shougo/dein.vim
-  - repo: haya14busa/dein-command.vim
-    on_cmd: Dein
+- repo: Shougo/dein.vim
+- repo: haya14busa/dein-command.vim
+  on_cmd: Dein
 
-  - repos_include: vimscript.yml
-  - repos_include: base.yml
-  - repos_include: utils.yml
-  - repos_include: textobj.yml
-  - repos_include: operator-user.yml
-  - repos_include: vcs.yml
-  - repos_include: unite.yml
-  # - repo: Shougo/neossh.vim
+- repos_include: vimscript.yml
+- repos_include: base.yml
+- repos_include: utils.yml
+- repos_include: textobj-user.yml
+- repos_include: operator-user.yml
+- repos_include: vcs.yml
+- repos_include: unite.yml
+- repos_include: file.yml
 
-  # - repo: Rykka/trans.vim
-  #   on_map: <leader>t
-  #   on_add: Inc /plugins/trans
+- repo: tyru/caw.vim
+  on_map: gc
+  depends: context_filetype.vim
+  hook_add: |
+    let g:caw_dollarpos_sp_left = '  '
+    Inc /plugins/caw
 
-  - repos_include: file.yml
+- repos_include: ui.yml
+- repos_include: complete.yml
+- repos_include: snippet.yml
+- repos_include: checker.yml
 
-  - repo: tyru/caw.vim
-    on_map: gc
-    depends: context_filetype.vim
-    hook_add: |
-      let g:caw_dollarpos_sp_left = '  '
-      Inc /plugins/caw
+# filetype
+- repos_include: syntax.yml
+- repos_include: match.yml
 
-  - repos_include: ui.yml
+# tools
+- repos_include: format.yml
+- repos_include: jump.yml
+- repos_include: convert.yml
+- repo: kannokanno/previm
+  on_ft: ['markdown', 'rst']
+  depends: open-browser.vim
+- repos_include: tool.yml
+- repos_include: quickrun.yml
+- repos_include: diff.yml
+- repos_include: vcs.yml
+- repos_include: edit.yml
 
-  - repo: Rykka/colorv.vim
-    hook_add: let g:colorv_preview_ftype = join(g:env#web_assets_type_list, ',')
+- repos_include: inc.yml
 
-  - repos_include: complete.yml
-  - repos_include: snippet.yml
-  - repos_include: checker.yml
-
-  # filetype
-  - repos_include: syntax.yml
-  - repos_include: match.yml
-  - repos_include: integration.yml
-
-  # tools
-  - repos_include: format.yml
-  - repos_include: jump.yml
-  - repos_include: convert.yml
-  - repo: kannokanno/previm
-    on_ft: ['markdown', 'rst']
-    depends: open-browser.vim
-  # - repo: nicwest/QQ.vim
-  #   on_map: ['QQ', 'QH', 'QCO', 'QCC', 'QCN', 'QG']
-  - repo: januswel/sweepbuf.vim
-    on_cmd: SweepBuffers
-  - repo: szw/vim-maximizer
-    on_cmd: MaximizerToggle
-    hook_add: |
-      map <space>a :MaximizerToggle<CR>
-  - repo: tpope/vim-characterize
-    on_map: ga
-  - repo: jmcantrell/vim-virtualenv
-    on_cmd:
-      - VirtualEnvActivate
-      - VirtualEnvDeactivate
-      - VirtualEnvList
-    hook_add: |
-      function! CompleteVirtualEnv(arg_lead, cmd_line, cursor_pos)
-          return virtualenv#names(a:arg_lead)
-      endfunction
-      let g:virtualenv_directory = '~/.virtualenv'
-  - repo: weirongxu/fixdir.vim
-    on_cmd: FixDir
-  # - repo: kana/vim-narrow
-  #   on_cmd: Narrow
-  - repo: Shougo/vinarise.vim
-    on_cmd:
-      - Vinarise
-      - VinariseScript2Hex
-      - VinariseHex2Script
-      - VinarisePluginDump
-      - VinarisePluginViewBitmapView
-  # - repo: tyru/eskk.vim
-  #   on_cmd: <Plug>(eskk:toggle)
-  #   hook_add: imap <c-=> <Plug>(eskk:toggle)
-  - repo: vim-scripts/DrawIt
-    on_cmd: ['DIstart', 'DIsngl', 'DIdbl', 'DIstop', 'DrawIt']
-    on_map: ['<leader>di', '<leader>ds']
-  - repo: vim-scripts/VisIncr
-    on_cmd: [
-      'I', 'II', 'IB', 'IIB', 'IO', 'IIO',
-      'IX', 'IIX', 'IYMD', 'IMDY', 'IDMY',
-      'IA', 'ID', 'IM', 'IPOW', 'IIPOW',
-    ]
-  - repo: tpope/vim-eunuch
-    on_cmd: [
-      'Unlink', 'Remove', 'Move',
-      'Rename', 'Chmod', 'Find',
-      'Locate', 'SudoWrite', 'W',
-    ]
-  - repos_include: quickrun.yml
-  - repo: joonty/vdebug
-    on_cmd: ['VdebugEval', 'VdebugOpt', 'VdebugStart']
-  # - repo: mattn/emoji-vim
-  #   on_cmd: Emoji
-  #   type: nosync
-  - repos_include: diff.yml
-  - repos_include: vcs.yml
-  - repos_include: edit.yml
-
-  - repo: Shougo/vimshell.vim
-    on_cmd: ['VimShell', 'VimShellCreate', 'VimShellTab', 'VimShellPop',
-      'VimShellCurrentDir', 'VimShellBufferDir', 'VimShellExecute',
-      'VimShellInteractive', 'VimShellTerminal', 'VimShellSendString',
-      'VimShellSendBuffer']
-
-  - repo: Lokaltog/vim-easymotion
-    on_map: ['<Plug>(easymotion-', 's']
-    hook_add: |
-      let g:EasyMotion_leader_key = 's'
-      let g:EasyMotion_use_upper = 1
-      let g:EasyMotion_smartcase = 1
-      let g:EasyMotion_use_smartsign_us = 1
-      " nmap sS <Plug>(easymotion-s2)
-      " nmap t <Plug>(easymotion-t2)
-      nmap sl <Plug>(easymotion-sl)
-  - repos_include: inc.yml
-
-  # - repo: Shougo/deoplete.nvim
-  # - repo: shawncplus/phpcomplete.vim
+# - repo: Shougo/deoplete.nvim
+# - repo: shawncplus/phpcomplete.vim

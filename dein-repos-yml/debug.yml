@@ -1,0 +1,2 @@
+- repo: joonty/vdebug
+  on_cmd: ['VdebugEval', 'VdebugOpt', 'VdebugStart']

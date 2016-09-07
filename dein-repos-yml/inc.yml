@@ -62,3 +62,6 @@
     let g:move_auto_indent = 0
     map <S-Up> <M-k>
     map <S-Down> <M-j>
+
+- repo: tpope/vim-characterize
+  on_map: ga

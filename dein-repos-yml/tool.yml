@@ -1,0 +1,43 @@
+- repo: tpope/vim-eunuch
+  on_cmd: [
+    'Unlink', 'Remove', 'Move',
+    'Rename', 'Chmod', 'Find',
+    'Locate', 'SudoWrite', 'W',
+  ]
+- repo: vim-scripts/DrawIt
+  on_cmd: ['DIstart', 'DIsngl', 'DIdbl', 'DIstop', 'DrawIt']
+  on_map: ['<leader>di', '<leader>ds']
+- repo: vim-scripts/VisIncr
+  on_cmd: [
+    'I', 'II', 'IB', 'IIB', 'IO', 'IIO',
+    'IX', 'IIX', 'IYMD', 'IMDY', 'IDMY',
+    'IA', 'ID', 'IM', 'IPOW', 'IIPOW',
+  ]
+- repo: Rykka/colorv.vim
+  hook_add: let g:colorv_preview_ftype = join(g:env#web_assets_type_list, ',')
+- repo: januswel/sweepbuf.vim
+  on_cmd: SweepBuffers
+- repo: szw/vim-maximizer
+  on_cmd: MaximizerToggle
+  hook_add: |
+    map <space>a :MaximizerToggle<CR>
+- repo: weirongxu/fixdir.vim
+  on_cmd: FixDir
+- repo: Shougo/vinarise.vim
+  on_cmd:
+    - Vinarise
+    - VinariseScript2Hex
+    - VinariseHex2Script
+    - VinarisePluginDump
+    - VinarisePluginViewBitmapView
+# - repo: mattn/emoji-vim
+#   on_cmd: Emoji
+#   type: nosync
+- repo: Shougo/vimshell.vim
+  on_cmd: ['VimShell', 'VimShellCreate', 'VimShellTab', 'VimShellPop',
+    'VimShellCurrentDir', 'VimShellBufferDir', 'VimShellExecute',
+    'VimShellInteractive', 'VimShellTerminal', 'VimShellSendString',
+    'VimShellSendBuffer']
+# - repo: Shougo/neossh.vim
+- repo: diepm/vim-rest-console
+  on_ft: rest

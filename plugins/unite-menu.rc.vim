@@ -7,6 +7,7 @@ let s:unite_source_menu_menus = {
       \   'description': 'Common Tools',
       \   'command_candidates': [
       \     ['rand password to reg', "call setreg('\"', RandPasswordInput())"],
+      \     ['rand words password to reg', "call setreg('\"', RandPasswordInputOnlyWord())"],
       \   ],
       \ },
       \ 'git-commands': {

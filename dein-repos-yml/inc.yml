@@ -10,8 +10,15 @@
       \ '"': '"',
       \ '`': '`',
       \ '{': '}'}
+# - repo: cohama/lexima.vim
+#   hook_add: |
+#     nmap o A<CR>
+#     imap <C-h> <BS>
+#     cmap <C-h> <BS>
 - repo: tpope/vim-endwise
   on_ft: ['ruby', 'lua', 'c', 'cpp', 'shell', 'zsh', 'bash']
+  hook_add: |
+    let g:endwise_abbreviations = 1
 - repo: AndrewRadev/splitjoin.vim
   on_map: ['gS', 'gJ']
 - repo: osyo-manga/vim-jplus

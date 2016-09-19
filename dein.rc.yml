@@ -39,7 +39,6 @@
 - repos_include: diff.yml
 - repos_include: vcs.yml
 - repos_include: edit.yml
-
 - repos_include: inc.yml
 
 # - repo: Shougo/deoplete.nvim

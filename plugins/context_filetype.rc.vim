@@ -76,6 +76,12 @@ endfor
 
 " let g:regionsyntax_map = g:context_filetype_common_config
 
+let g:context_filetype#same_filetypes = {
+      \ 'c': 'cpp,d',
+      \ 'cpp': 'c',
+      \ 'zsh': 'sh',
+      \}
+
 let g:precious_enable_switchers = {
       \ "*" : {
       \   "setfiletype" : 1

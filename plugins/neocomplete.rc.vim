@@ -1,4 +1,3 @@
-" neocomplete
 let g:neocomplete#enable_at_startup = 1
 " let g:neocomplete#enable_auto_select = 1
 " let g:neocomplete#disable_auto_complete = 1
@@ -9,24 +8,6 @@ let g:neocomplete#sources#dictionary#dictionaries = {
       \ 'javascript' : $MY_VIMFILES.'/dein-local/my-local/dict/javascript.dict',
       \ 'coffee' : $MY_VIMFILES.'/dein-local/my-local/dict/javascript.dict',
       \ }
-let g:neocomplete#same_filetypes = {
-      \ 'c': 'cpp',
-      \ 'cpp': 'c',
-      \ 'zsh': 'sh'
-      \ }
-" \ 'html': 'html,xhtml,jsp,php,jade,css,javascript,coffee,stylus',
-" \ 'xhtml': 'html,xhtml,jsp,php,jade,css,javascript,coffee,stylus',
-" \ 'jsp': 'html,xhtml,jsp,php,jade,css,javascript,coffee,stylus',
-" \ 'php': 'html,xhtml,jsp,php,jade,css,javascript,coffee,stylus',
-" \ 'jade': 'html,xhtml,jsp,php,jade,css,javascript,coffee,stylus',
-" \ 'css': 'html,xhtml,jsp,php,jade,css,javascript,coffee,stylus',
-" \ 'javascript': 'html,xhtml,jsp,php,jade,css,javascript,coffee,stylus',
-" \ 'coffee': 'html,xhtml,jsp,php,jade,css,javascript,coffee,stylus',
-" \ 'stylus': 'html,xhtml,jsp,php,jade,css,javascript,coffee,stylus',
-
-" if g:env#win && g:env#gui
-"   let g:neocomplete#use_vimproc = 0
-" endif
 
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -39,6 +20,19 @@ let g:neocomplete#force_overwrite_completefunc = 1
 
 if !exists('g:neocomplete#force_omni_input_patterns')
   let g:neocomplete#force_omni_input_patterns = {}
+  let g:neocomplete#force_omni_input_patterns.ruby =
+        \ '[^. *\t]\.\w*\|\h\w*::'
+  let g:neocomplete#force_omni_input_patterns.python =
+        \ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import\s\(\w*,\s\)\?\|^\s*from \|^\s*import \)\w*'
+
+  let g:neocomplete#force_omni_input_patterns.c =
+        \ '[^.[:digit:] *\t]\%(\.\|->\)\w*'
+  let g:neocomplete#force_omni_input_patterns.cpp =
+        \ '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
+  let g:neocomplete#force_omni_input_patterns.objc =
+        \ '[^.[:digit:] *\t]\%(\.\|->\)\w*'
+  let g:neocomplete#force_omni_input_patterns.objcpp =
+        \ '[^.[:digit:] *\t]\%(\.\|->\)\w*\|\h\w*::\w*'
 endif
 
 if !exists('g:neocomplete#sources#omni#functions')

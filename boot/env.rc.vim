@@ -1,3 +1,5 @@
+let g:env#nvim = has('nvim')
+
 let g:env#win = has('win32') || has('win64') || has('win95')
 let g:env#unix = has('unix')
 let g:env#mac = has('mac') || has('macunix')

@@ -47,4 +47,7 @@ let g:quickrun_config = {
       \     'exec': ['%c %o %s'],
       \     'outputter/buffer/filetype': 'scss',
       \   },
+      \   'javascript.jsx': {
+      \     'type': 'javascript',
+      \   },
       \ }

@@ -31,9 +31,6 @@
     vmap <Leader>J <Plug>(jplus-getchar)
 
 
-# - repo: junegunn/vim-pseudocl
-# - repo: junegunn/vim-oblique
-#   hook_add: let g:oblique#incsearch_highlight_all=1
 - repo: haya14busa/incsearch.vim
   on_map: ['/', '<Plug>(incsearch-']
   hook_post_source: |

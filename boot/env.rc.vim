@@ -6,7 +6,10 @@ let g:env#mac = has('mac') || has('macunix')
 
 let g:env#gui = has('gui_running')
 let g:env#xterm = &term == 'xterm'
-let g:env#x = g:env#gui || g:env#xterm
+let g:env#screen = &term == 'screen'
+let g:env#tmux = &term == 'screen'
+let g:env#x = g:env#gui || g:env#xterm || g:env#screen
+
 
 let g:env#python2 = has('python')
 let g:env#python3 = has('python3')

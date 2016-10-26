@@ -1,10 +1,10 @@
 - repo: Shougo/neocomplete.vim
-  hook_add: Inc /plugins/neocomplete
+  hook_add: Inc /plugins-conf/neocomplete
   if: '! g:env#nvim'
 - repo: hrsh7th/vim-neco-calc
 
 - repo: Shougo/deoplete.nvim
-  hook_add: Inc /plugins/deoplete
+  hook_add: Inc /plugins-conf/deoplete
   if: g:env#nvim
 
 # - repo: marijnh/tern_for_vim

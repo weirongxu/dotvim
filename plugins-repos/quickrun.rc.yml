@@ -1,7 +1,7 @@
 - repo: thinca/vim-quickrun
   on_cmd: QuickRun
   hook_add:
-    Inc /plugins/quickrun
+    Inc /plugins-conf/quickrun
 - repo: weirongxu/quickrun-babel.vim
   on_ft: javascript
 

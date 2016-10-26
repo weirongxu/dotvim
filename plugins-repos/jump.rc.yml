@@ -6,7 +6,7 @@
     'TagbarDebug', 'TagbarDebugEnd']
   hook_add: |
     map gl :TagbarToggle<CR>
-    Inc /plugins/tagbar
+    Inc /plugins-conf/tagbar
     let g:tagbar_show_linenumbers = 1
 - repo: wesleyche/SrcExpl
   on_cmd: ['SrcExpl', 'SrcExplClose', 'SrcExplToggle']

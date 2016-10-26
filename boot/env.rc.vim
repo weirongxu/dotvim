@@ -19,7 +19,7 @@ let g:env#ruby = has('ruby')
 let g:env#perl = has('perl')
 let g:env#tcl = has('tcl')
 
-let g:env#tmp = g:env#win ? $TMP : expand("~/tmp")
+let g:env#tmp = g:env#win ? $TMP : expand('~/tmp')
 if !isdirectory(g:env#tmp)
   call mkdir(g:env#tmp)
 endif

@@ -15,7 +15,7 @@ endif
 function! s:config(type, quiet_messages) "{{{
   let quiet_messages = a:quiet_messages
   let g:syntastic_{a:type}_quiet_messages = {
-        \ "regex": '\V\('.join(quiet_messages, '\|').'\)',
+        \ 'regex': '\V\('.join(quiet_messages, '\|').'\)',
         \ }
 endfunction "}}}
 

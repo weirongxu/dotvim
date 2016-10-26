@@ -4,7 +4,7 @@
     - UniteWithCursorWord
     - UniteWithInput
     - UniteResume
-  hook_add: Inc /plugins/unite
+  hook_add: Inc /plugins-conf/unite
   hook_post_source: |
     call unite#filters#matcher_default#use(['matcher_fuzzy'])
     call unite#filters#sorter_default#use(['sorter_rank'])

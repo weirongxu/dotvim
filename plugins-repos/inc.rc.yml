@@ -73,6 +73,6 @@
   on_map: ga
 
 - repo: hecal3/vim-leader-guide
-  hook_add: Inc /plugins/leader-guide
+  hook_add: Inc /plugins-conf/leader-guide
 
 - repo: pseewald/AnyFold

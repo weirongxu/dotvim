@@ -1,6 +1,6 @@
 - repo: itchyny/lightline.vim
   hook_add: |
-    Inc /plugins/lightline
+    Inc /plugins-conf/lightline
 - repo: gcavallanti/vim-noscrollbar
 
 - repo: Yggdroot/indentLine

@@ -109,7 +109,7 @@ function! g:lightline_component.attr.real_render() "{{{
 endfunction "}}}
 
 function! g:lightline_component.attr.render(...) "{{{
-  return "g:lightline_component.obj[".self.obj_idx."].real_render"
+  return 'g:lightline_component.obj['.self.obj_idx.'].real_render'
 endfunction "}}}
 
 function! s:c(...) "{{{
@@ -165,7 +165,7 @@ let g:lightline = {
       \     'git_traffic': s:c().func('g:lightline.my.git_traffic').large().render(),
       \     'git_status':  s:c().func('g:lightline.my.git_status').large().render(),
       \   },
-      \   'subseparator': { 'left': "", 'right': "" },
+      \   'subseparator': { 'left': '', 'right': '' },
       \ }
 
 let g:lightline.my = {}

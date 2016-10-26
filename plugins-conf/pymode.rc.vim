@@ -6,7 +6,7 @@ let g:pymode_virtualenv = 1
 " let g:pymode_virtualenv_path = expand('~/Envs')
 " let g:pymode_lint = 0
 let g:pymode_lint_on_write = 0
-" let g:pymode_lint_ignore = "E501"
+" let g:pymode_lint_ignore = 'E501'
 " let g:pymode_run = 0
 " let g:pymode_breakpoint = 0
 " let g:pymode_breakpoint_cmd = 'PymodeBreakpoints'
@@ -37,7 +37,6 @@ function! s:pymodeRopeCompleteOnDot() "{{{
         \ g:pymode_rope_completion &&
         \ g:pymode_rope_complete_on_dot &&
         \ s:check()) ? pymode#rope#complete_on_dot() : ''
-  endif
 endfunction "}}}
 
 function! s:regenerate() "{{{

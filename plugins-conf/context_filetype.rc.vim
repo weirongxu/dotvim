@@ -83,13 +83,13 @@ let g:context_filetype#same_filetypes = {
       \}
 
 let g:precious_enable_switchers = {
-      \ "*" : {
-      \   "setfiletype" : 1
+      \ '*' : {
+      \   'setfiletype' : 1
       \ },
-      \ "vim" : {
-      \   "setfiletype" : 0
+      \ 'vim' : {
+      \   'setfiletype' : 0
       \ },
-      \ "jade" : {
-      \   "setfiletype" : 0
+      \ 'jade' : {
+      \   'setfiletype' : 0
       \ },
       \}

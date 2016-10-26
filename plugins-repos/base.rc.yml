@@ -9,14 +9,14 @@
 - repo: tpope/vim-repeat
 - repo: editorconfig/editorconfig-vim
   if: g:env#python
-  hook_source: Inc /plugins/editorconfig-vim
+  hook_source: Inc /plugins-conf/editorconfig-vim
 - repo: Shougo/context_filetype.vim
-  hook_add: Inc /plugins/context_filetype
+  hook_add: Inc /plugins-conf/context_filetype
 - repo: farseer90718/vim-regionsyntax
 # osyo-manga/vim-precious:
 - repo: itchyny/vim-cursorword
 - repo: bouzuya/vim-ibus
-  hook_source: Inc /plugins/ibus
+  hook_source: Inc /plugins-conf/ibus
 - repo: craigemery/vim-autotag
 - repo: airblade/vim-rooter
 - repo: gioele/vim-autoswap

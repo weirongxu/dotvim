@@ -22,6 +22,6 @@
     - Read
     - Source
   hook_add: |
-    Inc /plugins/vimfiler
+    Inc /plugins-conf/vimfiler
 - repo: justinmk/vim-gtfo
   on_map: ['got', 'goT', 'gof', 'goF']

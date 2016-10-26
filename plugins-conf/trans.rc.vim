@@ -4,9 +4,9 @@ let g:trans_has_python = 0
 let g:trans_api.google = {
       \ 'url': 'http://translate.google.cn/translate_a/t',
       \ 'params' : {
-      \   "client" : 'firefox-a',
-      \   "ie" : 'UTF-8',
-      \   "oe" : 'UTF-8',
+      \   'client' : 'firefox-a',
+      \   'ie' : 'UTF-8',
+      \   'oe' : 'UTF-8',
       \ },
       \ 'query_str': 'langpair=%FROM%7C%TO&text=%TEXT',
       \ 'parser': 'trans#data#parser_google',

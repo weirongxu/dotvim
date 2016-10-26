@@ -5,7 +5,7 @@ let g:dein#types#git#clone_depth = 1
 call dein#begin($DEIN_DIR)
 call dein#local($MY_VIMFILES . '/plugins-local')
 
-Inc plugins/unite-menu
+Inc plugins-conf/unite-menu
 Inc plugins-convert
 
 call dein#end()

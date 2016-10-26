@@ -1,5 +1,5 @@
 let $MY_VIMFILES = expand('<sfile>:p:h')
-let $MY_PLUGINS = $MY_VIMFILES . '/dein.rc.yml'
+let $MY_PLUGINS = $MY_VIMFILES . '/plugins.rc.yml'
 
 if &compatible
   set nocompatible

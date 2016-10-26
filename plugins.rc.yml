@@ -2,14 +2,14 @@
 - repo: haya14busa/dein-command.vim
   on_cmd: Dein
 
-- repos_include: vimscript.yml
-- repos_include: base.yml
-- repos_include: utils.yml
-- repos_include: textobj-user.yml
-- repos_include: operator-user.yml
-- repos_include: vcs.yml
-- repos_include: unite.yml
-- repos_include: file.yml
+- repos_include: vimscript.rc.yml
+- repos_include: base.rc.yml
+- repos_include: utils.rc.yml
+- repos_include: textobj-user.rc.yml
+- repos_include: operator-user.rc.yml
+- repos_include: vcs.rc.yml
+- repos_include: unite.rc.yml
+- repos_include: file.rc.yml
 
 - repo: tyru/caw.vim
   on_map: gc
@@ -18,28 +18,28 @@
     let g:caw_dollarpos_sp_left = '  '
     Inc /plugins/caw
 
-- repos_include: ui.yml
-- repos_include: complete.yml
-- repos_include: snippet.yml
-- repos_include: checker.yml
+- repos_include: ui.rc.yml
+- repos_include: complete.rc.yml
+- repos_include: snippet.rc.yml
+- repos_include: checker.rc.yml
 
 # filetype
-- repos_include: syntax.yml
-- repos_include: match.yml
+- repos_include: syntax.rc.yml
+- repos_include: match.rc.yml
 
 # tools
-- repos_include: format.yml
-- repos_include: jump.yml
-- repos_include: convert.yml
+- repos_include: format.rc.yml
+- repos_include: jump.rc.yml
+- repos_include: convert.rc.yml
 - repo: kannokanno/previm
   on_ft: ['markdown', 'rst']
   depends: open-browser.vim
-- repos_include: tool.yml
-- repos_include: quickrun.yml
-- repos_include: diff.yml
-- repos_include: vcs.yml
-- repos_include: edit.yml
-- repos_include: inc.yml
+- repos_include: tool.rc.yml
+- repos_include: quickrun.rc.yml
+- repos_include: diff.rc.yml
+- repos_include: vcs.rc.yml
+- repos_include: edit.rc.yml
+- repos_include: inc.rc.yml
 
 # - repo: Shougo/deoplete.nvim
 # - repo: shawncplus/phpcomplete.vim

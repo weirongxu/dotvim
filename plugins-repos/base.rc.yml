@@ -12,6 +12,13 @@
   hook_source: Inc /plugins-conf/editorconfig-vim
 - repo: Shougo/context_filetype.vim
   hook_add: Inc /plugins-conf/context_filetype
+- repo: tyru/caw.vim
+  on_map: gc
+  depends: context_filetype.vim
+  hook_add: |
+    let g:caw_dollarpos_sp_left = '  '
+    Inc /plugins-conf/caw
+
 - repo: farseer90718/vim-regionsyntax
 # osyo-manga/vim-precious:
 - repo: itchyny/vim-cursorword

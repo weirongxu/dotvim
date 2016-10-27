@@ -7,7 +7,7 @@
   hook_add: |
     let g:indentLine_conceallevel = 1
     let g:indentLine_concealcursor = ''
-    let g:indentLine_fileTypeExclude = ['', 'stylus', 'jade', 'vimfiler', 'unite', 'tagbar', 'yaml']
+    let g:indentLine_fileTypeExclude = ['', 'vimfiler', 'unite', 'tagbar']
     let g:indentLine_faster = 1
     if !g:env#x
       let g:indentLine_color_term = 8
@@ -21,6 +21,7 @@
     nmap <silent> gL <Plug>IndentGuidesToggle
 - repo: drmikehenry/vim-fontsize
   on_map: <Plug>Fontsize
+  gui: 1
   hook_add: |
     nmap <silent> <Leader>=           <Plug>FontsizeBegin
     nmap <silent> <C-ScrollWheelUp>   <Plug>FontsizeInc

@@ -7,3 +7,4 @@
 - repo: thinca/vim-prettyprint
   on_cmd: PP
 - repo: vim-jp/vital.vim
+- repo: vim-jp/vital-complete

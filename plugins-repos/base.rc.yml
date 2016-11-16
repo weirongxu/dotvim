@@ -20,7 +20,7 @@
     Inc /plugins-conf/caw
 
 - repo: farseer90718/vim-regionsyntax
-# osyo-manga/vim-precious:
+# - repo: osyo-manga/vim-precious
 - repo: itchyny/vim-cursorword
 - repo: bouzuya/vim-ibus
   hook_source: Inc /plugins-conf/ibus

@@ -3,7 +3,7 @@
     imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
       \ "\<Plug>(neosnippet_expand_or_jump)"
       \: "\<TAB>"
-    imap <expr><C-j> neosnippet#jumpable() ?
+    imap <expr><C-l> neosnippet#jumpable() ?
       \ "\<Plug>(neosnippet_jump)"
       \: "\<C-j>"
     imap <expr><C-CR> neosnippet#expandable() ?
@@ -12,7 +12,7 @@
     smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
       \ "\<Plug>(neosnippet_expand_or_jump)"
       \: "\<TAB>"
-    smap <expr><C-j> neosnippet#jumpable() ?
+    smap <expr><C-l> neosnippet#jumpable() ?
       \ "\<Plug>(neosnippet_jump)"
       \: "\<C-j>"
     smap <expr><C-CR> neosnippet#expandable() ?

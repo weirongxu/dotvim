@@ -25,3 +25,4 @@
 - repos_include: vcs.rc.yml
 - repos_include: edit.rc.yml
 - repos_include: inc.rc.yml
+- repos_include: lang.rc.yml

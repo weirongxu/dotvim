@@ -14,7 +14,7 @@
   on_ft: EVAL(g:env#html_type_list)
   if: "! g:env#python"
 
-- repo: edsono/vim-matchit
+- repo: jwhitley/vim-matchit
   hook_add: |
     function! s:set_matchit()
       let l:list = ['[:]', '{:}', '<:>', '(:)']

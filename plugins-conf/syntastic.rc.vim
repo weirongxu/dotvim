@@ -57,5 +57,5 @@ map <Leader><space> :up<CR>:SyntasticCheck<CR>
 let g:syntastic_mode_map = {
       \   'mode': 'active',
       \   'active_filetypes': [],
-      \   'passive_filetypes': ['java', 'less']
+      \   'passive_filetypes': ['java', 'less', 'html']
       \ }

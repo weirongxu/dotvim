@@ -8,3 +8,5 @@
   on_cmd: PP
 - repo: vim-jp/vital.vim
 - repo: vim-jp/vital-complete
+- repo: Shougo/echodoc.vim
+  on_ft: vim

@@ -21,6 +21,7 @@
 
 - repo: farseer90718/vim-regionsyntax
 # - repo: osyo-manga/vim-precious
+#   depends: context_filetype.vim
 - repo: itchyny/vim-cursorword
 - repo: bouzuya/vim-ibus
   hook_source: Inc /plugins-conf/ibus
@@ -53,3 +54,6 @@
 
 - repo: Shougo/vimproc
   build: make
+- repo: tpope/vim-rvm
+  hook_add: |
+    silent Rvm use default

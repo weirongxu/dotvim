@@ -22,6 +22,7 @@
 - repo: Kocha/vim-unite-tig
 # - repo: 'supermomonga/unite-kawaii-calc'
 - repo: thinca/vim-unite-history
+- repo: Shougo/neossh.vim
 - repo: Shougo/unite-help
 - repo: mattn/unite-gist
 # - repo: 'hewes/unite-gtags'

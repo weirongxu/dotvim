@@ -2,7 +2,7 @@ let $DEIN_DIR = $MY_VIMFILES . '/dein'
 let &runtimepath .= ','.$DEIN_DIR.'/repos/github.com/Shougo/dein.vim'
 let g:dein#types#git#clone_depth = 1
 
-call dein#begin($DEIN_DIR)
+call dein#begin($DEIN_DIR, [$MY_VIMRC])
 call dein#local($MY_VIMFILES . '/plugins-local')
 
 Inc plugins-conf/unite-menu

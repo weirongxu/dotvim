@@ -44,3 +44,20 @@
 # - repo: Shougo/neossh.vim
 - repo: diepm/vim-rest-console
   on_ft: rest
+  hook_add: |
+    function OpenRest()
+      tabnew
+      setf rest
+      setlocal bufhidden=hide
+      setlocal buftype=nofile
+      setlocal nobuflisted
+      if has('cursorbind')
+        setlocal nocursorbind
+      endif
+      setlocal noswapfile
+      setlocal nospell
+      setlocal noreadonly
+      map <local> q :qw
+      map <CR> <c-j>
+    endfunction
+    command Rest call OpenRest()

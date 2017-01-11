@@ -74,7 +74,7 @@ for ft in g:env#html_type_list
   endif
 endfor
 
-let g:regionsyntax_map = g:context_filetype_common_config
+" let g:regionsyntax_map = g:context_filetype_common_config
 
 let g:context_filetype#same_filetypes = {
       \ 'c': 'cpp,d',

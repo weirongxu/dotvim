@@ -5,5 +5,13 @@
 # let g:watchdogs_check_BufWritePost_enable = 1
 - repo: scrooloose/syntastic
   hook_add: Inc /plugins-conf/syntastic
+# - repo: w0rp/ale
+#   if: g:env#async
 - repo: rhysd/vim-grammarous
   on_cmd: GrammarousCheck
+- repo: tweekmonster/spellrotate.vim
+  hook_add: |
+    nmap <silent> zn <Plug>(SpellRotateForward)
+    nmap <silent> zp <Plug>(SpellRotateBackward)
+    vmap <silent> zn <Plug>(SpellRotateForwardV)
+    vmap <silent> zp <Plug>(SpellRotateBackwardV)

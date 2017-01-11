@@ -1,3 +1,5 @@
+- repo: rhysd/try-colorscheme.vim
+  on_cmd: 'TryColorscheme'
 - repo: itchyny/lightline.vim
   hook_add: |
     Inc /plugins-conf/lightline
@@ -29,3 +31,5 @@
     nmap <silent> <C-ScrollWheelDown> <Plug>FontsizeDec
     nmap <silent> <Leader>-           <Plug>FontsizeDec
     nmap <silent> <Leader>0           <Plug>FontsizeDefault
+- repo: jszakmeister/vim-togglecursor
+  if: '! g:env#gui'

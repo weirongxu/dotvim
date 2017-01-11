@@ -10,6 +10,8 @@ let g:env#screen = &term == 'screen'
 let g:env#tmux = &term == 'screen'
 let g:env#x = g:env#gui || g:env#xterm || g:env#screen
 
+let g:env#vim8_async = (v:version >= 800 || has('patch-7.4.1829')) && has('job') && has('channel') && has('timers') && has('reltime')
+let g:env#async = g:env#vim8_async || g:env#nvim
 
 let g:env#python2 = has('python')
 let g:env#python3 = has('python3')
@@ -24,7 +26,7 @@ if !isdirectory(g:env#tmp)
   call mkdir(g:env#tmp)
 endif
 
-
+let g:github_token_file = expand('~/.record/github-token')
 
 let g:env#html_type_list = [
       \ 'markdown',

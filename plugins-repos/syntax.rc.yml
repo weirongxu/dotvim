@@ -1,6 +1,6 @@
 - repo: sheerun/vim-polyglot
   hook_add: |
-    let g:polyglot_disabled = ['coffee', 'javascript']
+    let g:polyglot_disabled = ['coffee', 'javascript', 'jsx']
 - repo: othree/yajs.vim
 - repo: othree/es.next.syntax.vim
 # - repo: pangloss/vim-javascript

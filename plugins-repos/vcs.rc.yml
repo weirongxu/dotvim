@@ -1,10 +1,13 @@
 - repo: lambdalisue/vim-gita
   hook_add: |
+    map <leader>gs :Gita status<CR>
+    map <leader>gp :Gita push<CR>
+    map <leader>gl :Gita pull<CR>
     command! Gstatus Gita status
     command! Gp Gita push
+    command! Gl Gita pull
     command! Glp execute "Gita pull" | execute "Gita push"
     command! Gblp execute "Gita pull --rebase" | execute "Gita push"
-    command! Gl Gita pull
     let g:gita#features#browse#extra_translation_patterns = {
       \ 'coding.net': [
       \   [
@@ -32,11 +35,10 @@
   on_cmd: 'Gist'
   on_func: 'gist#list'
   hook_add: |
-    let g:gist_token_file = expand('~/.record/github-token')
+    let g:gist_token_file = g:github_token_file
 - repo: jaxbot/github-issues.vim
   on_cmd: ['Gissues', 'Giadd', 'Giedit', 'Giupdate', 'Gmiles']
   hook_add: |
-    let github_token_file = g:gist_token_file
-    if filereadable(github_token_file)
-      let g:github_access_token = strpart(join(readfile(github_token_file), ""), 6)
+    if filereadable(g:github_token_file)
+      let g:github_access_token = strpart(join(readfile(g:github_token_file), ""), 6)
     endif

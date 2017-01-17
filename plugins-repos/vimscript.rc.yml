@@ -10,3 +10,5 @@
 - repo: vim-jp/vital-complete
 - repo: Shougo/echodoc.vim
   on_ft: vim
+- repo: thinca/vim-themis
+  on_ft: vim

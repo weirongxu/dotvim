@@ -34,7 +34,7 @@
       \|    nnoremap <buffer> <c-]> :<C-u>UniteWithCursorWord -wrap -auto-preview tag<CR>
       \|  endif
     set tags+=.tags,./.tags
-- repo: farseer90718/unite-workflow
+- repo: blindFS/unite-workflow
   hook_add: |
     function! s:unite_youdao(visual)
       if a:visual

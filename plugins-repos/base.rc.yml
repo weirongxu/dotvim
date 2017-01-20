@@ -19,7 +19,7 @@
     let g:caw_dollarpos_sp_left = '  '
     Inc /plugins-conf/caw
 
-- repo: farseer90718/vim-regionsyntax
+- repo: blindFS/vim-regionsyntax
 # - repo: osyo-manga/vim-precious
 #   depends: context_filetype.vim
 - repo: itchyny/vim-cursorword

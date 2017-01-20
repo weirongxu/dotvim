@@ -24,8 +24,10 @@
 #       \ ['tern-rename', 'TernRename'],
 #       \ ])
 
-- repo: osyo-manga/vim-monster
-  on_ft: ruby
+# - repo: osyo-manga/vim-monster
+#   on_ft: ruby
+- repo: vim-ruby/vim-ruby
+  on_ft: ['ruby', 'eruby']
 
 - repo: davidhalter/jedi-vim
   on_ft: python

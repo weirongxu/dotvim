@@ -1,18 +1,18 @@
 nmap U :Unite
 map <Leader>u :UniteResume<CR>
 map <Leader>U :Unite history/command<CR>
-map <space>b :Unite buffer<CR>
-map <space>t :Unite tab<CR>
-map <space>T :Unite tab:no-current<CR>
-map <space>j :Unite jump<CR>
-map <space>c :Unite change<CR>
-map <space>g :Unite grep:
-map <space>G :Unite grep:%<CR>
-map <space>f :Unite vimgrep:
-map <space>F :Unite vimgrep:%<CR>
-map <space>hc :Unite history/command<CR>
-map <space>hs :Unite history/search<CR>
-map <space>hy :Unite history/yank<CR>
+map <Space>b :Unite buffer<CR>
+map <Space>t :Unite tab<CR>
+map <Space>T :Unite tab:no-current<CR>
+map <Space>j :Unite jump<CR>
+map <Space>c :Unite change<CR>
+map <Space>g :Unite grep:
+map <Space>G :Unite grep:%<CR>
+map <Space>f :Unite vimgrep:
+map <Space>F :Unite vimgrep:%<CR>
+map <Space>hc :Unite history/command<CR>
+map <Space>hs :Unite history/search<CR>
+map <Space>hy :Unite history/yank<CR>
 
 " config
 let g:unite_source_grep_max_candidates = 0
@@ -50,14 +50,14 @@ function! s:unite_settings()
   imap <silent><buffer><expr> <C-x> unite#do_action('split')
   imap <silent><buffer><expr> <C-s> unite#do_action('split')
   imap <silent><buffer><expr> <C-v> unite#do_action('vsplit')
-  imap <silent><buffer><expr> <c-h> unite#do_action('rec_parent')
+  imap <silent><buffer><expr> <C-h> unite#do_action('rec_parent')
 
   map <silent><buffer><expr> x unite#do_action('split')
   map <silent><buffer><expr> s unite#do_action('split')
   map <silent><buffer><expr> v unite#do_action('vsplit')
 
-  imap <silent><buffer> <c-q> <Plug>(unite_exit)
-  nmap <silent><buffer> <c-q> <Plug>(unite_exit)
+  imap <silent><buffer> <C-q> <Plug>(unite_exit)
+  nmap <silent><buffer> <C-q> <Plug>(unite_exit)
   nmap <silent><buffer> <ESC> <Plug>(unite_exit)
   nunmap <silent><buffer> <C-l>
   nmap <silent><buffer> R <Plug>(unite_redraw)

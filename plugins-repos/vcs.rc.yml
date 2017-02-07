@@ -8,7 +8,7 @@
     command! Gl Gita pull
     command! Glp execute "Gita pull" | execute "Gita push"
     command! Gblp execute "Gita pull --rebase" | execute "Gita push"
-    let g:gita#features#browse#extra_translation_patterns = {
+    let g:gita#command#browse#extra_translation_patterns = {
       \ 'coding.net': [
       \   [
       \     '\vhttps?://git.coding\.net/(.{-})/(.{-})%(\.git)?$',
@@ -16,8 +16,11 @@
       \     '\vgit\@git.coding\.net:(.{-})/(.{-})%(\.git)?$',
       \     '\vssh://git\@git.coding\.net/(.{-})/(.{-})%(\.git)?$',
       \   ], {
-      \     '_': 'https://coding.net/u/\1/p/\2/git/blob/%r1/%pt%{#L|}ls%{-}le',
-      \     'blame': 'https://coding.net/u/\1/p/\2/git/blame/%r1/%pt%{#L|}ls%{-}le'
+      \     '^': 'https://coding.net/u/\1/p/\2/git/tree/%c1/',
+      \     '_': 'https://coding.net/u/\1/p/\2/git/blob/%c1/%pt%{#L|}ls%{-L|}le',
+      \     'exact': 'https://coding.net/u/\1/p/\2/git/blob/%r1/%pt%{#L|}ls%{-L|}le',
+      \     'blame': 'https://coding.net/u/\1/p/\2/git/blame/%c1/%pt%{#L|}ls%{-L|}le',
+      \     'diff': 'https://coding.net/u/\1/p/\2/git/compare/%c1...%c2',
       \   },
       \ ],
       \ }

@@ -46,7 +46,7 @@
   on_ft: rest
   hook_add: |
     function OpenRest()
-      tabnew
+      tabnew Rest
       setf rest
       setlocal bufhidden=hide
       setlocal buftype=nofile
@@ -58,6 +58,15 @@
       setlocal nospell
       setlocal noreadonly
       map <local> q :qw
-      map <CR> <c-j>
+      map <local> <CR> <c-j>
+
+      call setline(1, [
+      \ 'http://localhost',
+      \ 'Content-Type: application/json; charset=utf-8',
+      \ 'POST /',
+      \ '{',
+      \ '  "key": "value"',
+      \ '}',
+      \ ])
     endfunction
     command Rest call OpenRest()

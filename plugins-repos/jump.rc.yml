@@ -5,9 +5,9 @@
     'TagbarCurrentTag', 'TagbarGetTypeConfig',
     'TagbarDebug', 'TagbarDebugEnd']
   hook_add: |
+    let g:tagbar_show_linenumbers = 1
     map gl :TagbarToggle<CR>
     Inc /plugins-conf/tagbar
-    let g:tagbar_show_linenumbers = 1
 - repo: wesleyche/SrcExpl
   on_cmd: ['SrcExpl', 'SrcExplClose', 'SrcExplToggle']
 - repo: Lokaltog/vim-easymotion

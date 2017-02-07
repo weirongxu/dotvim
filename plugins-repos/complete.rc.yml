@@ -46,7 +46,7 @@
       \ ])
 - repo: osyo-manga/vim-marching
   on_ft: ['cpp', 'c']
-  hook_add: |
+  hook__add: |
     let g:marching_clang_command = "/usr/bin/clang"
     let g:marching_include_paths = [
       \   "/usr/include"

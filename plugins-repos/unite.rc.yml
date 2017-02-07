@@ -52,5 +52,5 @@
     nnoremap <space>yd :<C-u>call <SID>unite_youdao(0)<CR>
     vnoremap <space>yd :<C-u>call <SID>unite_youdao(1)<CR>
 - repo: osyo-manga/unite-quickfix
-  hook_post_source: autocmd FileType qf q | Unite quickfix
+  hook_add: autocmd FileType qf q | Unite quickfix
 - repo: osyo-manga/unite-option

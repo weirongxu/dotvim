@@ -16,6 +16,7 @@
 #     vmap <silent> zn <Plug>(SpellRotateForwardV)
 #     vmap <silent> zp <Plug>(SpellRotateBackwardV)
 - repo: neomake/neomake
-  hook_add: |
+  hook_post: |
     let g:neomake_html_enabled_makers = []
+  hook_post_source: |
     autocmd! BufWritePost * Neomake

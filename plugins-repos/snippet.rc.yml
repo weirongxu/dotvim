@@ -29,6 +29,6 @@
   on_ft: EVAL(g:env#web_assets_type_list)
 - repo: stephpy/vim-phpdoc
   on_ft: EVAL(g:env#html_type_list)
-  hook_add: |
+  hook_post_source: |
     nnoremap <leader>8 :call PhpDocSingle()<CR>
     vnoremap <leader>8 :call PhpDocRange()<CR>

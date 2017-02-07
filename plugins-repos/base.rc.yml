@@ -5,16 +5,17 @@
 - repo: drmikehenry/vim-fixkey
   if: '! g:env#nvim'
 - repo: kshenoy/vim-signature
-  hook_source: let g:SignatureErrorIfNoAvailableMarks = 0
+  hook_add: let g:SignatureErrorIfNoAvailableMarks = 0
 - repo: tpope/vim-repeat
 - repo: editorconfig/editorconfig-vim
   if: g:env#python
-  hook_source: Inc /plugins-conf/editorconfig-vim
+  hook_post_source: Inc /plugins-conf/editorconfig-vim
 - repo: Shougo/context_filetype.vim
   hook_add: Inc /plugins-conf/context_filetype
 - repo: tyru/caw.vim
   on_map: gc
   depends: context_filetype.vim
+  merged: 0
   hook_add: |
     let g:caw_dollarpos_sp_left = '  '
     Inc /plugins-conf/caw
@@ -24,7 +25,7 @@
 #   depends: context_filetype.vim
 - repo: itchyny/vim-cursorword
 - repo: bouzuya/vim-ibus
-  hook_source: Inc /plugins-conf/ibus
+  hook_post_source: Inc /plugins-conf/ibus
 - repo: craigemery/vim-autotag
 - repo: airblade/vim-rooter
 - repo: gioele/vim-autoswap
@@ -55,5 +56,5 @@
 - repo: Shougo/vimproc
   build: make
 - repo: tpope/vim-rvm
-  hook_add: |
+  hook_post_source: |
     silent Rvm use default

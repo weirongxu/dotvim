@@ -6,3 +6,4 @@
 .netrwhist
 tags
 /plugins-compiled.rc.vim
+/dein

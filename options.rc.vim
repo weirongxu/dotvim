@@ -19,14 +19,17 @@ set fileencoding=utf-8 encoding=utf-8 termencoding=utf-8
 set fileformat=unix
 
 " Colorscheme
-colo Tomorrow-Night-Eighties
-" colo manuscript
-" colo pyte
-" colo molokai
-" colo desertink
-" colorscheme desert
-set background=dark
+try
+  colorscheme Tomorrow-Night-Eighties
+  " colorscheme manuscript
+  " colorscheme pyte
+  " colorscheme molokai
+  " colorscheme desertink
+  " colorscheme desert
+catch /^Vim\%((\a\+)\)\=:E185/
+endtry
 
+set background=dark
 
 " t_Co gui-font
 if g:env#x

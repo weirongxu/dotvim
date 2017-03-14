@@ -17,4 +17,9 @@ call dein#end()
 call dein#call_hook('source')
 autocmd VimEnter * call dein#call_hook('post_source')
 
+if dein#check_install()
+  echo 'install...'
+  call dein#install()
+endif
+
 map <leader>z :call zeal#execute(context_filetype#get_filetype(), expand("<cword>"))<CR>

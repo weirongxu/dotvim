@@ -27,3 +27,10 @@
 
     imap <C-j>     <Plug>(eskk:toggle)
     cmap <C-j>     <Plug>(eskk:toggle)
+- repo: beloglazov/vim-online-thesaurus
+  on_map: <Leader>K
+- repo: ianva/vim-youdao-translater
+  hook_add: |
+    vnoremap <silent> <c-t> :<C-u>Ydv<CR>
+    nnoremap <silent> <c-t> :<C-u>Ydc<CR>
+    # noremap <space>yd :<C-u>Yde<CR>

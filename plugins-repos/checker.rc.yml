@@ -1,21 +1,59 @@
-# - repo: osyo-manga/shabadou.vim
-# - repo: osyo-manga/vim-watchdogs
-# - repo: jceb/vim-hier
-# - repo: dannyob/quickfixstatus
-# let g:watchdogs_check_BufWritePost_enable = 1
-# - repo: scrooloose/syntastic
-#   hook_add: Inc /plugins-conf/syntastic
-# # - repo: w0rp/ale
-# #   if: g:env#async
-# - repo: rhysd/vim-grammarous
-#   on_cmd: GrammarousCheck
-# - repo: tweekmonster/spellrotate.vim
-#   hook_add: |
-#     nmap <silent> zn <Plug>(SpellRotateForward)
-#     nmap <silent> zp <Plug>(SpellRotateBackward)
-#     vmap <silent> zn <Plug>(SpellRotateForwardV)
-#     vmap <silent> zp <Plug>(SpellRotateBackwardV)
+- repo: scrooloose/syntastic
+  if: ! g:env#async
+  hook_add: |
+    function! s:config(type, quiet_messages) "{{{
+      let quiet_messages = a:quiet_messages
+      let g:syntastic_{a:type}_quiet_messages = {
+            \ 'regex': '\V\('.join(quiet_messages, '\|').'\)',
+            \ }
+    endfunction "}}}
+
+    call s:config('php_phpcs', [
+          \ 'comment',
+          \ ])
+
+    call s:config('php_phpmd', [
+          \ 'variables with short names',
+          \ 'Cyclomatic complexity',
+          \ 'NPath complexity',
+          \ 'Avoid really long methods',
+          \ 'keep the number of fields under',
+          \ 'contains an exit expression',
+          \ 'returns a boolean should be named',
+          \ 'has an overall complexity',
+          \ ])
+
+    let g:syntastic_python_checkers = ['flake8']
+    call s:config('python_flake8', [
+          \ 'E501',
+          \ 'E111',
+          \ 'E121',
+          \ ])
+
+    call s:config('coffee_coffeelint', [
+          \ 'indentation Expected',
+          \ 'Line exceeds maximum',
+          \ ])
+
+    call s:config('javascript_jshint', [
+          \ 'Missing semicolon.',
+          \ 'ES6',
+          \ ])
+
+    map <Leader><space> :up<CR>:SyntasticCheck<CR>
+    let g:syntastic_mode_map = {
+          \   'mode': 'active',
+          \   'active_filetypes': [],
+          \   'passive_filetypes': ['java', 'less', 'html']
+          \ }
+- repo: tweekmonster/spellrotate.vim
+  hook_add: |
+    nmap <silent> zn <Plug>(SpellRotateForward)
+    nmap <silent> zp <Plug>(SpellRotateBackward)
+    vmap <silent> zn <Plug>(SpellRotateForwardV)
+    vmap <silent> zp <Plug>(SpellRotateBackwardV)
 - repo: neomake/neomake
+  if: g:env#async
   hook_add: |
     let g:neomake_disables = [
       \ 'html',

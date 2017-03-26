@@ -1,6 +1,6 @@
 - repo: lambdalisue/vim-gita
   hook_add: |
-    if ! ( has('patch-8.0.0027') || has('nvim') )
+    if ! g:env#async
       map <leader>gs :Gita status<CR>
       map <leader>gp :Gita push<CR>
       map <leader>gl :Gita pull<CR>
@@ -22,7 +22,7 @@
       \ ],
       \ }
 - repo: lambdalisue/gina.vim
-  if: has('patch-8.0.0027') || has('nvim')
+  if: g:env#async
   hook_add: |
     map <leader>gs :Gina status<CR>
     map <leader>gp :Gina push<CR>

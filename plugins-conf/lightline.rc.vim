@@ -153,7 +153,7 @@ let g:lightline = {
       \   'active': {
       \     'left': [
       \       ['mode', 'paste'],
-      \       ['git_branch', 'git_traffic', 'git_status'],
+      \       ['git_status'],
       \       ['virtualenv'],
       \       ['ibus'],
       \       ['readonly', 'filename', 'modified'],
@@ -193,8 +193,6 @@ let g:lightline = {
       \     'fixdir':      s:c().if_func('fixdir#started', 'FD').render(),
       \     'ibus':        s:c().var('g:ibus#enabled', 'ZH').large().render(),
       \     'fugitive':    s:c().func('fugitive#head').large().render(),
-      \     'git_branch':  s:c().func('g:lightline.my.git_branch').large().render(),
-      \     'git_traffic': s:c().func('g:lightline.my.git_traffic').large().render(),
       \     'git_status':  s:c().func('g:lightline.my.git_status').large().render(),
       \   },
       \   'subseparator': { 'left': '', 'right': '' },
@@ -210,14 +208,14 @@ function! g:lightline.my.noscrollbar()
   endif
 endfunction
 
-function! g:lightline.my.git_branch() dict " {{{
-  return gita#statusline#preset('branch')
-endfunction " }}}
-
-function! g:lightline.my.git_traffic() dict " {{{
-  return gita#statusline#preset('traffic')
-endfunction " }}}
-
 function! g:lightline.my.git_status() dict " {{{
-  return gita#statusline#preset('status')
+  if exists('*gita#statusline#preset')
+    return gita#statusline#preset('branch') .
+          \ gita#statusline#preset('status')
+  elseif exists('*gina#component#repo#branch')
+    return gina#component#repo#branch() .
+          \ gina#component#status#preset()
+  else
+    return ''
+  endif
 endfunction " }}}

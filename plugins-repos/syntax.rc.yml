@@ -3,6 +3,7 @@
 #   hook_add: |
 #     let g:polyglot_disabled = ['javascript', 'html5', 'coffee-script', 'vue', 'jsx', 'ruby']
 # - repo: pangloss/vim-javascript
+- repo: briancollins/vim-jst
 - repo: othree/html5.vim
 - repo: othree/yajs.vim
 - repo: othree/es.next.syntax.vim
@@ -24,7 +25,7 @@
 #   on_ft: python
 - repo: tpope/vim-rvm
   hook_post_source: |
-    silent Rvm use default
+    silent Rvm default
 - repo: hallison/vim-rdoc
 - repo: justinmk/vim-syntax-extra
   on_ft: ['c', 'cpp', 'lex', 'yacc']

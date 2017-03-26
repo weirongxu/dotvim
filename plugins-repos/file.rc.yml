@@ -25,3 +25,5 @@
     Inc /plugins-conf/vimfiler
 - repo: justinmk/vim-gtfo
   on_map: ['got', 'goT', 'gof', 'goF']
+- repo: mhinz/vim-grepper
+  on_cmd: Grepper

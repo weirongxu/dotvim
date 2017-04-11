@@ -16,8 +16,11 @@
     'IX', 'IIX', 'IYMD', 'IMDY', 'IDMY',
     'IA', 'ID', 'IM', 'IPOW', 'IIPOW',
   ]
-- repo: Rykka/colorv.vim
-  hook_add: let g:colorv_preview_ftype = join(g:env#web_assets_type_list, ',')
+# - repo: Rykka/colorv.vim
+#   hook_add: let g:colorv_preview_ftype = join(g:env#web_assets_type_list, ',')
+- repo: KabbAmine/vCoolor.vim
+  hook_add: |
+    let g:vcoolor_map = '<leader>vc'
 - repo: januswel/sweepbuf.vim
   on_cmd: SweepBuffers
 - repo: szw/vim-maximizer

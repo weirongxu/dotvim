@@ -34,6 +34,7 @@ set background=dark
 " t_Co gui-font
 if g:env#x
   set t_Co=256
+  set termguicolors
 endif
 if g:env#mac
   set guifont=Monaco:h12

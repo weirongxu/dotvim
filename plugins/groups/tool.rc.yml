@@ -20,7 +20,8 @@
 #   hook_add: let g:colorv_preview_ftype = join(g:env#web_assets_type_list, ',')
 - repo: KabbAmine/vCoolor.vim
   hook_add: |
-    let g:vcoolor_map = '<leader>vc'
+    let g:vcoolor_disable_mappings = 1
+    map <leader>vc :VCoolor<CR>
 - repo: januswel/sweepbuf.vim
   on_cmd: SweepBuffers
 - repo: szw/vim-maximizer

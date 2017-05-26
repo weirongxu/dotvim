@@ -2,8 +2,6 @@
 - repo: LargeFile
 # - repo: dimasg/vim-mark
 - repo: nacitar/a.vim
-- repo: drmikehenry/vim-fixkey
-  if: '! g:env#nvim'
 - repo: kshenoy/vim-signature
   hook_add: let g:SignatureErrorIfNoAvailableMarks = 0
 - repo: tpope/vim-repeat

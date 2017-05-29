@@ -4,7 +4,8 @@
 - repo: hrsh7th/vim-neco-calc
 
 - repo: Shougo/deoplete.nvim
-  hook_add: Inc /plugins-conf/deoplete
+  hook_add: |
+    let g:deoplete#enable_at_startup = 1
   if: g:env#nvim
 
 # - repo: marijnh/tern_for_vim
@@ -30,9 +31,9 @@
 - repo: davidhalter/jedi-vim
   on_ft: python
   hook_add: |
-    let g:jedi#auto_initialization = 0
-    let g:jedi#show_call_signatures = 0
-    autocmd FileType python setlocal omnifunc=jedi#completions
+    # let g:jedi#auto_initialization = 0
+    # let g:jedi#show_call_signatures = 0
+    # autocmd FileType python setlocal omnifunc=jedi#completions
     call UniteFileTypeTool('python', [
       \ ['jedi-goto', 'call jedi#goto()'],
       \ ['jedi-goto_assignments', 'call jedi#goto_assignments()'],
@@ -55,7 +56,7 @@
 - repo: artur-shaik/vim-javacomplete2
   on_ft: java
   hook_add: |
-    autocmd FileType java setlocal omnifunc=javacomplete#Complete
+    # autocmd FileType java setlocal omnifunc=javacomplete#Complete
     call UniteFileTypeTool('java', [
       \ ['Imports-AddSmart', 'JCimportAddSmart'],
       \ ['Imports-Add', 'JCimportAdd'],

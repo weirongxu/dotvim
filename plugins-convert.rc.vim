@@ -4,7 +4,8 @@ let s:source = s:plugins_dir.'/index.rc.yml'
 let s:target_type = 'dein.vim'
 
 function! PluginsParse() "{{{
-  let ret = system($MY_VIMFILES.'/plugins-convert.py ' . s:source . ' ' . s:target . ' ' . s:target_type, '2>&1')
+  let command = executable('python3') ? 'python3' : 'python'
+  let ret = system(command . ' '.$MY_VIMFILES.'/plugins-convert.py ' . s:source . ' ' . s:target . ' ' . s:target_type, '2>&1')
   if !empty(ret)
     echo ret
   endif

@@ -1,12 +1,12 @@
 - repo: mbbill/fencview
-- repo: LargeFile
+- repo: vim-scripts/LargeFile
 # - repo: dimasg/vim-mark
 - repo: nacitar/a.vim
 - repo: kshenoy/vim-signature
   hook_add: let g:SignatureErrorIfNoAvailableMarks = 0
 - repo: tpope/vim-repeat
 - repo: editorconfig/editorconfig-vim
-  if: g:env#python
+  if: g:env#python || g:env#nvim
   hook_post_source: Inc /plugins-conf/editorconfig-vim
 - repo: Shougo/context_filetype.vim
   hook_add: Inc /plugins-conf/context_filetype
@@ -51,5 +51,5 @@
       \ 'files',
       \ ]
 
-- repo: Shougo/vimproc
-  build: make
+# - repo: Shougo/vimproc
+#   build: make

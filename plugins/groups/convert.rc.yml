@@ -1,3 +1,4 @@
+- repo: mbbill/fencview # encode
 - repo: salsifis/vim-transpose
   on_cmd:
     - Transpose
@@ -6,8 +7,6 @@
     - TransposeCSV
     - TransposeInteractive
     - TransposeIndentToggle
-- repo: dhruvasagar/vim-table-mode
-  on_map: <Leader>tm
 - repo: mattn/vim-sunday
   on_map: ['<c-a>', '<c-x>']
   hook_add: |

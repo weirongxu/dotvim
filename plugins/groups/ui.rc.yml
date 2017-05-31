@@ -1,3 +1,4 @@
+- repo: itchyny/vim-cursorword
 - repo: rhysd/try-colorscheme.vim
   on_cmd: 'TryColorscheme'
 - repo: itchyny/lightline.vim

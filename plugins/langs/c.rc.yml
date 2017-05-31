@@ -1,0 +1,19 @@
+- repo: justinmk/vim-syntax-extra
+  on_ft: ['c', 'cpp', 'lex', 'yacc']
+
+# jump to include
+- repo: nacitar/a.vim
+
+# complete
+- repo: tweekmonster/deoplete-clang2
+  on_ft: ['cpp', 'c']
+  if: g:env#nvim
+- repo: osyo-manga/vim-marching
+  on_ft: ['cpp', 'c']
+  if: '! g:env#nvim'
+  hook__add: |
+    let g:marching_clang_command = "/usr/bin/clang"
+    let g:marching_include_paths = [
+      \   "/usr/include"
+      \]
+    let g:marching_enable_neocomplete = 1

@@ -1,6 +1,7 @@
-- repo: kannokanno/previm
-  on_ft: ['markdown', 'rst']
-  depends: open-browser.vim
+# - repo: dimasg/vim-mark
+- repo: jaxbot/semantic-highlight.vim
+  on_cmd: SemanticHighlightToggle
+  hook_add: nnoremap <Leader>s :SemanticHighlightToggle<cr>
 - repo: tpope/vim-eunuch
   on_cmd: [
     'Unlink', 'Remove', 'Move',

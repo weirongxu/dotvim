@@ -1,0 +1,22 @@
+- repo: gabesoft/vim-java
+  on_ft: java
+
+- repo: artur-shaik/vim-javacomplete2
+  on_ft: java
+  hook_add: |
+    # autocmd FileType java setlocal omnifunc=javacomplete#Complete
+    call UniteFileTypeTool('java', [
+      \ ['Imports-AddSmart', 'JCimportAddSmart'],
+      \ ['Imports-Add', 'JCimportAdd'],
+      \ ['Imports-AddMissing', 'JCimportsAddMissing'],
+      \ ['Imports-RemoveUnused', 'JCimportsRemoveUnused'],
+      \ ['Imports-RemoveUnused', 'JCserverShowPort'],
+      \ ['Server-ShowPID', 'JCserverShowPID'],
+      \ ['Server-Start', 'JCserverStart'],
+      \ ['Server-Terminate', 'JCserverTerminate'],
+      \ ['Server-Compile', 'JCserverCompile'],
+      \ ['Debug-EnableLogs', 'JCdebugEnableLogs'],
+      \ ['Debug-DisableLogs', 'JCdebugDisableLogs'],
+      \ ['Debug-GetLogContent', 'JCdebugGetLogContent'],
+      \ ['Cache-Clear', 'JCcacheClear'],
+      \ ])

@@ -1,0 +1,35 @@
+# - repo: elzr/vim-json
+#   on_ft: json
+# - repo: pangloss/vim-javascript
+- repo: briancollins/vim-jst
+- repo: othree/html5.vim
+- repo: othree/yajs.vim
+- repo: othree/es.next.syntax.vim
+- repo: othree/javascript-libraries-syntax.vim
+  hook_add: |
+    let g:used_javascript_libs = 'jquery,underscore,backbone,angularjs,angularui,angularuirouter,react,flux,requirejs,jasmine,chai,handlebars'
+- repo: weirongxu/vim-coffee-script
+  on_ft: ['coffee', 'jade']
+
+# complete
+- repo: marijnh/tern_for_vim
+  if: '! g:env#nvim'
+  on_ft: javascript
+  build: npm install
+  hook_add: |
+    call UniteFileTypeTool('javascript', [
+      \ ['tern-doc', 'TernDoc'],
+      \ ['tern-doc-browse', 'TernDocBrowse'],
+      \ ['tern-type', 'TernType'],
+      \ ['tern-def', 'TernDef'],
+      \ ['tern-def-preview', 'TernDefPreview'],
+      \ ['tern-def-split', 'TernDefSplit'],
+      \ ['tern-def-tab', 'TernDefTab'],
+      \ ['tern-refs', 'TernRefs'],
+      \ ['tern-rename', 'TernRename'],
+      \ ])
+
+- repo: carlitux/deoplete-ternjs
+  build: npm install -g tern
+  if: g:env#nvim
+  on_ft: javascript

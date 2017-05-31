@@ -1,0 +1,6 @@
+# - repo: 2072/PHP-Indenting-for-VIm
+#   on_ft: EVAL(g:env#html_type_list)
+- repo: weirongxu/yiiprado.vim
+  on_ft: yiiprado
+  hook_add: |
+    autocmd BufNewFile,BufRead *.tpl setfiletype yiiprado

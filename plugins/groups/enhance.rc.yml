@@ -1,3 +1,31 @@
+- repo: mhinz/vim-startify
+  hook_add: |
+    set sessionoptions=curdir,folds,help,resize,tabpages,unix
+    let g:startify_session_dir = $HOME.'/.record/vim-sessions'
+    let g:startify_session_autoload = 1
+    let g:startify_session_delete_buffers = 1
+    let g:startify_session_persistence = 1
+    let g:startify_custom_header = [
+      \ 'Raidou vim',
+      \ ]
+    let g:startify_bookmarks = [
+      \ $MYVIMRC,
+      \ $MY_PLUGINS,
+      \ ]
+    let g:startify_list_order = [
+      \ ['   Vimfile:'],
+      \ 'bookmarks',
+      \ ['   Sessions:'],
+      \ 'sessions',
+      \ ['   Last Recently Use:'],
+      \ 'files',
+      \ ]
+- repo: kshenoy/vim-signature
+  hook_add: let g:SignatureErrorIfNoAvailableMarks = 0
+- repo: craigemery/vim-autotag
+- repo: gioele/vim-autoswap
+- repo: tpope/vim-repeat
+- repo: vim-scripts/LargeFile
 - repo: jiangmiao/auto-pairs
   hook_add: |
     # let g:AutoPairsFlyMode = 1
@@ -22,7 +50,7 @@
 #   hook_add: |
 #     let g:endwise_abbreviations = 1
 #     nmap o A<CR>
-- repo: luochen1990/rainbow
+- repo: luochen1990/rainbow # lisp heightlight ()
 - repo: AndrewRadev/splitjoin.vim
   on_map: ['gS', 'gJ']
 - repo: osyo-manga/vim-jplus

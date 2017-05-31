@@ -1,3 +1,6 @@
+- repo: editorconfig/editorconfig-vim
+  if: g:env#python || g:env#nvim
+  hook_post_source: Inc /plugins-conf/editorconfig-vim
 - repo: Chiel92/vim-autoformat
   on_cmd: Autoformat
 - repo: sbdchd/neoformat
@@ -20,3 +23,5 @@
   on_map: ['<Plug>(EasyAlign)', '<Plug>(LiveEasyAlign)']
   on_cmd: ['EasyAlign', 'LiveEasyAlign']
   hook_add: vmap <Enter> <Plug>(LiveEasyAlign)
+- repo: dhruvasagar/vim-table-mode
+  on_map: <Leader>tm

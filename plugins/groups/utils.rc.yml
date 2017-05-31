@@ -1,2 +1,5 @@
+- repo: Shougo/vimproc
+  build: make
+  if: '! g:env#nvim'
 - repo: tyru/open-browser.vim
 - repo: mattn/webapi-vim

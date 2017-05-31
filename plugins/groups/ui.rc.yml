@@ -34,3 +34,5 @@
     nmap <silent> <Leader>0           <Plug>FontsizeDefault
 - repo: jszakmeister/vim-togglecursor
   if: '! g:env#gui'
+- repo: equalsraf/neovim-gui-shim
+  if: g:env#nvim

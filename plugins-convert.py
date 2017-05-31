@@ -51,13 +51,17 @@ class Config(object):
     self.add_plugins(self.configs, manager_type)
     return '\n'.join(self.vimscript_content)
 
-source = sys.argv[1]
-target = sys.argv[2]
-manager_type = sys.argv[3]
 
-try:
-  text = Config(open(source), os.path.dirname(source)).get_vim_script(manager_type)
-  target_file = open(target, 'w+')
-  target_file.write(text)
-except Exception as e:
-  traceback.print_exc()
+def run(source, target, manager_type):
+  try:
+    text = Config(open(source), os.path.dirname(source)).get_vim_script(manager_type)
+    target_file = open(target, 'w+')
+    target_file.write(text)
+  except Exception as e:
+    traceback.print_exc()
+
+if len(sys.argv) >= 3:
+  source = sys.argv[1]
+  target = sys.argv[2]
+  manager_type = sys.argv[3] if len(sys.argv) > 3 else 'dein.vim'
+  run(source, target)

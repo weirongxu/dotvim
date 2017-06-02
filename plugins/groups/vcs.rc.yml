@@ -8,10 +8,10 @@
     let g:gita#command#browse#extra_translation_patterns = {
       \ 'coding.net': [
       \   [
-      \     '\vhttps?://git.coding\.net/(.{-})/(.{-})%(\.git)?$',
-      \     '\vgit://git.coding\.net/(.{-})/(.{-})%(\.git)?$',
-      \     '\vgit\@git.coding\.net:(.{-})/(.{-})%(\.git)?$',
-      \     '\vssh://git\@git.coding\.net/(.{-})/(.{-})%(\.git)?$',
+      \     '\vhttps?://git\.coding\.net/(.{-})/(.{-})%(\.git)?$',
+      \     '\vgit://git\.coding\.net/(.{-})/(.{-})%(\.git)?$',
+      \     '\vgit\@git\.coding\.net:(.{-})/(.{-})%(\.git)?$',
+      \     '\vssh://git\@git\.coding\.net/(.{-})/(.{-})%(\.git)?$',
       \   ], {
       \     '^': 'https://coding.net/u/\1/p/\2/git/tree/%c1/',
       \     '_': 'https://coding.net/u/\1/p/\2/git/blob/%c1/%pt%{#L|}ls%{-L|}le',
@@ -28,22 +28,22 @@
     map <leader>gp :Gina push<CR>
     map <leader>gl :Gina pull<CR>
     map <leader>gc :Gina commit<CR>
-    let g:gina#command#browse#translation_patterns = {
+  hook_post_source: |
+    call extend(g:gina#command#browse#translation_patterns, {
       \ 'coding.net': [
       \   [
-      \     '\vhttps?://git.coding\.net/(.{-})/(.{-})%(\.git)?$',
-      \     '\vgit://git.coding\.net/(.{-})/(.{-})%(\.git)?$',
-      \     '\vgit\@git.coding\.net:(.{-})/(.{-})%(\.git)?$',
-      \     '\vssh://git\@git.coding\.net/(.{-})/(.{-})%(\.git)?$',
+      \     '\vhttps?://git\.coding\.net/(.{-})/(.{-})%(\.git)?$',
+      \     '\vgit://git\.coding\.net\/(.{-})\/(.{-})%(\.git)?$',
+      \     '\vgit\@git\.coding\.net:(.{-})\/(.{-})%(\.git)?$',
+      \     '\vssh:\/\/git\@git\.coding\.net\/(.{-})\/(.{-})%(\.git)?$',
       \   ], {
-      \     '^': 'https://coding.net/u/\1/p/\2/git/tree/%c1/',
-      \     '_': 'https://coding.net/u/\1/p/\2/git/blob/%c1/%pt%{#L|}ls%{-L|}le',
-      \     'exact': 'https://coding.net/u/\1/p/\2/git/blob/%r1/%pt%{#L|}ls%{-L|}le',
-      \     'blame': 'https://coding.net/u/\1/p/\2/git/blame/%c1/%pt%{#L|}ls%{-L|}le',
-      \     'diff': 'https://coding.net/u/\1/p/\2/git/compare/%c1...%c2',
+      \     '_': 'https://coding.net/u/\1/p/\2/git/blob/%r0/%pt%{#L|}ls%{-L|}le',
+      \     'root': 'https://coding.net/u/\1/p/\2/git/tree/%r0/',
+      \     'blame': 'https://coding.net/u/\1/p/\2/git/blame/%r0/%pt%{#L|}ls%{-L|}le',
+      \     'compare': 'https://coding.net/u/\1/p/\2/git/compare/%c1...%c2',
       \   },
       \ ],
-      \ }
+      \})
 - repo: airblade/vim-gitgutter
   hook_add: |
     let g:gitgutter_enabled = 1

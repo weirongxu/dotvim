@@ -23,12 +23,12 @@ let g:unite_source_menu_menus = {
       \ 'git-commands': {
       \   'description': 'Git Commands',
       \   'command_candidates': [
-      \     ['git pull', 'Gita pull'],
-      \     ['git pull --rebase', 'Gita pull --rebase'],
-      \     ['git push with pull', 'execute "Gita pull" | execute "Gita push"'],
-      \     ['git push with pull rebase', 'execute "Gita pull --rebase" | execute "Gita push"'],
-      \     ['git push', 'Gita push'],
-      \     ['git status', 'Gita status'],
+      \     ['git pull', 'Gina pull'],
+      \     ['git pull --rebase', 'Gina pull --rebase'],
+      \     ['git push with pull', 'execute "Gina pull" | execute "Gina push"'],
+      \     ['git push with pull rebase', 'execute "Gina pull --rebase" | execute "Gina push"'],
+      \     ['git push', 'Gina push'],
+      \     ['git status', 'Gina status'],
       \   ],
       \ }
       \ }

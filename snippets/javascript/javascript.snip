@@ -71,13 +71,13 @@ options head
 
 snippet forin
 options head
-	for (var ${1:i} in ${2:#:Things}) {
+	for (${1:let} ${2:i} in ${3:#:Things}) {
 		${0:TARGET}
 	}
 
 snippet forof
 options head
-	for (var ${1:val} of ${2:#:Things}) {
+	for (${1:let} ${2:val} of ${3:#:Things}) {
 		${0:TARGET}
 	}
 

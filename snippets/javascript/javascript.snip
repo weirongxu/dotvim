@@ -65,7 +65,7 @@ snippet else
 
 snippet for
 options head
-	for (var ${1:i}=0; $1 < ${2:#:Things}.length; ++$1) {
+	for (${1:let} ${2:i}=0; $1 < ${3:#:Things}.length; ++$2) {
 		${0:TARGET}
 	}
 

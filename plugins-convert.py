@@ -64,4 +64,4 @@ if len(sys.argv) >= 3:
   source = sys.argv[1]
   target = sys.argv[2]
   manager_type = sys.argv[3] if len(sys.argv) > 3 else 'dein.vim'
-  run(source, target)
+  run(source, target, manager_type)

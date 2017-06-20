@@ -10,6 +10,8 @@
     let g:used_javascript_libs = 'jquery,underscore,backbone,angularjs,angularui,angularuirouter,react,flux,requirejs,jasmine,chai,handlebars'
 - repo: weirongxu/vim-coffee-script
   on_ft: ['coffee', 'jade']
+- repo: leafgarland/typescript-vim
+  on_ft: 'typescript'
 
 # complete
 - repo: marijnh/tern_for_vim

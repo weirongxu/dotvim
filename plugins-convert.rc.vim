@@ -19,19 +19,16 @@ import vim
 run(vim.eval('s:source'), vim.eval('s:target'), vim.eval('s:target_type'))
 endpy
     return
-  endif
-  if g:env#python2
+  elseif g:env#python2
     execute 'pyfile ' . fnameescape(s:script)
 py << endpy
 import vim
 run(vim.eval('s:source'), vim.eval('s:target'), vim.eval('s:target_type'))
 endpy
     return
-  endif
-  if executable('python3')
+  elseif executable('python3')
     return s:system_command('python3')
-  endif
-  if executable('python2')
+  elseif executable('python2')
     return s:system_command('python2')
   endif
 endfunction "}}}

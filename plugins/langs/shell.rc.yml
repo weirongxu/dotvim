@@ -1,1 +1,2 @@
 - repo: dag/vim-fish
+  on_ft: fish

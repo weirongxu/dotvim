@@ -106,7 +106,8 @@ set incsearch hlsearch ignorecase smartcase magic
 " dir
 set browsedir=buffer " file browse dir
 set noautochdir " dont change dir when into a buffer
-set wildignore=*.o,*~,*.pyc " ignore file
+" ignore
+let &wildignore = join(g:env#hidden_glob_list, ',')
 
 set autoread " auto read when file changed outside of Vim
 

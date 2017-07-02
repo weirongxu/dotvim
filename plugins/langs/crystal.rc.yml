@@ -1,0 +1,2 @@
+- repo: rhysd/vim-crystal
+  on_ft: crystal

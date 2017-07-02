@@ -1,6 +1,7 @@
-- repo: editorconfig/editorconfig-vim
-  if: g:env#python || g:env#nvim
-  hook_post_source: Inc /plugins-conf/editorconfig-vim
+# - repo: editorconfig/editorconfig-vim
+#   if: g:env#python || g:env#nvim
+#   hook_post_source: Inc /plugins-conf/editorconfig-vim
+- repo: sgur/vim-editorconfig
 - repo: Chiel92/vim-autoformat
   on_cmd: Autoformat
 - repo: sbdchd/neoformat
@@ -25,3 +26,13 @@
   hook_add: vmap <Enter> <Plug>(LiveEasyAlign)
 - repo: dhruvasagar/vim-table-mode
   on_map: <Leader>tm
+- repo: FooSoft/vim-argwrap
+  hook_add: |
+    function NoTailArgwrap()
+      let b:argwrap_tail_comma_braces = ''
+      ArgWrap
+      unlet b:argwrap_tail_comma_braces
+    endfunction
+    nnoremap <silent> <leader>w :ArgWrap<CR>
+    nnoremap <silent> <leader>W :call NoTailArgwrap()<CR>
+    let g:argwrap_tail_comma_braces = '{['

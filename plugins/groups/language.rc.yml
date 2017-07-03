@@ -32,6 +32,7 @@
 - repo: beloglazov/vim-online-thesaurus
   on_map: <Leader>K
 - repo: ianva/vim-youdao-translater
+  if: g:env#python2
   hook_add: |
     vnoremap <silent> <c-t> :<C-u>Ydv<CR>
     nnoremap <silent> <c-t> :<C-u>Ydc<CR>

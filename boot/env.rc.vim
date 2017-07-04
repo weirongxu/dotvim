@@ -64,19 +64,20 @@ let g:env#web_assets_type_list = ['json'] + g:env#html_type_list + g:env#styles_
 
 let g:env#hidden_ext_list = [
     \ 'so', 'dll', 'o',
-    \ 'pyc',
+    \ 'pyc', 'class',
+    \ 'bak',
+    \ 'exe',
+    \ 'swp',
+    \ 'swo',
     \ ]
 
 let g:env#hidden_dir_list = [
-    \ '.git', '.svn', '.hg', '.svn', '.ropeproject',
+    \ '.git', '.svn', '.hg', '.svn', '.bzr', '.ropeproject',
     \ 'node_modules', 'bower_components', 'vendor',
     \ '.DS_Store',
     \ ]
 
-let g:env#hidden_glob_list = map(deepcopy(g:env#hidden_ext_list), '"*.".v:val') + g:env#hidden_dir_list
+let g:env#hidden_glob_list = map(deepcopy(g:env#hidden_ext_list), '"*.".v:val')
+      \ + map(deepcopy(g:env#hidden_dir_list), 'v:val."/**"')
 
-let g:env#finder_ignore_ext_list = g:env#hidden_ext_list + [
-    \ 'exe',
-    \ ]
-
-let g:env#finder_ignore_dir_list = g:env#hidden_dir_list
+let g:env#hidden_list = map(deepcopy(g:env#hidden_ext_list), '".".v:val') + g:env#hidden_dir_list

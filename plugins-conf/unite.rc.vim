@@ -18,14 +18,12 @@ map <Space>hy :Unite history/yank<CR>
 let g:unite_source_grep_max_candidates = 0
 let g:unite_source_find_max_candidates = 0
 
-let ignore = ['.hg', '.svn', '.git', '.bzr', '.ropeproject', 'node_modules', 'bower_components']
-
 if executable('ag')
   " Use ag in unite grep source.
   let g:unite_source_grep_command = 'ag'
   let g:unite_source_grep_default_opts =
         \ '-i --line-numbers --nocolor --nogroup --hidden ' .
-        \ join(map(ignore, '"--ignore ''" . v:val . "''"'))
+        \ join(map(deepcopy(g:env#hidden_list), '"--ignore ''" . v:val . "''"'))
   let g:unite_source_grep_recursive_opt = ''
 elseif executable('pt')
   let g:unite_source_grep_command = 'pt'

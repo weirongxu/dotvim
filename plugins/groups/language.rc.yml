@@ -37,6 +37,5 @@
     vnoremap <silent> <c-t> :<C-u>Ydv<CR>
     nnoremap <silent> <c-t> :<C-u>Ydc<CR>
     # noremap <space>yd :<C-u>Yde<CR>
-    #
 - repo: rhysd/vim-grammarous
   on_cmd: GrammarousCheck

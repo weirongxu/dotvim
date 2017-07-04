@@ -2,8 +2,8 @@
 - repo: ctrlpvim/ctrlp.vim
   hook_add: |
     let g:ctrlp_custom_ignore = {
-      \ 'dir':  '\v[\/](' . substitute(join(g:env#finder_ignore_dir_list, '|'), '\.', '\\.', 'g') . ')$',
-      \ 'file': '\v\.('. join(g:env#finder_ignore_ext_list, '|') .')$',
+      \ 'dir':  '\v[\/](' . substitute(join(g:env#hidden_dir_list, '|'), '\.', '\\.', 'g') . ')$',
+      \ 'file': '\v\.('. join(g:env#hidden_ext_list, '|') .')$',
       \ }
     let g:ctrlp_show_hidden = 1
 - repo: Shougo/vimfiler.vim

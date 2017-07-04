@@ -4,9 +4,9 @@ let g:vimfiler_as_default_explorer = 1
 let g:vimfiler_safe_mode_by_default = 0
 let g:vimfiler_expand_jump_to_first_child = 0
 
-let start_pattern = join(['.', '~'], '\|')
-let end_pattern = join(['.DS_Store', '.pyc', '.o'], '\|')
-let g:vimfiler_ignore_pattern = '\V\%(\^\%('.start_pattern.'\)\|\%('.end_pattern.'\)\$\)'
+let g:vimfiler_ignore_pattern = ['\v^(\.|\~)']
+let g:vimfiler_ignore_pattern += map(deepcopy(g:env#hidden_dir_list), '"\\V".v:val')
+let g:vimfiler_ignore_pattern += ['\v\.('. join(g:env#hidden_ext_list, '|') .')$']
 
 " buffer config
 autocmd FileType vimfiler call <SID>vimfiler_settings()

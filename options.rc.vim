@@ -11,6 +11,10 @@ if g:env#gui
         \endif
 endif
 
+if &shell =~ 'fish'
+  set shell=bash
+endif
+
 " encoding
 set fileencodings=utf-8,gb18030,gbk,gb2312,cp936,ucs-bom,chinese,latin-1
 set fileformats=unix,dos,mac
@@ -106,8 +110,7 @@ set incsearch hlsearch ignorecase smartcase magic
 " dir
 set browsedir=buffer " file browse dir
 set noautochdir " dont change dir when into a buffer
-" ignore
-let &wildignore = join(g:env#hidden_glob_list, ',')
+set wildignore=
 
 set autoread " auto read when file changed outside of Vim
 

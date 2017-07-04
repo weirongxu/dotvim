@@ -6,7 +6,6 @@
     - UniteResume
   hook_add: Inc /plugins-conf/unite
   hook_post_source: |
-    PP g:env#hidden_glob_list
     call unite#custom#source('vimgrep', 'ignore_globs', g:env#hidden_glob_list)
     call unite#custom#source('vimgrep', 'max_candidates', 0)
     call unite#filters#matcher_default#use(['matcher_fuzzy'])

@@ -1,22 +1,23 @@
---- /usr/share/nvim/runtime/indent/html.vim	2016-11-28 03:03:30.000000000 +0800
-+++ _html.vim	2017-07-05 18:03:04.895170192 +0800
-@@ -25,6 +25,10 @@
- if exists("b:did_indent") "{{{
-   finish
- endif
-+
-+" Initial indent/javascript before set did_indent = 1
-+ru! indent/javascript.vim
-+
+--- source-html.vim	2017-07-05 21:26:08.000000000 +0800
++++ html.vim	2017-07-05 22:25:40.000000000 +0800
+@@ -29,9 +29,9 @@
+ " Load the Javascript indent script first, it defines GetJavascriptIndent().
+ " Undo the rest.
+ " Load base python indent.
+-if !exists('*GetJavascriptIndent')
++" if !exists('*GetJavascriptIndent')
+   runtime! indent/javascript.vim
+-endif
++" endif
  let b:did_indent = 1
  
  setlocal indentexpr=HtmlIndent()
-@@ -596,7 +600,7 @@
-     return eval(b:hi_js1indent)
+@@ -593,7 +593,7 @@
+   "{{{
+   if prevnonblank(v:lnum-1) == b:hi_indent.blocklnr
+     " indent for first content line
+-    return eval(b:hi_css1indent)
++    return shiftwidth() + indent(prevnonblank(v:lnum-1))
    endif
-   if b:hi_indent.scripttype == "javascript"
--    return cindent(v:lnum)
-+    return GetJavascriptIndent()
-   else
-     return -1
-   endif
+   return s:CSSIndent()
+ endfunc "}}}

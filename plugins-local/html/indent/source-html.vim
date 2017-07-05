@@ -29,9 +29,9 @@ endif
 " Load the Javascript indent script first, it defines GetJavascriptIndent().
 " Undo the rest.
 " Load base python indent.
-" if !exists('*GetJavascriptIndent')
+if !exists('*GetJavascriptIndent')
   runtime! indent/javascript.vim
-" endif
+endif
 let b:did_indent = 1
 
 setlocal indentexpr=HtmlIndent()
@@ -593,7 +593,7 @@ func! s:Alien4()
   "{{{
   if prevnonblank(v:lnum-1) == b:hi_indent.blocklnr
     " indent for first content line
-    return shiftwidth() + indent(prevnonblank(v:lnum-1))
+    return eval(b:hi_css1indent)
   endif
   return s:CSSIndent()
 endfunc "}}}

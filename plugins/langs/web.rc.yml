@@ -9,6 +9,7 @@
 - repo: othree/javascript-libraries-syntax.vim
   hook_add: |
     let g:used_javascript_libs = 'jquery,underscore,backbone,angularjs,angularui,angularuirouter,react,flux,requirejs,jasmine,chai,handlebars'
+- repo: posva/vim-vue
 - repo: weirongxu/vim-coffee-script
   on_ft: ['coffee', 'jade']
 - repo: leafgarland/typescript-vim

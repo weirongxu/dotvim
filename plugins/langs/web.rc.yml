@@ -2,7 +2,7 @@
 #   on_ft: json
 - repo: pangloss/vim-javascript
 - repo: briancollins/vim-jst # jst/ejs
-- repo: polpo/vim-html-js-indent
+# - repo: polpo/vim-html-js-indent
 # - repo: othree/html5.vim
 # - repo: othree/yajs.vim
 # - repo: othree/es.next.syntax.vim

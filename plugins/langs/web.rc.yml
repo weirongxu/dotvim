@@ -1,10 +1,11 @@
 # - repo: elzr/vim-json
 #   on_ft: json
-# - repo: pangloss/vim-javascript
-- repo: briancollins/vim-jst
-- repo: othree/html5.vim
-- repo: othree/yajs.vim
-- repo: othree/es.next.syntax.vim
+- repo: pangloss/vim-javascript
+- repo: briancollins/vim-jst # jst/ejs
+- repo: polpo/vim-html-js-indent
+# - repo: othree/html5.vim
+# - repo: othree/yajs.vim
+# - repo: othree/es.next.syntax.vim
 - repo: othree/javascript-libraries-syntax.vim
   hook_add: |
     let g:used_javascript_libs = 'jquery,underscore,backbone,angularjs,angularui,angularuirouter,react,flux,requirejs,jasmine,chai,handlebars'

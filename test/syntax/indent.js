@@ -6,13 +6,15 @@ async function func(
   hello()
 }
 
-// jQuery
-//
-{
-  [
-    'test',
-    'test2',
-  ],
+fcuntion() {
+  // jQuery
+  //
+  {
+    [
+      'test',
+      'test2',
+    ],
+  }
 }
 
 /**

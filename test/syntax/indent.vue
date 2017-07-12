@@ -5,6 +5,9 @@
       :class="{test: true}"
       @click="callback"
       ></div>
+    <el-form>
+      <el-input></el-input>
+    </el-form>
     <router-view></router-view>
   </div>
 </template>

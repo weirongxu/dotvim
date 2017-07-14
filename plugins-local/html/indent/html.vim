@@ -259,9 +259,9 @@ let s:cpo_save = &cpo
 set cpo-=C
 
 " [-- count self close tags of line a:lnum --]
-fun! <SID>HtmlIndentAlone(lnum, pattern)
+fun! <SID>HtmlIndentAloneClose(lnum)
     let s = substitute('x'.getline(a:lnum),
-    \ '.\{-}\(\(<\)\('.a:pattern.'\)\>.*/>\)', "\1", 'g')
+    \ '.\{-}\(/>\)', "\1", 'g')
     let s = substitute(s, "[^\1].*$", '', '')
     return strlen(s)
 endfun
@@ -271,7 +271,7 @@ fun! <SID>HtmlIndentOpen(lnum, pattern)
     let s = substitute('x'.getline(a:lnum),
     \ '.\{-}\(\(<\)\('.a:pattern.'\)\>\)', "\1", 'g')
     let s = substitute(s, "[^\1].*$", '', '')
-    return strlen(s) - <SID>HtmlIndentAlone(a:lnum, a:pattern)
+    return strlen(s)
 endfun
 
 " [-- count indent-decreasing tags of line a:lnum --]
@@ -298,6 +298,7 @@ fun! <SID>HtmlIndentSum(lnum, style)
         if a:style == match(getline(a:lnum), '^\s*</\<\('.s:html_indent_tags.'\)\>')
             let open = <SID>HtmlIndentOpen(a:lnum, s:html_indent_tags) - <SID>HtmlIndentOpen(a:lnum, s:html_noindent_tags)
             let close = <SID>HtmlIndentClose(a:lnum, s:html_indent_tags) - <SID>HtmlIndentClose(a:lnum, s:html_noindent_tags)
+            \ + <SID>HtmlIndentAloneClose(a:lnum)
             if 0 != open || 0 != close
                 return open - close
             endif

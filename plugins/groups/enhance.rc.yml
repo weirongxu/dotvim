@@ -137,5 +137,8 @@
 - repo: tpope/vim-characterize
   on_map: ga
 
-- repo: hecal3/vim-leader-guide
-  hook_add: Inc /plugins-conf/leader-guide
+- repo: weirongxu/vim-leader-guide
+  hook_add: |
+    map <leader>. <Plug>leaderguide-global
+    map <space><space> :<c-u>LeaderGuide '<Space>'<CR>
+    vmap <space><space> :<c-u>LeaderGuideVisual '<Space>'<CR>

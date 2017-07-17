@@ -3,7 +3,7 @@
 - repo: pangloss/vim-javascript
 - repo: briancollins/vim-jst # jst/ejs
 # - repo: polpo/vim-html-js-indent
-- repo: othree/html5.vim
+- repo: weirongxu/html5.vim
 # - repo: othree/yajs.vim
 # - repo: othree/es.next.syntax.vim
 - repo: othree/javascript-libraries-syntax.vim

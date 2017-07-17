@@ -1,7 +1,4 @@
-let s:save_cpo = &cpo
-set cpo&vim
-
-function! s:npmhome() "{{{
+function! open_npm#open() "{{{
   let line = getline('.')
   let pos = getcurpos()[2]
 
@@ -24,14 +21,12 @@ function! s:npmhome() "{{{
     let v = vital#of('vital')
     let process = v.import('Process')
     let uri = process.system('npm info ' . name . ' homepage')
-    call openbrowser#open(split(uri, '\r\|\n')[1])
+    let uri = split(uri, '\r\|\n')
+    let uri = uri[-1]
+    echo uri
+    call openbrowser#open(uri)
     " call openbrowser#open('https://www.npmjs.com/package/' . name)
   else
     echo 'not found package name'
   endif
 endfunction "}}}
-command! Npmhome call <SID>npmhome()
-
-let &cpo = s:save_cpo
-unlet s:save_cpo
-" vim: fdm=marker

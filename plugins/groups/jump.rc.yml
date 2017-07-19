@@ -4,9 +4,8 @@
     'TagbarSetFoldlevel', 'TagbarShowTag',
     'TagbarCurrentTag', 'TagbarGetTypeConfig',
     'TagbarDebug', 'TagbarDebugEnd']
-  build: |
-    npm install -g jsctags
   hook_add: |
+    NpmInstall jsctags
     let g:tagbar_show_linenumbers = 1
     map gl :TagbarToggle<CR>
     Inc /plugins-conf/tagbar

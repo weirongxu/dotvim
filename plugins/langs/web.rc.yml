@@ -33,7 +33,7 @@
       \ ['tern-rename', 'TernRename'],
       \ ])
 
-- repo: carlitux/deoplete-ternjs
-  build: npm install -g tern
-  if: g:env#nvim
-  on_ft: javascript
+# - repo: carlitux/deoplete-ternjs
+#   hook_add: NpmInstall tern
+#   if: g:env#nvim
+#   on_ft: javascript

@@ -11,10 +11,10 @@
 - repo: autozimu/LanguageClient-neovim
   if: g:env#nvim
   hook_add: |
-    NpmInstall javascript-typescript-langserver language-server-stdio
+    NpmInstall javascript-typescript-langserver javascript-typescript-stdio
 
     let g:LanguageClient_serverCommands = {
-      \ 'javascript': ['language-server-stdio'],
+      \ 'javascript': ['javascript-typescript-stdio'],
       \ }
     let g:LanguageClient_autoStart = 1
 
@@ -29,5 +29,3 @@
       # \ ['lang-client-logging-level', 'call LanguageClient_setLoggingLevel(level)'],
       \ ['lang-client-formatting', 'call LanguageClient_textDocument_formatting()'],
       \ ])
-
-

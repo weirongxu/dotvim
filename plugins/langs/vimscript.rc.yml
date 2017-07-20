@@ -12,3 +12,5 @@
   on_ft: vim
 - repo: thinca/vim-themis
   on_ft: vim
+- repo: mhinz/vim-lookup
+  on_ft: vim

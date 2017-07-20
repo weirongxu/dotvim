@@ -19,7 +19,7 @@
       \ }
     let g:LanguageClient_autoStart = 1
 
-    call UniteFileTypeTool('javascript', [
+    call UniteFileTypeTool(keys(g:LanguageClient_serverCommands), [
       \ ['lang-client-hover', 'call LanguageClient_textDocument_hover()'],
       \ ['lang-client-definition', 'call LanguageClient_textDocument_definition()'],
       \ ['lang-client-rename', 'call LanguageClient_textDocument_rename()'],

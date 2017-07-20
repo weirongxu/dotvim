@@ -11,7 +11,8 @@
 - repo: autozimu/LanguageClient-neovim
   if: g:env#nvim
   hook_add: |
-    NpmInstall javascript-typescript-langserver javascript-typescript-stdio
+    NpmInstall javascript-typescript-langserver
+    Pip3Install typing
 
     let g:LanguageClient_serverCommands = {
       \ 'javascript': ['javascript-typescript-stdio'],

@@ -5,7 +5,6 @@ map <Space>b :Unite buffer<CR>
 map <Space>t :Unite tab<CR>
 map <Space>T :Unite tab:no-current<CR>
 map <Space>j :Unite jump<CR>
-map <Space>c :Unite change<CR>
 map <Space>g :Unite grep:
 map <Space>G :Unite grep:%<CR>
 map <Space>f :Unite vimgrep:

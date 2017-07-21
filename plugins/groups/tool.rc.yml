@@ -79,3 +79,17 @@
       \ ])
     endfunction
     command Rest call OpenRest()
+- repo: chiedo/vim-case-convert
+  on_cmd:
+    - CamelToHyphen
+    - CamelToSnake
+    - HyphenToCamel
+    - HyphenToSnake
+    - SnakeToCamel
+    - SnakeToHyphen
+    - CamelToHyphenAll
+    - CamelToSnakeAll
+    - HyphenToCamelAll
+    - HyphenToSnakeAll
+    - SnakeToCamelAll
+    - SnakeToHyphenAll

@@ -3,6 +3,7 @@ map <space>u :Unite menu<CR>
 map <space>ut :Unite menu:lang-tools<CR>
 map <space>ug :Unite menu:git-commands<CR>
 map <space>s :Unite menu:session<CR>
+map <space>c :Unite menu:case-convert<CR>
 let g:unite_source_menu_menus = {
       \ 'session': {
       \   'description': 'Session Manager',
@@ -11,6 +12,17 @@ let g:unite_source_menu_menus = {
       \     ['session load', "SLoad"],
       \     ['session delete', "SDelete"],
       \     ['session close', "SClose"],
+      \   ],
+      \ },
+      \ 'case-convert': {
+      \   'description': 'Snake Case, Hyphenation and Camel Case Converter',
+      \   'command_candidates': [
+      \     ['CamelToHyphen', 'CamelToHyphen'],
+      \     ['CamelToSnake', 'CamelToSnake'],
+      \     ['HyphenToCamel', 'HyphenToCamel'],
+      \     ['HyphenToSnake', 'HyphenToSnake'],
+      \     ['SnakeToCamel', 'SnakeToCamel'],
+      \     ['SnakeToHyphen', 'SnakeToHyphen'],
       \   ],
       \ },
       \ 'common-tools': {

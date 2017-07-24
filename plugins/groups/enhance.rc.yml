@@ -22,7 +22,7 @@
       \ ]
 - repo: kshenoy/vim-signature
   hook_add: let g:SignatureErrorIfNoAvailableMarks = 0
-- repo: craigemery/vim-autotag
+# - repo: craigemery/vim-autotag
 - repo: gioele/vim-autoswap
 - repo: tpope/vim-repeat
 - repo: vim-scripts/LargeFile

@@ -93,3 +93,4 @@
     - HyphenToSnakeAll
     - SnakeToCamelAll
     - SnakeToHyphenAll
+- repo: tweekmonster/startuptime.vim

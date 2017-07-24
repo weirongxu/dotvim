@@ -22,15 +22,15 @@ class Config(object):
 
   def add_plugin(self, plugin, manager_type):
     def parse_eval(str):
-      str = re.sub(r'"EVAL\((.*)\)"', '\\1', str)
-      str = re.sub(r'EVAL\((.*)\)', '".\\1."', str)
+      str = re.sub(r'"EVAL\((.*?)\)"', '\\1', str)
+      str = re.sub(r'EVAL\((.*?)\)', '".\\1."', str)
       str = re.sub(r': ""\.', ': ', str)
       str = re.sub(r'\."",', ',', str)
       return str
-
     if 'repo' in plugin:
       repo = plugin['repo']
       options = {k: v for k, v in plugin.items() if k != 'repo'}
+      options['merged'] = 0
 
       if manager_type == 'vim-plug':
         template = "Plug '{}', {}"

@@ -10,7 +10,7 @@ snippet alert
 alias al
 	alert(${0})
 
-snippet af
+snippet cf
 	(function(${1:#:attribute}) {${0:TARGET}})()
 
 snippet :f
@@ -26,6 +26,9 @@ options word
 snippet af
 options word
 	(${1}) => {${0:TARGET}}
+
+snippet caf
+	((${1}) => {${0:TARGET}})()
 
 snippet function
 alias func fun

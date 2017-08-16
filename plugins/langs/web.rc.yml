@@ -16,7 +16,7 @@
   on_ft: 'typescript'
 
 # complete
-- repo: marijnh/tern_for_vim
+- repo: ternjs/tern_for_vim
   if: '! g:env#nvim'
   on_ft: javascript
   build: npm install

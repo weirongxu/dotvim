@@ -10,6 +10,8 @@
   hook_add: |
     let g:used_javascript_libs = 'jquery,underscore,backbone,angularjs,angularui,angularuirouter,react,flux,requirejs,jasmine,chai,handlebars'
 - repo: posva/vim-vue
+  hook_add: |
+    let g:vue_disable_pre_processors = 1
 - repo: weirongxu/vim-coffee-script
   on_ft: ['coffee', 'jade']
 - repo: leafgarland/typescript-vim

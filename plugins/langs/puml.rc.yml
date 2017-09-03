@@ -1,5 +1,6 @@
-- repo: scrooloose/vim-slumlord
-  hook_add: |
-    let g:slumlord_au_created = 1
-    command! PaintPuml call slumlord#updatePreview({'write': 1})
+- repo: weirongxu/plantuml-previewer.vim
+# - repo: scrooloose/vim-slumlord
+#   hook_add: |
+#     let g:slumlord_au_created = 1
+#     command! PaintPuml call slumlord#updatePreview({'write': 1})
 - repo: aklt/plantuml-syntax

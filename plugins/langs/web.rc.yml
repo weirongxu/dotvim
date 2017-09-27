@@ -12,9 +12,9 @@
 - repo: posva/vim-vue
   hook_add: |
     let g:vue_disable_pre_processors = 1
-# - repo: mxw/vim-jsx
-#   hook_add: |
-#     let g:jsx_ext_required = 0
+- repo: mxw/vim-jsx
+  hook_add: |
+    let g:jsx_ext_required = 0
 - repo: weirongxu/vim-coffee-script
   on_ft: ['coffee', 'jade']
 - repo: leafgarland/typescript-vim

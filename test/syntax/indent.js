@@ -10,7 +10,7 @@ fcuntion() {
   // jQuery
   //
   {
-    [
+    [test]: [
       'test',
       'test2',
     ],
@@ -23,7 +23,7 @@ fcuntion() {
  */
 function test(
   count: number,
-  list: Array
+  list: array
 ) {
 }
 

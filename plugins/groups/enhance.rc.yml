@@ -142,3 +142,12 @@
     map <leader>. <Plug>leaderguide-global
     map <space><space> :<c-u>LeaderGuide '<Space>'<CR>
     vmap <space><space> :<c-u>LeaderGuideVisual '<Space>'<CR>
+
+- repo: tyru/caw.vim
+  on_map: gc
+  depends: context_filetype.vim
+  merged: 0
+  hook_add: |
+    let g:caw_dollarpos_sp_left = '  '
+    map <c-/> <Plug>(caw:hatpos:toggle)
+    Inc /plugins-conf/caw

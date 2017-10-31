@@ -24,7 +24,15 @@
     - Source
   hook_add: |
     Inc /plugins-conf/vimfiler
-- repo: justinmk/vim-gtfo
+# - repo: justinmk/vim-gtfo
+- repo: weirongxu/vim-gtfo
+  rev: fix-powershell
   on_map: ['got', 'goT', 'gof', 'goF']
+  hook_add: |
+    let g:gtfo#terminals = {
+      \ 'mac': 'iterm',
+      \ 'win': 'powershell -NoLogo -NoExit -Command'
+      # \ 'win': 'mintty'
+      \ }
 - repo: mhinz/vim-grepper
   on_cmd: Grepper

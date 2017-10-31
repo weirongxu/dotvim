@@ -29,4 +29,3 @@
 #       endif
 #     endfunction
 #     autocmd FileType,BufEnter * call s:set_matchit()
-#

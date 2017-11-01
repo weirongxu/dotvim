@@ -150,4 +150,5 @@
   hook_add: |
     let g:caw_dollarpos_sp_left = '  '
     map <c-/> <Plug>(caw:hatpos:toggle)
+    map gcc <Plug>(caw:hatpos:toggle)
     Inc /plugins-conf/caw

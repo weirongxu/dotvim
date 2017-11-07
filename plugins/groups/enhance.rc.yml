@@ -152,7 +152,7 @@
     map <c-/> gcc
     Inc /plugins-conf/caw
 
-- repo: MaxMEllon/vim-shiny
+- repo: weirongxu/vim-shiny
   hook_add: |
     let g:vim_shiny_window_change = 1
     nmap p  <Plug>(shiny-p)

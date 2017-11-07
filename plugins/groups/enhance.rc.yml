@@ -151,3 +151,16 @@
     let g:caw_dollarpos_sp_left = '  '
     map <c-/> gcc
     Inc /plugins-conf/caw
+
+- repo: MaxMEllon/vim-shiny
+  hook_add: |
+    let g:vim_shiny_window_change = 1
+    nmap p  <Plug>(shiny-p)
+    nmap P  <Plug>(shiny-P)
+    nmap gp <Plug>(shiny-gp)
+    nmap gP <Plug>(shiny-gP)
+- repo: haya14busa/vim-operator-flashy
+  on_map: '<Plug>(operator-flashy)'
+  hook_add: |
+    map y <Plug>(operator-flashy)
+    nmap Y <Plug>(operator-flashy)$

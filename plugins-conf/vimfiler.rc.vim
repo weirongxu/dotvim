@@ -34,6 +34,8 @@ function! s:vimfiler_settings()
 
   nunmap <silent><buffer> L
   command! -buffer Drive call feedkeys("\<Plug>(vimfiler_switch_to_drive)")
+
+  nmap <silent><buffer> ge q
 endfunction
 
 " isolate vimfiler by tab
@@ -53,5 +55,6 @@ endfunction
 function! VimFilerExplorerDotVim()
   execute 'VimFiler -explorer -auto-cd -split -buffer-name=' . s:tab_id() . ' ' . $MY_VIMFILES
 endfunction
-nnoremap <silent> gn :call VimFilerExplorer()<CR>
-nnoremap <silent> gp :call VimFilerExplorerDotVim()<CR>
+nnoremap <silent> ge :call VimFilerExplorer()<CR>
+nnoremap <silent> gE :call VimFilerExplorerDotVim()<CR>
+command! VimConfig call VimFilerExplorerDotVim()<CR>

@@ -1,12 +1,5 @@
 - repo: Shougo/context_filetype.vim
   hook_add: Inc /plugins-conf/context_filetype
-- repo: tyru/caw.vim
-  on_map: gc
-  depends: context_filetype.vim
-  merged: 0
-  hook_add: |
-    let g:caw_dollarpos_sp_left = '  '
-    Inc /plugins-conf/caw
 - repo: blindFS/vim-regionsyntax
 # - repo: osyo-manga/vim-precious
 #   depends: context_filetype.vim

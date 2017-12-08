@@ -52,7 +52,8 @@ map <silent> <C-k> :wincmd k<cr>
 map <silent> <C-l> :wincmd l<cr>
 
 " tab control
-map <silent> gN :tab split<cr>
+map <silent> gn :tab split<cr>
+map <silent> gN :tab new<cr>
 map <silent> <C-tab> :tabnext<cr>
 map <silent> <S-l> :tabnext<cr>
 map <silent> <C-S-tab> :tabprevious<cr>

@@ -39,3 +39,16 @@ function! Pip3Install(package) "{{{
 endfunction "}}}
 
 command! -nargs=* Pip3Install call Pip3Install(<f-args>)
+
+function! GemInstall(package) "{{{
+  if executable('gem')
+    call system('gem list -i ' . a:package)
+    if v:shell_error
+      let cmd = 'gem install ' . a:package
+      echo cmd
+      call system(cmd)
+    endif
+  endif
+endfunction "}}}
+
+command! -nargs=* GemInstall call GemInstall(<f-args>)

@@ -56,6 +56,7 @@ let g:env#styles_type_list = [
 
 let g:env#js_type_list = [
     \ 'javascript',
+    \ 'javascript.jsx',
     \ 'coffee',
     \ 'typescript',
     \ ]

@@ -160,6 +160,7 @@
     nmap gp <Plug>(shiny-gp)
     nmap gP <Plug>(shiny-gP)
 - repo: haya14busa/vim-operator-flashy
+  if: g:env#x
   on_map: '<Plug>(operator-flashy)'
   hook_add: |
     map y <Plug>(operator-flashy)

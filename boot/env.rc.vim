@@ -5,7 +5,7 @@ let g:env#unix = has('unix')
 let g:env#mac = has('mac') || has('macunix')
 
 let g:env#gui = has('gui_running')
-let g:env#xterm = &term == 'xterm'
+let g:env#xterm = match(&term, 'xterm') != -1
 let g:env#screen = &term == 'screen'
 let g:env#tmux = &term == 'screen'
 let g:env#x = g:env#gui || g:env#xterm || g:env#screen || &term == 'nvim'

@@ -9,10 +9,13 @@
 - repo: tweekmonster/deoplete-clang2
   on_ft: ['cpp', 'c']
   if: g:env#nvim
+  hook_add: |
+    let g:clang2_placeholder_next = ''
+    let g:clang2_placeholder_prev = ''
 - repo: osyo-manga/vim-marching
   on_ft: ['cpp', 'c']
   if: '! g:env#nvim'
-  hook__add: |
+  hook_add: |
     let g:marching_clang_command = "/usr/bin/clang"
     let g:marching_include_paths = [
       \   "/usr/include"

@@ -1,3 +1,5 @@
+lang en_US
+
 " UI
 if g:env#gui
   set guioptions=

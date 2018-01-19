@@ -1,4 +1,4 @@
-lang en_US
+lang en_US.UTF-8
 
 " UI
 if g:env#gui

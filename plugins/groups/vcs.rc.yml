@@ -24,10 +24,10 @@
 - repo: lambdalisue/gina.vim
   if: g:env#async
   hook_add: |
-    map <leader>gs :Gina status<CR>
+    map <leader>gs :Gina status --opener=split<CR>
+    map <leader>gc :Gina commit --opener=split<CR>
     map <leader>gp :Gina push<CR>
     map <leader>gl :Gina pull<CR>
-    map <leader>gc :Gina commit<CR>
   hook_post_source: |
     call extend(g:gina#command#browse#translation_patterns, {
       \ 'coding.net': [

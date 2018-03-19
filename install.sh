@@ -1,21 +1,21 @@
 #!/usr/bin/env bash
 
-exists_cmd() {
+exists-cmd() {
   command -v $1 >/dev/null 2>&1
 }
 
 # install pip3
-if exists_cmd apt-get; then
-  if ! exists_cmd pip3; then
+if exists-cmd apt-get; then
+  if ! exists-cmd pip3; then
     sudo apt-get install python3-pip
   fi
-elif exists_cmd brew; then
-  if ! exists_cmd pip3; then
+elif exists-cmd brew; then
+  if ! exists-cmd pip3; then
     brew install python3
   fi
 fi
 
-if exists_cmd pip3; then
+if exists-cmd pip3; then
   # install python yaml and neovim
   pip3 install pyyaml
   pip3 install neovim

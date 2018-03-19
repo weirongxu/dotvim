@@ -1,5 +1,42 @@
 - repo: Shougo/dein.vim
 - repo: haya14busa/dein-command.vim
   on_cmd: Dein
-- repos_include: groups/**
-- repos_include: langs/**
+# - repos_include: groups/**
+- repos_include: groups/autocomplete.rc.yml
+- repos_include: groups/check.rc.yml
+- repos_include: groups/context_filetype.rc.yml
+- repos_include: groups/convert.rc.yml
+- repos_include: groups/debug.rc.yml
+- repos_include: groups/diff.rc.yml
+- repos_include: groups/enhance.rc.yml
+- repos_include: groups/file_dir.rc.yml
+- repos_include: groups/format.rc.yml
+- repos_include: groups/jump.rc.yml
+- repos_include: groups/language.rc.yml
+- repos_include: groups/match.rc.yml
+- repos_include: groups/operator-user.rc.yml
+- repos_include: groups/quickrun.rc.yml
+- repos_include: groups/snippet.rc.yml
+- repos_include: groups/textobj-user.rc.yml
+- repos_include: groups/tool.rc.yml
+- repos_include: groups/ui.rc.yml
+- repos_include: groups/undo.rc.yml
+- repos_include: groups/unite.rc.yml
+- repos_include: groups/utils.rc.yml
+- repos_include: groups/vcs.rc.yml
+# - repos_include: langs/**
+- repos_include: langs/autohotkey.rc.yml
+- repos_include: langs/c.rc.yml
+- repos_include: langs/crystal.rc.yml
+- repos_include: langs/elixir.rc.yml
+- repos_include: langs/java.rc.yml
+- repos_include: langs/markdown.rc.yml
+- repos_include: langs/matlab.rc.yml
+- repos_include: langs/php.rc.yml
+- repos_include: langs/puml.rc.yml
+- repos_include: langs/python.rc.yml
+- repos_include: langs/ruby.rc.yml
+- repos_include: langs/shell.rc.yml
+- repos_include: langs/slim.rc.yml
+- repos_include: langs/vimscript.rc.yml
+- repos_include: langs/web.rc.yml

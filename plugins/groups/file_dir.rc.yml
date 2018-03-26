@@ -6,6 +6,9 @@
       \ 'file': '\v\.('. join(g:env#hidden_ext_list, '|') .')$',
       \ }
     let g:ctrlp_show_hidden = 1
+- repo: wsdjeg/FlyGrep.vim
+  hook_add: |
+    nnoremap <space>p :FlyGrep<CR>
 - repo: Shougo/vimfiler.vim
   on_cmd:
     - VimFiler

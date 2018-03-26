@@ -1,15 +1,16 @@
-- repo: Valloric/MatchTagAlways
-  if: g:env#python
-  on_ft: EVAL(g:env#html_type_list)
-  hook_add: |
-    let g:mta_filetypes = {}
-    for val in g:env#html_type_list
-      let g:mta_filetypes[val] = 1
-    endfor
-    nnoremap <Leader>% :MtaJumpToOtherTag<cr>
-- repo: gregsexton/MatchTag
-  on_ft: EVAL(g:env#html_type_list)
-  # if: "! g:env#python"
+- repo: andymass/vim-matchup
+# - repo: Valloric/MatchTagAlways
+#   if: g:env#python
+#   on_ft: EVAL(g:env#html_type_list)
+#   hook_add: |
+#     let g:mta_filetypes = {}
+#     for val in g:env#html_type_list
+#       let g:mta_filetypes[val] = 1
+#     endfor
+#     nnoremap <Leader>% :MtaJumpToOtherTag<cr>
+# - repo: gregsexton/MatchTag
+#   on_ft: EVAL(g:env#html_type_list)
+#   if: "! g:env#python"
 
 # - repo: itchyny/vim-parenmatch
 #   if: exists('#OptionSet')

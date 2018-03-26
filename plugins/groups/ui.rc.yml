@@ -36,3 +36,7 @@
   if: '! g:env#gui'
 - repo: equalsraf/neovim-gui-shim
   if: g:env#nvim
+- repo: simeji/winresizer
+  on_map: '<SPACE>'
+  hook_add: |
+    let g:winresizer_start_key = '<SPACE>w'

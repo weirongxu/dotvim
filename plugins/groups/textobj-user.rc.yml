@@ -12,7 +12,8 @@
 - repo: kana/vim-textobj-syntax
 - repo: kana/vim-textobj-fold
 - repo: kana/vim-textobj-datetime
-- repo: whatyouhide/vim-textobj-xmlattr
+# - repo: whatyouhide/vim-textobj-xmlattr
+- repo: inside/vim-textobj-jsxattr
 
 - repo: terryma/vim-expand-region
   hook_add: |

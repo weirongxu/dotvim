@@ -16,8 +16,10 @@
 - repos_include: groups/match.rc.yml
 - repos_include: groups/operator-user.rc.yml
 - repos_include: groups/quickrun.rc.yml
+- repos_include: groups/search.rc.yml
 - repos_include: groups/snippet.rc.yml
 - repos_include: groups/textobj-user.rc.yml
+- repos_include: groups/tags.rc.yml
 - repos_include: groups/tool.rc.yml
 - repos_include: groups/ui.rc.yml
 - repos_include: groups/undo.rc.yml

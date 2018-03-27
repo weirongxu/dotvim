@@ -1,9 +1,11 @@
-- repo: tpope/vim-rvm
-  hook_post_source: |
-    silent Rvm default
-  on_ft: ruby
+# - repo: tpope/vim-rvm
+#   hook_post_source: |
+#     silent Rvm default
+#   on_ft: ruby
 - repo: hallison/vim-rdoc
 
 # complete
 # - repo: osyo-manga/vim-monster
+#   on_ft: ruby
+# - repo: uplus/deoplete-solargraph
 #   on_ft: ruby

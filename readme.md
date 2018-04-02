@@ -3,8 +3,7 @@
 git clone https://github.com/weirongxu/dotvim.git ~/.vim
 cd ~/.vim
 
-# install python,pyyaml,python-neovim and dein.vim
-./install.sh
+./install.sh # install python,pyyaml,python-neovim and dein.vim
 ```
 
 save below config to `.config/nvim/init.vim`

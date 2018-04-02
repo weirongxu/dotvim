@@ -7,7 +7,7 @@ cd ~/.vim
 ./install.sh
 ```
 
-below config save to `.config/nvim/init.vim`
+save below config to `.config/nvim/init.vim`
 ```
 exec 'set rtp+='.expand('~/.vim')
 source ~/.vim/vimrc.rc.vim

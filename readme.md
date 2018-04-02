@@ -3,11 +3,10 @@
 git clone https://github.com/weirongxu/dotvim.git ~/.vim
 cd ~/.vim
 
-# install python,pyyaml,python-neovim and dein.vim
-./install.sh
+./install.sh # install python,pyyaml,python-neovim and dein.vim
 ```
 
-below config save to `.config/nvim/init.vim`
+save below config to `.config/nvim/init.vim`
 ```
 exec 'set rtp+='.expand('~/.vim')
 source ~/.vim/vimrc.rc.vim

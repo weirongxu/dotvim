@@ -135,6 +135,7 @@ function! s:set_colorcolumn() "{{{
   set colorcolumn=81
 endfunction "}}}
 autocmd FileType * call s:set_colorcolumn()
+autocmd BufEnter * :syntax sync fromstart
 
 " fold
 autocmd FileType coffee,jade,stylus,sass setl foldmethod=indent foldlevel=0

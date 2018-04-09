@@ -9,15 +9,17 @@
     - VirtualEnvList
   hook_add: |
     function! CompleteVirtualEnv(arg_lead, cmd_line, cursor_pos)
-        return virtualenv#names(a:arg_lead)
+      return virtualenv#names(a:arg_lead)
     endfunction
     let g:virtualenv_directory = '~/.virtualenv'
 
 # complete
 - repo: davidhalter/jedi-vim
-  if: '! g:env#nvim'
   on_ft: python
   hook_add: |
+    if g:env#nvim
+      let g:jedi#completions_enabled = 0
+    endif
     # let g:jedi#auto_initialization = 0
     # let g:jedi#show_call_signatures = 0
     # autocmd FileType python setlocal omnifunc=jedi#completions

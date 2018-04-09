@@ -1,0 +1,15 @@
+- repo: fatih/vim-go
+  add_hook: |
+    let g:go_def_mapping_enabled = 0
+    call UniteFileTypeTool('python', [
+      \ ['GoDef', 'GoDef'],
+      \ ['GoCallees', 'GoCallees'],
+      \ ['GoCallers', 'GoCallers'],
+      \ ['GoRename', 'GoRename'],
+      \ ['GoDoc', 'GoDoc'],
+      \ ['GoFmt', 'GoFmt'],
+      \ ['GoDeps', 'GoDeps'],
+      \ ])
+- repo: zchee/deoplete-go
+  on_ft: ['go']
+  if: g:env#nvim

@@ -1,5 +1,5 @@
 - repo: fatih/vim-go
-  add_hook: |
+  hook_add: |
     let g:go_def_mapping_enabled = 0
     call UniteFileTypeTool('python', [
       \ ['GoDef', 'GoDef'],

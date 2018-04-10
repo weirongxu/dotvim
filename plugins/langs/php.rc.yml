@@ -4,3 +4,9 @@
   on_ft: yiiprado
   hook_add: |
     autocmd BufNewFile,BufRead *.tpl setfiletype yiiprado
+
+- repo: stephpy/vim-phpdoc
+  on_ft: EVAL(g:env#html_type_list)
+  hook_post_source: |
+    nnoremap <buffer> <leader>8 :call PhpDocSingle()<CR>
+    vnoremap <buffer> <leader>8 :call PhpDocRange()<CR>

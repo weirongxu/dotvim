@@ -35,3 +35,8 @@
 - repo: zchee/deoplete-jedi
   if: g:env#nvim
   on_ft: python
+
+- repo: heavenshell/vim-pydocstring
+  on_ft: python
+  hook_add: |
+    nnoremap <silent><buffer> <leader>8 <Plug>(pydocstring)

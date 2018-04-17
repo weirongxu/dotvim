@@ -2,6 +2,7 @@
 #   hook_post_source: |
 #     silent Rvm default
 #   on_ft: ruby
+- repo: vim-ruby/vim-ruby
 - repo: hallison/vim-rdoc
 
 # complete

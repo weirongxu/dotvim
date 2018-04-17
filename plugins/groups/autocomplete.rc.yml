@@ -7,6 +7,9 @@
   hook_add: |
     let g:deoplete#enable_at_startup = 1
   if: g:env#nvim
+
+- repo: Shougo/neoinclude.vim
+
 - repo: fszymanski/deoplete-emoji
 
 # - repo: autozimu/LanguageClient-neovim

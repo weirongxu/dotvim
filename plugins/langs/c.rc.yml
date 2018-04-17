@@ -6,12 +6,18 @@
   on_ft: ['c', 'cpp', 'lex', 'yacc']
 
 # complete
-- repo: tweekmonster/deoplete-clang2
+
+# - repo: tweekmonster/deoplete-clang2
+#   on_ft: ['cpp', 'c']
+#   if: g:env#nvim
+#   hook_add: |
+#     let g:clang2_placeholder_next = ''
+#     let g:clang2_placeholder_prev = ''
+
+- repo: Shougo/deoplete-clangx
   on_ft: ['cpp', 'c']
   if: g:env#nvim
-  hook_add: |
-    let g:clang2_placeholder_next = ''
-    let g:clang2_placeholder_prev = ''
+
 - repo: osyo-manga/vim-marching
   on_ft: ['cpp', 'c']
   if: '! g:env#nvim'

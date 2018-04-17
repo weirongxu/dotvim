@@ -43,3 +43,4 @@
 - repos_include: langs/vimscript.rc.yml
 - repos_include: langs/web.rc.yml
 - repos_include: langs/golang.rc.yml
+- repos_include: langs/toml.rc.yml

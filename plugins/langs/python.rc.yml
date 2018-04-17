@@ -39,4 +39,6 @@
 - repo: heavenshell/vim-pydocstring
   on_ft: python
   hook_add: |
-    nnoremap <silent><buffer> <leader>8 <Plug>(pydocstring)
+    let g:pydocstring_enable_mapping = 0
+  hook_post_source: |
+    nnoremap <buffer> <leader>8 :Pydocstring<CR>

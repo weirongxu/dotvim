@@ -11,13 +11,13 @@ Inc plugins-convert
 
 call dein#begin($DEIN_DIR, [$PLUGINS_COMPILED])
 
-call dein#local($MY_VIMFILES . '/plugins-local')
-
 Inc plugins-conf/unite-menu
 Inc plugins-compiled
+call dein#local($MY_VIMFILES . '/plugins-local')
 
 call dein#end()
 call dein#call_hook('source')
+
 autocmd VimEnter * call dein#call_hook('post_source')
 
 if dein#check_install()

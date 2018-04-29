@@ -24,6 +24,3 @@
       \ }
     set clipboard-=autoselect
     command! Snip NeoSnippetEdit -split -vertical
-- repo: mattn/emmet-vim
-  on_map: ['<c-y>']
-  on_ft: EVAL(g:env#web_assets_type_list)

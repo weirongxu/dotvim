@@ -9,13 +9,26 @@
 - repo: othree/javascript-libraries-syntax.vim
   hook_add: |
     let g:used_javascript_libs = 'jquery,underscore,backbone,angularjs,angularui,angularuirouter,react,flux,requirejs,jasmine,chai,handlebars'
+- repo: mattn/emmet-vim
+  on_map: ['<c-y>']
+  on_ft: EVAL(g:env#web_assets_type_list)
+  hook_add: |
+    let g:user_emmet_settings = {
+    \  'javascript' : {
+    \     'extends' : 'jsx',
+    \  },
+    \}
 - repo: posva/vim-vue
   hook_add: |
     let g:vue_disable_pre_processors = 1
-- repo: mxw/vim-jsx
+# - repo: mxw/vim-jsx
+#   hook_add: |
+#     let g:jsx_ext_required = 0
+# - repo: neoclide/vim-jsx-improve
+- repo: MaxMEllon/vim-jsx-pretty
   hook_add: |
-    let g:jsx_ext_required = 0
-# - repo: MaxMEllon/vim-jsx-pretty # indent bug
+    let g:vim_jsx_pretty_colorful_config = 1
+- repo: neoclide/vim-jsx-improve
 - repo: weirongxu/vim-coffee-script
   on_ft: ['coffee', 'jade']
 - repo: leafgarland/typescript-vim

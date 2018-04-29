@@ -26,13 +26,17 @@ set fileformat=unix
 
 " Colorscheme
 try
-  colorscheme Tomorrow-Night-Eighties
+  " colorscheme Tomorrow-Night-Eighties
+  " colorscheme desert
+  " colorscheme desertink
   " colorscheme manuscript
   " colorscheme pyte
-  " colorscheme molokai
-  " colorscheme desertink
-  " colorscheme desert
+  colorscheme hybrid
 catch /^Vim\%((\a\+)\)\=:E185/
+  try
+    colorscheme molokai
+  catch /^Vim\%((\a\+)\)\=:E185/
+  endtry
 endtry
 
 set background=dark

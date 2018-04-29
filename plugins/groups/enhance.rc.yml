@@ -1,6 +1,7 @@
 - repo: mhinz/vim-startify
   hook_add: |
-    set sessionoptions=curdir,folds,help,resize,tabpages,unix
+    # set sessionoptions=blank,buffers,curdir,folds,help,resize,slash,tabpages,unix
+    set sessionoptions=curdir,folds,help,resize,slash,tabpages,unix
     let g:startify_session_dir = $HOME.'/.record/vim-sessions'
     let g:startify_session_autoload = 1
     let g:startify_session_delete_buffers = 1
@@ -101,4 +102,4 @@
     nmap gP <Plug>(shiny-gP)
 - repo: tweekmonster/braceless.vim
   hook_add: |
-    autocmd FileType python,haml,sass,slim,yaml,coffee BracelessEnable +indent +fold
+    autocmd FileType python,haml,sass,slim,yaml,coffee BracelessEnable +indent

@@ -55,4 +55,4 @@
     nmap N <Plug>(anzu-N-with-echo)
 # - repo: osyo-manga/vim-over
 #   on_cmd: 'OverCommandLine'
-- repo: xtal8/traces.vim
+- repo: markonm/traces.vim

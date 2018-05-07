@@ -103,3 +103,4 @@
 - repo: tweekmonster/braceless.vim
   hook_add: |
     autocmd FileType python,haml,sass,slim,yaml,coffee BracelessEnable +indent
+- repo: lambdalisue/suda.vim

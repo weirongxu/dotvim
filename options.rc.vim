@@ -98,16 +98,18 @@ set whichwrap+=<,>,[,],h,l
 " complete
 set completeopt=longest,menu
 
+" buffer
+set hidden
+
 " pairs
 set matchpairs+=（:）,《:》
 
-" tab
+" indent
 set expandtab " tab use spaces
 set shiftround
 set tabstop=4 " Tab len
 set softtabstop=4
 set shiftwidth=4 " << >>
-" autoindent
 set nosmartindent autoindent smarttab nocindent
 
 " search

@@ -1,54 +1,38 @@
-function! s:trim(str) "{{{
-  return matchstr(a:str, '^\s*\zs.\{-}\ze\s*$')
+let s:pkg_installer_dir = $MY_VIMFILES.'/package-installer'
+let s:Process = vital#vimrc#import('System.Process')
+
+function! Pkg(name, action, package_name) "{{{
+  let cmds = [
+        \ 'python3',
+        \ s:pkg_installer_dir . '/' . a:name . '.py',
+        \ a:action,
+        \ a:package_name,
+        \]
+  " echo join(cmds)
+  call s:Process.execute(cmds, {
+        \ 'background': 1,
+        \})
 endfunction "}}}
 
-function! s:trim_multiline(str) abort
-  let strs = split(a:str)
-  return join(map(strs, 's:trim(v:val)'), '')
-endfunction
-
-function! s:remove_node_version_info(str) "{{{
-  return substitute(a:str, '^.\{-}\ze[/\\]', '', '')
-endfunction "}}}
-
-function! NpmInstall(package) "{{{
-  if executable('npm')
-    " too slow
-    " call system('npm ls -g --depth=0 ' . a:package)
-    " if v:shell_error
-    let root_dir = s:remove_node_version_info(s:trim_multiline(system('npm root -g')))
-    if ! isdirectory(root_dir . '/' . a:package)
-      let cmd = 'npm install -g ' . a:package
-      echo cmd
-      call system(cmd)
-    endif
+function! s:complete(arglead, cmdline, cursorpos) "{{{
+  let cmds = split(a:cmdline, '\V\s\+', 1)
+  let candidates = []
+  if len(cmds) == 2
+    let candidates = map(
+          \ split(glob(s:pkg_installer_dir . '/*.py'), "\n"),
+          \ {idx, path -> fnamemodify(path, ':t:r')}
+          \)
+  elseif len(cmds) == 3
+    let candidates =  ['install', 'update', 'uninstall']
   endif
-endfunction "}}}
-
-command! -nargs=* NpmInstall call NpmInstall(<f-args>)
-
-function! Pip3Install(package) "{{{
-  if executable('pip3')
-    call system('pip3 show ' . a:package)
-    if v:shell_error
-      let cmd = 'pip3 install --upgrade ' . a:package
-      echo cmd
-      call system(cmd)
-    endif
+  if len(candidates) > 0
+    let lastcmd = cmds[-1]
+    let candidates = filter(
+          \ candidates,
+          \ {idx, val -> strpart(val, 0, strlen(lastcmd)) == lastcmd}
+          \)
   endif
+  return candidates
 endfunction "}}}
 
-command! -nargs=* Pip3Install call Pip3Install(<f-args>)
-
-function! GemInstall(package) "{{{
-  if executable('gem')
-    call system('gem list -i ' . a:package)
-    if v:shell_error
-      let cmd = 'gem install ' . a:package
-      echo cmd
-      call system(cmd)
-    endif
-  endif
-endfunction "}}}
-
-command! -nargs=* GemInstall call GemInstall(<f-args>)
+command! -nargs=* -complete=customlist,s:complete Pkg call Pkg(<f-args>)

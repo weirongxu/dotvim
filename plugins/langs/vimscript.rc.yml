@@ -12,10 +12,12 @@
   on_cmd: PP
 - repo: vim-jp/vital.vim
 - repo: vim-jp/vital-complete
-- repo: lambdalisue/vital-System-Job
+- repo: lambdalisue/vital-Whisky
 - repo: Shougo/echodoc.vim
   on_ft: vim
 - repo: thinca/vim-themis
+  on_ft: vim
+- repo: lambdalisue/vim-backslash
   on_ft: vim
 # - repo: mhinz/vim-lookup
 #   on_ft: vim

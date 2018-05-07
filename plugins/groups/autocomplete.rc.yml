@@ -12,30 +12,35 @@
 
 - repo: fszymanski/deoplete-emoji
 
-# - repo: autozimu/LanguageClient-neovim
-#   if: g:env#nvim
-#   rev: next
-#   build: './install.sh'
-#   hook_add: |
-#     NpmInstall javascript-typescript-langserver
-#     Pip3Install typing
-#     GemInstall language_server
-#
-#     let g:LanguageClient_serverCommands = {
-#       \ 'javascript': ['javascript-typescript-stdio'],
-#       \ 'javascript.jsx': ['javascript-typescript-stdio'],
-#       \ 'ruby': ['language_server-ruby'],
-#       \ }
-#     let g:LanguageClient_autoStart = 1
-#
-#     call UniteFileTypeTool(keys(g:LanguageClient_serverCommands), [
-#       \ ['lang-client-hover', 'call LanguageClient_textDocument_hover()'],
-#       \ ['lang-client-definition', 'call LanguageClient_textDocument_definition()'],
-#       \ ['lang-client-rename', 'call LanguageClient_textDocument_rename()'],
-#       \ ['lang-client-document-symbol', 'call LanguageClient_textDocument_documentSymbol()'],
-#       \ ['lang-client-references', 'call LanguageClient_textDocument_references()'],
-#       \ ['lang-client-symbol', 'call LanguageClient_workspace_symbol()'],
-#       \ ['lang-client-completion', 'call LanguageClient_textDocument_completion()'],
-#       # \ ['lang-client-logging-level', 'call LanguageClient_setLoggingLevel(level)'],
-#       \ ['lang-client-formatting', 'call LanguageClient_textDocument_formatting()'],
-#       \ ])
+- repo: autozimu/LanguageClient-neovim
+  # if: 'g:env#nvim && g:env#lsp'
+  if: 'g:env#nvim && g:env#lsp'
+  rev: next
+  build: 'bash install.sh'
+  hook_add: |
+    Pkg npm install javascript-typescript-langserver
+    Pkg npm install vue-language-server
+    Pkg pip3 install typing
+    Pkg gem install language_server
+
+    let g:LanguageClient_serverCommands = {
+      \ 'vue': ['vls'],
+      \ 'rust': ['rustup', 'run', 'stable', 'rls'],
+      \ 'javascript': ['javascript-typescript-stdio'],
+      \ 'javascript.jsx': ['javascript-typescript-stdio'],
+      \ 'ruby': ['language_server-ruby'],
+      \ }
+    let g:LanguageClient_autoStart = 1
+    let g:LanguageClient_loggingLevel = 'DEBUG'
+
+    call UniteFileTypeTool(keys(g:LanguageClient_serverCommands), [
+      \ ['lang-client-hover', 'call LanguageClient#textDocument_hover()'],
+      \ ['lang-client-definition', 'call LanguageClient#textDocument_definition()'],
+      \ ['lang-client-rename', 'call LanguageClient#textDocument_rename()'],
+      \ ['lang-client-document-symbol', 'call LanguageClient#textDocument_documentSymbol()'],
+      \ ['lang-client-references', 'call LanguageClient#textDocument_references()'],
+      \ ['lang-client-symbol', 'call LanguageClient#workspace_symbol()'],
+      \ ['lang-client-completion', 'call LanguageClient#textDocument_completion()'],
+      # \ ['lang-client-logging-level', 'call LanguageClient#setLoggingLevel(level)'],
+      \ ['lang-client-formatting', 'call LanguageClient#textDocument_formatting()'],
+      \ ])

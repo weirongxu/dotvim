@@ -53,6 +53,6 @@
       \ ])
 
 - repo: carlitux/deoplete-ternjs
-  hook_source: NpmInstall tern
-  if: g:env#nvim
+  hook_source: Pkg npm install tern
+  if: 'g:env#nvim && ! g:env#lsp'
   on_ft: javascript

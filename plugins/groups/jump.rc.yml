@@ -8,7 +8,7 @@
     let g:tagbar_show_linenumbers = 1
     map gl :TagbarToggle<CR>
     Inc /plugins-conf/tagbar
-  hook_source: NpmInstall jsctags
+  hook_source: Pkg npm install jsctags
 - repo: wesleyche/SrcExpl
   on_cmd: ['SrcExpl', 'SrcExplClose', 'SrcExplToggle']
 - repo: Lokaltog/vim-easymotion

@@ -28,55 +28,57 @@ endif
 
 let g:github_token_file = expand('~/.record/github-token')
 
+let g:env#lsp = 1
+
 let g:env#html_type_list = [
-    \ 'markdown',
-    \ 'html',
-    \ 'jsp',
-    \ 'xhtml',
-    \ 'xml',
-    \ 'htm',
-    \ 'php',
-    \ 'aspvbs',
-    \ 'mason',
-    \ 'htmldjango',
-    \ 'blade.php',
-    \ 'vue',
-    \ 'eruby',
-    \ 'liquid',
-    \ 'jst',
-    \ ]
+      \ 'markdown',
+      \ 'html',
+      \ 'jsp',
+      \ 'xhtml',
+      \ 'xml',
+      \ 'htm',
+      \ 'php',
+      \ 'aspvbs',
+      \ 'mason',
+      \ 'htmldjango',
+      \ 'blade.php',
+      \ 'vue',
+      \ 'eruby',
+      \ 'liquid',
+      \ 'jst',
+      \ ]
 
 let g:env#styles_type_list = [
-    \ 'css',
-    \ 'less',
-    \ 'sass',
-    \ 'scss',
-    \ 'stylus',
-    \ ]
+      \ 'css',
+      \ 'less',
+      \ 'sass',
+      \ 'scss',
+      \ 'stylus',
+      \ ]
 
 let g:env#js_type_list = [
-    \ 'javascript',
-    \ 'javascript.jsx',
-    \ 'coffee',
-    \ 'typescript',
-    \ ]
+      \ 'javascript',
+      \ 'javascript.jsx',
+      \ 'coffee',
+      \ 'typescript',
+      \ ]
 
 let g:env#web_assets_type_list = ['json'] + g:env#html_type_list + g:env#styles_type_list + g:env#js_type_list
 
 let g:env#hidden_ext_list = [
-    \ 'so', 'dll', 'o',
-    \ 'pyc', 'class',
-    \ 'bak',
-    \ 'exe',
-    \ 'swp',
-    \ 'swo',
-    \ ]
+      \ 'so', 'dll', 'o',
+      \ 'pyc', 'class',
+      \ 'bak',
+      \ 'exe',
+      \ 'swp',
+      \ 'swo',
+      \ ]
 
 let g:env#hidden_dir_list = [
-    \ '.git', '.svn', '.hg', '.svn', '.bzr', '.ropeproject',
-    \ 'node_modules', 'bower_components', 'vendor',
-    \ '.DS_Store',
-    \ ]
+      \ '.git', '.svn', '.hg', '.svn', '.bzr', '.ropeproject',
+      \ 'node_modules', 'bower_components', 'vendor',
+      \ '.DS_Store',
+      \ ]
 
 let g:env#hidden_glob_list = map(deepcopy(g:env#hidden_ext_list), '"*.".v:val')
       \ + map(deepcopy(g:env#hidden_dir_list), 'v:val."/**"')

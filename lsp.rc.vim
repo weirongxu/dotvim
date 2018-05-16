@@ -23,4 +23,8 @@ if g:env#lsp
   call s:add_lang(['rust'], ['rustup', 'run', 'stable', 'rls'])
   call s:add_lang(['javascript', 'javascript.jsx'], ['javascript-typescript-stdio'])
   " call s:add_lang(['ruby'], ['language_server-ruby'])
+else
+  function! LSP_support(type) "{{{
+    return 0
+  endfunction "}}}
 endif

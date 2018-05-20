@@ -1,26 +1,3 @@
-- repo: lambdalisue/vim-gita
-  hook_add: |
-    if ! g:env#async
-      map <leader>gs :Gita status<CR>
-      map <leader>gp :Gita push<CR>
-      map <leader>gl :Gita pull<CR>
-    endif
-    let g:gita#command#browse#extra_translation_patterns = {
-      \ 'coding.net': [
-      \   [
-      \     '\vhttps?://git\.coding\.net/(.{-})/(.{-})%(\.git)?$',
-      \     '\vgit://git\.coding\.net/(.{-})/(.{-})%(\.git)?$',
-      \     '\vgit\@git\.coding\.net:(.{-})/(.{-})%(\.git)?$',
-      \     '\vssh://git\@git\.coding\.net/(.{-})/(.{-})%(\.git)?$',
-      \   ], {
-      \     '^': 'https://coding.net/u/\1/p/\2/git/tree/%c1/',
-      \     '_': 'https://coding.net/u/\1/p/\2/git/blob/%c1/%pt%{#L|}ls%{-L|}le',
-      \     'exact': 'https://coding.net/u/\1/p/\2/git/blob/%r1/%pt%{#L|}ls%{-L|}le',
-      \     'blame': 'https://coding.net/u/\1/p/\2/git/blame/%c1/%pt%{#L|}ls%{-L|}le',
-      \     'diff': 'https://coding.net/u/\1/p/\2/git/compare/%c1...%c2',
-      \   },
-      \ ],
-      \ }
 - repo: lambdalisue/gina.vim
   if: g:env#async
   hook_add: |

@@ -16,7 +16,7 @@
 
 - repo: Shougo/deoplete-clangx
   on_ft: ['cpp', 'c']
-  if: g:env#nvim
+  if: 'g:env#nvim && ! LSP_support("c")'
 
 - repo: osyo-manga/vim-marching
   on_ft: ['cpp', 'c']

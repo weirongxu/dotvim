@@ -10,7 +10,7 @@ function! s:system_command(py_command) "{{{
   endif
 endfunction "}}}
 
-function! PluginsParse() "{{{
+function! PluginsConvert() "{{{
   if g:env#python3
     execute 'py3file ' . fnameescape(s:script)
 py3 << endpy
@@ -35,7 +35,7 @@ endfunction "}}}
 function! s:check_update() "{{{
   for name in split(glob(s:plugins_dir . '/**/*.yml'), '\n')
     if getftime(name) > getftime($PLUGINS_COMPILED)
-      call PluginsParse()
+      call PluginsConvert()
       break
     endif
   endfor

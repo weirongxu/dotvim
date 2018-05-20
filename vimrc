@@ -7,8 +7,9 @@ if &compatible
 endif
 
 source $MY_VIMFILES/boot/boot.rc.vim
-Inc packages
+Inc package-installer
 Inc maps
+Inc lsp
 Inc plugins-boot
 Inc options
 

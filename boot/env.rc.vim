@@ -21,6 +21,9 @@ let g:env#ruby = has('ruby')
 let g:env#perl = has('perl')
 let g:env#tcl = has('tcl')
 
+let g:env#python_cmd = get(filter(['python3', 'python', 'python2'], {i, cmd -> executable(cmd)}), 0, '')
+
+
 let g:env#tmp = g:env#win ? $TMP : expand('~/tmp')
 if !isdirectory(g:env#tmp)
   call mkdir(g:env#tmp)

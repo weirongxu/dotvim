@@ -3,7 +3,7 @@ let s:Process = vital#vimrc#import('System.Process')
 
 function! Pkg(name, action, package_name) "{{{
   let cmds = [
-        \ 'python3',
+        \ g:env#python_cmd,
         \ s:pkg_installer_dir . '/' . a:name . '.py',
         \ a:action,
         \ a:package_name,

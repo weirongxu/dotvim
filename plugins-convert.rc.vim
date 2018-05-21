@@ -3,13 +3,6 @@ let s:source = s:plugins_dir.'/index.rc.yml'
 let s:target_type = 'dein.vim'
 let s:script = $MY_VIMFILES . '/plugins-convert.py'
 
-function! s:system_command(py_command) "{{{
-  let ret = system(a:py_command . ' '.s:script.' ' . s:source . ' ' . $PLUGINS_COMPILED . ' ' . s:target_type, '2>&1')
-  if !empty(ret)
-    echo ret
-  endif
-endfunction "}}}
-
 function! PluginsConvert() "{{{
   if g:env#python3
     execute 'py3file ' . fnameescape(s:script)
@@ -25,10 +18,11 @@ import vim
 run(vim.eval('s:source'), vim.eval('$PLUGINS_COMPILED'), vim.eval('s:target_type'))
 endpy
     return
-  elseif executable('python3')
-    return s:system_command('python3')
-  elseif executable('python2')
-    return s:system_command('python2')
+  elseif ! empty(g:env#python_cmd)
+    let ret = system(g:env#python_cmd . ' '.s:script.' ' . s:source . ' ' . $PLUGINS_COMPILED . ' ' . s:target_type, '2>&1')
+    if !empty(ret)
+      echo ret
+    endif
   endif
 endfunction "}}}
 

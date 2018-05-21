@@ -20,7 +20,7 @@ endpy
     return
   elseif ! empty(g:env#python_cmd)
     let ret = system(g:env#python_cmd . ' '.s:script.' ' . s:source . ' ' . $PLUGINS_COMPILED . ' ' . s:target_type, '2>&1')
-    if !empty(ret)
+    if ! empty(ret)
       echo ret
     endif
   endif

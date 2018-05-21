@@ -1,5 +1,6 @@
 let s:pkg_installer_dir = $MY_VIMFILES.'/package-installer'
 let s:Process = vital#vimrc#import('System.Process')
+let s:Job = vital#vimrc#import('System.Job')
 
 function! Pkg(name, action, package_name) "{{{
   let cmds = [
@@ -9,9 +10,17 @@ function! Pkg(name, action, package_name) "{{{
         \ a:package_name,
         \]
   " echo join(cmds)
-  call s:Process.execute(cmds, {
-        \ 'background': 1,
-        \})
+  if s:Job.is_available()
+    call s:Job.start(cmds)
+  else
+    try
+      call s:Process.execute(cmds, {
+            \ 'background': 1,
+            \})
+    catch
+      call s:Process.execute(cmds)
+    endtry
+  endif
 endfunction "}}}
 
 function! s:complete(arglead, cmdline, cursorpos) "{{{

@@ -32,7 +32,7 @@ endpy
   endif
 endfunction "}}}
 
-function! s:check_update() "{{{
+function! s:check_yml_updated() "{{{
   for name in split(glob(s:plugins_dir . '/**/*.yml'), '\n')
     if getftime(name) > getftime($PLUGINS_COMPILED)
       call PluginsConvert()
@@ -41,4 +41,4 @@ function! s:check_update() "{{{
   endfor
 endfunction "}}}
 
-call s:check_update()
+call s:check_yml_updated()

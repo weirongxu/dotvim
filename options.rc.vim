@@ -31,7 +31,7 @@ try
   " colorscheme desertink
   " colorscheme manuscript
   " colorscheme pyte
-  colorscheme hybrid
+  colorscheme PaperColor
 catch /^Vim\%((\a\+)\)\=:E185/
   try
     colorscheme molokai

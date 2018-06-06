@@ -1,4 +1,3 @@
-# vimscript
 # - repo: junegunn/vader.vim
 #   on_cmd: Vader
 #   on_ft: Vader
@@ -8,8 +7,8 @@
   on_ft: vim
 - repo: thinca/vim-scall
 # - repo: kana/vim-vspec
-- repo: thinca/vim-prettyprint
-  on_cmd: PP
+# - repo: thinca/vim-prettyprint
+#   on_cmd: PP
 - repo: vim-jp/vital.vim
 - repo: vim-jp/vital-complete
 - repo: lambdalisue/vital-Whisky
@@ -19,10 +18,16 @@
   on_ft: vim
 - repo: lambdalisue/vim-backslash
   on_ft: vim
-# - repo: mhinz/vim-lookup
-#   on_ft: vim
-#   hook_add: |
-#     call UniteFileTypeTool('vim', [
-#       \ ['vim-lookup', 'call lookup#lookup()'],
-#       \ ['vim-lookup-pop', 'call lookup#pop()'],
-#       \ ])
+- repo: mhinz/vim-lookup
+  on_ft: vim
+  hook_add: |
+    call UniteFileTypeTool('vim', [
+      \ ['vim-lookup', 'call lookup#lookup()'],
+      \ ['vim-lookup-pop', 'call lookup#pop()'],
+      \ ])
+- repo: tweekmonster/helpful.vim
+  on_cmd: HelpfulVersion
+- repo: tpope/vim-scriptease
+- repo: tweekmonster/exception.vim
+  hook_add: |
+    command! ExceptionTrace call exception#trace()

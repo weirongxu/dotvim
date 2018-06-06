@@ -1,4 +1,4 @@
-let s:pkg_installer_dir = $MY_VIMFILES.'/package-installer'
+let s:pkg_installer_dir = $MY_BUILDIN . '/package-installer'
 let s:Process = vital#vimrc#import('System.Process')
 let s:Job = vital#vimrc#import('System.Job')
 

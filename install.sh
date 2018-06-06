@@ -23,4 +23,4 @@ else
   echo 'manual install pyyaml and neovim please'
 fi
 
-./install-dein.sh
+./scripts/install-dein.sh

@@ -17,3 +17,6 @@ command! -nargs=1 Include call Include("<args>", expand('<sfile>:p:h'))
 
 Include env
 Include reload
+Include package-installer
+Include lsp
+Include convert-plugin

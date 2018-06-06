@@ -13,9 +13,6 @@
   on_cmd:
     - VimFiler
     - VimFilerTab
-    - VimFilerExplorer
-    - Edit
-    - Write
     - VimFilerCreate
     - VimFilerSimple
     - VimFilerSplit
@@ -23,8 +20,6 @@
     - VimFilerCurrentDir
     - VimFilerBufferDir
     - VimFilerExplorer
-    - Read
-    - Source
   hook_add: |
     Include /plugins-conf/vimfiler
 # - repo: justinmk/vim-gtfo

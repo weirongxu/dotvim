@@ -50,7 +50,7 @@
 #   hook_add: |
 #     let g:endwise_abbreviations = 1
 #     nmap o A<CR>
-- repo: luochen1990/rainbow # lisp heightlight ()
+- repo: luochen1990/rainbow
 - repo: AndrewRadev/splitjoin.vim
   on_map: ['gS', 'gJ']
 - repo: osyo-manga/vim-jplus

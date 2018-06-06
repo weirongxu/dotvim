@@ -1,4 +1,12 @@
 - repo: weirongxu/plantuml-previewer.vim
+  path: /home/raidou/projects/plantuml-previewer.vim
+  hook_add: |
+    let g:plantuml_previewer#save_format = 'svg'
+    au FileType plantuml let g:plantuml_previewer#plantuml_jar_path = get(
+          \  matchlist(system('cat `which plantuml` | grep plantuml.jar'), '\v.* (\S+plantuml\.jar).*'),
+          \  1,
+          \  0
+          \)
 # - repo: scrooloose/vim-slumlord
 #   hook_add: |
 #     let g:slumlord_au_created = 1

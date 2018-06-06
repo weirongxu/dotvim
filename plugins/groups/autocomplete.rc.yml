@@ -1,15 +1,9 @@
-- repo: Shougo/neocomplete.vim
-  hook_add: Include /plugins-conf/neocomplete
-  if: '! g:env#nvim'
-- repo: hrsh7th/vim-neco-calc
-
 - repo: Shougo/deoplete.nvim
   hook_add: |
     let g:deoplete#enable_at_startup = 1
-  if: g:env#nvim
 
+- repo: hrsh7th/vim-neco-calc
 - repo: Shougo/neoinclude.vim
-
 - repo: fszymanski/deoplete-emoji
 
 - repo: autozimu/LanguageClient-neovim

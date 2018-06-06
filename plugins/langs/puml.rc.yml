@@ -1,5 +1,5 @@
 - repo: weirongxu/plantuml-previewer.vim
-  path: /home/raidou/projects/plantuml-previewer.vim
+  # path: /home/raidou/projects/plantuml-previewer.vim
   hook_add: |
     let g:plantuml_previewer#save_format = 'svg'
     au FileType plantuml let g:plantuml_previewer#plantuml_jar_path = get(

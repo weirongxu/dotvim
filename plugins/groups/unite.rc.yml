@@ -1,10 +1,11 @@
+- repo: Shougo/denite.nvim
 - repo: Shougo/unite.vim
   on_cmd:
     - Unite
     - UniteWithCursorWord
     - UniteWithInput
     - UniteResume
-  hook_add: Inc /plugins-conf/unite
+  hook_add: Include /plugins-conf/unite
   hook_post_source: |
     call unite#custom#source('vimgrep', 'ignore_globs', g:env#hidden_glob_list)
     call unite#custom#source('vimgrep', 'max_candidates', 0)

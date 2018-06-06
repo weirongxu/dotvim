@@ -1,5 +1,5 @@
 - repo: Shougo/context_filetype.vim
-  hook_add: Inc /plugins-conf/context_filetype
+  hook_add: Include /plugins-conf/context_filetype
 - repo: blindFS/vim-regionsyntax
 # - repo: osyo-manga/vim-precious
 #   depends: context_filetype.vim

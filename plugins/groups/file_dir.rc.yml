@@ -26,7 +26,7 @@
     - Read
     - Source
   hook_add: |
-    Inc /plugins-conf/vimfiler
+    Include /plugins-conf/vimfiler
 # - repo: justinmk/vim-gtfo
 - repo: weirongxu/vim-gtfo
   rev: fix-powershell

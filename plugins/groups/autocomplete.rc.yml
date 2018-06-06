@@ -1,5 +1,5 @@
 - repo: Shougo/neocomplete.vim
-  hook_add: Inc /plugins-conf/neocomplete
+  hook_add: Include /plugins-conf/neocomplete
   if: '! g:env#nvim'
 - repo: hrsh7th/vim-neco-calc
 

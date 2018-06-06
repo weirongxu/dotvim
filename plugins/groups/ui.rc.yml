@@ -3,7 +3,7 @@
   on_cmd: 'TryColorscheme'
 - repo: itchyny/lightline.vim
   hook_add: |
-    Inc /plugins-conf/lightline
+    Include /plugins-conf/lightline
 - repo: gcavallanti/vim-noscrollbar
 
 - repo: Yggdroot/indentLine

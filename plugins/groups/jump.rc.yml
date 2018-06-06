@@ -7,7 +7,7 @@
   hook_add: |
     let g:tagbar_show_linenumbers = 1
     map gl :TagbarToggle<CR>
-    Inc /plugins-conf/tagbar
+    Include /plugins-conf/tagbar
   hook_source: Pkg npm install jsctags
 - repo: wesleyche/SrcExpl
   on_cmd: ['SrcExpl', 'SrcExplClose', 'SrcExplToggle']

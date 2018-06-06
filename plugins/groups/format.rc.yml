@@ -1,6 +1,6 @@
 # - repo: editorconfig/editorconfig-vim
 #   if: g:env#python || g:env#nvim
-#   hook_post_source: Inc /plugins-conf/editorconfig-vim
+#   hook_post_source: Include /plugins-conf/editorconfig-vim
 - repo: sgur/vim-editorconfig
 - repo: Chiel92/vim-autoformat
   on_cmd: Autoformat

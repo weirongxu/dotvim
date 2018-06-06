@@ -1,5 +1,5 @@
 - repo: kana/vim-textobj-user
-  hook_post_source: Inc /plugins-conf/textobj-user
+  hook_post_source: Include /plugins-conf/textobj-user
 - repo: kana/vim-textobj-indent
 - repo: kana/vim-textobj-entire
 - repo: kana/vim-textobj-line

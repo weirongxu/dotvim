@@ -91,7 +91,7 @@
   hook_add: |
     let g:caw_dollarpos_sp_left = '  '
     map <c-/> gcc
-    Inc /plugins-conf/caw
+    Include /plugins-conf/caw
 
 - repo: MaxMEllon/vim-shiny
   hook_add: |
@@ -106,3 +106,4 @@
 - repo: lambdalisue/readablefold.vim
 - repo: lambdalisue/suda.vim
 - repo: lambdalisue/vim-unified-diff
+- repo: Shougo/deol.nvim

@@ -1,6 +1,6 @@
 if ! exists('*ReloadVimrc')
   function! ReloadVimrc() "{{{
-    Inc /vimrc
+    Include /vimrc
   endfunction "}}}
 
   autocmd FileWritePost *.rc.vim, *.rc.yml call ReloadVimrc()

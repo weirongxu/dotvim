@@ -7,22 +7,23 @@ end
 
 let &runtimepath .= ','.$DEIN_DIR.'/repos/github.com/Shougo/dein.vim'
 let g:dein#types#git#clone_depth = 1
-Inc plugins-convert
+Include plugins-convert
 
-call dein#begin($DEIN_DIR, [$PLUGINS_COMPILED])
+if dein#load_state($DEIN_DIR)
+  call dein#begin($DEIN_DIR, [$PLUGINS_COMPILED])
 
-Inc plugins-conf/unite-menu
-Inc plugins-compiled
-call dein#local($MY_VIMFILES . '/plugins-local')
+  Include plugins-conf/unite-menu
+  Include plugins-compiled
+  call dein#local($MY_VIMFILES . '/plugins-local')
 
-call dein#end()
+  call dein#end()
+  call dein#save_state()
+endif
+
 call dein#call_hook('source')
-
 autocmd VimEnter * call dein#call_hook('post_source')
 
 if dein#check_install()
   echo 'install...'
   call dein#install()
 endif
-
-map <leader>z :call zeal#execute(context_filetype#get_filetype(), expand("<cword>"))<CR>

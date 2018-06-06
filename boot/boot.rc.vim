@@ -8,12 +8,12 @@ if ! exists('*Include')
       endif
       execute 'source ' . path . '.rc.vim'
     catch E484
-      echo 'Cant Inc ' . a:path
+      echo 'Cant Include ' . a:path
     endtry
   endfunction "}}}
 endif
 
-command! -nargs=1 Inc call Include("<args>", expand('<sfile>:p:h'))
+command! -nargs=1 Include call Include("<args>", expand('<sfile>:p:h'))
 
-Inc env
-Inc reload
+Include env
+Include reload

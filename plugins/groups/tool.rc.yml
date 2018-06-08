@@ -78,7 +78,7 @@
       \ '}',
       \ ])
     endfunction
-    command Rest call OpenRest()
+    command! Rest call OpenRest()
 - repo: chiedo/vim-case-convert
   on_cmd:
     - CamelToHyphen

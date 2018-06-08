@@ -1,0 +1,4 @@
+- repo: roxma/nvim-yarp
+  if: '! g:env#nvim'
+- repo: roxma/vim-hug-neovim-rpc
+  if: '! g:env#nvim'

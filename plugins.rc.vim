@@ -13,13 +13,9 @@ let g:dein#types#git#clone_depth = 1
 
 let updated = CheckPluginsUpdated(s:plugins_dir, s:plugins_source, s:plugins_manager_type, s:plugins_compiled)
 
-if updated
-  call dein#clear_state()
-endif
-
 Include plugins-conf/unite-menu
 
-if dein#load_state($DEIN_DIR)
+if dein#load_state($DEIN_DIR) && ! updated
   call dein#begin($DEIN_DIR, [$PLUGINS_COMPILED])
 
   Include plugins-compiled
@@ -28,6 +24,7 @@ if dein#load_state($DEIN_DIR)
   call dein#end()
   call dein#save_state()
 endif
+
 
 call dein#call_hook('source')
 autocmd VimEnter * call dein#call_hook('post_source')

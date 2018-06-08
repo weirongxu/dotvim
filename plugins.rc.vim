@@ -14,7 +14,7 @@ let g:dein#types#git#clone_depth = 1
 let updated = CheckPluginsUpdated(s:plugins_dir, s:plugins_source, s:plugins_manager_type, s:plugins_compiled)
 
 if updated
-  dein#clear_state()
+  call dein#clear_state()
 endif
 
 Include plugins-conf/unite-menu

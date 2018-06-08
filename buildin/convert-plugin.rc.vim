@@ -27,7 +27,9 @@ function! CheckPluginsUpdated(plugins_dir, source, target_type, plugins_compiled
   for name in split(glob(a:plugins_dir . '/**/*.yml'), '\n')
     if getftime(name) > getftime(a:plugins_compiled)
       call PluginsConvert(a:source, a:target_type, a:plugins_compiled)
+      return v:true
       break
     endif
   endfor
+  return v:false
 endfunction "}}}

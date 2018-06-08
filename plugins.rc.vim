@@ -11,7 +11,12 @@ end
 let &runtimepath .= ','.$DEIN_DIR.'/repos/github.com/Shougo/dein.vim'
 let g:dein#types#git#clone_depth = 1
 
-call CheckPluginsUpdated(s:plugins_dir, s:plugins_source, s:plugins_manager_type, s:plugins_compiled)
+let updated = CheckPluginsUpdated(s:plugins_dir, s:plugins_source, s:plugins_manager_type, s:plugins_compiled)
+
+if updated
+  dein#clear_state()
+endif
+
 Include plugins-conf/unite-menu
 
 if dein#load_state($DEIN_DIR)

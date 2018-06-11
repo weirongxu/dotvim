@@ -16,6 +16,7 @@ let updated = CheckPluginsUpdated(s:plugins_dir, s:plugins_source, s:plugins_man
 Include plugins-conf/unite-menu
 
 if ! updated || dein#load_state($DEIN_DIR)
+  echo 'loading plugins'
   call dein#begin($DEIN_DIR, [$PLUGINS_COMPILED])
 
   Include plugins-compiled

@@ -1,10 +1,28 @@
 - repo: itchyny/vim-cursorword
 - repo: rhysd/try-colorscheme.vim
   on_cmd: 'TryColorscheme'
-- repo: itchyny/lightline.vim
-  hook_add: |
-    Include /plugins-conf/lightline
 - repo: gcavallanti/vim-noscrollbar
+- repo: vim-airline/vim-airline
+  hook_add: |
+    let g:airline#extensions#tabline#enabled = 1
+    map gb :bnext<CR>
+    map gB :bprev<CR>
+    let g:airline#extensions#branch#custom_head = 'gina#component#repo#branch'
+  hook_post_source: |
+    function! AirlinePosition()
+      if exists('*noscrollbar#statusline') && (winwidth(0) > 70)
+        return noscrollbar#statusline()
+      else
+        return line('.') * 100 / line('$') . '%'
+      endif
+    endfunction
+    call airline#parts#define_function('my-position', 'AirlinePosition')
+
+    let g:airline_section_z
+      \ = airline#section#create(['my-position', substitute(g:airline_section_z, '^%3p%%', '', '')])
+# - repo: itchyny/lightline.vim
+#   hook_add: |
+#     Include /plugins-conf/lightline
 
 - repo: Yggdroot/indentLine
   hook_add: |

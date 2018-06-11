@@ -5,6 +5,7 @@
 - repo: vim-airline/vim-airline
   hook_add: |
     let g:airline#extensions#tabline#enabled = 1
+    let g:airline#extensions#tabline#formatter = 'unique_tail'
     map gb :bnext<CR>
     map gB :bprev<CR>
     let g:airline#extensions#branch#custom_head = 'gina#component#repo#branch'

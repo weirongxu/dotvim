@@ -15,16 +15,15 @@ let updated = CheckPluginsUpdated(s:plugins_dir, s:plugins_source, s:plugins_man
 
 Include plugins-conf/unite-menu
 
-if ! updated || dein#load_state($DEIN_DIR)
-  echo 'loading plugins'
-  call dein#begin($DEIN_DIR, [$PLUGINS_COMPILED])
+" if ! updated || dein#load_state($DEIN_DIR)
+call dein#begin($DEIN_DIR, [$PLUGINS_COMPILED])
 
-  Include plugins-compiled
-  call dein#local($MY_VIMFILES . '/plugins-local')
+Include plugins-compiled
+call dein#local($MY_VIMFILES . '/plugins-local')
 
-  call dein#end()
-  call dein#save_state()
-endif
+call dein#end()
+"   call dein#save_state()
+" endif
 
 
 call dein#call_hook('source')

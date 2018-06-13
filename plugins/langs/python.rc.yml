@@ -22,7 +22,6 @@
     endif
     # let g:jedi#auto_initialization = 0
     # let g:jedi#show_call_signatures = 0
-    # autocmd FileType python setlocal omnifunc=jedi#completions
     call UniteFileTypeTool('python', [
       \ ['jedi-goto', 'call jedi#goto()'],
       \ ['jedi-goto_assignments', 'call jedi#goto_assignments()'],

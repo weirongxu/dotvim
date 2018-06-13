@@ -74,6 +74,8 @@ fun! s:AppendMark(mark)
   endif
 endf
 
+tnoremap <ESC> <C-\><C-n>
+
 " path
 " command! EchoPath echo expand("%:p")
 command! CdHere exec 'cd ' expand("%:p:h")

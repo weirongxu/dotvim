@@ -56,3 +56,4 @@
 # - repo: osyo-manga/vim-over
 #   on_cmd: 'OverCommandLine'
 - repo: markonm/traces.vim
+- repo: brooth/far.vim

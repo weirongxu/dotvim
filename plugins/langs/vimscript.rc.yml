@@ -31,3 +31,4 @@
 - repo: tweekmonster/exception.vim
   hook_add: |
     command! ExceptionTrace call exception#trace()
+- repo: tweekmonster/startuptime.vim

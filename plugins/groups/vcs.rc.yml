@@ -26,8 +26,10 @@
     let g:gitgutter_enabled = 1
     let g:gitgutter_realtime = 0
     let g:gitgutter_eager = 0
-- repo: cohama/agit.vim
-  on_cmd: ['Agit', 'AgitFile', 'AgitGit']
+# - repo: cohama/agit.vim
+#   on_cmd: ['Agit', 'AgitFile', 'AgitGit']
+- repo: junegunn/gv.vim
+  on_cmd: ['GV', 'GV!', 'GV?']
 # - repo: mhinz/vim-signify
 # - repo: rhysd/committia.vim
 - repo: mattn/gist-vim

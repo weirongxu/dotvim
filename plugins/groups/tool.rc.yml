@@ -93,4 +93,4 @@
     - HyphenToSnakeAll
     - SnakeToCamelAll
     - SnakeToHyphenAll
-- repo: tweekmonster/startuptime.vim
+- repo: AndrewRadev/bufferize.vim

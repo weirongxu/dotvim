@@ -10,7 +10,12 @@
     nmap gB :bprev<CR>
 
     let g:airline#extensions#branch#custom_head = 'gina#component#repo#branch'
-  hook_post_source: |
+
+    function! AirlineInit()
+      call airline#parts#define_function('my-position', 'AirlinePosition')
+      let g:airline_section_z = airline#section#create(['my-position', substitute(g:airline_section_z, '^%3p%%', '', '')])
+    endfunction
+
     function! AirlinePosition()
       if exists('*noscrollbar#statusline') && (winwidth(0) > 70)
         return noscrollbar#statusline()
@@ -18,10 +23,8 @@
         return line('.') * 100 / line('$') . '%'
       endif
     endfunction
-    call airline#parts#define_function('my-position', 'AirlinePosition')
 
-    let g:airline_section_z
-      \ = airline#section#create(['my-position', substitute(g:airline_section_z, '^%3p%%', '', '')])
+    au User AirlineAfterInit call AirlineInit()
 # - repo: itchyny/lightline.vim
 #   hook_add: |
 #     Include /plugins-conf/lightline

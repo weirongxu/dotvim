@@ -1,26 +1,28 @@
 - repo: Shougo/neosnippet.vim
   hook_add: |
     imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-      \ "\<Plug>(neosnippet_expand_or_jump)"
+      \ "\<Plug>(neosnippet_jump_or_expand)"
       \: "\<TAB>"
     imap <expr><C-l> neosnippet#jumpable() ?
       \ "\<Plug>(neosnippet_jump)"
       \: "\<C-j>"
-    imap <expr><C-CR> neosnippet#expandable() ?
-      \ "\<Plug>(neosnippet_expand)"
-      \: "\<C-CR>"
+    tmap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+      \ "\<Plug>(neosnippet_jump_or_expand)"
+      \: "\<TAB>"
+    tmap <expr><C-l> neosnippet#jumpable() ?
+      \ "\<Plug>(neosnippet_jump)"
+      \: "\<C-j>"
     smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-      \ "\<Plug>(neosnippet_expand_or_jump)"
+      \ "\<Plug>(neosnippet_jump_or_expand)"
       \: "\<TAB>"
     smap <expr><C-l> neosnippet#jumpable() ?
       \ "\<Plug>(neosnippet_jump)"
       \: "\<C-j>"
-    smap <expr><C-CR> neosnippet#expandable() ?
-      \ "\<Plug>(neosnippet_expand)"
-      \: "\<C-CR>"
     let g:neosnippet#snippets_directory = $MY_VIMFILES.'/snippets'
-    let g:neosnippet#disable_runtime_snippets = {
-      \   '_': 1
-      \ }
+    # let g:neosnippet#disable_runtime_snippets = {
+    #   \   '_': 1
+    #   \ }
     set clipboard-=autoselect
     command! Snip NeoSnippetEdit -split -vertical
+- repo: Shougo/neosnippet-snippets
+# - repo: honza/vim-snippets

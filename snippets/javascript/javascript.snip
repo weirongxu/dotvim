@@ -1,34 +1,11 @@
-snippet #!
-	#!/usr/bin/env node
-
 snippet wo
 	window.onload = function(){
 		${1}
 	}
 
-snippet alert
-alias al
-	alert(${0})
-
-snippet cf
-	(function(${1:#:attribute}) {${0:TARGET}})()
-
-snippet :f
-options head
-	${1:#:method_name}: function(${2:#:attribute}) {
-		${0:TARGET}
-	}
-
 snippet f
 options word
-	function(${1}) {${0:TARGET}}
-
-snippet af
-options word
-	(${1}) => {${0:TARGET}}
-
-snippet caf
-	((${1}) => {${0:TARGET}})()
+  function(${1}) { ${0:TARGET} };
 
 snippet function
 alias func fun
@@ -38,33 +15,19 @@ options word
 		${0:TARGET}
 	}
 
+snippet cf
+	(function(${1:#:attribute}) {${0:TARGET}})()
+
+snippet af
+options word
+	(${1}) => {${0:TARGET}}
+
+snippet caf
+	((${1}) => {${0:TARGET}})()
+
 snippet re
 alias ret
 	return
-
-snippet proto
-options head
-	${1:#:class_name}.prototype.${2:#:method_name} = function(${3:#:first_argument}) {
-		${0:TARGET}
-	}
-
-snippet if
-	if (${1:true}) {
-		${0:TARGET}
-	}
-
-snippet if-else
-abbr ife
-options head
-	if (${1:#:condition}) {
-		${0:TARGET}
-	} else {
-	}
-
-snippet else
-	else {
-			${0:TARGET}
-	}
 
 snippet for
 options head
@@ -84,58 +47,24 @@ options head
 		${0:TARGET}
 	}
 
-snippet do
+snippet timeout-arrow-function
 options head
-	do {
-			${0:TARGET}
-	} while(${1:condition}) {
-
-snippet while
+	setTimeout(() => { ${0} }, ${1:10})
+snippet interval-arrow-function
 options head
-	while(${1:condition}) {
-			${0:TARGET}
-	}
-
-snippet with
-options head
-	with(${1:OBJECT}) {
-			${0:TARGET}
-	}
-
-snippet switch
-	switch (${1:#:var}) {
-			case ${2:#:val}:
-					${3}
-					break
-			default:
-					${0:TARGET}
-	}
-
-snippet key-value
-abbr :,
-options word
-	${1:#:value_name}: ${0:#:value},
-
-#snippet key
-#options word
-#	${1:#:key}: "${2:#:value}"}${3:, }
-
-snippet setTimeout-function
-options head
-	setTimeout(function() { ${0} }, ${1:10})
-snippet setInterval-function
-options head
-	setInterval(function() { ${0} }, ${1:10})
+	setInterval(() => { ${0} }, ${1:10})
 
 snippet log
-alias cl
 options head
 	console.log(${0:TARGET})
 
 snippet dir
-alias cd
 options head
 	console.dir(${0:TARGET})
+
+snippet error
+options head
+	console.error(${0:TARGET})
 
 snippet import
 alias im

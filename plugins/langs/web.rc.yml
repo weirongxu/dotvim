@@ -56,3 +56,4 @@
   hook_source: Pkg npm install tern
   if: 'g:env#nvim && ! LSP_support("javascript")'
   on_ft: javascript
+- repo: rhysd/vim-wasm

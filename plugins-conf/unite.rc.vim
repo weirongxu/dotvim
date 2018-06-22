@@ -5,10 +5,11 @@ map <Space>b :Unite buffer<CR>
 map <Space>t :Unite tab<CR>
 map <Space>T :Unite tab:no-current<CR>
 map <Space>j :Unite jump<CR>
-map <Space>g :Unite grep:
-map <Space>G :Unite grep:%<CR>
+" map <Space>g :Unite grep:
+" map <Space>G :Unite grep:%<CR>
 map <Space>f :Unite vimgrep:
-map <Space>F :Unite vimgrep:%<CR>
+map <Space>F :Unite grep:
+" map <Space>F :Unite vimgrep:%<CR>
 map <Space>hc :Unite history/command<CR>
 map <Space>hs :Unite history/search<CR>
 map <Space>hy :Unite history/yank<CR>

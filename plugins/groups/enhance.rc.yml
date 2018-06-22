@@ -38,7 +38,7 @@
       \ '"': '"',
       \ '`': '`',
       \ '{': '}'}
-    map <Leader>ap <a-p>
+    let g:AutoPairsShortcutToggle = '<leader>ap'
 # - repo: cohama/lexima.vim
 #   hook_add: |
 #     nmap o A<CR>

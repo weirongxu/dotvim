@@ -127,8 +127,13 @@ set noerrorbells visualbell t_vb= tm=500
 autocmd GUIEnter * set vb t_vb=
 
 " backup
-let &backupdir = g:env#tmp
-let &directory = g:env#tmp
+for it in [['undodir', 'undo'], ['backupdir', 'backup'], ['directory', 'swap']]
+  let dir = g:env#tmp . '/' . it[1]
+  if !isdirectory(dir)
+    call mkdir(dir, 'p')
+  endif
+  execute printf('let &%s = "%s"', it[0], dir)
+endfor
 set backup writebackup swapfile
 
 " highlight 80th column

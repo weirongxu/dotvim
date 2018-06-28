@@ -3,7 +3,7 @@ let g:context_filetype_common_config = {
       \   {
       \     'start': '<script\%( [^>]*\)\? type="text\/coffeescript"\%( [^>]*\)\?>',
       \     'end': '</script>',
-      \     'ft': 'coffee',
+      \     'filetype': 'coffee',
       \   },
       \   {
       \     'start' : '<\%(style\|script\)\%( [^>]*\)\? type="text\/<syntax>"\%( [^>]*\)\?>',
@@ -12,12 +12,12 @@ let g:context_filetype_common_config = {
       \   {
       \     'start' : '<\%(style\|script\)\%( [^>]*\)\? lang="sass"\%( [^>]*\)\?>',
       \     'end' : '</\%(style\|script\)>',
-      \     'ft': 'scss',
+      \     'filetype': 'scss',
       \   },
       \   {
       \     'start' : '<\%(style\|script\)\%( [^>]*\)\? lang="sass?indentedSyntax"\%( [^>]*\)\?>',
       \     'end' : '</\%(style\|script\)>',
-      \     'ft': 'sass',
+      \     'filetype': 'sass',
       \   },
       \   {
       \     'start' : '<\%(style\|script\)\%( [^>]*\)\? lang="<syntax>?\?\%([^>]*\)"\%( [^>]*\)\?>',
@@ -26,14 +26,14 @@ let g:context_filetype_common_config = {
       \   {
       \     'start': '<script\%( [^>]*\)\?>',
       \     'end': '</script>',
-      \     'ft': 'javascript',
+      \     'filetype': 'javascript',
       \   },
       \ ],
       \ 'coffee': [
       \   {
       \     'start': '`',
       \     'end': '`',
-      \     'ft': 'javascript',
+      \     'filetype': 'javascript',
       \   },
       \ ],
       \ 'markdown': [
@@ -44,7 +44,7 @@ let g:context_filetype_common_config = {
       \   {
       \     'start' : '^\s*```\s*viml',
       \     'end' : '^\s*```$',
-      \     'ft' : 'vim',
+      \     'filetype' : 'vim',
       \   },
       \ ],
       \}
@@ -54,12 +54,10 @@ function! s:context_filetype_convert(config) "{{{
   for match_list in values(config)
     for match_config in match_list
       if stridx(match_config['start'], '<syntax>') >= 0 || stridx(match_config['end'], '<syntax>') >= 0
-        let match_config['ft'] = '\1'
+        let match_config['filetype'] = '\1'
         let match_config['start'] = substitute(match_config['start'], '<syntax>', '\\(\\h\\w*\\)', '')
         let match_config['end'] = substitute(match_config['end'], '<syntax>', '\\(\\h\\w*\\)', '')
       endif
-      let match_config['filetype'] = match_config['ft']
-      call remove(match_config, 'ft')
     endfor
   endfor
   return config
@@ -74,6 +72,8 @@ for ft in g:env#html_type_list
   endif
 endfor
 
+let g:context_filetype#search_offset = 1000
+
 " let g:regionsyntax_map = g:context_filetype_common_config
 
 let g:context_filetype#same_filetypes = {
@@ -81,15 +81,3 @@ let g:context_filetype#same_filetypes = {
       \ 'cpp': 'c',
       \ 'zsh': 'sh',
       \}
-
-" let g:precious_enable_switchers = {
-"       \ '*' : {
-"       \   'setfiletype' : 1
-"       \ },
-"       \ 'vim' : {
-"       \   'setfiletype' : 0
-"       \ },
-"       \ 'jade' : {
-"       \   'setfiletype' : 0
-"       \ },
-"       \}

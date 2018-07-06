@@ -23,8 +23,6 @@ function! s:vimfiler_settings()
   nmap <buffer>       R             <Plug>(vimfiler_redraw_screen)
   nmap <buffer>       '             <Plug>(vimfiler_toggle_mark_current_line)
   nmap <buffer>       "             <Plug>(vimfiler_toggle_mark_current_line_up)
-  nmap <buffer>       x             <Plug>(vimfiler_execute_external_filer)
-  nmap <buffer>       gx            <Plug>(vimfiler_execute_system_associated)
   command! -buffer History call feedkeys("\<Plug>(vimfiler_switch_to_history_directory)")
   command! -buffer Drive   call feedkeys("\<Plug>(vimfiler_switch_to_drive)")
 

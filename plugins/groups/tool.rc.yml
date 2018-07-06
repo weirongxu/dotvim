@@ -50,7 +50,6 @@
     'VimShellCurrentDir', 'VimShellBufferDir', 'VimShellExecute',
     'VimShellInteractive', 'VimShellTerminal', 'VimShellSendString',
     'VimShellSendBuffer']
-# - repo: Shougo/neossh.vim
 - repo: diepm/vim-rest-console
   on_ft: rest
   hook_add: |

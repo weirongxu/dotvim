@@ -34,6 +34,7 @@
 - repos_include: langs/crystal.rc.yml
 - repos_include: langs/elixir.rc.yml
 - repos_include: langs/java.rc.yml
+- repos_include: langs/kotlin.rc.yml
 - repos_include: langs/markdown.rc.yml
 - repos_include: langs/matlab.rc.yml
 - repos_include: langs/php.rc.yml

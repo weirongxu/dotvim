@@ -1,6 +1,6 @@
 # - repo: bouzuya/vim-ibus
 #   hook_post_source: Include /plugins-conf/ibus
-# - repo: Rykka/trans.vim
+# - repo: gu-fan/trans.vim
 #   on_map: <leader>t
 #   on_add: Include /plugins-conf/trans
 - repo: tyru/eskk.vim

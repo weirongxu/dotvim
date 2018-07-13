@@ -19,10 +19,10 @@
   ]
 # - repo: lilydjwg/colorizer # https://github.com/lilydjwg/colorizer/issues/30
 - repo: ap/vim-css-color
-- repo: Rykka/colorv.vim
-  hook_add: |
-    # let g:colorv_preview_ftype = join(g:env#web_assets_type_list, ',')
-    let g:colorv_preview_ftype = ''
+# - repo: gu-fan/colorv.vim
+#   hook_add: |
+#     # let g:colorv_preview_ftype = join(g:env#web_assets_type_list, ',')
+#     let g:colorv_preview_ftype = ''
 - repo: KabbAmine/vCoolor.vim
   hook_add: |
     let g:vcoolor_disable_mappings = 1

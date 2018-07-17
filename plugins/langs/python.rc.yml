@@ -17,9 +17,7 @@
 - repo: davidhalter/jedi-vim
   on_ft: python
   hook_add: |
-    if g:env#nvim
-      let g:jedi#completions_enabled = 0
-    endif
+    let g:jedi#completions_enabled = 0
     # let g:jedi#auto_initialization = 0
     # let g:jedi#show_call_signatures = 0
     call UniteFileTypeTool('python', [
@@ -32,7 +30,6 @@
       \ ['jedi-document', 'call jedi#show_documentation()'],
       \ ])
 - repo: zchee/deoplete-jedi
-  if: g:env#nvim
   on_ft: python
 
 - repo: heavenshell/vim-pydocstring

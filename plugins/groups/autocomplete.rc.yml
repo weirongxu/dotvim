@@ -7,7 +7,7 @@
 - repo: fszymanski/deoplete-emoji
 
 - repo: autozimu/LanguageClient-neovim
-  if: 'g:env#nvim && g:env#lsp'
+  if: g:env#lsp
   rev: next
   build: 'bash install.sh'
   hook_add: |

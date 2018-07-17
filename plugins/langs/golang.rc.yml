@@ -12,4 +12,3 @@
       \ ])
 - repo: zchee/deoplete-go
   on_ft: ['go']
-  if: g:env#nvim

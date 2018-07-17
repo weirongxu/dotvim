@@ -16,14 +16,14 @@
 
 - repo: Shougo/deoplete-clangx
   on_ft: ['cpp', 'c']
-  if: 'g:env#nvim && ! LSP_support("c")'
+  if: '! LSP_support("c")'
 
-- repo: osyo-manga/vim-marching
-  on_ft: ['cpp', 'c']
-  if: '! g:env#nvim'
-  hook_add: |
-    let g:marching_clang_command = "/usr/bin/clang"
-    let g:marching_include_paths = [
-      \   "/usr/include"
-      \]
-    let g:marching_enable_neocomplete = 1
+# - repo: osyo-manga/vim-marching
+#   on_ft: ['cpp', 'c']
+#   if: '! g:env#nvim'
+#   hook_add: |
+#     let g:marching_clang_command = "/usr/bin/clang"
+#     let g:marching_include_paths = [
+#       \   "/usr/include"
+#       \]
+#     let g:marching_enable_neocomplete = 1

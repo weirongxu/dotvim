@@ -35,25 +35,25 @@
   on_ft: 'typescript'
 
 # complete
-- repo: ternjs/tern_for_vim
-  if: '! g:env#nvim'
-  on_ft: javascript
-  build: npm install
-  hook_add: |
-    call UniteFileTypeTool('javascript', [
-      \ ['tern-doc', 'TernDoc'],
-      \ ['tern-doc-browse', 'TernDocBrowse'],
-      \ ['tern-type', 'TernType'],
-      \ ['tern-def', 'TernDef'],
-      \ ['tern-def-preview', 'TernDefPreview'],
-      \ ['tern-def-split', 'TernDefSplit'],
-      \ ['tern-def-tab', 'TernDefTab'],
-      \ ['tern-refs', 'TernRefs'],
-      \ ['tern-rename', 'TernRename'],
-      \ ])
+# - repo: ternjs/tern_for_vim
+#   if: '! g:env#nvim'
+#   on_ft: javascript
+#   build: npm install
+#   hook_add: |
+#     call UniteFileTypeTool('javascript', [
+#       \ ['tern-doc', 'TernDoc'],
+#       \ ['tern-doc-browse', 'TernDocBrowse'],
+#       \ ['tern-type', 'TernType'],
+#       \ ['tern-def', 'TernDef'],
+#       \ ['tern-def-preview', 'TernDefPreview'],
+#       \ ['tern-def-split', 'TernDefSplit'],
+#       \ ['tern-def-tab', 'TernDefTab'],
+#       \ ['tern-refs', 'TernRefs'],
+#       \ ['tern-rename', 'TernRename'],
+#       \ ])
 
 - repo: carlitux/deoplete-ternjs
   hook_source: Pkg npm install tern
-  if: 'g:env#nvim && ! LSP_support("javascript")'
+  if: '! LSP_support("javascript")'
   on_ft: javascript
 - repo: rhysd/vim-wasm

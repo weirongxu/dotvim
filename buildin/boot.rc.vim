@@ -17,11 +17,6 @@ command! -nargs=1 Include call Include("<args>", expand('<sfile>:p:h'))
 
 Include env
 
-" https://github.com/vim/vim/issues/3117
-if ! g:env#nvim && g:env#python3
-  silent! python3 1
-endif
-
 " Include reload
 Include package-installer
 Include lsp

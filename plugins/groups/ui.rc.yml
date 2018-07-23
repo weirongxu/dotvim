@@ -4,7 +4,7 @@
 - repo: gcavallanti/vim-noscrollbar
 - repo: vim-airline/vim-airline
   hook_add: |
-    # let g:airline#extensions#tabline#enabled = 1
+    let g:airline#extensions#tabline#enabled = 1
     let g:airline#extensions#tabline#fnamemod = ':t'
     nmap gb :bnext<CR>
     nmap gB :bprev<CR>

@@ -1,6 +1,6 @@
 - repo: andymass/vim-matchup
-  # hook_add: |
-  #   let g:matchup_matchparen_enabled = 0
+  hook_add: |
+    let g:matchup_matchparen_deferred = 1
 # - repo: Valloric/MatchTagAlways
 #   if: g:env#python
 #   on_ft: EVAL(g:env#html_type_list)

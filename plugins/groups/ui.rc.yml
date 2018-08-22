@@ -11,20 +11,22 @@
 
     let g:airline#extensions#branch#custom_head = 'gina#component#repo#branch'
 
-    function! AirlineInit()
-      call airline#parts#define_function('my-position', 'AirlinePosition')
-      let g:airline_section_z = airline#section#create([substitute(g:airline_section_z, '%3p%%', airline#section#create(['my-position']), '')])
-    endfunction
-
-    function! AirlinePosition()
-      if exists('*noscrollbar#statusline') && (winwidth(0) > 70)
-        return noscrollbar#statusline()
-      else
-        return line('.') * 100 / line('$') . '%'
-      endif
-    endfunction
-
-    au User AirlineAfterInit call AirlineInit()
+    # function! AirlineInit()
+    #   if exists('*noscrollbar#statusline')
+    #     call airline#parts#define_function('my-position', 'AirlinePosition')
+    #     let g:airline_section_z = airline#section#create([substitute(g:airline_section_z, '%3p%%', airline#section#create(['my-position']), '')])
+    #   end
+    # endfunction
+    #
+    # function! AirlinePosition()
+    #   if winwidth(0) > 70
+    #     return noscrollbar#statusline()
+    #   else
+    #     return line('.') * 100 / line('$') . '%'
+    #   endif
+    # endfunction
+    #
+    # au User AirlineAfterInit call AirlineInit()
 # - repo: itchyny/lightline.vim
 #   hook_add: |
 #     Include /plugins-conf/lightline

@@ -91,7 +91,8 @@ set shortmess=aoOtT
 " break multi-line
 " set nowrap
 " set linebreak
-" set textwidth=500
+set formatoptions+=m
+set textwidth=78
 set backspace=indent,eol,start
 set whichwrap+=<,>,[,],h,l
 

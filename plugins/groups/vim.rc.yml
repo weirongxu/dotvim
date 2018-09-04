@@ -1,4 +1,4 @@
 - repo: roxma/nvim-yarp
-  if: '! g:env#nvim'
+  if: '! g:env#nvim && g:env#python3'
 - repo: roxma/vim-hug-neovim-rpc
-  if: '! g:env#nvim'
+  if: '! g:env#nvim && g:env#python3'

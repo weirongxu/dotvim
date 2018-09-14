@@ -93,3 +93,5 @@
     - SnakeToCamelAll
     - SnakeToHyphenAll
 - repo: AndrewRadev/bufferize.vim
+- repo: kristijanhusak/vim-carbon-now-sh
+  on_cmd: CarbonNowSh

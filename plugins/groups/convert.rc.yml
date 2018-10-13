@@ -16,6 +16,14 @@
       \ ]
 - repo: machakann/vim-swap
   on_map: ['g<', 'g>', 'gs']
+- repo: AndrewRadev/sideways.vim
+  hook_add: |
+    nnoremap gh :SidewaysLeft<cr>
+    nnoremap gl :SidewaysRight<cr>
+    omap aa <Plug>SidewaysArgumentTextobjA
+    xmap aa <Plug>SidewaysArgumentTextobjA
+    omap ia <Plug>SidewaysArgumentTextobjI
+    xmap ia <Plug>SidewaysArgumentTextobjI
 - repo: kana/vim-smartchr
   on_event: InsertCharPre
   hook_add: |

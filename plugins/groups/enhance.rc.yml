@@ -78,11 +78,11 @@
 - repo: tpope/vim-characterize
   on_map: ga
 
-- repo: weirongxu/vim-leader-guide
+- repo: liuchengxu/vim-which-key
+  on_cmd: ['WhichKey', 'WhichKey!']
   hook_add: |
-    map <leader>. <Plug>leaderguide-global
-    map <space><space> :<c-u>LeaderGuide '<Space>'<CR>
-    vmap <space><space> :<c-u>LeaderGuideVisual '<Space>'<CR>
+    nnoremap <silent> <space> :WhichKey '<Space>'<CR>
+    vnoremap <silent> <space> :<c-u>WhichKeyVisual '<Space>'<CR>
 
 - repo: tyru/caw.vim
   on_map: gc

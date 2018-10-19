@@ -8,5 +8,5 @@
 - repo: stephpy/vim-phpdoc
   on_ft: EVAL(g:env#html_type_list)
   hook_post_source: |
-    nnoremap <buffer> <leader>8 :call PhpDocSingle()<CR>
-    vnoremap <buffer> <leader>8 :call PhpDocRange()<CR>
+    nnoremap <buffer> <Leader>8 :call PhpDocSingle()<CR>
+    vnoremap <buffer> <Leader>8 :call PhpDocRange()<CR>

@@ -1,9 +1,9 @@
 " source menu
-map <space>u :Unite menu<CR>
-map <space>ut :Unite menu:lang-tools<CR>
-map <space>ug :Unite menu:git-commands<CR>
-map <space>s :Unite menu:session<CR>
-map <space>c :Unite menu:case-convert<CR>
+map <Leader>uu :Unite menu<CR>
+map <Leader>ut :Unite menu:lang-tools<CR>
+map <Leader>ug :Unite menu:git-commands<CR>
+map <Leader><Leader>s :Unite menu:session<CR>
+map <Leader>c :Unite menu:case-convert<CR>
 let g:unite_source_menu_menus = {
       \ 'session': {
       \   'description': 'Session Manager',

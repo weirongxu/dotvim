@@ -1,18 +1,17 @@
-nmap U :Unite
-map <Leader>u :UniteResume<CR>
-map <Leader>U :Unite history/command<CR>
-map <Space>b :Unite buffer<CR>
-map <Space>t :Unite tab<CR>
-map <Space>T :Unite tab:no-current<CR>
-map <Space>j :Unite jump<CR>
-" map <Space>g :Unite grep:
-" map <Space>G :Unite grep:%<CR>
-map <Space>f :Unite vimgrep:
-map <Space>F :Unite grep:
-" map <Space>F :Unite vimgrep:%<CR>
-map <Space>hc :Unite history/command<CR>
-map <Space>hs :Unite history/search<CR>
-map <Space>hy :Unite history/yank<CR>
+" nmap U :Unite
+map <Leader>ur :UniteResume<CR>
+map <Leader>ub :Unite buffer<CR>
+map <Leader>ut :Unite tab<CR>
+map <Leader>uT :Unite tab:no-current<CR>
+map <Leader>uj :Unite jump<CR>
+" map <Leader>ug :Unite grep:
+" map <Leader>uG :Unite grep:%<CR>
+map <Leader>f :Unite vimgrep:
+map <Leader>F :Unite grep:
+" map <Leader>uF :Unite vimgrep:%<CR>
+map <Leader>uhc :Unite history/command<CR>
+map <Leader>uhs :Unite history/search<CR>
+map <Leader>uhy :Unite history/yank<CR>
 
 " config
 let g:unite_source_grep_max_candidates = 0

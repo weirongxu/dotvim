@@ -13,12 +13,15 @@
     let g:gutentags_auto_add_gtags_cscope = 0
 - repo: skywind3000/gutentags_plus
   hook_add: |
-    noremap <silent> <space>gs :GscopeFind s <C-R><C-W><cr>
-    noremap <silent> <space>gg :GscopeFind g <C-R><C-W><cr>
-    noremap <silent> <space>gc :GscopeFind c <C-R><C-W><cr>
-    noremap <silent> <space>gt :GscopeFind t <C-R><C-W><cr>
-    noremap <silent> <space>ge :GscopeFind e <C-R><C-W><cr>
-    noremap <silent> <space>gf :GscopeFind f <C-R>=expand("<cfile>")<cr><cr>
-    noremap <silent> <space>gi :GscopeFind i <C-R>=expand("<cfile>")<cr><cr>
-    noremap <silent> <space>gd :GscopeFind d <C-R><C-W><cr>
-    noremap <silent> <space>ga :GscopeFind a <C-R><C-W><cr>
+    let g:gutentags_plus_nomap = 1
+    noremap <silent> <Leader>gfs :GscopeFind s <C-R><C-W><cr>
+    noremap <silent> <Leader>gfg :GscopeFind g <C-R><C-W><cr>
+    noremap <silent> <Leader>gfc :GscopeFind c <C-R><C-W><cr>
+    noremap <silent> <Leader>gft :GscopeFind t <C-R><C-W><cr>
+    noremap <silent> <Leader>gfe :GscopeFind e <C-R><C-W><cr>
+    noremap <silent> <Leader>gff :GscopeFind f <C-R>=expand("<cfile>")<cr><cr>
+    noremap <silent> <Leader>gfi :GscopeFind i <C-R>=expand("<cfile>")<cr><cr>
+    noremap <silent> <Leader>gfd :GscopeFind d <C-R><C-W><cr>
+    noremap <silent> <Leader>gfa :GscopeFind a <C-R><C-W><cr>
+    noremap <silent> <Leader>gfa :GscopeFind a <C-R><C-W><cr>
+    noremap <silent> <Leader>gfk :GscopeKill<cr>

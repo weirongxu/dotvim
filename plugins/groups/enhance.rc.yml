@@ -38,7 +38,8 @@
       \ '"': '"',
       \ '`': '`',
       \ '{': '}'}
-    let g:AutoPairsShortcutToggle = '<leader>ap'
+    let g:AutoPairsShortcutToggle = ''
+    noremap <buffer> <silent> <Leader><Leader>ap :call AutoPairsToggle()<CR>
 # - repo: cohama/lexima.vim
 #   hook_add: |
 #     nmap o A<CR>
@@ -81,8 +82,8 @@
 - repo: liuchengxu/vim-which-key
   on_cmd: ['WhichKey', 'WhichKey!']
   hook_add: |
-    nnoremap <silent> <space> :WhichKey '<Space>'<CR>
-    vnoremap <silent> <space> :<c-u>WhichKeyVisual '<Space>'<CR>
+    nnoremap <silent> <Leader> :WhichKey '<Leader>'<CR>
+    vnoremap <silent> <Leader> :<c-u>WhichKeyVisual '<Leader>'<CR>
 
 - repo: tyru/caw.vim
   on_map: gc

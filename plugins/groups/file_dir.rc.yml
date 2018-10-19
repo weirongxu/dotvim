@@ -1,14 +1,4 @@
 - repo: airblade/vim-rooter
-- repo: ctrlpvim/ctrlp.vim
-  hook_add: |
-    let g:ctrlp_custom_ignore = {
-      \ 'dir':  '\v[\/](' . substitute(join(g:env#hidden_dir_list, '|'), '\.', '\\.', 'g') . ')$',
-      \ 'file': '\v\.('. join(g:env#hidden_ext_list, '|') .')$',
-      \ }
-    let g:ctrlp_show_hidden = 1
-- repo: wsdjeg/FlyGrep.vim
-  hook_add: |
-    nnoremap <space>p :FlyGrep<CR>
 - repo: Shougo/vimfiler.vim
   on_cmd:
     - VimFiler
@@ -32,5 +22,3 @@
       \ 'win': 'powershell -NoLogo -NoExit -Command'
       # \ 'win': 'mintty'
       \ }
-- repo: mhinz/vim-grepper
-  on_cmd: Grepper

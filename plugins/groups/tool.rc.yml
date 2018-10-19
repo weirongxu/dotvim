@@ -1,7 +1,7 @@
 # - repo: dimasg/vim-mark
 - repo: jaxbot/semantic-highlight.vim
   on_cmd: SemanticHighlightToggle
-  hook_add: nnoremap <Leader>s :SemanticHighlightToggle<cr>
+  hook_add: nnoremap <Leader><Leader>sh :SemanticHighlightToggle<cr>
 - repo: tpope/vim-eunuch
   on_cmd: [
     'Unlink', 'Remove', 'Move',
@@ -10,7 +10,7 @@
   ]
 - repo: vim-scripts/DrawIt
   on_cmd: ['DIstart', 'DIsngl', 'DIdbl', 'DIstop', 'DrawIt']
-  on_map: ['<leader>di', '<leader>ds']
+  on_map: ['<Leader>di', '<Leader>ds']
 - repo: vim-scripts/VisIncr
   on_cmd: [
     'I', 'II', 'IB', 'IIB', 'IO', 'IIO',
@@ -26,13 +26,13 @@
 - repo: KabbAmine/vCoolor.vim
   hook_add: |
     let g:vcoolor_disable_mappings = 1
-    map <leader>vc :VCoolor<CR>
+    map <Leader>vc :VCoolor<CR>
 - repo: januswel/sweepbuf.vim
   on_cmd: SweepBuffers
 - repo: szw/vim-maximizer
   on_cmd: MaximizerToggle
   hook_add: |
-    map <space>a :MaximizerToggle<CR>
+    map <Leader>mb :MaximizerToggle<CR>
 - repo: weirongxu/fixdir.vim
   on_cmd: FixDir
 - repo: Shougo/vinarise.vim

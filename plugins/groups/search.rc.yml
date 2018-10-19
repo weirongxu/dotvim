@@ -1,3 +1,5 @@
+##
+# buffer search
 - repo: haya14busa/incsearch.vim
   hook_add: |
     map /  <Plug>(incsearch-forward)
@@ -40,7 +42,7 @@
         \   'is_stay': 1
         \ }), get(a:, 1, {}))
     endfunction
-    noremap <silent><expr> <Space>/ incsearch#go(<SID>config_easyfuzzymotion())
+    noremap <silent><expr> <Leader>/ incsearch#go(<SID>config_easyfuzzymotion())
 - repo: haya14busa/vim-asterisk
   hook_add: |
     map *  <Plug>(asterisk-z*)
@@ -57,3 +59,18 @@
 #   on_cmd: 'OverCommandLine'
 - repo: markonm/traces.vim
 - repo: brooth/far.vim
+
+##
+# directory search
+- repo: wsdjeg/FlyGrep.vim
+  hook_add: |
+    nnoremap <Leader><Leader>f :FlyGrep<CR>
+- repo: ctrlpvim/ctrlp.vim
+  hook_add: |
+    let g:ctrlp_custom_ignore = {
+      \ 'dir':  '\v[\/](' . substitute(join(g:env#hidden_dir_list, '|'), '\.', '\\.', 'g') . ')$',
+      \ 'file': '\v\.('. join(g:env#hidden_ext_list, '|') .')$',
+      \ }
+    let g:ctrlp_show_hidden = 1
+# - repo: mhinz/vim-grepper
+#   on_cmd: Grepper

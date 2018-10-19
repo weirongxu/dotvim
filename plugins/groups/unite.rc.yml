@@ -51,8 +51,8 @@
       endif
       exec ":Unite -wipe youdao:".escape(cont, " :\\")
     endfunction
-    nnoremap <space>yd :<C-u>call <SID>unite_youdao(0)<CR>
-    vnoremap <space>yd :<C-u>call <SID>unite_youdao(1)<CR>
+    nnoremap <Leader>yd :<C-u>call <SID>unite_youdao(0)<CR>
+    vnoremap <Leader>yd :<C-u>call <SID>unite_youdao(1)<CR>
 - repo: osyo-manga/unite-quickfix
   hook_add: autocmd FileType qf q | Unite quickfix
 - repo: osyo-manga/unite-option

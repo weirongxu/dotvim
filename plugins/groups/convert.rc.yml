@@ -1,4 +1,3 @@
-- repo: mbbill/fencview # encode
 - repo: salsifis/vim-transpose
   on_cmd:
     - Transpose
@@ -29,3 +28,34 @@
   hook_add: |
     autocmd FileType c,cpp,perl,php inoremap <buffer> <expr> -
       \ smartchr#one_of('-', '->', '--')
+- repo: FooSoft/vim-argwrap
+  hook_add: |
+    function NoTailArgwrap()
+      let b:argwrap_tail_comma_braces = ''
+      ArgWrap
+      unlet b:argwrap_tail_comma_braces
+    endfunction
+
+    function TailArgwrap()
+      let b:argwrap_tail_comma_braces = '{[('
+      ArgWrap
+      unlet b:argwrap_tail_comma_braces
+    endfunction
+
+    function Argwrap()
+      if index(['ruby', 'python'], &filetype) >= 0
+        call TailArgwrap()
+      else
+        ArgWrap
+      endif
+    endfunction
+
+    nnoremap <silent> <Leader>w :call Argwrap()<CR>
+    nnoremap <silent> <Leader>W :call NoTailArgwrap()<CR>
+    let g:argwrap_tail_comma_braces = '{['
+- repo: dhruvasagar/vim-table-mode
+  on_map: <Leader>tm
+- repo: junegunn/vim-easy-align
+  on_map: ['<Plug>(EasyAlign)', '<Plug>(LiveEasyAlign)']
+  on_cmd: ['EasyAlign', 'LiveEasyAlign']
+  hook_add: vmap <Enter> <Plug>(LiveEasyAlign)

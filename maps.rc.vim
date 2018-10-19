@@ -1,7 +1,6 @@
 " <leader>
-let mapleader = ","
-let maplocalleader = ","
-noremap ,; ,
+let mapleader = "\<Space>"
+let maplocalleader = "\<Space>"
 
 " fast save
 " nmap <silent> <CR> :up<CR>
@@ -32,7 +31,7 @@ map <leader>P "+P
 map <F4> @q
 
 " align code
-map <leader>c :set cuc!<CR>
+map <leader><leader>cl :set cuc!<CR>
 
 " control cursour by alt
 imap <silent> <M-h> <ESC>i
@@ -41,7 +40,6 @@ imap <silent> <M-k> <ESC>ka
 imap <silent> <M-l> <ESC>la
 
 " control buffer
-nmap <silent> <leader>o :only<CR>
 map <silent> <C-W><Up> 5<c-w>+
 map <silent> <C-W><Down> 5<c-w>-
 map <silent> <C-W><Right> 5<c-w>>

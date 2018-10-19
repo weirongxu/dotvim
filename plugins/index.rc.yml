@@ -3,6 +3,7 @@
   on_cmd: Dein
 # - repos_include: groups/**
 - repos_include: groups/vim-hug-neovim-rpc.rc.yml
+- repos_include: groups/encode.rc.yml
 - repos_include: groups/colorscheme.rc.yml
 - repos_include: groups/autocomplete.rc.yml
 - repos_include: groups/check.rc.yml

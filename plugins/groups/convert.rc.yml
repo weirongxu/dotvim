@@ -30,19 +30,19 @@
       \ smartchr#one_of('-', '->', '--')
 - repo: FooSoft/vim-argwrap
   hook_add: |
-    function NoTailArgwrap()
+    function! NoTailArgwrap()
       let b:argwrap_tail_comma_braces = ''
       ArgWrap
       unlet b:argwrap_tail_comma_braces
     endfunction
 
-    function TailArgwrap()
+    function! TailArgwrap()
       let b:argwrap_tail_comma_braces = '{[('
       ArgWrap
       unlet b:argwrap_tail_comma_braces
     endfunction
 
-    function Argwrap()
+    function! Argwrap()
       if index(['ruby', 'python'], &filetype) >= 0
         call TailArgwrap()
       else

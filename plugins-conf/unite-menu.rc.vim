@@ -1,6 +1,6 @@
 " source menu
 map <Leader>uu :Unite menu<CR>
-map <Leader>ut :Unite menu:lang-tools<CR>
+map <Leader>ul :Unite menu:lang-tools<CR>
 map <Leader>ug :Unite menu:git-commands<CR>
 map <Leader><Leader>s :Unite menu:session<CR>
 map <Leader>c :Unite menu:case-convert<CR>
@@ -67,6 +67,9 @@ function! s:unite_filetype_tool_set(type, conf) "{{{
 endfunction "}}}
 
 function! s:unite_menu_bind() "{{{
+  if &filetype == 'unite'
+    return
+  endif
   call extend(g:unite_source_menu_menus, {
         \ 'lang-tools': {
         \   'description': 'Lang tools',

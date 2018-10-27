@@ -53,7 +53,7 @@
 - repo: diepm/vim-rest-console
   on_ft: rest
   hook_add: |
-    function OpenRest()
+    function! OpenRest()
       tabnew Rest
       setf rest
       setlocal bufhidden=hide

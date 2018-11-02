@@ -14,15 +14,16 @@ function! s:vimfiler_settings()
   nunmap <buffer> <S-Space>
   nunmap <buffer> H
   nunmap <buffer> L
+  nunmap <buffer> N
 
   nmap <buffer><expr> v             vimfiler#do_switch_action('vsplit')
   nmap <buffer><expr> s             vimfiler#do_switch_action('split')
   nmap <buffer><expr> t             vimfiler#do_switch_action('tabopen')
   nmap <buffer>       V             <Plug>(vimfiler_preview_file)
   nmap <buffer>       <2-LeftMouse> <Plug>(vimfiler_edit_file)
+  nmap <buffer>       A             <Plug>(vimfiler_new_file)
   nmap <buffer>       R             <Plug>(vimfiler_redraw_screen)
-  nmap <buffer>       '             <Plug>(vimfiler_toggle_mark_current_line)
-  nmap <buffer>       "             <Plug>(vimfiler_toggle_mark_current_line_up)
+  nmap <buffer>       "             <Plug>(vimfiler_toggle_mark_current_line)
   command! -buffer History call feedkeys("\<Plug>(vimfiler_switch_to_history_directory)")
   command! -buffer Drive   call feedkeys("\<Plug>(vimfiler_switch_to_drive)")
 

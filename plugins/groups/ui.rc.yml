@@ -29,9 +29,6 @@
     endfunction
 
     au User AirlineAfterInit call AirlineInit()
-# - repo: itchyny/lightline.vim
-#   hook_add: |
-#     Include /plugins-conf/lightline
 
 - repo: Yggdroot/indentLine
   hook_add: |

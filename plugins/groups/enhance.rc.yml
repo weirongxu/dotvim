@@ -84,6 +84,8 @@
   hook_add: |
     nnoremap <silent> <Leader> :WhichKey '<Leader>'<CR>
     vnoremap <silent> <Leader> :<c-u>WhichKeyVisual '<Leader>'<CR>
+    nnoremap <silent> <Leader><Leader>g :WhichKey 'g'<CR>
+    vnoremap <silent> <Leader><Leader>g :WhichKeyVisual 'g'<CR>
 
 - repo: tyru/caw.vim
   on_map: gc

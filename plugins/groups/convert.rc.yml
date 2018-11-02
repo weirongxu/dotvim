@@ -17,8 +17,8 @@
   on_map: ['g<', 'g>', 'gs']
 - repo: AndrewRadev/sideways.vim
   hook_add: |
-    nnoremap gh :SidewaysLeft<cr>
-    nnoremap gl :SidewaysRight<cr>
+    nnoremap gh :SidewaysLeft<CR>
+    nnoremap gl :SidewaysRight<CR>
     omap aa <Plug>SidewaysArgumentTextobjA
     xmap aa <Plug>SidewaysArgumentTextobjA
     omap ia <Plug>SidewaysArgumentTextobjI
@@ -43,6 +43,9 @@
       \     'brackets':  ['(''"', ')''"'],
       \   },
       \ ]
+- repo: AndrewRadev/switch.vim
+  hook_add: |
+    nnoremap <Leader>s :Switch<CR>
 - repo: kana/vim-smartchr
   on_event: InsertCharPre
   hook_add: |

@@ -3,7 +3,7 @@
   on_cmd:
     - Defx
   hook_add: |
-    nnoremap <silent> gr :Defx -split=vertical -winwidth=50 -direction=topleft `expand('%:p:h')`<CR>
+    nnoremap <silent> gr :Defx -split=vertical -winwidth=50 -direction=topleft -columns=git:mark:filename:type `expand('%:p:h')`<CR>
     function! s:defx_settings()
       nnoremap <silent><buffer><expr> <CR>  defx#do_action('open')
       nnoremap <silent><buffer><expr> c     defx#do_action('copy')
@@ -37,6 +37,7 @@
     autocmd FileType defx call <SID>defx_settings()
 
     Pkg pip3 install Send2Trash
+- repo: kristijanhusak/defx-git
 - repo: Shougo/vimfiler.vim
   on_cmd:
     - VimFiler

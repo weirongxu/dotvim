@@ -78,5 +78,6 @@
   build: ./install.sh
   hook_add: |
     let g:Lf_ShortcutF = '<C-P>'
+    let g:Lf_CommandMap = {'<Up>': ['<C-P>'], '<Down>': ['<C-N>']}
 # - repo: mhinz/vim-grepper
 #   on_cmd: Grepper

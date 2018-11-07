@@ -3,7 +3,8 @@
   on_cmd:
     - Defx
   hook_add: |
-    nnoremap <silent> gr :Defx -split=vertical -winwidth=50 -direction=topleft -columns=git:mark:filename:type `expand('%:p:h')`<CR>
+    nnoremap <silent> gr :Defx -toggle -split=vertical -winwidth=50 -direction=topleft -columns=git:mark:filename:type `expand('%:p:h')`<CR>
+    nnoremap <silent> gR :Defx -toggle -split=vertical -winwidth=50 -direction=topleft -columns=git:mark:filename:type `$MY_VIMFILES`<CR>
     function! s:defx_settings()
       nnoremap <silent><buffer><expr> <CR>  defx#do_action('open')
       nnoremap <silent><buffer><expr> c     defx#do_action('copy')

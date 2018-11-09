@@ -46,6 +46,20 @@
 - repo: AndrewRadev/switch.vim
   hook_add: |
     nnoremap <Leader>s :Switch<CR>
+  hook_post_source: |
+    let g:switch_builtins.ruby_hash_style =
+      \ {
+      \   '"\(\k\+\%([?!]\)\=\)"\s*=>':   '''\1'' =>',
+      \   '''\(\k\+\%([?!]\)\=\)''\s*=>': '\1:',
+      \   '\<\(\k\+\%([?!]\)\=\):':       ':\1 =>',
+      \   ':\(\k\+\%([?!]\)\=\)\s*=>':    '"\1" =>',
+      \ }
+    let g:switch_builtins.ruby_string =
+      \ {
+      \   '"\(\k\+\%([?!]\)\=\)"\@>\%(\s*=>\)\@!':   '''\1''',
+      \   '''\(\k\+\%([?!]\)\=\)''\@>\%(\s*=>\)\@!': ':\1',
+      \   ':\(\k\+\%([?!]\)\=\)\@>\%(\s*=>\)\@!':    '"\1"\2',
+      \ }
 - repo: kana/vim-smartchr
   on_event: InsertCharPre
   hook_add: |

@@ -1,4 +1,3 @@
-# - repo: dimasg/vim-mark
 - repo: jaxbot/semantic-highlight.vim
   on_cmd: SemanticHighlightToggle
   hook_add: nnoremap <Leader><Leader>sh :SemanticHighlightToggle<cr>
@@ -32,7 +31,7 @@
 - repo: szw/vim-maximizer
   on_cmd: MaximizerToggle
   hook_add: |
-    map <Leader>mb :MaximizerToggle<CR>
+    map <Leader><Leader>m :MaximizerToggle<CR>
 - repo: weirongxu/fixdir.vim
   on_cmd: FixDir
 - repo: Shougo/vinarise.vim

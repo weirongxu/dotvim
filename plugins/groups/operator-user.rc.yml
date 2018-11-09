@@ -13,7 +13,6 @@
 #     map sd <Plug>(operator-surround-delete)
 #     map sr <Plug>(operator-surround-replace)
 - repo: machakann/vim-sandwich
-  # rev: 4c6998eab1c0d87deec897c968e8c032564c8393
 - repo: haya14busa/vim-operator-flashy
   if: g:env#x
   on_map: '<Plug>(operator-flashy)'

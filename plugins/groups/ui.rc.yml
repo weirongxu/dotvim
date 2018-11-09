@@ -37,13 +37,6 @@
     if !g:env#x
       let g:indentLine_color_term = 8
     endif
-# - repo: nathanaelkane/vim-indent-guides
-#   on_cmd: ['IndentGuidesToggle', 'IndentGuidesEnable', 'IndentGuidesDisable']
-#   on_map: ['<Plug>IndentGuidesToggle', '<Plug>IndentGuidesEnable', '<Plug>IndentGuidesDisable']
-#   gui: 1
-#   hook_add: |
-#     let g:indent_guides_guide_size = 1
-#     nmap <silent> gL <Plug>IndentGuidesToggle
 - repo: drmikehenry/vim-fontsize
   on_map: <Plug>Fontsize
   gui: 1

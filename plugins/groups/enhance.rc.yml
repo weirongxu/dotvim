@@ -26,26 +26,26 @@
 - repo: gioele/vim-autoswap
 - repo: tpope/vim-repeat
 - repo: vim-scripts/LargeFile
-- repo: jiangmiao/auto-pairs
-  hook_add: |
-    # let g:AutoPairsFlyMode = 1
-    # let g:AutoPairsMapSpace = 0
-    let g:AutoPairsMultilineClose = 0
-    let g:AutoPairs = {
-      \ '(': ')',
-      \ '[': ']',
-      \ "'": "'",
-      \ '"': '"',
-      \ '`': '`',
-      \ '{': '}'}
-    let g:AutoPairsShortcutToggle = ''
-    noremap <buffer> <silent> <Leader><Leader>ap :call AutoPairsToggle()<CR>
-# - repo: cohama/lexima.vim
+# - repo: jiangmiao/auto-pairs
 #   hook_add: |
-#     nmap o A<CR>
-#     imap <C-h> <BS>
-#     cmap <C-h> <BS>
-#     let g:lexima_enable_basic_rules = 0
+#     # let g:AutoPairsFlyMode = 1
+#     # let g:AutoPairsMapSpace = 0
+#     let g:AutoPairsMultilineClose = 0
+#     let g:AutoPairs = {
+#       \ '(': ')',
+#       \ '[': ']',
+#       \ "'": "'",
+#       \ '"': '"',
+#       \ '`': '`',
+#       \ '{': '}'}
+#     let g:AutoPairsShortcutToggle = ''
+#     noremap <buffer> <silent> <Leader><Leader>ap :call AutoPairsToggle()<CR>
+- repo: cohama/lexima.vim
+  hook_add: |
+    nmap o A<CR>
+    imap <C-h> <BS>
+    cmap <C-h> <BS>
+    # let g:lexima_enable_basic_rules = 0
 # - repo: tpope/vim-endwise
 #   on_ft: ['ruby', 'lua', 'c', 'cpp', 'shell', 'zsh', 'bash']
 #   hook_add: |

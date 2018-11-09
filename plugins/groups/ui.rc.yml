@@ -1,6 +1,4 @@
 - repo: itchyny/vim-cursorword
-- repo: rhysd/try-colorscheme.vim
-  on_cmd: 'TryColorscheme'
 - repo: gcavallanti/vim-noscrollbar
 - repo: vim-airline/vim-airline
   hook_add: |

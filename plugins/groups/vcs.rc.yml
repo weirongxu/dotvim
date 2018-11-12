@@ -23,7 +23,6 @@
       \})
 - repo: airblade/vim-gitgutter
   hook_post_source: |
-    call getchar()
     autocmd BufWritePost * GitGutter
 - repo: cohama/agit.vim
   on_cmd: ['Agit', 'AgitFile', 'AgitGit']

@@ -25,7 +25,6 @@
   hook_add: let g:SignatureErrorIfNoAvailableMarks = 0
 - repo: gioele/vim-autoswap
 - repo: tpope/vim-repeat
-- repo: vim-scripts/LargeFile
 - repo: jiangmiao/auto-pairs
   hook_add: |
     # let g:AutoPairsFlyMode = 1
@@ -87,14 +86,6 @@
     nnoremap <silent> <Leader><Leader>g :WhichKey 'g'<CR>
     vnoremap <silent> <Leader><Leader>g :WhichKeyVisual 'g'<CR>
 
-- repo: tyru/caw.vim
-  on_map: gc
-  depends: context_filetype.vim
-  merged: 0
-  hook_add: |
-    let g:caw_dollarpos_sp_left = '  '
-    map <c-/> gcc
-    Include /plugins-conf/caw
 - repo: tweekmonster/braceless.vim
   hook_add: |
     autocmd FileType python,haml,sass,slim,yaml,coffee BracelessEnable +indent

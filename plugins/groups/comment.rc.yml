@@ -1,0 +1,8 @@
+- repo: tyru/caw.vim
+  on_map: gc
+  depends: context_filetype.vim
+  merged: 0
+  hook_add: |
+    let g:caw_dollarpos_sp_left = '  '
+    map <c-/> gcc
+    Include /plugins-conf/caw

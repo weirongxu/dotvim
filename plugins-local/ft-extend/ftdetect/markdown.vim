@@ -1,1 +1,1 @@
-autocmd! BufNewFile,BufRead *.{md,mkd,markdown} setf markdown
+autocmd BufNewFile,BufRead *.{md,mkd,markdown} setf markdown

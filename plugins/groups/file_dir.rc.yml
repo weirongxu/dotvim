@@ -3,8 +3,8 @@
   on_cmd:
     - Defx
   hook_add: |
-    nnoremap <silent> gr :Defx -toggle -split=vertical -winwidth=50 -direction=topleft -columns=git:mark:filename:type `expand('%:p:h')`<CR>
-    nnoremap <silent> gR :Defx -toggle -split=vertical -winwidth=50 -direction=topleft -columns=git:mark:filename:type `$MY_VIMFILES`<CR>
+    nnoremap <silent> ge :Defx -toggle -split=vertical -winwidth=50 -direction=topleft -columns=git:mark:filename:type `expand('%:p:h')`<CR>
+    nnoremap <silent> gE :Defx -toggle -split=vertical -winwidth=50 -direction=topleft -columns=git:mark:filename:type `$MY_VIMFILES`<CR>
     function! s:defx_settings()
       nnoremap <silent><buffer><expr> <CR>  defx#do_action('open')
       nnoremap <silent><buffer><expr> c     defx#do_action('copy')
@@ -16,8 +16,8 @@
       nnoremap <silent><buffer><expr> P     defx#do_action('drop', 'pedit')
       nnoremap <silent><buffer><expr> K     defx#do_action('new_directory')
       nnoremap <silent><buffer><expr> A     defx#do_action('new_file')
-      nnoremap <silent><buffer><expr> d     defx#do_action('remove')
-      nnoremap <silent><buffer><expr> D     defx#do_action('remove_trash')
+      nnoremap <silent><buffer><expr> d     defx#do_action('remove_trash')
+      nnoremap <silent><buffer><expr> D     defx#do_action('remove')
       nnoremap <silent><buffer><expr> r     defx#do_action('rename')
       nnoremap <silent><buffer><expr> x     defx#do_action('execute_system')
       nnoremap <silent><buffer><expr> yy    defx#do_action('yank_path')

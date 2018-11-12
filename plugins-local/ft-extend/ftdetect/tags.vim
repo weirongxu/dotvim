@@ -1,1 +1,1 @@
-autocmd! BufNewFile,BufRead .tags setf tags
+autocmd BufNewFile,BufRead .tags setf tags

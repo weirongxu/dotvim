@@ -22,10 +22,9 @@
       \ ],
       \})
 - repo: airblade/vim-gitgutter
-  # hook_add: |
-  #   let g:gitgutter_enabled = 1
-  #   let g:gitgutter_realtime = 0
-  #   let g:gitgutter_eager = 0
+  hook_post_source: |
+    call getchar()
+    autocmd BufWritePost * GitGutter
 - repo: cohama/agit.vim
   on_cmd: ['Agit', 'AgitFile', 'AgitGit']
 # - repo: junegunn/gv.vim

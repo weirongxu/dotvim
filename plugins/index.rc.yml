@@ -12,6 +12,7 @@
 - repos_include: groups/debug.rc.yml
 - repos_include: groups/diff.rc.yml
 - repos_include: groups/enhance.rc.yml
+- repos_include: groups/comment.rc.yml
 - repos_include: groups/file_dir.rc.yml
 - repos_include: groups/format.rc.yml
 - repos_include: groups/jump.rc.yml

@@ -37,6 +37,6 @@ endfunction
 function! VimFilerExplorerDotVim()
   execute 'VimFiler -explorer -auto-cd -split ' . $MY_VIMFILES
 endfunction
-nnoremap <silent> ge :call VimFilerExplorer()<CR>
-nnoremap <silent> gE :call VimFilerExplorerDotVim()<CR>
+nnoremap <silent> gr :call VimFilerExplorer()<CR>
+nnoremap <silent> gR :call VimFilerExplorerDotVim()<CR>
 command! VimConfig call VimFilerExplorerDotVim()<CR>

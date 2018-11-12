@@ -1,1 +1,1 @@
-autocmd! BufNewFile,BufRead *.{es6} setf javascript
+autocmd BufNewFile,BufRead *.{es6} setf javascript

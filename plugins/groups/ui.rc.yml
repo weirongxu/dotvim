@@ -30,9 +30,15 @@
 
 - repo: Yggdroot/indentLine
   hook_add: |
-    let g:indentLine_conceallevel = 1
-    let g:indentLine_concealcursor = ''
-    let g:indentLine_fileTypeExclude = ['', 'vimfiler', 'unite', 'tagbar']
+    let g:indentLine_fileTypeExclude = [
+      \  '',
+      \  'vimfiler',
+      \  'unite',
+      \  'tagbar',
+      \  'gina-status',
+      \  'gina-grep',
+      \  'gina-branch',
+      \]
     let g:indentLine_faster = 1
     if !g:env#x
       let g:indentLine_color_term = 8

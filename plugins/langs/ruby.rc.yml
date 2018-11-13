@@ -8,5 +8,3 @@
 # complete
 # - repo: osyo-manga/vim-monster
 #   on_ft: ruby
-# - repo: uplus/deoplete-solargraph
-#   on_ft: ruby

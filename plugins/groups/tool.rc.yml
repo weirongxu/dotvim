@@ -41,9 +41,6 @@
     - VinariseHex2Script
     - VinarisePluginDump
     - VinarisePluginViewBitmapView
-# - repo: mattn/emoji-vim
-#   on_cmd: Emoji
-#   type: nosync
 - repo: Shougo/vimshell.vim
   on_cmd: ['VimShell', 'VimShellCreate', 'VimShellTab', 'VimShellPop',
     'VimShellCurrentDir', 'VimShellBufferDir', 'VimShellExecute',
@@ -64,8 +61,7 @@
       setlocal noswapfile
       setlocal nospell
       setlocal noreadonly
-      map <local> q :qw
-      map <local> <CR> <c-j>
+      nmap <buffer> <CR> <c-j>
 
       call setline(1, [
       \ 'http://localhost',
@@ -74,7 +70,7 @@
       \ '{',
       \ '  "key": "value"',
       \ '}',
-      \ ])
+      \])
     endfunction
     command! Rest call OpenRest()
 - repo: chiedo/vim-case-convert

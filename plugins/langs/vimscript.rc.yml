@@ -12,8 +12,6 @@
 - repo: vim-jp/vital.vim
 - repo: vim-jp/vital-complete
 - repo: lambdalisue/vital-Whisky
-- repo: Shougo/echodoc.vim
-  on_ft: vim
 - repo: thinca/vim-themis
   on_ft: vim
 - repo: lambdalisue/vim-backslash
@@ -32,3 +30,4 @@
   hook_add: |
     command! ExceptionTrace call exception#trace()
 - repo: tweekmonster/startuptime.vim
+# - repo: lifepillar/vim-colortemplate

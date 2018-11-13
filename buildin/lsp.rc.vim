@@ -2,7 +2,8 @@ if g:env#lsp
   Pkg npm install javascript-typescript-langserver
   Pkg npm install vue-language-server
   Pkg pip3 install typing
-  Pkg gem install language_server
+  " Pkg gem install language_server
+  Pkg gem install solargraph
 
   let g:LanguageClient_serverCommands = {}
 
@@ -22,6 +23,7 @@ if g:env#lsp
   call s:add_lang(['vue'], ['vls'])
   call s:add_lang(['rust'], ['rustup', 'run', 'stable', 'rls'])
   call s:add_lang(['javascript', 'javascript.jsx'], ['javascript-typescript-stdio'])
+  call s:add_lang(['ruby'], ['solargraph', 'stdio'])
   " call s:add_lang(['ruby'], ['language_server-ruby'])
 else
   function! LSP_support(type) "{{{

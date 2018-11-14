@@ -7,7 +7,6 @@
 - repo: mattn/vim-textobj-url
 - repo: coderifous/textobj-word-column.vim
 - repo: thinca/vim-textobj-between
-- repo: sgur/vim-textobj-parameter
 - repo: kana/vim-textobj-lastpat
 - repo: kana/vim-textobj-syntax
 - repo: kana/vim-textobj-fold
@@ -30,15 +29,11 @@
       \ 'il': 0,
       \ 'ii': 0,
       \ 'i,': 0, 'a,': 0,
-      \ 'ixa': 0, 'axa': 0,
+      \ 'ix': 0, 'ax': 0,
       \ 'ip': 0,
       \ 'ie': 0,
       \ }
-    if g:env#gui
-      map <C-CR> <Plug>(expand_region_expand)
-    else
-      map <NL> <Plug>(expand_region_expand)
-    endif
+    map <CR> <Plug>(expand_region_expand)
     vmap <BS> <Plug>(expand_region_shrink)
   hook_post_source: |
     call expand_region#custom_text_objects('php', {

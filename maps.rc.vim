@@ -6,6 +6,8 @@ let maplocalleader = "\<Space>"
 " nmap <silent> <CR> :up<CR>
 " some plugins not support update
 nmap <silent> <CR> :w<CR>
+map <silent> <C-s> :w<CR>
+nmap <silent> <Leader>s :w<CR>
 
 " fold
 noremap <RightMouse> <LeftMouse>za

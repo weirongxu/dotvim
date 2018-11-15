@@ -21,6 +21,7 @@
       \ ['   Last Recently Use:'],
       \ 'files',
       \ ]
+    map <Leader><Leader><Leader> :Startify<CR>
 - repo: kshenoy/vim-signature
   hook_add: let g:SignatureErrorIfNoAvailableMarks = 0
 - repo: gioele/vim-autoswap

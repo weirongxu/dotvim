@@ -6,8 +6,8 @@ map <Leader>uT :Unite tab:no-current<CR>
 map <Leader>uj :Unite jump<CR>
 " map <Leader>ug :Unite grep:
 " map <Leader>uG :Unite grep:%<CR>
-map <Leader>f :Unite vimgrep:
-map <Leader>F :Unite grep:
+map <Leader>f :Unite grep:
+map <Leader>F :Unite vimgrep:
 " map <Leader>uF :Unite vimgrep:%<CR>
 map <Leader>uhc :Unite history/command<CR>
 map <Leader>uhs :Unite history/search<CR>

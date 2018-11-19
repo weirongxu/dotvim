@@ -44,8 +44,6 @@
       \   },
       \ ]
 - repo: AndrewRadev/switch.vim
-  hook_add: |
-    nnoremap <Leader>a :Switch<CR>
   hook_post_source: |
     let g:switch_builtins.ruby_hash_style =
       \ {

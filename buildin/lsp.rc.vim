@@ -20,6 +20,7 @@ if g:env#lsp
   endfunction "}}}
 
   " call s:add_lang(['c', 'cpp'], ['cquery', '--log-file=/tmp/cq.log'])
+  call s:add_lang(['c', 'cpp'], ['ccls', '--log-file=/tmp/ccls.log'])
   call s:add_lang(['vue'], ['vls'])
   call s:add_lang(['rust'], ['rustup', 'run', 'stable', 'rls'])
   call s:add_lang(['javascript', 'javascript.jsx'], ['javascript-typescript-stdio'])

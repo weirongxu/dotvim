@@ -1,5 +1,3 @@
-# - repo: elzr/vim-json
-#   on_ft: json
 - repo: briancollins/vim-jst # jst/ejs
 - repo: pangloss/vim-javascript
 # - repo: rschmukler/pangloss-vim-indent

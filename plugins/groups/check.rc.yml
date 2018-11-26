@@ -15,5 +15,6 @@
       execute('let g:neomake_' . name . '_enabled_makers = []')
     endfor
     let g:neomake_ruby_rubocop_exe = ''
+    let g:neomake_ruby_rubocop_rails_exe = ''
   hook_post_source: |
     call neomake#configure#automake('rw', 1000)

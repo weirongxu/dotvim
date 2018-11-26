@@ -81,10 +81,11 @@ set list listchars=tab:\|\ ,trail:.
 set guitablabel=%t\ %M number showmatch scrolloff=5 ruler
 " Don't redraw while executing macros (good performance config)
 " set lazyredraw
+set signcolumn=yes
 
 " cmd
 set wildmenu " command complete menu inline
-" set cmdheight=2
+set cmdheight=2
 set laststatus=2
 set shortmess=aoOtT
 
@@ -136,6 +137,7 @@ for it in [['undodir', 'undo'], ['backupdir', 'backup'], ['directory', 'swap']]
   execute printf('let &%s = "%s"', it[0], dir)
 endfor
 set backup writebackup swapfile
+set updatetime=300
 
 " highlight 80th column
 function! s:set_colorcolumn() "{{{

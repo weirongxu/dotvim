@@ -71,15 +71,17 @@
       unlet b:argwrap_tail_comma_braces
     endfunction
 
-    function! TailArgwrap()
-      let b:argwrap_tail_comma_braces = '{[('
+    function! TailArgwrap(braces)
+      let b:argwrap_tail_comma_braces = a:braces
       ArgWrap
       unlet b:argwrap_tail_comma_braces
     endfunction
 
     function! Argwrap()
-      if index(['ruby', 'python'], &filetype) >= 0
-        call TailArgwrap()
+      if &filetype == 'ruby'
+        call TailArgwrap('{[')
+      elseif &filetype == 'python'
+        call TailArgwrap('{[(')
       else
         ArgWrap
       endif

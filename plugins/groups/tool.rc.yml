@@ -9,7 +9,6 @@
   ]
 - repo: vim-scripts/DrawIt
   on_cmd: ['DIstart', 'DIsngl', 'DIdbl', 'DIstop', 'DrawIt']
-  on_map: ['<Leader>di', '<Leader>ds']
 - repo: vim-scripts/VisIncr
   on_cmd: [
     'I', 'II', 'IB', 'IIB', 'IO', 'IIO',

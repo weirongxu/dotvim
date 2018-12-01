@@ -12,21 +12,16 @@
     call unite#filters#matcher_default#use(['matcher_fuzzy'])
     call unite#filters#sorter_default#use(['sorter_rank'])
 
-- repo: junkblocker/unite-tasklist
-  hook_add: |
-    command! TaskList Unite tasklist
-    command! TList Unite tasklist
-
 - repo: ujihisa/unite-colorscheme
 - repo: Shougo/unite-outline
 - repo: Shougo/junkfile.vim
 - repo: Shougo/neoyank.vim
-- repo: Kocha/vim-unite-tig
+# - repo: Kocha/vim-unite-tig
 # - repo: 'supermomonga/unite-kawaii-calc'
 - repo: thinca/vim-unite-history
 - repo: Shougo/neossh.vim
-- repo: Shougo/unite-help
-- repo: mattn/unite-gist
+# - repo: Shougo/unite-help
+# - repo: mattn/unite-gist
 # - repo: 'hewes/unite-gtags'
 - repo: tsukkee/unite-tag
   hook_add: |
@@ -54,5 +49,4 @@
     nnoremap <Leader>yd :<C-u>call <SID>unite_youdao(0)<CR>
     vnoremap <Leader>yd :<C-u>call <SID>unite_youdao(1)<CR>
 - repo: osyo-manga/unite-quickfix
-  hook_add: autocmd FileType qf q | Unite quickfix
 - repo: osyo-manga/unite-option

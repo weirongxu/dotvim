@@ -92,5 +92,9 @@
     autocmd FileType python,haml,sass,slim,yaml,coffee BracelessEnable +indent
 - repo: lambdalisue/readablefold.vim
 - repo: lambdalisue/suda.vim
+  hook_add: |
+    command! -nargs=1 SudaRead  edit  suda://<args>
+    command! -nargs=1 SudaWrite write suda://<args>
+
 - repo: lambdalisue/vim-unified-diff
 - repo: Shougo/deol.nvim

@@ -41,6 +41,7 @@
       \  'gina-grep',
       \  'gina-branch',
       \]
+    let g:indentLine_concealcursor = ''
     let g:indentLine_conceallevel = 1
     let g:indentLine_faster = 1
     if !g:env#x

@@ -7,6 +7,7 @@ let maplocalleader = "\<Space>"
 " some plugins not support update
 nmap <silent> <CR> :w<CR>
 map <silent> <C-s> :w<CR>
+map <silent> <D-s> :w<CR>
 nmap <silent> <Leader>s :w<CR>
 
 " fold

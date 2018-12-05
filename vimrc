@@ -8,7 +8,7 @@ if &compatible
 endif
 
 source $MY_VIMFILES/buildin/boot.rc.vim
-Include maps
+Include mappings
 Include plugins
 Include options
 

@@ -2,7 +2,7 @@
 let mapleader = "\<Space>"
 let maplocalleader = "\<Space>"
 
-" fast save
+" save
 " nmap <silent> <CR> :up<CR>
 " some plugins not support update
 nmap <silent> <CR> :w<CR>
@@ -10,21 +10,23 @@ map <silent> <C-s> :w<CR>
 nmap <silent> <Leader>s :w<CR>
 
 " fold
-noremap <RightMouse> <LeftMouse>za
-noremap <2-LeftMouse> <LeftMouse>zA
+map <RightMouse> <LeftMouse>za
+map <2-LeftMouse> <LeftMouse>zA
 
-" key Q open Ex mode very haite
+" remap Q
 map Q gq
 noremap gQ Q
 
-" OS Clipboard
-" cat
-vnoremap <S-Del> "+x
-vnoremap <leader>x "+x
-" copy
-vnoremap <C-Insert> "+y
-vnoremap <leader>y "+y
-" put
+" Clipboard
+vmap <S-Del> "+x
+vmap <leader>x "+x
+map <leader>x "+x
+
+vmap <C-Insert> "+y
+vmap <leader>y "+y
+map <leader>y "+y
+map <leader>Y "+Y
+
 map <S-Insert> "+p
 map <leader>p "+p
 map <leader>P "+P
@@ -74,6 +76,7 @@ fun! s:AppendMark(mark)
   endif
 endf
 
+" terminal
 tnoremap <ESC> <C-\><C-n>
 
 " path

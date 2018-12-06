@@ -22,8 +22,8 @@ function! s:defx_settings()
   nnoremap <silent><buffer><expr> E     defx#do_action('drop', 'vsplit')
   nnoremap <silent><buffer><expr> t     defx#do_action('drop', 'tabnew')
   nnoremap <silent><buffer><expr> P     defx#do_action('drop', 'pedit')
-  nnoremap <silent><buffer><expr> K     defx#do_action('new_directory')
-  nnoremap <silent><buffer><expr> A     defx#do_action('new_file')
+  nnoremap <silent><buffer><expr> a     defx#do_action('new_file')
+  nnoremap <silent><buffer><expr> A     defx#do_action('new_directory')
   nnoremap <silent><buffer><expr> d     defx#do_action('remove_trash')
   nnoremap <silent><buffer><expr> D     defx#do_action('remove')
   nnoremap <silent><buffer><expr> r     defx#do_action('rename')
@@ -33,7 +33,8 @@ function! s:defx_settings()
   nnoremap <silent><buffer><expr> h     defx#do_action('cd', ['..'])
   nnoremap <silent><buffer><expr> ~     defx#do_action('cd')
   nnoremap <silent><buffer><expr> q     defx#do_action('quit')
-  nnoremap <silent><buffer><expr> *     defx#do_action('toggle_select') . 'j'
+  nnoremap <silent><buffer><expr> <C-k> defx#do_action('toggle_select') . 'k'
+  nnoremap <silent><buffer><expr> <C-j> defx#do_action('toggle_select') . 'j'
   nnoremap <silent><buffer><expr> <C-a> defx#do_action('toggle_select_all')
   nnoremap <silent><buffer><expr> j     line('.') == line('$') ? 'gg' : 'j'
   nnoremap <silent><buffer><expr> k     line('.') == 1 ? 'G' : 'k'

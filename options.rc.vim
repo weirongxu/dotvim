@@ -68,7 +68,7 @@ endif
 if exists('&macmeta')
   set macmeta
 endif
-set nocompatible " vi-compatible,
+set nocompatible " vi-nocompatible
 set mouse=a " support mouse
 
 " edit show

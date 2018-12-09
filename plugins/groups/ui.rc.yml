@@ -27,6 +27,24 @@
     endfunction
 
     au User AirlineAfterInit call AirlineInit()
+  hook_post_source: |
+    function! airline#util#shorten(text, winwidth, minwidth, ...)
+      if winwidth(0) < a:winwidth && len(split(a:text, '\zs')) > a:minwidth
+        if get(a:000, 0, 0)
+          " shorten from tail
+          return '.'.matchstr(a:text, '.\{'.a:minwidth.'}$')
+        else
+          " shorten from beginning of string
+          return matchstr(a:text, '^.\{'.a:minwidth.'}').'.'
+        endif
+      else
+        return a:text
+      endif
+    endfunction
+
+    function! airline#parts#filetype()
+      return winwidth(0) < 90 && strlen(&filetype) > 3 ? matchstr(&filetype, '...'). (&encoding is? 'utf-8' ? '.' : '>') : &filetype
+    endfunction
 
 - repo: Yggdroot/indentLine
   hook_add: |

@@ -6,7 +6,7 @@
     'TagbarDebug', 'TagbarDebugEnd']
   hook_add: |
     let g:tagbar_show_linenumbers = 1
-    map <Leader>l :TagbarToggle<CR>
+    map <Leader>tt :TagbarToggle<CR>
     Include /plugins-conf/tagbar
   hook_source: Pkg npm install jsctags
 - repo: wesleyche/SrcExpl

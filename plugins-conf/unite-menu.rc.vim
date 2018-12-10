@@ -1,7 +1,6 @@
 " source menu
 map <Leader>uu :Unite menu<CR>
 map <Leader>ul :Unite menu:lang-tools<CR>
-map <Leader>ug :Unite menu:git-commands<CR>
 map <Leader><Leader>s :Unite menu:session<CR>
 map <Leader>c :Unite menu:case-convert<CR>
 let g:unite_source_menu_menus = {
@@ -32,17 +31,6 @@ let g:unite_source_menu_menus = {
       \     ['rand words password to reg', "call setreg('\"', RandPasswordInputOnlyWord())"],
       \   ],
       \ },
-      \ 'git-commands': {
-      \   'description': 'Git Commands',
-      \   'command_candidates': [
-      \     ['git pull', 'Gina pull'],
-      \     ['git pull --rebase', 'Gina pull --rebase'],
-      \     ['git push with pull', 'execute "Gina pull" | execute "Gina push"'],
-      \     ['git push with pull rebase', 'execute "Gina pull --rebase" | execute "Gina push"'],
-      \     ['git push', 'Gina push'],
-      \     ['git status', 'Gina status'],
-      \   ],
-      \ }
       \ }
 
 let s:unite_filetype_tools = {

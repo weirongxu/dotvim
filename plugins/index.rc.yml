@@ -27,7 +27,7 @@
 - repos_include: groups/tool.rc.yml
 - repos_include: groups/ui.rc.yml
 - repos_include: groups/undo.rc.yml
-- repos_include: groups/unite.rc.yml
+- repos_include: groups/list.rc.yml
 - repos_include: groups/utils.rc.yml
 - repos_include: groups/vcs.rc.yml
 # - repos_include: langs/**

@@ -31,8 +31,6 @@ endif
 
 let g:github_token_file = expand('~/.record/github-token')
 
-let g:env#lsp = v:true
-
 let g:env#html_type_list = [
       \ 'markdown',
       \ 'html',

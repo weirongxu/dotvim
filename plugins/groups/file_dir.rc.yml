@@ -1,23 +1,10 @@
-- repo: airblade/vim-rooter
+# - repo: airblade/vim-rooter
 - repo: Shougo/defx.nvim
   on_cmd:
     - Defx
   hook_add: |
     Include /plugins-conf/defx
 - repo: kristijanhusak/defx-git
-- repo: Shougo/vimfiler.vim
-  on_cmd:
-    - VimFiler
-    - VimFilerTab
-    - VimFilerCreate
-    - VimFilerSimple
-    - VimFilerSplit
-    - VimFilerDouble
-    - VimFilerCurrentDir
-    - VimFilerBufferDir
-    - VimFilerExplorer
-  hook_add: |
-    Include /plugins-conf/vimfiler
 # - repo: justinmk/vim-gtfo
 - repo: weirongxu/vim-gtfo
   rev: fix-powershell

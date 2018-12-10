@@ -84,8 +84,8 @@
   hook_add: |
     nnoremap <silent> <Leader> :WhichKey '<Leader>'<CR>
     vnoremap <silent> <Leader> :<c-u>WhichKeyVisual '<Leader>'<CR>
-    nnoremap <silent> <Leader><Leader>g :WhichKey 'g'<CR>
-    vnoremap <silent> <Leader><Leader>g :WhichKeyVisual 'g'<CR>
+    nnoremap <silent> <Leader>kg :WhichKey 'g'<CR>
+    vnoremap <silent> <Leader>kg :WhichKeyVisual 'g'<CR>
 
 - repo: tweekmonster/braceless.vim
   hook_add: |

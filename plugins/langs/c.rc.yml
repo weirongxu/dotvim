@@ -4,8 +4,3 @@
 # jump to include
 - repo: nacitar/a.vim
   on_ft: ['c', 'cpp', 'lex', 'yacc']
-
-# complete
-- repo: Shougo/deoplete-clangx
-  on_ft: ['cpp', 'c']
-  if: '! LSP_support("c")'

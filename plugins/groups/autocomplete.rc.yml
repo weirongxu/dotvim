@@ -5,12 +5,36 @@
 - repo: hrsh7th/vim-neco-calc
 - repo: Shougo/neoinclude.vim
 - repo: fszymanski/deoplete-emoji
-
 - repo: autozimu/LanguageClient-neovim
-  if: g:env#lsp
+  if: "g:env#lsp && g:env#lsp_type == 'LanguageClient-neovim'"
   rev: next
   build: 'bash install.sh'
   hook_add: |
+    Pkg npm install javascript-typescript-langserver
+    Pkg npm install vue-language-server
+    Pkg pip3 install typing
+    Pkg gem install solargraph
+
+    let g:LanguageClient_serverCommands = {}
+
+    function! s:add_lang(types, cmd)
+      for type in a:types
+        if executable(a:cmd[0])
+          let g:LanguageClient_serverCommands[type] = a:cmd
+        endif
+      endfor
+    endfunction
+
+    function! LSP_support(type)
+      return has_key(g:LanguageClient_serverCommands, a:type)
+    endfunction
+
+    call s:add_lang(['c', 'cpp'], ['ccls', '--log-file=/tmp/ccls.log'])
+    call s:add_lang(['vue'], ['vls'])
+    call s:add_lang(['rust'], ['rustup', 'run', 'stable', 'rls'])
+    call s:add_lang(['javascript', 'javascript.jsx'], ['javascript-typescript-stdio'])
+    call s:add_lang(['ruby'], ['solargraph', 'stdio'])
+
     let g:LanguageClient_autoStart = 1
     let g:LanguageClient_loggingLevel = 'DEBUG'
 
@@ -25,3 +49,50 @@
       # \ ['lang-client-logging-level', 'call LanguageClient#setLoggingLevel(level)'],
       \ ['lang-client-formatting', 'call LanguageClient#textDocument_formatting()'],
       \ ])
+
+- repo: Shougo/deoplete-clangx
+  on_ft: ['cpp', 'c']
+  if: '! LSP_support("c")'
+- repo: zchee/deoplete-go
+  on_ft: ['go']
+- repo: artur-shaik/vim-javacomplete2
+  on_ft: java
+  hook_add: |
+    call UniteFileTypeTool('java', [
+      \ ['Imports-AddSmart', 'JCimportAddSmart'],
+      \ ['Imports-Add', 'JCimportAdd'],
+      \ ['Imports-AddMissing', 'JCimportsAddMissing'],
+      \ ['Imports-RemoveUnused', 'JCimportsRemoveUnused'],
+      \ ['Imports-RemoveUnused', 'JCserverShowPort'],
+      \ ['Server-ShowPID', 'JCserverShowPID'],
+      \ ['Server-Start', 'JCserverStart'],
+      \ ['Server-Terminate', 'JCserverTerminate'],
+      \ ['Server-Compile', 'JCserverCompile'],
+      \ ['Debug-EnableLogs', 'JCdebugEnableLogs'],
+      \ ['Debug-DisableLogs', 'JCdebugDisableLogs'],
+      \ ['Debug-GetLogContent', 'JCdebugGetLogContent'],
+      \ ['Cache-Clear', 'JCcacheClear'],
+      \ ])
+- repo: carlitux/deoplete-ternjs
+  hook_source: Pkg npm install tern
+  if: '! LSP_support("javascript")'
+  on_ft: javascript
+
+# python
+- repo: davidhalter/jedi-vim
+  on_ft: python
+  hook_add: |
+    let g:jedi#completions_enabled = 0
+    # let g:jedi#auto_initialization = 0
+    # let g:jedi#show_call_signatures = 0
+    call UniteFileTypeTool('python', [
+      \ ['jedi-goto', 'call jedi#goto()'],
+      \ ['jedi-goto_assignments', 'call jedi#goto_assignments()'],
+      \ ['jedi-goto_definitions', 'call jedi#goto_definitions()'],
+      \ ['jedi-usages', 'call jedi#usages()'],
+      \ ['jedi-rename', 'call jedi#rename()'],
+      \ ['jedi-rename_visual', 'call jedi#rename_visual()'],
+      \ ['jedi-document', 'call jedi#show_documentation()'],
+      \ ])
+- repo: zchee/deoplete-jedi
+  on_ft: python

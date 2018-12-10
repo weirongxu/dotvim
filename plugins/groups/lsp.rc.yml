@@ -1,0 +1,6 @@
+- repo: Shougo/neco-vim
+- repo: neoclide/coc-neco
+- repo: neoclide/coc.nvim
+  build: yarn install
+  hook_post_source: |
+    Include /plugins-conf/coc

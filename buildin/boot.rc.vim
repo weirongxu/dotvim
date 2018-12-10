@@ -8,7 +8,7 @@ if ! exists('*Include')
       endif
       execute 'source ' . path . '.rc.vim'
     catch E484
-      echo 'Cant Include ' . a:path
+      echoerr 'Cant Include ' . a:path
     endtry
   endfunction "}}}
 endif
@@ -19,5 +19,4 @@ Include env
 
 " Include reload
 Include package-installer
-Include lsp
 Include convert-plugin

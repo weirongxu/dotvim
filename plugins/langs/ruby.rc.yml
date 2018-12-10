@@ -4,7 +4,3 @@
 #   on_ft: ruby
 - repo: vim-ruby/vim-ruby
 - repo: hallison/vim-rdoc
-
-# complete
-# - repo: osyo-manga/vim-monster
-#   on_ft: ruby

@@ -89,3 +89,16 @@
 - repo: AndrewRadev/bufferize.vim
 - repo: kristijanhusak/vim-carbon-now-sh
   on_cmd: CarbonNowSh
+- repo: echuraev/translate-shell.vim
+  hook_add: |
+    let g:trans_default_direction = ':zh-CN'
+    let g:trans_directions_list = [
+      \['', 'zh-CN'],
+      \['', 'ja'],
+      \['', 'en'],
+      \['', 'zh-TW'],
+      \]
+    map <Leader>tr :Trans<CR>
+    map <Leader>ts :TransSelectDirection<CR>
+    map <Leader>ti :TransInteractive<CR>
+    map <Leader>th :TransOpenHistoryWindow<CR>

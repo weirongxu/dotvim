@@ -13,8 +13,6 @@ let g:dein#types#git#clone_depth = 1
 
 let updated = CheckPluginsUpdated(s:plugins_dir, s:plugins_source, s:plugins_manager_type, s:plugins_compiled)
 
-Include plugins-conf/unite-menu
-
 " if ! updated || dein#load_state($DEIN_DIR)
 call dein#begin($DEIN_DIR, [$PLUGINS_COMPILED])
 

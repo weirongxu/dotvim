@@ -20,3 +20,4 @@ Include env
 " Include reload
 Include package-installer
 Include convert-plugin
+Include file-type-tools

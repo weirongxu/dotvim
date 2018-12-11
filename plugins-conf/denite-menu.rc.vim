@@ -1,9 +1,9 @@
 " source menu
-map <Leader>uu :Unite menu<CR>
-map <Leader>ul :Unite menu:lang-tools<CR>
-map <Leader><Leader>s :Unite menu:session<CR>
-map <Leader>c :Unite menu:case-convert<CR>
-let g:unite_source_menu_menus = {
+map <Leader>lm :Denite menu<CR>
+map <Leader>ll :Denite menu:lang-tools<CR>
+map <Leader><Leader>s :Denite menu:session<CR>
+map <Leader>c :Denite menu:case-convert<CR>
+let s:denite_menus = {
       \ 'session': {
       \   'description': 'Session Manager',
       \   'command_candidates': [
@@ -33,37 +33,18 @@ let g:unite_source_menu_menus = {
       \ },
       \ }
 
-let s:unite_filetype_tools = {
-      \ '_': []
-      \}
-
-function! UniteFileTypeTool(types, conf) "{{{
-  if type(a:types) == type('')
-    call s:unite_filetype_tool_set(a:types, a:conf)
-  elseif type(a:types) == type([])
-    for l:type in a:types
-      call s:unite_filetype_tool_set(l:type, a:conf)
-    endfor
-  endif
-endfunction "}}}
-
-function! s:unite_filetype_tool_set(type, conf) "{{{
-  if ! empty(a:conf)
-    let l:source_conf = get(s:unite_filetype_tools, a:type, [])
-    let s:unite_filetype_tools[a:type] = l:source_conf + a:conf
-  endif
-endfunction "}}}
-
-function! s:unite_menu_bind() "{{{
-  if &filetype == 'unite'
+function! s:filetype_menu() "{{{
+  if &filetype == 'denite'
     return
   endif
-  call extend(g:unite_source_menu_menus, {
+  call extend(s:denite_menus, {
         \ 'lang-tools': {
         \   'description': 'Lang tools',
-        \   'command_candidates': s:unite_filetype_tools['_'] + get(s:unite_filetype_tools, &filetype, []),
+        \   'command_candidates': g:filetype_tools['_'] + get(g:filetype_tools, &filetype, []),
         \  }
         \ })
+  call denite#custom#var('menu', 'menus', s:denite_menus)
 endfunction "}}}
 
-autocmd BufEnter,FileType * call <SID>unite_menu_bind()
+autocmd BufEnter,FileType * call <SID>filetype_menu()
+call denite#custom#var('menu', 'menus', s:denite_menus)

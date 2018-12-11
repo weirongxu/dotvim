@@ -38,7 +38,7 @@
     let g:LanguageClient_autoStart = 1
     let g:LanguageClient_loggingLevel = 'DEBUG'
 
-    call UniteFileTypeTool(keys(g:LanguageClient_serverCommands), [
+    call FileTypeTool(keys(g:LanguageClient_serverCommands), [
       \ ['lang-client-hover', 'call LanguageClient#textDocument_hover()'],
       \ ['lang-client-definition', 'call LanguageClient#textDocument_definition()'],
       \ ['lang-client-rename', 'call LanguageClient#textDocument_rename()'],
@@ -58,7 +58,7 @@
 - repo: artur-shaik/vim-javacomplete2
   on_ft: java
   hook_add: |
-    call UniteFileTypeTool('java', [
+    call FileTypeTool('java', [
       \ ['Imports-AddSmart', 'JCimportAddSmart'],
       \ ['Imports-Add', 'JCimportAdd'],
       \ ['Imports-AddMissing', 'JCimportsAddMissing'],
@@ -85,7 +85,7 @@
     let g:jedi#completions_enabled = 0
     # let g:jedi#auto_initialization = 0
     # let g:jedi#show_call_signatures = 0
-    call UniteFileTypeTool('python', [
+    call FileTypeTool('python', [
       \ ['jedi-goto', 'call jedi#goto()'],
       \ ['jedi-goto_assignments', 'call jedi#goto_assignments()'],
       \ ['jedi-goto_definitions', 'call jedi#goto_definitions()'],

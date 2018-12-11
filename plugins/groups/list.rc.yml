@@ -26,26 +26,8 @@
     call denite#custom#var('grep', 'pattern_opt', [])
     call denite#custom#var('grep', 'separator', ['--'])
     call denite#custom#var('grep', 'final_opts', [])
+
+    Include /plugins-conf/denite-menu
 - repo: neoclide/denite-extra
-
-- repo: Shougo/unite.vim
-- repo: blindFS/unite-workflow
-  hook_add: |
-    function! s:unite_youdao(visual)
-      if a:visual
-        let reg = '"'
-        let reg_save = getreg(reg)
-        let reg_type = getregtype(reg)
-        silent exe 'norm! gv"'.reg.'y'
-        let cont = getreg(reg)
-        call setreg(reg,reg_save,reg_type)
-      else
-        let cont = expand('<cword>')
-      endif
-      exec ":Unite -wipe youdao:".escape(cont, " :\\")
-    endfunction
-    nnoremap <Leader>yd :<C-u>call <SID>unite_youdao(0)<CR>
-    vnoremap <Leader>yd :<C-u>call <SID>unite_youdao(1)<CR>
-
 - repo: Shougo/neoyank.vim
 - repo: Shougo/neossh.vim

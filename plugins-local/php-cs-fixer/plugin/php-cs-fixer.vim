@@ -12,7 +12,7 @@ function! s:exec_fixer() "{{{
 endfunction "}}}
 command! PhpFixer call <SID>exec_fixer()
 
-call UniteFileTypeTool('php', [
+call FileTypeTool('php', [
       \ ['php-fixer', 'PhpFixer']
       \ ])
 

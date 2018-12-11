@@ -8,7 +8,7 @@
   on_cmd: Neoformat
 - repo: maksimr/vim-jsbeautify
   hook_add: |
-    call UniteFileTypeTool(g:env#web_assets_type_list, [
+    call FileTypeTool(g:env#web_assets_type_list, [
       \ ['jsbf-RangeJsBeautify', 'call RangeJsBeautify()'],
       \ ['jsbf-JsBeautify', 'call JsBeautify()'],
       \ ['jsbf-JsxBeautify', 'call JsxBeautify()'],

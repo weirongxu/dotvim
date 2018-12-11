@@ -19,7 +19,7 @@
 - repo: mhinz/vim-lookup
   on_ft: vim
   hook_add: |
-    call FileTypeTool('vim', [
+    call MenuFileType('vim', [
       \ ['vim-lookup', 'call lookup#lookup()'],
       \ ['vim-lookup-pop', 'call lookup#pop()'],
       \ ])

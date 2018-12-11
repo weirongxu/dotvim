@@ -33,7 +33,7 @@
   on_key: OnlineThesaurusCurrentWord
   hook_add: |
     let g:online_thesaurus_map_keys = 0
-    nnoremap <Leader><Leader>K :OnlineThesaurusCurrentWord<CR>
+    call MenuMiscAdd([['OnlineThesaurusCurrentWord', ':OnlineThesaurusCurrentWord<CR>']])
 # - repo: ianva/vim-youdao-translater
 #   if: g:env#python2
 #   hook_add: |

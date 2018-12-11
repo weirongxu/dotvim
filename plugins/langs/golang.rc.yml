@@ -1,7 +1,7 @@
 - repo: fatih/vim-go
   hook_add: |
     let g:go_def_mapping_enabled = 0
-    call FileTypeTool('go', [
+    call MenuFileType('go', [
       \ ['GoDef', 'GoDef'],
       \ ['GoCallees', 'GoCallees'],
       \ ['GoCallers', 'GoCallers'],

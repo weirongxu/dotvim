@@ -22,6 +22,12 @@
       \ 'files',
       \ ]
     map <Leader><Leader><Leader> :Startify<CR>
+    call MenuGroupAdd('session', 'Session manager', [
+      \  ['session save', "SSave"],
+      \  ['session load', "SLoad"],
+      \  ['session delete', "SDelete"],
+      \  ['session close', "SClose"],
+      \])
 - repo: kshenoy/vim-signature
   hook_add: let g:SignatureErrorIfNoAvailableMarks = 0
 - repo: gioele/vim-autoswap
@@ -39,7 +45,7 @@
       \ '`': '`',
       \ '{': '}'}
     let g:AutoPairsShortcutToggle = ''
-    noremap <buffer> <silent> <Leader><Leader>ap :call AutoPairsToggle()<CR>
+    call MenuMiscAdd([['AutoPairsToggle', ':call AutoPairsToggle()<CR>']])
 # - repo: cohama/lexima.vim
 #   hook_add: |
 #     nmap o A<CR>

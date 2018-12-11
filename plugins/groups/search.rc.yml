@@ -64,7 +64,7 @@
 # directory search
 - repo: wsdjeg/FlyGrep.vim
   hook_add: |
-    nnoremap <Leader><Leader>f :FlyGrep<CR>
+    call MenuMiscAdd([['FlyGrep', ':FlyGrep<CR>']])
 - repo: ctrlpvim/ctrlp.vim
   if: "! g:env#python"
   hook_add: |

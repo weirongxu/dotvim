@@ -69,17 +69,18 @@
   on_map: <Plug>Fontsize
   gui: 1
   hook_add: |
-    nmap <silent> <Leader><Leader>=           <Plug>FontsizeBegin
     nmap <silent> <C-ScrollWheelUp>   <Plug>FontsizeInc
-    nmap <silent> <Leader><Leader>+           <Plug>FontsizeInc
     nmap <silent> <C-ScrollWheelDown> <Plug>FontsizeDec
-    nmap <silent> <Leader><Leader>-           <Plug>FontsizeDec
-    nmap <silent> <Leader><Leader>0           <Plug>FontsizeDefault
+    call MenuGroupAdd('fontsize', 'Fontsize', [
+      \  ['FontsizeBegin', '<Plug>FontsizeBegin'],
+      \  ['FontsizeInc', '<Plug>FontsizeInc'],
+      \  ['FontsizeDec', '<Plug>FontsizeDec'],
+      \  ['FontsizeDefault', '<Plug>FontsizeDefault'],
+      \])
 - repo: jszakmeister/vim-togglecursor
   if: '! g:env#gui'
 - repo: equalsraf/neovim-gui-shim
   if: g:env#nvim
 - repo: simeji/winresizer
-  on_map: '<Leader><Leader>'
   hook_add: |
-    let g:winresizer_start_key = '<Leader><Leader>w'
+    let g:winresizer_start_key = '<C-w><Space>'

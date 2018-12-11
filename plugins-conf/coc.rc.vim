@@ -57,17 +57,19 @@ call s:add_ext('coc-solargraph', ['ruby'])
 
 inoremap <silent><expr> <C-l> coc#refresh()
 
-nmap <silent> [d <Plug>(coc-diagnostic-prev)
-nmap <silent> ]d <Plug>(coc-diagnostic-next)
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-nmap <Leader>rn <Plug>(coc-rename)
-nmap <Leader>rn <Plug>(coc-rename)
-vmap <Leader>ff  <Plug>(coc-format-selected)
-nmap <Leader>ac  <Plug>(coc-codeaction)
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+nmap <silent> [d <Plug>(coc-diagnostic-prev)
+nmap <silent> ]d <Plug>(coc-diagnostic-next)
+nmap <Leader><Leader>d  <Plug>(coc-diagnostic-info)
+nmap <Leader><Leader>rn <Plug>(coc-rename)
+vmap <Leader><Leader>f  <Plug>(coc-format-selected)
+nmap <Leader><Leader>ac <Plug>(coc-codeaction)
+nmap <Leader><Leader>cl <Plug>(coc-codelens-action)
+nmap <Leader><Leader>o  <Plug>(coc-openlink)
+nmap <silent> K :call <SID>show_documentation()<CR>
 function! s:show_documentation()
   if index(['vim', 'help'], &filetype) > 0
     execute 'h '.expand('<cword>')

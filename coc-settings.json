@@ -1,0 +1,9 @@
+{
+  "languageserver": {
+    "ccls": {
+      "command": "ccls",
+      "filetypes": ["c", "cpp", "cuda", "objc", "objcpp"],
+      "initializationOptions": {}
+    }
+  }
+}

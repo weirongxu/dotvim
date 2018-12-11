@@ -2,5 +2,7 @@
 - repo: neoclide/coc-neco
 - repo: neoclide/coc.nvim
   build: yarn install
+  hook_add: |
+    let $VIMCONFIG = $MY_VIMFILES
   hook_post_source: |
     Include /plugins-conf/coc

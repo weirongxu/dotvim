@@ -8,7 +8,16 @@ function! s:tab_id() "{{{
 endfunction "}}}
 
 function! DefxExplorer(dir)
-  execute 'Defx -toggle -split=vertical -winwidth=50 -direction=topleft -columns=git:mark:filename:type -buffer-name=' . s:tab_id() . ' ' . a:dir
+  let l:cmd = join([
+        \ 'Defx',
+        \ '-toggle',
+        \ '-split=vertical',
+        \ '-winwidth=50',
+        \ '-direction=topleft',
+        \ '-columns=git:mark:filename:type:time:size',
+        \ '-buffer-name=',
+        \], ' ')
+  execute l:cmd . s:tab_id() . ' ' . a:dir
 endfunction
 
 nnoremap <silent> ge :call DefxExplorer("`expand('%:p:h')`")<CR>

@@ -1,10 +1,6 @@
 - repo: junegunn/vader.vim
   on_cmd: Vader
   on_ft: vader
-- repo: Shougo/neco-vim
-  on_ft: vim
-- repo: Shougo/neco-syntax
-  on_ft: vim
 - repo: thinca/vim-scall
 # - repo: kana/vim-vspec
 # - repo: thinca/vim-prettyprint

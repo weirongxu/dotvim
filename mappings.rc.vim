@@ -3,16 +3,13 @@ let mapleader = "\<Space>"
 let maplocalleader = "\<Space>"
 
 " save
-" nmap <silent> <CR> :up<CR>
-" some plugins not support update
-nmap <silent> <CR> :w<CR>
-map <silent> <C-s> :w<CR>
-map <silent> <D-s> :w<CR>
-nmap <silent> <Leader>s :w<CR>
+noremap <silent> <C-s> :w<CR>
+noremap <silent> <D-s> :w<CR>
+nnoremap <silent> <Leader>s :w<CR>
 
 " fold
-map <RightMouse> <LeftMouse>za
-map <2-LeftMouse> <LeftMouse>zA
+noremap <RightMouse> <LeftMouse>za
+noremap <2-LeftMouse> <LeftMouse>zA
 
 " remap Q
 map Q gq
@@ -32,41 +29,38 @@ map <S-Insert> "+p
 map <leader>p "+p
 map <leader>P "+P
 
-" record
-map <F4> @q
-
 " align code
-map <leader><leader>cl :set cuc!<CR>
+noremap <leader><leader>cl :set cuc!<CR>
 
 " control cursour by alt
-imap <silent> <M-h> <ESC>i
-imap <silent> <M-j> <ESC>ja
-imap <silent> <M-k> <ESC>ka
-imap <silent> <M-l> <ESC>la
+inoremap <silent> <M-h> <C-o>h
+inoremap <silent> <M-j> <C-o>j
+inoremap <silent> <M-k> <C-o>k
+inoremap <silent> <M-l> <C-o>l
 
 " control buffer
-map <silent> <C-W><Up> 5<c-w>+
-map <silent> <C-W><Down> 5<c-w>-
-map <silent> <C-W><Right> 5<c-w>>
-map <silent> <C-W><Left> 5<c-w><
-map <silent> <C-h> :wincmd h<cr>
-map <silent> <C-j> :wincmd j<cr>
-map <silent> <C-k> :wincmd k<cr>
-map <silent> <C-l> :wincmd l<cr>
+noremap <silent> <C-W><Up> 5<c-w>+
+noremap <silent> <C-W><Down> 5<c-w>-
+noremap <silent> <C-W><Right> 5<c-w>>
+noremap <silent> <C-W><Left> 5<c-w><
+noremap <silent> <C-h> :wincmd h<cr>
+noremap <silent> <C-j> :wincmd j<cr>
+noremap <silent> <C-k> :wincmd k<cr>
+noremap <silent> <C-l> :wincmd l<cr>
 
 " tab control
-map <silent> gn :tab split<cr>
-map <silent> gN :tab new<cr>
-map <silent> <C-tab> :tabnext<cr>
-map <silent> <S-l> :tabnext<cr>
-map <silent> <C-S-tab> :tabprevious<cr>
-map <silent> <S-h> :tabprevious<cr>
-map <silent> <S-Left> :tabmove -1<cr>
-map <silent> <S-Right> :tabmove +1<cr>
+noremap <silent> gn :tab split<cr>
+noremap <silent> gN :tab new<cr>
+noremap <silent> <C-tab> :tabnext<cr>
+noremap <silent> <S-l> :tabnext<cr>
+noremap <silent> <C-S-tab> :tabprevious<cr>
+noremap <silent> <S-h> :tabprevious<cr>
+noremap <silent> <S-Left> :tabmove -1<cr>
+noremap <silent> <S-Right> :tabmove +1<cr>
 
 " jump to end of line while in Insert Mode
 inoremap <C-e> <C-o>$
-inoremap <C-a> <C-o>I
+inoremap <C-a> <C-o>^
 
 " add semicolon
 nmap <silent> <M-;> :call <SID>AppendMark(';')<CR>

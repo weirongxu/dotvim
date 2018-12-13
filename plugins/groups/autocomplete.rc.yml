@@ -2,6 +2,8 @@
   hook_add: |
     let g:deoplete#enable_at_startup = 1
 
+- repo: Shougo/neco-vim
+- repo: Shougo/neco-syntax
 - repo: hrsh7th/vim-neco-calc
 - repo: Shougo/neoinclude.vim
 - repo: fszymanski/deoplete-emoji

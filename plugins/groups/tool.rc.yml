@@ -112,3 +112,11 @@
     map <Leader>ts :TransSelectDirection<CR>
     map <Leader>ti :TransInteractive<CR>
     map <Leader>th :TransOpenHistoryWindow<CR>
+- repo_local: convert-tmp
+- repo_local: rand_password
+  hook_add: |
+    call MenuGroupAdd('random-string', 'Random string', [
+      \  ['rand password to reg', "call setreg('\"', RandPasswordInput())"],
+      \  ['rand words password to reg', "call setreg('\"', RandPasswordInputOnlyWord())"],
+      \])
+- repo_local: zeal

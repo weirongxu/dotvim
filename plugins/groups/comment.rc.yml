@@ -6,3 +6,4 @@
     let g:caw_dollarpos_sp_left = '  '
     map <c-/> gcc
     Include /plugins-conf/caw
+- repo_local: ft-caw

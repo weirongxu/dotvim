@@ -112,6 +112,10 @@
     map <Leader>ts :TransSelectDirection<CR>
     map <Leader>ti :TransInteractive<CR>
     map <Leader>th :TransOpenHistoryWindow<CR>
+- repo_local: translate-shell-speak
+  hook_add: |
+    map <Leader>tp :call translate_shell_speak#speak_cursor_work()<CR>
+    vmap <Leader>tp :call translate_shell_speak#speak_visual()<CR>
 - repo_local: convert-tmp
 - repo_local: rand_password
   hook_add: |

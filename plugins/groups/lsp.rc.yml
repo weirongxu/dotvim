@@ -8,3 +8,28 @@
     autocmd User CocQuickfixChange :Denite -mode=normal quickfix
   hook_post_source: |
     Include /plugins-conf/coc
+
+- repo: davidhalter/jedi-vim
+  on_ft: python
+  hook_add: |
+    let g:jedi#auto_initialization = 1
+    # let g:jedi#completions_enabled = 0
+    function! s:jedi_init()
+      inoremap <silent> <buffer> <C-l> <c-x><c-o>
+
+      map <buffer> gd :call jedi#goto_definitions()<CR>
+      map <buffer> gr :call jedi#goto_assignments()<CR>
+      map <buffer> <Leader><Leader>rn :call jedi#rename_visual()<CR>
+      map <buffer> K :call jedi#show_documentation()<CR>
+
+      call MenuFileType('python', [
+        \ ['jedi-goto', 'call jedi#goto()'],
+        \ ['jedi-goto_assignments', 'call jedi#goto_assignments()'],
+        \ ['jedi-goto_definitions', 'call jedi#goto_definitions()'],
+        \ ['jedi-usages', 'call jedi#usages()'],
+        \ ['jedi-rename', 'call jedi#rename()'],
+        \ ['jedi-rename_visual', 'call jedi#rename_visual()'],
+        \ ['jedi-document', 'call jedi#show_documentation()'],
+        \ ])
+    endfunction
+    autocmd FileType python call <SID>jedi_init()

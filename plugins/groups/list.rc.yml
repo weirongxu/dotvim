@@ -31,3 +31,12 @@
 - repo: neoclide/denite-extra
 - repo: Shougo/neoyank.vim
 - repo: Shougo/neossh.vim
+- repo: neoclide/denite-git
+  hook_post_source: |
+    nmap <Leader>lgb :Denite gitbranch<CR>
+    nmap <Leader>lgs :Denite gitstatus<CR>
+    nmap <Leader>lgl :Denite gitlog<CR>
+    nmap <Leader>lga :Denite gitlog:all<CR>
+    call denite#custom#map('normal', 'a', '<denite:do_action:add>', 'noremap')
+    call denite#custom#map('normal', 'd', '<denite:do_action:delete>', 'noremap')
+    call denite#custom#map('normal', 'r', '<denite:do_action:reset>', 'noremap')

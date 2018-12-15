@@ -123,4 +123,4 @@
       \  ['rand password to reg', "call setreg('\"', RandPasswordInput())"],
       \  ['rand words password to reg', "call setreg('\"', RandPasswordInputOnlyWord())"],
       \])
-- repo_local: zeal
+# - repo_local: zeal

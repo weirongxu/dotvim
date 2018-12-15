@@ -52,3 +52,4 @@
 - repos_include: langs/toml.rc.yml
 - repos_include: langs/rust.rc.yml
 - repos_include: langs/csv.rc.yml
+- repos_include: langs/orgmode.rc.yml

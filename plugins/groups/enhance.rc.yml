@@ -53,11 +53,11 @@
 #     imap <C-h> <BS>
 #     cmap <C-h> <BS>
 #     # let g:lexima_enable_basic_rules = 0
-# - repo: tpope/vim-endwise
-#   on_ft: ['ruby', 'lua', 'c', 'cpp', 'shell', 'zsh', 'bash']
-#   hook_add: |
-#     let g:endwise_abbreviations = 1
-#     nmap o A<CR>
+- repo: tpope/vim-endwise
+  on_ft: ['ruby', 'lua', 'c', 'cpp', 'shell', 'zsh', 'bash']
+  hook_add: |
+    let g:endwise_abbreviations = 1
+    nmap o A<CR>
 - repo: luochen1990/rainbow
 - repo: AndrewRadev/splitjoin.vim
   on_map: ['gS', 'gJ']

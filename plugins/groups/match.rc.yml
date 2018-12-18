@@ -1,3 +1,0 @@
-- repo: andymass/vim-matchup
-  hook_add: |
-    let g:matchup_matchparen_deferred = 1

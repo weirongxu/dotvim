@@ -18,7 +18,6 @@
 - repos_include: groups/format.rc.yml
 - repos_include: groups/jump.rc.yml
 - repos_include: groups/language.rc.yml
-- repos_include: groups/match.rc.yml
 - repos_include: groups/operator-user.rc.yml
 - repos_include: groups/quickrun.rc.yml
 - repos_include: groups/search.rc.yml

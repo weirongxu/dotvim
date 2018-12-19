@@ -78,6 +78,7 @@
   build: ./install.sh
   hook_add: |
     let g:Lf_ShortcutF = '<C-P>'
+    let g:Lf_ShortcutB = '<Plug>Lf_ShortcutB'
     let g:Lf_CommandMap = {
       \ '<C-L>': ['<C-Z>'],
       \ '<F5>': ['<C-L>'],

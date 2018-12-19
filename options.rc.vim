@@ -119,10 +119,10 @@ set incsearch hlsearch ignorecase smartcase magic
 
 " dir
 set browsedir=buffer " file browse dir
-set noautochdir " dont change dir when into a buffer
+set noautochdir
 set wildignore=
 
-set autoread " auto read when file changed outside of Vim
+set autoread
 
 " bell
 set noerrorbells visualbell t_vb= tm=500

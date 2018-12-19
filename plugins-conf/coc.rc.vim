@@ -69,6 +69,7 @@ vmap <Leader><Leader>f  <Plug>(coc-format-selected)
 nmap <Leader><Leader>ac <Plug>(coc-codeaction)
 nmap <Leader><Leader>cl <Plug>(coc-codelens-action)
 nmap <Leader><Leader>o  <Plug>(coc-openlink)
+nmap <Leader><Leader>f  <Plug>(coc-fix-current)
 nmap <silent> K :call <SID>show_documentation()<CR>
 function! s:show_documentation()
   if index(['vim', 'help'], &filetype) > 0
@@ -77,7 +78,7 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
-autocmd CursorHold * silent call CocActionAsync('highlight')
+" autocmd CursorHold * silent call CocActionAsync('highlight')
 
 command! -nargs=0 Format :call CocAction('format')
 command! -nargs=? Fold :call CocAction('fold', <f-args>)
@@ -86,4 +87,9 @@ if !empty(s:need_install_exts)
   execute "CocInstall " . join(s:need_install_exts, " ")
 endif
 
-nnoremap <silent> <Leader>lcc  :<C-u>Denite coc-command<cr>
+nmap <Leader>lcc :Denite coc-command<cr>
+call MenuGroupAdd('coc-actions', 'Coc actions', [
+      \ ['pick color', 'call CocAction("pickColor")'],
+      \ ['color presentation', 'call CocAction("colorPresentation")'],
+      \])
+nmap <Leader>lca :Denite menu:coc-actions<cr>

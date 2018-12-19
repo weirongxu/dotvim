@@ -34,3 +34,4 @@
 - repo: leafgarland/typescript-vim
   on_ft: 'typescript'
 - repo: rhysd/vim-wasm
+- repo: hail2u/vim-css3-syntax

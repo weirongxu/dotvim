@@ -19,9 +19,11 @@
       \ "\<Plug>(neosnippet_jump)"
       \: "\<C-j>"
     let g:neosnippet#snippets_directory = $MY_VIMFILES.'/snippets'
-    # let g:neosnippet#disable_runtime_snippets = {
-    #   \   '_': 1
-    #   \ }
+    let g:neosnippet#disable_runtime_snippets = {
+      \   'css': 1,
+      \   'scss': 1,
+      \   'sass': 1,
+      \ }
     set clipboard-=autoselect
     command! Snip NeoSnippetEdit -split -vertical
 - repo: Shougo/neosnippet-snippets

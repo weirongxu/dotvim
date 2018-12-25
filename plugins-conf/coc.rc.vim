@@ -56,6 +56,7 @@ Pkg gem install solargraph
 call s:add_ext('coc-solargraph', ['ruby'])
 
 inoremap <silent><expr> <C-l> coc#refresh()
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
@@ -88,6 +89,11 @@ if !empty(s:need_install_exts)
 endif
 
 nmap <Leader>lcc :Denite coc-command<cr>
+nmap <Leader>lcs :Denite coc-symbols<cr>
+nmap <Leader>lcw :Denite coc-workspace<cr>
+nmap <Leader>lcd :Denite coc-diagnostic<cr>
+nmap <Leader>lcS :Denite coc-service<cr>
+nmap <Leader>lcl :Denite coc-link<cr>
 call MenuGroupAdd('coc-actions', 'Coc actions', [
       \ ['pick color', 'call CocAction("pickColor")'],
       \ ['color presentation', 'call CocAction("colorPresentation")'],

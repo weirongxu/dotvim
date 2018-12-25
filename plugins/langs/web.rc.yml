@@ -17,6 +17,12 @@
     \  'javascript' : {
     \     'extends' : 'jsx',
     \  },
+    \  'typescript' : {
+    \     'extends' : 'jsx',
+    \  },
+    \  'typescript.tsx' : {
+    \     'extends' : 'jsx',
+    \  },
     \}
 - repo: posva/vim-vue
   hook_add: |

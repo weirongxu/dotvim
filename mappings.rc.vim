@@ -4,6 +4,7 @@ let maplocalleader = "\<Space>"
 
 " save
 noremap <silent> <C-s> :w<CR>
+inoremap <silent> <C-s> <C-o>:w<CR>
 noremap <silent> <D-s> :w<CR>
 nnoremap <silent> <Leader>s :w<CR>
 
@@ -14,6 +15,8 @@ noremap <2-LeftMouse> <LeftMouse>zA
 " remap Q
 map Q gq
 noremap gQ Q
+
+imap <C-_> `
 
 " Clipboard
 vmap <S-Del> "+x

@@ -56,7 +56,7 @@ Pkg gem install solargraph
 call s:add_ext('coc-solargraph', ['ruby'])
 
 inoremap <silent><expr> <C-l> coc#refresh()
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)

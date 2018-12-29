@@ -50,10 +50,10 @@
       \ '{': '}'}
     let g:AutoPairsShortcutToggle = ''
     call MenuMiscAdd([['AutoPairsToggle', ':call AutoPairsToggle()<CR>']])
-- repo: tpope/vim-endwise
-  hook_add: |
-    let g:endwise_abbreviations = 1
-    # nmap o A<CR>
+# - repo: tpope/vim-endwise
+#   hook_add: |
+#     let g:endwise_abbreviations = 1
+#     # nmap o A<CR>
 - repo: luochen1990/rainbow
 - repo: AndrewRadev/splitjoin.vim
   on_map: ['gS', 'gJ']

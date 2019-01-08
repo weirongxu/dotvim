@@ -103,6 +103,9 @@ set completeopt=longest,menu
 " buffer
 set hidden
 
+" diff
+set diffopt+=internal,algorithm:patience
+
 " pairs
 set matchpairs+=（:）,《:》
 

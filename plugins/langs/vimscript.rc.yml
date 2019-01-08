@@ -9,7 +9,7 @@
 - repo: vim-jp/vital-complete
 - repo: lambdalisue/vital-Whisky
 - repo: thinca/vim-themis
-  on_ft: vim
+  on_ft: [vim, vimspec]
 - repo: lambdalisue/vim-backslash
   on_ft: vim
 - repo: mhinz/vim-lookup

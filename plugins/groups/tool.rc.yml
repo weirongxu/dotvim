@@ -73,29 +73,6 @@
       \])
     endfunction
     command! Rest call OpenRest()
-- repo: chiedo/vim-case-convert
-  on_cmd:
-    - CamelToHyphen
-    - CamelToSnake
-    - HyphenToCamel
-    - HyphenToSnake
-    - SnakeToCamel
-    - SnakeToHyphen
-    - CamelToHyphenAll
-    - CamelToSnakeAll
-    - HyphenToCamelAll
-    - HyphenToSnakeAll
-    - SnakeToCamelAll
-    - SnakeToHyphenAll
-  hook_add: |
-    call MenuGroupAdd('case-convert', 'Snake case, hyphenation and camel case converter', [
-      \  ['CamelToHyphen', 'CamelToHyphen'],
-      \  ['CamelToSnake', 'CamelToSnake'],
-      \  ['HyphenToCamel', 'HyphenToCamel'],
-      \  ['HyphenToSnake', 'HyphenToSnake'],
-      \  ['SnakeToCamel', 'SnakeToCamel'],
-      \  ['SnakeToHyphen', 'SnakeToHyphen'],
-      \])
 - repo: AndrewRadev/bufferize.vim
 - repo: kristijanhusak/vim-carbon-now-sh
   on_cmd: CarbonNowSh

@@ -42,7 +42,7 @@
         \   'is_stay': 1
         \ }), get(a:, 1, {}))
     endfunction
-    noremap <silent><expr> <Leader>/ incsearch#go(<SID>config_easyfuzzymotion())
+    noremap <silent><expr> s/ incsearch#go(<SID>config_easyfuzzymotion())
 - repo: haya14busa/vim-asterisk
   hook_add: |
     map *  <Plug>(asterisk-z*)

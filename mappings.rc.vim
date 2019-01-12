@@ -16,7 +16,8 @@ noremap <2-LeftMouse> <LeftMouse>zA
 map Q gq
 noremap gQ Q
 
-imap <C-_> `
+imap <C-b>q `
+cmap <C-b>q `
 
 " Clipboard
 vmap <S-Del> "+x

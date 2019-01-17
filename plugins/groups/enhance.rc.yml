@@ -99,5 +99,6 @@
     command! SudaRead  edit  suda://%
     command! SudaWrite write suda://%
 
-- repo: lambdalisue/vim-unified-diff
+- repo: chrisbra/vim-diff-enhanced
+  if: "!has('patch-8.1.0360')"
 - repo: Shougo/deol.nvim

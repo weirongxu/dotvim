@@ -96,8 +96,8 @@
 - repo: lambdalisue/readablefold.vim
 - repo: lambdalisue/suda.vim
   hook_add: |
-    command! -nargs=1 SudaRead  edit  suda://<args>
-    command! -nargs=1 SudaWrite write suda://<args>
+    command! SudaRead  edit  suda://%
+    command! SudaWrite write suda://%
 
 - repo: lambdalisue/vim-unified-diff
 - repo: Shougo/deol.nvim

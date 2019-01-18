@@ -9,7 +9,7 @@ class Pip3(Pkg):
     os.system('pip3 show ' + self.package_name) == 0
 
   def install(self):
-    os.system('pip3 install ' + self.package_name)
+    os.system('pip3 install --user ' + self.package_name)
 
   def uninstall(self):
     os.system('pip3 uninstall ' + self.package_name)

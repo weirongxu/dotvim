@@ -11,6 +11,9 @@
 - repo: iamcco/markdown-preview.nvim
   if: executable('yarn')
   build: cd app & yarn install
+  hook_add: |
+    let g:mkdp_auto_close = 0
+
 # - repo: iamcco/markdown-preview.vim
 #   if: g:env#python
 #   on_ft: markdown

@@ -1,6 +1,7 @@
 - repo: Shougo/neco-vim
 - repo: neoclide/coc-neco
 - repo: neoclide/coc.nvim
+  if: executable('yarn')
   build: yarn install
   hook_add: |
     let $VIMCONFIG = $MY_VIMFILES

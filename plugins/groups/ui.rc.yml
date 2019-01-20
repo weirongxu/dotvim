@@ -58,6 +58,7 @@
       \  'gina-status',
       \  'gina-grep',
       \  'gina-branch',
+      \  'gina-log',
       \]
     let g:indentLine_concealcursor = ''
     let g:indentLine_conceallevel = 1

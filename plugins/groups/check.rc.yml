@@ -8,6 +8,7 @@
   if: g:env#async
   hook_add: |
     let g:neomake_disables = [
+      \ 'xml',
       \ 'html',
       \ 'vim',
       \ 'typescript',

@@ -33,9 +33,9 @@
 #   hook_add: |
 #     let g:jsx_ext_required = 0
 # - repo: peitalin/vim-jsx-typescript
-- repo: MaxMEllon/vim-jsx-pretty
-  hook_add: |
-    let g:vim_jsx_pretty_colorful_config = 1
+# - repo: MaxMEllon/vim-jsx-pretty
+#   hook_add: |
+#     let g:vim_jsx_pretty_colorful_config = 1
 # - repo: neoclide/vim-jsx-improve
 
 - repo: weirongxu/vim-coffee-script

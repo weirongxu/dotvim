@@ -1,4 +1,13 @@
-# - repo: airblade/vim-rooter
+- repo: airblade/vim-rooter
+  hook_add: |
+    let g:rooter_patterns = [
+      \ 'Gemfile',
+      \ 'package.json',
+      \ 'Cargo.yaml',
+      \ 'pyproject.toml',
+      \ 'composer.json',
+      \ '.git/',
+      \]
 - repo: Shougo/defx.nvim
   on_cmd:
     - Defx

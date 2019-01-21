@@ -6,5 +6,6 @@
       "initializationOptions": {}
     }
   },
-  "prettier.singleQuote": true
+  "prettier.singleQuote": true,
+  "coc.source.neosnippet.priority": 10
 }

@@ -18,8 +18,8 @@
     \  },
     \}
 
-- repo: pangloss/vim-javascript
-- repo_local: js-indent
+# - repo: pangloss/vim-javascript
+# - repo_local: js-indent
 # - repo: rschmukler/pangloss-vim-indent
 - repo: leafgarland/typescript-vim
   on_ft: 'typescript'
@@ -36,7 +36,7 @@
 # - repo: MaxMEllon/vim-jsx-pretty
 #   hook_add: |
 #     let g:vim_jsx_pretty_colorful_config = 1
-# - repo: neoclide/vim-jsx-improve
+- repo: neoclide/vim-jsx-improve
 
 - repo: weirongxu/vim-coffee-script
   on_ft: ['coffee', 'jade']

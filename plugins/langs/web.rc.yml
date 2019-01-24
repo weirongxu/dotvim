@@ -37,6 +37,7 @@
 #   hook_add: |
 #     let g:vim_jsx_pretty_colorful_config = 1
 - repo: neoclide/vim-jsx-improve
+- repo: peitalin/vim-jsx-typescript
 
 - repo: weirongxu/vim-coffee-script
   on_ft: ['coffee', 'jade']

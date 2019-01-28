@@ -88,12 +88,12 @@ if !empty(s:need_install_exts)
   execute "CocInstall " . join(s:need_install_exts, " ")
 endif
 
-nmap <Leader>lcc :Denite coc-command<cr>
-nmap <Leader>lcs :Denite coc-symbols<cr>
-nmap <Leader>lcw :Denite coc-workspace<cr>
-nmap <Leader>lcd :Denite coc-diagnostic<cr>
-nmap <Leader>lcS :Denite coc-service<cr>
-nmap <Leader>lcl :Denite coc-link<cr>
+nmap <Leader>lcc :CocList commands<cr>
+nmap <Leader>lcs :CocList symbols<cr>
+nmap <Leader>lcw :CocList workspace<cr>
+nmap <Leader>lcd :CocList diagnostics<cr>
+nmap <Leader>lcS :CocList services<cr>
+nmap <Leader>lcl :CocList links<cr>
 call MenuGroupAdd('coc-actions', 'Coc actions', [
       \ ['pick color', 'call CocAction("pickColor")'],
       \ ['color presentation', 'call CocAction("colorPresentation")'],

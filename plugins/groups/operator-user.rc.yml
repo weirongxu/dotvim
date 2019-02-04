@@ -15,7 +15,7 @@
     nmap Y <Plug>(operator-flashy)$
 - repo: MaxMEllon/vim-shiny
   hook_add: |
-    let g:vim_shiny_window_change = 1
+    # let g:vim_shiny_window_change = 1
     nmap p  <Plug>(shiny-p)
     nmap P  <Plug>(shiny-P)
     nmap gp <Plug>(shiny-gp)

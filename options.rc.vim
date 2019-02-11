@@ -71,7 +71,7 @@ endif
 set nocompatible " vi-nocompatible
 set mouse=a " support mouse
 
-" edit show
+" chars display
 set nobomb linespace=0 ambiwidth=double
 set concealcursor=
 set list listchars=tab:\|\ ,trail:.
@@ -99,6 +99,9 @@ set whichwrap+=<,>,[,],h,l
 
 " complete
 set completeopt=longest,menu
+if exists("+pumblend")
+  set pumblend=20
+endif
 
 " buffer
 set hidden

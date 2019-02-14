@@ -89,11 +89,11 @@ if !empty(s:need_install_exts)
 endif
 
 nmap <Leader>lcc :CocList commands<cr>
-nmap <Leader>lcs :CocList symbols<cr>
+nmap <Leader>lco :CocList outline<cr>
 nmap <Leader>lcw :CocList workspace<cr>
 nmap <Leader>lcd :CocList diagnostics<cr>
-nmap <Leader>lcS :CocList services<cr>
-nmap <Leader>lcl :CocList links<cr>
+nmap <Leader>lcs :CocList services<cr>
+nmap <Leader>lcl :CocList<cr>
 call MenuGroupAdd('coc-actions', 'Coc actions', [
       \ ['pick color', 'call CocAction("pickColor")'],
       \ ['color presentation', 'call CocAction("colorPresentation")'],

@@ -53,6 +53,8 @@ call s:add_ext('coc-emmet')
 call s:add_ext('coc-highlight')
 call s:add_ext('coc-neosnippet')
 call s:add_ext('coc-phpls')
+Pkg pip3 install coc-pyls
+call s:add_ext('coc-pyls')
 Pkg gem install solargraph
 call s:add_ext('coc-solargraph', ['ruby'])
 

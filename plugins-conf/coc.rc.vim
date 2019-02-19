@@ -52,6 +52,7 @@ call s:add_ext('coc-emoji')
 call s:add_ext('coc-emmet')
 call s:add_ext('coc-highlight')
 call s:add_ext('coc-neosnippet')
+call s:add_ext('coc-phpls')
 Pkg gem install solargraph
 call s:add_ext('coc-solargraph', ['ruby'])
 

@@ -56,5 +56,7 @@
       \  },
       \}
 
+- repo: rhysd/reply.vim
+
 - repo: metakirby5/codi.vim
   on_cmd: Codi

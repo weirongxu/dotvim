@@ -49,7 +49,7 @@
     map #  <Plug>(asterisk-z#)
     map g*  <Plug>(asterisk-g*)
     map g#  <Plug>(asterisk-g#)
-    let g:asterisk#keeppos = 1
+    # let g:asterisk#keeppos = 1
 - repo: osyo-manga/vim-anzu
   on_map: '<Plug>(anzu-'
   hook_add: |

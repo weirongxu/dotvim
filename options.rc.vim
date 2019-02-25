@@ -140,10 +140,11 @@ autocmd GUIEnter * set vb t_vb=
 for it in [['undodir', 'undo'], ['backupdir', 'backup'], ['directory', 'swap']]
   let dir = g:env#tmp . '/' . it[1]
   if !isdirectory(dir)
-    call mkdir(dir, 'p')
+    call mkdir(dir, 'p', 0700)
   endif
   execute printf('let &%s = "%s"', it[0], dir)
 endfor
+set undofile
 set backup writebackup swapfile
 set updatetime=300
 

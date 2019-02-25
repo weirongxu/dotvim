@@ -1,2 +1,3 @@
 - repo: joonty/vdebug
   on_cmd: ['VdebugEval', 'VdebugOpt', 'VdebugStart']
+# - repo: puremourning/vimspector

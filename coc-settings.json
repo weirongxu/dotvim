@@ -10,7 +10,8 @@
   "coc.source.neosnippet.priority": 10,
   "coc.source.buffer.priority": 5,
   "coc.source.word.priority": 1,
-  "coc.preferences.diagnostic.virtualText": true,
+  "codeLens.enable": true,
+  "diagnostic.virtualText": true,
   "list.normalMappings": {
     "q": "do:exit"
   }

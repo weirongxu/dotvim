@@ -1,4 +1,4 @@
-- repo: zhaocai/DirDiff.vim
+- repo: will133/vim-dirdiff
   on_cmd:
     - DirDiff
     - DirDiffOpen

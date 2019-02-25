@@ -101,3 +101,4 @@
       \  ['rand words password to reg', "call setreg('\"', RandPasswordInputOnlyWord())"],
       \])
 # - repo_local: zeal
+- repo: thinca/vim-partedit

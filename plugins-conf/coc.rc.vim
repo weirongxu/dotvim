@@ -97,6 +97,7 @@ nmap <Leader>lcw :CocList workspace<cr>
 nmap <Leader>lcd :CocList diagnostics<cr>
 nmap <Leader>lcs :CocList services<cr>
 nmap <Leader>lcl :CocList<cr>
+nmap <Leader>lcr :CocListResume<cr>
 call MenuGroupAdd('coc-actions', 'Coc actions', [
       \ ['pick color', 'call CocAction("pickColor")'],
       \ ['color presentation', 'call CocAction("colorPresentation")'],

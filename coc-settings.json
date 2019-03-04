@@ -23,7 +23,7 @@
   "coc.source.buffer.priority": 5,
   "coc.source.word.priority": 1,
   "codeLens.enable": true,
-  "diagnostic.virtualText": true,
+  /* "diagnostic.virtualText": true, */
   "list.normalMappings": {
     "q": "do:exit"
   }

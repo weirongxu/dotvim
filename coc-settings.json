@@ -16,7 +16,15 @@
           "completion": {}
         }
       }
-    }
+    },
+    "haskell": {
+      "command": "stack",
+      "args": ["exec", "--", "hie"],
+      "trace.server": "verbose",
+      "rootPatterns": [".stack.yaml", "cabal.config", "package.yaml"],
+      "filetypes": ["hs", "lhs", "haskell"],
+      "initializationOptions": {}
+    },
   },
   "prettier.singleQuote": true,
   "coc.source.neosnippet.priority": 10,

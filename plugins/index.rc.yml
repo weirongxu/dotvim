@@ -56,3 +56,4 @@
 - repos_include: langs/javascript.rc.yml
 - repos_include: langs/json.rc.yml
 - repos_include: langs/nodejs.rc.yml
+- repos_include: langs/graphql.rc.yml

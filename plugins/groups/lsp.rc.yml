@@ -4,10 +4,6 @@
   if: executable('yarn')
   build: yarn install
   hook_add: |
-    let $VIMCONFIG = $MY_VIMFILES
-    let g:coc_auto_copen = 0
-    autocmd User CocQuickfixChange :Denite -mode=normal quickfix
-  hook_post_source: |
     Include /plugins-conf/coc
 
 # - repo: davidhalter/jedi-vim

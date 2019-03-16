@@ -3,19 +3,19 @@
     imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
       \ "\<Plug>(neosnippet_jump_or_expand)"
       \: "\<TAB>"
-    imap <expr><C-l> neosnippet#jumpable() ?
+    imap <expr><C-j> neosnippet#jumpable() ?
       \ "\<Plug>(neosnippet_jump)"
       \: "\<C-j>"
     tmap <expr><TAB> neosnippet#expandable_or_jumpable() ?
       \ "\<Plug>(neosnippet_jump_or_expand)"
       \: "\<TAB>"
-    tmap <expr><C-l> neosnippet#jumpable() ?
+    tmap <expr><C-j> neosnippet#jumpable() ?
       \ "\<Plug>(neosnippet_jump)"
       \: "\<C-j>"
     smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
       \ "\<Plug>(neosnippet_jump_or_expand)"
       \: "\<TAB>"
-    smap <expr><C-l> neosnippet#jumpable() ?
+    smap <expr><C-j> neosnippet#jumpable() ?
       \ "\<Plug>(neosnippet_jump)"
       \: "\<C-j>"
     let g:neosnippet#snippets_directory = $MY_VIMFILES.'/snippets'

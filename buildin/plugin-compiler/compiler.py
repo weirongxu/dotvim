@@ -22,6 +22,12 @@ class Config(object):
       self.add_plugin(plugin, manager_type)
 
   def add_plugin(self, plugin, manager_type):
+    def skip_vim_func(value):
+      if isinstance(value, dict):
+        content = next(iter(value))
+        return 'EVAL({{{}}})'.format(content)
+      return value
+
     def parse_eval(str):
       str = re.sub(r'"EVAL\((.*?)\)"', '\\1', str)
       str = re.sub(r'EVAL\((.*?)\)', '".\\1."', str)
@@ -36,7 +42,11 @@ class Config(object):
         options['merged'] = 0
         template = "call dein#add('{}', {})"
       self.vimscript_content.append(
-        template.format(repo, parse_eval(json.dumps(options))))
+        template.format(repo, parse_eval(
+          json.dumps(
+            {k: skip_vim_func(v) for k, v in options.items()}
+          ),
+        )))
 
     if 'repo' in plugin:
       _add_plugin(

@@ -1,4 +1,4 @@
-let s:script = $MY_BUILDIN . '/convert-plugin/convert.py'
+let s:script = $MY_BUILDIN . '/plugin-compiler/compiler.py'
 
 function! PluginsConvert(plugins_local_dir, source_index, plugins_compiled, target_type) "{{{
   if g:env#python3

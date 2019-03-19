@@ -10,7 +10,7 @@
   on_ft: markdown
 - repo: iamcco/markdown-preview.nvim
   if: executable('yarn')
-  build: cd app & yarn install
+  hook_post_update: cd app & yarn install
   hook_add: |
     let g:mkdp_auto_close = 0
 

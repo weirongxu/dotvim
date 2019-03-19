@@ -10,7 +10,7 @@
 - repo: autozimu/LanguageClient-neovim
   if: "g:env#lsp && g:env#lsp_type == 'LanguageClient-neovim'"
   rev: next
-  build: 'bash install.sh'
+  hook_post_update: 'bash install.sh'
   hook_add: |
     Pkg npm install javascript-typescript-langserver
     Pkg npm install vue-language-server

@@ -19,5 +19,5 @@ Include env
 
 " Include reload
 Include package-installer
-Include convert-plugin
+Include plugin-compiler
 Include menu

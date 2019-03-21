@@ -5,15 +5,15 @@
   on_ft: ['markdown', 'rst']
   depends: open-browser.vim
 
-- repo: iamcco/mathjax-support-for-mkdp
-  if: g:env#python
-  on_ft: markdown
 - repo: iamcco/markdown-preview.nvim
   if: executable('yarn')
   hook_post_update: cd app & yarn install
   hook_add: |
     let g:mkdp_auto_close = 0
 
+# - repo: iamcco/mathjax-support-for-mkdp
+#   if: g:env#python
+#   on_ft: markdown
 # - repo: iamcco/markdown-preview.vim
 #   if: g:env#python
 #   on_ft: markdown

@@ -1,5 +1,20 @@
 - repo: Shougo/context_filetype.vim
   hook_add: Include /plugins-conf/context_filetype
 - repo: blindFS/vim-regionsyntax
+  hook_add: |
+    let g:regionsyntax_map = {
+    \ 'markdown': [
+    \   {
+    \     'ft' : 'text',
+    \     'start' : '\$',
+    \     'end' : '\$'
+    \   },
+    \   {
+    \     'ft' : 'text',
+    \     'start' : '\$\$',
+    \     'end' : '\$\$'
+    \   },
+    \ ],
+    \}
 # - repo: osyo-manga/vim-precious
 #   depends: context_filetype.vim

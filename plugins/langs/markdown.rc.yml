@@ -7,7 +7,7 @@
 
 - repo: iamcco/markdown-preview.nvim
   if: executable('yarn')
-  hook_post_update: cd app & yarn install
+  build: cd app & yarn install
   hook_add: |
     let g:mkdp_auto_close = 0
 

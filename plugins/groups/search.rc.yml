@@ -75,7 +75,7 @@
     let g:ctrlp_show_hidden = 1
 - repo: Yggdroot/LeaderF
   if: g:env#python
-  hook_post_update: ./install.sh
+  build: ./install.sh
   hook_add: |
     let g:Lf_ShortcutF = '<Plug>Lf_ShortcutP'
     let g:Lf_ShortcutB = '<Plug>Lf_ShortcutB'

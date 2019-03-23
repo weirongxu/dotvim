@@ -1,4 +1,4 @@
 - repo: Shougo/vimproc
-  hook_post_update: make
+  build: make
 - repo: tyru/open-browser.vim
 - repo: mattn/webapi-vim

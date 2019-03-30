@@ -18,6 +18,7 @@ let g:coc_global_extensions = [
       \ 'coc-highlight',
       \ 'coc-neosnippet',
       \ 'coc-phpls',
+      \ 'coc-python',
       \ 'coc-solargraph',
       \ ]
 Pkg gem install solargraph

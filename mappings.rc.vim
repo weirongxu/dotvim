@@ -65,6 +65,8 @@ noremap <silent> <S-Right> :tabmove +1<cr>
 " jump to end of line while in Insert Mode
 inoremap <C-e> <C-o>$
 inoremap <C-a> <C-o>^
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
 
 " add semicolon
 nmap <silent> <M-;> :call <SID>AppendMark(';')<CR>

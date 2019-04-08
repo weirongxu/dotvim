@@ -72,7 +72,7 @@ set nocompatible " vi-nocompatible
 set mouse=a " support mouse
 
 " chars display
-set nobomb linespace=0 ambiwidth=double
+set nobomb linespace=0 ambiwidth=single
 set concealcursor=
 set list listchars=tab:\|\ ,trail:.
 " set cursorline cursorcolumn

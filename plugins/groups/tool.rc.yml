@@ -102,6 +102,8 @@
       \])
 # - repo_local: zeal
 - repo: thinca/vim-partedit
+- repo: meain/vim-package-info
+  build: npm install
 # - repo: h-youhei/vim-ibus
 #   if: 'g:env#unix && executable("ibus")'
 #   hook_add: |

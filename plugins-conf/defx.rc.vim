@@ -14,7 +14,7 @@ function! DefxExplorer(dir)
         \ '-split=vertical',
         \ '-winwidth=50',
         \ '-direction=topleft',
-        \ '-columns=git:mark:filename:type:time:size',
+        \ '-columns=git:mark:indent:icon:filename:type:size:time',
         \ '-buffer-name=',
         \], ' ')
   execute l:cmd . s:tab_id() . ' ' . a:dir

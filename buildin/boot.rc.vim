@@ -21,3 +21,5 @@ Include env
 Include package-installer
 Include plugin-compiler
 Include menu
+
+Pkg npm install neovim

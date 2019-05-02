@@ -6,7 +6,6 @@ let g:coc_global_extensions = [
       \ 'coc-css',
       \ 'coc-html',
       \ 'coc-yaml',
-      \ 'coc-gocode',
       \ 'coc-eslint',
       \ 'coc-prettier',
       \ 'coc-tag',
@@ -20,6 +19,7 @@ let g:coc_global_extensions = [
       \ 'coc-phpls',
       \ 'coc-python',
       \ 'coc-solargraph',
+      \ 'coc-vimtex',
       \ ]
 Pkg gem install solargraph
 

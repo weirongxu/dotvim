@@ -21,11 +21,12 @@ let g:coc_global_extensions = [
       \ 'coc-solargraph',
       \ 'coc-vimtex',
       \ 'coc-calc',
+      \ 'coc-pairs',
       \ ]
 Pkg gem install solargraph
 
 inoremap <silent><expr> <C-l> coc#refresh()
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)

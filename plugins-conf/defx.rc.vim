@@ -53,8 +53,22 @@ function! s:defx_settings()
   nnoremap <silent><buffer><expr> <C-g> defx#do_action('print')
   nnoremap <silent><buffer><expr> cd    defx#do_action('change_vim_cwd')
 
+  nmap <silent><buffer>       [c    <Plug>(defx-git-prev)
+  nmap <silent><buffer>       ]c    <Plug>(defx-git-next)
+
   nmap <silent><buffer> ge q
 endfunction
 autocmd FileType defx call <SID>defx_settings()
+
+let g:defx_git#indicators = {
+      \ 'Modified'  : '✹',
+      \ 'Staged'    : '✚',
+      \ 'Untracked' : '✭',
+      \ 'Renamed'   : '➜',
+      \ 'Unmerged'  : '═',
+      \ 'Ignored'   : '☒',
+      \ 'Deleted'   : '✖',
+      \ 'Unknown'   : '？'
+      \ }
 
 Pkg pip3 install Send2Trash

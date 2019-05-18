@@ -3,10 +3,10 @@
     nmap <Leader>lr :Denite -resume<CR>
     nmap <Leader>lb :Denite buffer<CR>
     nmap <Leader>lj :Denite jump<CR>
-    nmap <Leader>g :Denite grep<CR>
-    nmap <Leader>G :Denite grep:`expand('%')`<CR>
-    nmap <Leader><Leader>g :Denite grep:<CR>
-    nmap <Leader><Leader>G :Denite grep:::`expand('<cword>')`<CR>
+    nmap <Leader>fg :Denite grep<CR>
+    nmap <Leader>fG :Denite grep:`expand('%')`<CR>
+    nmap <Leader>ffg :Denite grep:<CR>
+    nmap <Leader>ffG :Denite grep:::`expand('<cword>')`<CR>
     nmap <Leader>lC :Denite command_history<CR>
     autocmd BufEnter *
       \   if empty(&buftype)

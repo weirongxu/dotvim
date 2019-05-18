@@ -21,9 +21,9 @@
       \   },
       \ ],
       \})
-- repo: airblade/vim-gitgutter
-  hook_post_source: |
-    autocmd BufWritePost * GitGutter
+# - repo: airblade/vim-gitgutter
+#   hook_post_source: |
+#     autocmd BufWritePost * GitGutter
 - repo: cohama/agit.vim
   on_cmd: ['Agit', 'AgitFile', 'AgitGit']
 # - repo: junegunn/gv.vim

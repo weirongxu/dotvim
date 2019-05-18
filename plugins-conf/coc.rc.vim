@@ -11,6 +11,7 @@ let g:coc_global_extensions = [
       \ 'coc-tag',
       \ 'coc-dictionary',
       \ 'coc-word',
+      \ 'coc-syntax',
       \ 'coc-jest',
       \ 'coc-emoji',
       \ 'coc-emmet',
@@ -22,6 +23,7 @@ let g:coc_global_extensions = [
       \ 'coc-vimtex',
       \ 'coc-calc',
       \ 'coc-pairs',
+      \ 'coc-git',
       \ ]
 Pkg gem install solargraph
 
@@ -66,3 +68,9 @@ call MenuGroupAdd('coc-actions', 'Coc actions', [
       \ ['color presentation', 'call CocAction("colorPresentation")'],
       \])
 nmap <Leader>lca :Denite menu:coc-actions<cr>
+
+" coc-git
+nmap [c <Plug>(coc-git-prevchunk)
+nmap ]c <Plug>(coc-git-nextchunk)
+nmap <Leader><Leader>gs <Plug>(coc-git-chunkinfo)
+" nmap <Leader><Leader>gc <Plug>(coc-git-commit)

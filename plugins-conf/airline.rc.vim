@@ -13,7 +13,11 @@ let g:airline_symbols.branch = ''
 let g:airline#extensions#branch#custom_head = 'AirlineGitBranch'
 
 function! AirlineGitBranch()
-  return get(g:, 'coc_git_status', '') . get(b:, 'coc_git_status', '')
+  return get(g:, 'coc_git_status', '')
+endfunction
+
+function! AirlineGitGutter()
+  return get(b:, 'coc_git_status', '')
 endfunction
 
 let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
@@ -32,6 +36,8 @@ function! AirlineInit()
     call airline#parts#define_function('my-position', 'AirlinePosition')
     let g:airline_section_z = airline#section#create([substitute(g:airline_section_z, '%3p%%', airline#section#create(['my-position']), '')])
   end
+  call airline#parts#define_function('coc-gutter', 'AirlineGitGutter')
+  let g:airline_section_gutter = airline#section#create(['%=', 'readonly', 'coc-gutter'])
 endfunction
 
 au User AirlineAfterInit call AirlineInit()

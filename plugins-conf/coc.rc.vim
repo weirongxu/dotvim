@@ -73,4 +73,4 @@ nmap <Leader>lca :Denite menu:coc-actions<cr>
 nmap [c <Plug>(coc-git-prevchunk)
 nmap ]c <Plug>(coc-git-nextchunk)
 nmap <Leader><Leader>gs <Plug>(coc-git-chunkinfo)
-" nmap <Leader><Leader>gc <Plug>(coc-git-commit)
+nmap <Leader><Leader>gc <Plug>(coc-git-commit)

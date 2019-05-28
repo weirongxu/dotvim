@@ -86,7 +86,9 @@
     nnoremap <silent> <Leader>W :call NoTailArgwrap()<CR>
     let g:argwrap_tail_comma_braces = '{['
 - repo: dhruvasagar/vim-table-mode
-  on_map: <Leader>tm
+  on_map: <Leader><Leader>tm
+  hook_add: |
+    let g:table_mode_map_prefix = '<Leader><Leader>t'
 - repo: junegunn/vim-easy-align
   on_map: ['<Plug>(EasyAlign)', '<Plug>(LiveEasyAlign)']
   on_cmd: ['EasyAlign', 'LiveEasyAlign']

@@ -8,6 +8,10 @@
     'Rename', 'Chmod', 'Find',
     'Locate', 'SudoWrite', 'W',
   ]
+- repo: lambdalisue/suda.vim
+  hook_add: |
+    command! SudaRead  edit  suda://%
+    command! SudaWrite write suda://%
 - repo: vim-scripts/DrawIt
   on_cmd: ['DIstart', 'DIsngl', 'DIdbl', 'DIstop', 'DrawIt']
 - repo: vim-scripts/VisIncr
@@ -100,7 +104,6 @@
       \  ['rand password to reg', "call setreg('\"', RandPasswordInput())"],
       \  ['rand words password to reg', "call setreg('\"', RandPasswordInputOnlyWord())"],
       \])
-# - repo_local: zeal
 - repo: thinca/vim-partedit
 - repo: meain/vim-package-info
   build: npm install

@@ -24,6 +24,7 @@ let g:coc_global_extensions = [
       \ 'coc-calc',
       \ 'coc-pairs',
       \ 'coc-git',
+      \ 'coc-import-cost',
       \ ]
 Pkg gem install solargraph
 

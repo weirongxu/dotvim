@@ -30,11 +30,6 @@
 #   on_cmd: ['GV', 'GV!', 'GV?']
 # - repo: mhinz/vim-signify
 # - repo: rhysd/committia.vim
-- repo: mattn/gist-vim
-  on_cmd: 'Gist'
-  on_func: 'gist#list'
-  hook_add: |
-    let g:gist_token_file = g:github_token_file
 - repo: jaxbot/github-issues.vim
   on_cmd: ['Gissues', 'Giadd', 'Giedit', 'Giupdate', 'Gmiles']
   hook_add: |

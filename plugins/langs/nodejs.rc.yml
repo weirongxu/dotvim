@@ -1,4 +1,2 @@
 - repo_local: npm.vim
 - repo: briancollins/vim-jst # jst/ejs
-- repo: yardnsm/vim-import-cost
-  build: npm install

@@ -94,10 +94,6 @@
   hook_add: |
     autocmd FileType python,haml,sass,slim,yaml,coffee BracelessEnable +indent
 - repo: lambdalisue/readablefold.vim
-- repo: lambdalisue/suda.vim
-  hook_add: |
-    command! SudaRead  edit  suda://%
-    command! SudaWrite write suda://%
 
 - repo: chrisbra/vim-diff-enhanced
   if: "!has('patch-8.1.0360')"

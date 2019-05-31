@@ -1,5 +1,3 @@
-# - repo: bouzuya/vim-ibus
-#   hook_post_source: Include /plugins-conf/ibus
 # - repo: gu-fan/trans.vim
 #   on_map: <Leader>t
 #   on_add: Include /plugins-conf/trans

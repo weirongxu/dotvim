@@ -62,17 +62,6 @@
 
 ##
 # directory search
-- repo: wsdjeg/FlyGrep.vim
-  hook_add: |
-    call MenuMiscAdd([['FlyGrep', ':FlyGrep<CR>']])
-- repo: ctrlpvim/ctrlp.vim
-  if: "! g:env#python"
-  hook_add: |
-    let g:ctrlp_custom_ignore = {
-      \ 'dir':  '\v[\/](' . substitute(join(g:env#hidden_dir_list, '|'), '\.', '\\.', 'g') . ')$',
-      \ 'file': '\v\.('. join(g:env#hidden_ext_list, '|') .')$',
-      \ }
-    let g:ctrlp_show_hidden = 1
 - repo: Yggdroot/LeaderF
   if: g:env#python
   build: ./install.sh

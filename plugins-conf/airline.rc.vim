@@ -20,9 +20,6 @@ function! AirlineGitGutter()
   return get(b:, 'coc_git_status', '')
 endfunction
 
-let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
-let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
-
 function! AirlinePosition()
   if winwidth(0) > 70
     return noscrollbar#statusline()

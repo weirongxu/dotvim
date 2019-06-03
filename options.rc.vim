@@ -81,7 +81,11 @@ set list listchars=tab:\|\ ,trail:.
 set guitablabel=%t\ %M number showmatch scrolloff=5 ruler
 " Don't redraw while executing macros (good performance config)
 " set lazyredraw
-set signcolumn=yes
+try
+  set signcolumn=auto:4
+catch
+  set signcolumn=auto
+endtry
 
 " cmd
 set wildmenu " command complete menu inline

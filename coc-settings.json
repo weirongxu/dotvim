@@ -38,5 +38,6 @@
   "codeLens.enable": true,
   "list.normalMappings": {
     "q": "do:exit"
-  }
+  },
+  "git.branchCharacter": ""
 }

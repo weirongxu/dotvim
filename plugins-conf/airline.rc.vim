@@ -6,10 +6,6 @@ nmap gb :bnext<CR>
 nmap gB :bprev<CR>
 
 " let g:airline#extensions#branch#custom_head = 'gina#component#repo#branch'
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
-let g:airline_symbols.branch = ''
 let g:airline#extensions#branch#custom_head = 'AirlineGitBranch'
 
 function! AirlineGitBranch()

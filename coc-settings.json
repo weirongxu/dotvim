@@ -25,11 +25,6 @@
       "filetypes": ["hs", "lhs", "haskell"],
       "initializationOptions": {}
     },
-    "golang": {
-      "command": "gopls",
-      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
-      "filetypes": ["go"]
-    }
   },
   "prettier.singleQuote": true,
   "coc.source.neosnippet.priority": 10,

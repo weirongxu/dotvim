@@ -9,6 +9,9 @@
     map <Leader>tt :TagbarToggle<CR>
     Include /plugins-conf/tagbar
   hook_source: Pkg npm install jsctags
+- repo: liuchengxu/vista.vim
+  hook_add: |
+    map <Leader>tv :Vista coc<CR>
 - repo: wesleyche/SrcExpl
   on_cmd: ['SrcExpl', 'SrcExplClose', 'SrcExplToggle']
 - repo: Lokaltog/vim-easymotion

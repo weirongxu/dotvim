@@ -29,7 +29,6 @@ let g:coc_global_extensions = [
       \ 'coc-go',
       \ 'coc-svg',
       \ 'coc-docker',
-      \ 'coc-angular',
       \ ]
 Pkg gem install solargraph
 

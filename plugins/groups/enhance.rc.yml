@@ -55,6 +55,8 @@
 #     let g:endwise_abbreviations = 1
 #     # nmap o A<CR>
 - repo: luochen1990/rainbow
+  hook_add: |
+    let g:rainbow_active = 0
 - repo: AndrewRadev/splitjoin.vim
   on_map: ['gS', 'gJ']
 - repo: osyo-manga/vim-jplus

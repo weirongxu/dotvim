@@ -34,5 +34,9 @@
   "list.normalMappings": {
     "q": "do:exit"
   },
-  "git.branchCharacter": ""
+  "git.branchCharacter": "",
+  "coc.source.issues.filetypes": [
+    "gitcommit",
+    "gina-commit"
+  ]
 }

@@ -81,11 +81,22 @@ set list listchars=tab:\|\ ,trail:.
 set guitablabel=%t\ %M number showmatch scrolloff=5 ruler
 " Don't redraw while executing macros (good performance config)
 " set lazyredraw
+
 try
-  set signcolumn=auto:4
+  set signcolumn=auto:2
 catch
   set signcolumn=auto
 endtry
+function! s:update_sign(timer)
+  if ! &readonly && &buftype != 'nofile' && bufname('%') != ''
+    try
+      setl signcolumn=yes:2
+    catch
+      setl signcolumn=yes
+    endtry
+  endif
+endfunction
+autocmd BufEnter,BufCreate * call timer_start(100, function('s:update_sign'))
 
 " cmd
 set wildmenu " command complete menu inline

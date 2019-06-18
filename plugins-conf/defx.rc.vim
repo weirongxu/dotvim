@@ -7,7 +7,7 @@ function! s:tab_id() "{{{
   return t:defx_tab_id
 endfunction "}}}
 
-function! DefxExplorer(dir)
+function! DefxExplorer(dir, reveal)
   let l:cmd = join([
         \ 'Defx',
         \ '-toggle',
@@ -15,13 +15,14 @@ function! DefxExplorer(dir)
         \ '-winwidth=50',
         \ '-direction=topleft',
         \ '-columns=git:mark:indent:icon:filename:type:size:time',
-        \ '-buffer-name=',
+        \ '-buffer-name=' . s:tab_id(),
+        \ ' -search=' . a:reveal,
         \], ' ')
-  execute l:cmd . s:tab_id() . ' ' . a:dir
+  execute l:cmd . ' ' . a:dir
 endfunction
 
-nnoremap <silent> ge :call DefxExplorer("`expand('%:p:h')`")<CR>
-nnoremap <silent> gE :call DefxExplorer("`$MY_VIMFILES`")<CR>
+nnoremap <silent> ge :call DefxExplorer("`getcwd()`", "`expand('%:p')`")<CR>
+nnoremap <silent> gE :call DefxExplorer("`$MY_VIMFILES`", "`$MY_PLUGINS`")<CR>
 function! s:defx_settings()
   nnoremap <silent><buffer><expr> <CR>  defx#do_action('open')
   nnoremap <silent><buffer><expr> <BS>  defx#do_action('cd', ['..'])

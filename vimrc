@@ -1,5 +1,5 @@
 let $MY_VIMFILES = expand('<sfile>:p:h')
-let $MY_VIMRC = $MY_VIMFILES . '/vimrc.rc.vim'
+let $MY_VIMRC = $MY_VIMFILES . '/vimrc'
 let $MY_BUILDIN = $MY_VIMFILES . '/buildin'
 let $MY_PLUGINS = $MY_VIMFILES . '/plugins/index.rc.yml'
 

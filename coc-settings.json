@@ -25,6 +25,16 @@
       "filetypes": ["hs", "lhs", "haskell"],
       "initializationOptions": {}
     },
+    "metals": {
+      "command": "metals-vim",
+      "rootPatterns": ["build.sbt"],
+      "filetypes": ["scala", "sbt"]
+    },
+    "elizir-ls": {
+      "command": "~/apps/elixir-ls/release/language_server.sh",
+      "filetypes": ["elixir", "eelixir"]
+
+    }
   },
   "prettier.singleQuote": true,
   "coc.source.neosnippet.priority": 10,

@@ -30,7 +30,7 @@
       "rootPatterns": ["build.sbt"],
       "filetypes": ["scala", "sbt"]
     },
-    "elizir-ls": {
+    "elixir-ls": {
       "command": "~/apps/elixir-ls/release/language_server.sh",
       "filetypes": ["elixir", "eelixir"]
 

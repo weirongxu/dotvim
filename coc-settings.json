@@ -34,8 +34,16 @@
       "command": "~/apps/elixir-ls/release/language_server.sh",
       "filetypes": ["elixir", "eelixir"]
 
+    },
+    "kotlin": {
+      "command": "~/apps/KotlinLanguageServer/gradlew",
+      "args": ["server:run"],
+      "filetypes": ["kotlin"]
     }
   },
+  "coc.preferences.formatOnSaveFiletypes": [
+    "typescript",
+  ],
   "prettier.singleQuote": true,
   "coc.source.neosnippet.priority": 10,
   "coc.source.buffer.priority": 5,

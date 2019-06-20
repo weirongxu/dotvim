@@ -80,6 +80,8 @@ endf
 " terminal
 tnoremap <ESC> <C-\><C-n>
 
+command! Terminal split | exec 'terminal cd ' . expand("%:p:h") . ' && ' . $SHELL
+
 " path
 " command! EchoPath echo expand("%:p")
 command! CdHere exec 'cd ' expand("%:p:h")

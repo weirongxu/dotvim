@@ -78,7 +78,8 @@ fun! s:AppendMark(mark)
 endf
 
 " terminal
-tnoremap <ESC> <C-\><C-n>
+" tnoremap <ESC><ESC> <C-\><C-n>
+tnoremap <C-o> <C-\><C-n>
 
 command! Terminal split | exec 'terminal cd ' . expand("%:p:h") . ' && ' . $SHELL
 

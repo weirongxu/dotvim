@@ -35,6 +35,9 @@ Pkg gem install solargraph
 inoremap <silent><expr> <C-l> coc#refresh()
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
+command! -nargs=0 Format :call CocAction('format')
+command! -nargs=? Fold :call CocAction('fold', <f-args>)
+
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
@@ -43,11 +46,12 @@ nmap <silent> [d <Plug>(coc-diagnostic-prev)
 nmap <silent> ]d <Plug>(coc-diagnostic-next)
 nmap <Leader><Leader>d  <Plug>(coc-diagnostic-info)
 nmap <Leader><Leader>rn <Plug>(coc-rename)
-vmap <Leader><Leader>f  <Plug>(coc-format-selected)
 nmap <Leader><Leader>ac <Plug>(coc-codeaction)
 nmap <Leader><Leader>cl <Plug>(coc-codelens-action)
 nmap <Leader><Leader>o  <Plug>(coc-openlink)
-nmap <Leader><Leader>f  <Plug>(coc-fix-current)
+nmap <Leader><Leader>F  <Plug>(coc-fix-current)
+nmap <Leader><Leader>f  <Plug>(coc-format)
+vmap <Leader><Leader>f  <Plug>(coc-format-selected)
 nmap <silent> K :call <SID>show_documentation()<CR>
 function! s:show_documentation()
   if index(['vim', 'help'], &filetype) >= 0
@@ -57,9 +61,6 @@ function! s:show_documentation()
   endif
 endfunction
 autocmd CursorHold * silent call CocActionAsync('highlight')
-
-command! -nargs=0 Format :call CocAction('format')
-command! -nargs=? Fold :call CocAction('fold', <f-args>)
 
 nmap <Leader>lcc :CocList commands<cr>
 nmap <Leader>lco :CocList outline<cr>

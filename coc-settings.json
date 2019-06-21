@@ -41,9 +41,6 @@
       "filetypes": ["kotlin"]
     }
   },
-  "coc.preferences.formatOnSaveFiletypes": [
-    "typescript",
-  ],
   "prettier.singleQuote": true,
   "coc.source.neosnippet.priority": 10,
   "coc.source.buffer.priority": 5,

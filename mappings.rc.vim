@@ -81,7 +81,11 @@ endf
 " tnoremap <ESC><ESC> <C-\><C-n>
 tnoremap <C-o> <C-\><C-n>
 
-command! Terminal split | exec 'terminal cd ' . expand("%:p:h") . ' && ' . $SHELL
+if g:env#nvim
+  command! Terminal split | exec 'terminal cd ' . expand("%:p:h") . ' && ' . $SHELL
+else
+  command! Terminal exec 'cd ' . expand("%:p:h") | exec 'terminal ++close ' . $SHELL
+endif
 
 " path
 " command! EchoPath echo expand("%:p")

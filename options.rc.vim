@@ -13,6 +13,14 @@ if g:env#gui
         \endif
 endif
 
+set number
+function! s:update_number(timer)
+  if &buftype == 'terminal'
+    setl nonumber
+  endif
+endfunction
+autocmd BufCreate,BufCreate * call timer_start(100, function('s:update_number'))
+
 if &shell =~ 'fish'
   set shell=bash
 endif
@@ -88,7 +96,7 @@ catch
   set signcolumn=auto
 endtry
 function! s:update_sign(timer)
-  if ! &readonly && &buftype != 'nofile' && bufname('%') != ''
+  if ! &readonly && &buftype != 'nofile' && &buftype != 'terminal'  && bufname('%') != ''
     try
       setl signcolumn=yes:2
     catch

@@ -80,12 +80,20 @@ endf
 " terminal
 " tnoremap <ESC><ESC> <C-\><C-n>
 tnoremap <C-o> <C-\><C-n>
-
-if g:env#nvim
-  command! Terminal split | exec 'terminal cd ' . expand("%:p:h") . ' && ' . $SHELL
-else
-  command! Terminal exec 'cd ' . expand("%:p:h") | exec 'terminal ++close ' . $SHELL
-endif
+function! SplitTerminal()
+  let l:cwd = &buftype == 'terminal' ? getcwd() : expand("%:p:h")
+  let l:sh = $SHELL
+  if g:env#nvim
+    split
+    let l:cmd = 'cd ' . l:cwd . ' && ' . l:sh
+    exec 'terminal ' . l:cmd
+  else
+    split
+    exec 'lcd ' . l:cwd
+    exec 'terminal ++curwin ++close ' . l:sh
+  endif
+endfunction
+command! Terminal call SplitTerminal()
 
 " path
 " command! EchoPath echo expand("%:p")

@@ -50,6 +50,10 @@
     "q": "do:exit"
   },
   "git.branchCharacter": "",
+  "git.semanticCommit.filetypes": [
+    "gitcommit",
+    "gina-commit"
+  ],
   "coc.source.issues.filetypes": [
     "gitcommit",
     "gina-commit"

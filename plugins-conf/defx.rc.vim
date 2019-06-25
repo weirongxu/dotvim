@@ -1,11 +1,20 @@
 let s:tab_id_max = 0
-function! s:tab_id() "{{{
+function! s:tab_id()
   if ! exists('t:defx_tab_id')
     let s:tab_id_max = s:tab_id_max + 1
     let t:defx_tab_id = s:tab_id_max
   endif
   return t:defx_tab_id
-endfunction "}}}
+endfunction
+
+function! s:custom_options()
+        "\ 'session-file': g:env#record_dir#defx_sessions . '/default.vim',
+  call defx#custom#option('_', {
+        \ 'columns': 'git:mark:indent:icon:filename:type:size:time',
+        \ })
+endfunction
+
+call dein#set_hook('defx.nvim', 'hook_post_source', function('s:custom_options'))
 
 function! DefxExplorer(dir, reveal)
   let l:cmd = join([
@@ -14,7 +23,6 @@ function! DefxExplorer(dir, reveal)
         \ '-split=vertical',
         \ '-winwidth=50',
         \ '-direction=topleft',
-        \ '-columns=git:mark:indent:icon:filename:type:size:time',
         \ '-buffer-name=' . s:tab_id(),
         \ ' -search=' . a:reveal,
         \], ' ')

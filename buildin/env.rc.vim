@@ -24,10 +24,15 @@ let g:env#tcl = has('tcl')
 let g:env#python_cmd = get(filter(['python3', 'python', 'python2'], {i, cmd -> executable(cmd)}), 0, '')
 
 
+let g:env#record_dir = $HOME.'/.record/vim'
+let g:env#record_dir#sessions = g:env#record_dir.'/sessions'
+let g:env#record_dir#defx_sessions = g:env#record_dir.'/defx-sessions'
 let g:env#tmp = expand($MY_VIMFILES . '/tmp')
-if !isdirectory(g:env#tmp)
-  call mkdir(g:env#tmp, 'p')
-endif
+for dir in [g:env#record_dir#sessions, g:env#record_dir#defx_sessions, g:env#tmp]
+  if !isdirectory(dir)
+    call mkdir(dir, 'p')
+  endif
+endfor
 
 let g:github_token_file = expand('~/.record/github-token')
 

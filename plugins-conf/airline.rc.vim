@@ -8,6 +8,10 @@ nmap gB :bprev<CR>
 " let g:airline#extensions#branch#custom_head = 'gina#component#repo#branch'
 let g:airline#extensions#branch#custom_head = 'AirlineGitBranch'
 
+function! AirlineCocStatus()
+  return get(g:, 'coc_status', '')
+endfunction
+
 function! AirlineGitBranch()
   return get(g:, 'coc_git_status', '')
 endfunction
@@ -29,8 +33,9 @@ function! AirlineInit()
     call airline#parts#define_function('my-position', 'AirlinePosition')
     let g:airline_section_z = airline#section#create([substitute(g:airline_section_z, '%3p%%', airline#section#create(['my-position']), '')])
   end
-  call airline#parts#define_function('coc-gutter', 'AirlineGitGutter')
-  let g:airline_section_gutter = airline#section#create(['%=', 'readonly', 'coc-gutter'])
+  call airline#parts#define_function('coc-status', 'AirlineCocStatus')
+  call airline#parts#define_function('coc-git-gutter', 'AirlineGitGutter')
+  let g:airline_section_gutter = airline#section#create(['%=', 'readonly', 'coc-status', 'coc-git-gutter'])
 endfunction
 
 au User AirlineAfterInit call AirlineInit()

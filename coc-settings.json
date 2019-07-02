@@ -33,7 +33,6 @@
     "elixir-ls": {
       "command": "~/apps/elixir-ls/release/language_server.sh",
       "filetypes": ["elixir", "eelixir"]
-
     },
     "kotlin": {
       "command": "~/apps/KotlinLanguageServer/gradlew",
@@ -49,13 +48,5 @@
   "list.normalMappings": {
     "q": "do:exit"
   },
-  "git.branchCharacter": "",
-  "git.semanticCommit.filetypes": [
-    "gitcommit",
-    "gina-commit"
-  ],
-  "coc.source.issues.filetypes": [
-    "gitcommit",
-    "gina-commit"
-  ]
+  "git.branchCharacter": ""
 }

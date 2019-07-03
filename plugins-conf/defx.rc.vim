@@ -70,15 +70,4 @@ function! s:defx_settings()
 endfunction
 autocmd FileType defx call <SID>defx_settings()
 
-let g:defx_git#indicators = {
-      \ 'Modified'  : '✹',
-      \ 'Staged'    : '✚',
-      \ 'Untracked' : '✭',
-      \ 'Renamed'   : '➜',
-      \ 'Unmerged'  : '═',
-      \ 'Ignored'   : '☒',
-      \ 'Deleted'   : '✖',
-      \ 'Unknown'   : '？'
-      \ }
-
 Pkg pip3 install Send2Trash

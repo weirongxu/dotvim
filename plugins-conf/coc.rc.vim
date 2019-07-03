@@ -60,7 +60,8 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
-highligh CocHighlightText ctermbg=242 guibg=#404040
+autocmd ColorScheme *
+      \ hi CocHighlightText ctermbg=242 guibg=#404040
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 nmap <Leader>lcc :CocList commands<cr>

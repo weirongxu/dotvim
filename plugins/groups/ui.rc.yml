@@ -1,5 +1,5 @@
-- repo: itchyny/vim-cursorword
-  on_event: CursorMoved
+# - repo: itchyny/vim-cursorword
+#   on_event: CursorMoved
 - repo: gcavallanti/vim-noscrollbar
 - repo: vim-airline/vim-airline
   hook_add: |

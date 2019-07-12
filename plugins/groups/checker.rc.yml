@@ -13,6 +13,7 @@
       \ 'vim',
       \ 'typescript',
       \ 'rust',
+      \ 'python',
       \ 'go'
       \ ]
     for name in g:neomake_disables

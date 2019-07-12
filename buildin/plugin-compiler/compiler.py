@@ -15,7 +15,7 @@ class Config(object):
 
   def load(self, source_file):
     lines = [line for line in source_file.readlines() if re.search(r'^\s*#', line) is None]
-    return yaml.load(''.join(lines))
+    return yaml.safe_load(''.join(lines))
 
   def add_plugins(self, plugins, manager_type):
     for plugin in plugins:
@@ -63,9 +63,6 @@ class Config(object):
     elif 'repos_include' in plugin:
       for path in glob.glob(os.path.join(self.cwd, plugin['repos_include'])):
         self.vimscript_content.append(Config(self.local_dir, open(path), os.path.dirname(path)).get_vim_script(manager_type))
-
-  def get_yaml_list():
-    pass
 
   def get_vim_script(self, manager_type):
     self.vimscript_content = []

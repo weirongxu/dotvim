@@ -6,7 +6,7 @@
 - repos_include: groups/encode.rc.yml
 - repos_include: groups/colorscheme.rc.yml
 - repos_include: groups/lsp.rc.yml
-- repos_include: groups/check.rc.yml
+- repos_include: groups/checker.rc.yml
 - repos_include: groups/context_filetype.rc.yml
 - repos_include: groups/convert.rc.yml
 - repos_include: groups/debug.rc.yml
@@ -58,3 +58,4 @@
 - repos_include: langs/nodejs.rc.yml
 - repos_include: langs/graphql.rc.yml
 - repos_include: langs/dart.rc.yml
+- repos_include: langs/reasonml.rc.yml

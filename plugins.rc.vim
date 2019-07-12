@@ -9,6 +9,8 @@ if ! &loadplugins
   finish
 end
 
+let no_plugin_maps = 1
+
 let &runtimepath .= ','.$DEIN_DIR.'/repos/github.com/Shougo/dein.vim'
 let g:dein#types#git#clone_depth = 1
 

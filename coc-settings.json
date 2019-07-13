@@ -25,9 +25,8 @@
       "filetypes": ["hs", "lhs", "haskell"],
       "initializationOptions": {}
     },
-    "ocaml": {
-      "command": "ocaml-language-server",
-      "args": ["--stdio"],
+    "reason": {
+      "command": "reason-language-server",
       "filetypes": ["ocaml", "reason"]
     },
     "metals": {

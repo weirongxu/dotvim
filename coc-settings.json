@@ -48,7 +48,6 @@
   "coc.source.neosnippet.priority": 10,
   "coc.source.buffer.priority": 5,
   "coc.source.word.priority": 1,
-  "calc.priority": 1000,
   "codeLens.enable": true,
   "list.normalMappings": {
     "q": "do:exit"

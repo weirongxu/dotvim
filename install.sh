@@ -4,7 +4,6 @@ exists-cmd() {
   command -v $1 >/dev/null 2>&1
 }
 
-# install pip3
 if exists-cmd apt-get; then
   if ! exists-cmd pip3; then
     sudo apt-get install python3-pip
@@ -16,11 +15,10 @@ elif exists-cmd brew; then
 fi
 
 if exists-cmd pip3; then
-  # install python yaml and neovim
   pip3 install pyyaml
-  pip3 install neovim
+  pip3 install pynvim
 else
-  echo 'manual install pyyaml and neovim please'
+  echo 'You need to manually install pyyaml and pynvim'
 fi
 
 ./scripts/install-dein.sh

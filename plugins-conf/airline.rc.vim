@@ -21,7 +21,7 @@ function! AirlineGitGutter()
 endfunction
 
 function! AirlinePosition()
-  if winwidth(0) > 70
+  if winwidth(0) > 120
     return noscrollbar#statusline()
   else
     return line('.') * 100 / line('$') . '%'

@@ -17,7 +17,7 @@
         }
       }
     },
-    "haskell": {
+    "haskell-ide-engine": {
       "command": "stack",
       "args": ["exec", "--", "hie"],
       "trace.server": "verbose",
@@ -25,7 +25,7 @@
       "filetypes": ["hs", "lhs", "haskell"],
       "initializationOptions": {}
     },
-    "reason": {
+    "reason-language-server": {
       "command": "reason-language-server",
       "filetypes": ["ocaml", "reason"]
     },
@@ -43,7 +43,7 @@
       "args": ["server:run"],
       "filetypes": ["kotlin"]
     },
-    "ruby": {
+    "sorbet": {
       "command": "srb",
       "args": ["tc", "--lsp", "--enable-all-experimental-lsp-features"],
       "filetypes": ["ruby"],

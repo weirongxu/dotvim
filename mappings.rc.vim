@@ -43,24 +43,24 @@ inoremap <silent> <M-k> <C-o>k
 inoremap <silent> <M-l> <C-o>l
 
 " control buffer
-noremap <silent> <C-W><Up> 5<c-w>+
-noremap <silent> <C-W><Down> 5<c-w>-
-noremap <silent> <C-W><Right> 5<c-w>>
-noremap <silent> <C-W><Left> 5<c-w><
-noremap <silent> <C-h> :wincmd h<cr>
-noremap <silent> <C-j> :wincmd j<cr>
-noremap <silent> <C-k> :wincmd k<cr>
-noremap <silent> <C-l> :wincmd l<cr>
+noremap <silent> <C-W><Up> 5<C-w>+
+noremap <silent> <C-W><Down> 5<C-w>-
+noremap <silent> <C-W><Right> 5<C-w>>
+noremap <silent> <C-W><Left> 5<C-w><
+noremap <silent> <C-h> :wincmd h<CR>
+noremap <silent> <C-j> :wincmd j<CR>
+noremap <silent> <C-k> :wincmd k<CR>
+noremap <silent> <C-l> :wincmd l<CR>
 
 " tab control
-noremap <silent> gn :tab split<cr>
-noremap <silent> gN :tab new<cr>
-noremap <silent> <C-tab> :tabnext<cr>
-noremap <silent> <S-l> :tabnext<cr>
-noremap <silent> <C-S-tab> :tabprevious<cr>
-noremap <silent> <S-h> :tabprevious<cr>
-noremap <silent> <S-Left> :tabmove -1<cr>
-noremap <silent> <S-Right> :tabmove +1<cr>
+noremap <silent> gn :tab split<CR>
+noremap <silent> gN :tab new<CR>
+noremap <silent> <C-tab> :tabnext<CR>
+noremap <silent> <S-l> :tabnext<CR>
+noremap <silent> <C-S-tab> :tabprevious<CR>
+noremap <silent> <S-h> :tabprevious<CR>
+noremap <silent> <S-Left> :tabmove -1<CR>
+noremap <silent> <S-Right> :tabmove +1<CR>
 
 " jump to end of line while in Insert Mode
 inoremap <C-e> <C-o>$

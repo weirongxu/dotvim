@@ -33,7 +33,7 @@ let g:coc_global_extensions = [
 Pkg gem install solargraph
 
 inoremap <silent><expr> <C-l> coc#refresh()
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<C-r>=coc#on_enter()\<CR>"
 
 command! -nargs=0 Format :call CocAction('format')
 command! -nargs=? Fold :call CocAction('fold', <f-args>)
@@ -65,21 +65,25 @@ autocmd ColorScheme *
       \ hi CocHighlightText ctermbg=242 guibg=#404040
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
-nmap <Leader>lcc :CocList commands<cr>
-nmap <Leader>lco :CocList outline<cr>
-nmap <Leader>lcw :CocList workspace<cr>
-nmap <Leader>lcd :CocList diagnostics<cr>
-nmap <Leader>lcs :CocList services<cr>
-nmap <Leader>lcl :CocList<cr>
-nmap <Leader>lcr :CocListResume<cr>
+nmap <Leader>lcc :CocList commands<CR>
+nmap <Leader>lco :CocList outline<CR>
+nmap <Leader>lcw :CocList workspace<CR>
+nmap <Leader>lcd :CocList diagnostics<CR>
+nmap <Leader>lcs :CocList services<CR>
+nmap <Leader>lcl :CocList<CR>
+nmap <Leader>lcr :CocListResume<CR>
 call MenuGroupAdd('coc-actions', 'Coc actions', [
       \ ['pick color', 'call CocAction("pickColor")'],
       \ ['color presentation', 'call CocAction("colorPresentation")'],
       \])
-nmap <Leader>lca :Denite menu:coc-actions<cr>
+nmap <Leader>lca :Denite menu:coc-actions<CR>
 
 " coc-git
 nmap [c <Plug>(coc-git-prevchunk)
 nmap ]c <Plug>(coc-git-nextchunk)
 nmap <Leader><Leader>gs <Plug>(coc-git-chunkinfo)
 nmap <Leader><Leader>gc <Plug>(coc-git-commit)
+
+" coc-calc
+nmap <Leader><Leader>cc <Plug>(coc-calc-result-append)
+nmap <Leader><Leader>cC <Plug>(coc-calc-result-replace)

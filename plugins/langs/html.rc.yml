@@ -1,6 +1,6 @@
 - repo: weirongxu/html5.vim
 - repo: mattn/emmet-vim
-  on_map: ['<c-y>']
+  on_map: ['<C-y>']
   on_ft: EVAL(g:env#web_assets_type_list)
   hook_add: |
     let g:user_emmet_settings = {

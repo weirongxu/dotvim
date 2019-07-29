@@ -1,30 +1,8 @@
-- repo: Shougo/neosnippet.vim
+- repo: SirVer/ultisnips
   hook_add: |
-    imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-      \ "\<Plug>(neosnippet_jump_or_expand)"
-      \: "\<TAB>"
-    imap <expr><C-j> neosnippet#jumpable() ?
-      \ "\<Plug>(neosnippet_jump)"
-      \: "\<C-j>"
-    tmap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-      \ "\<Plug>(neosnippet_jump_or_expand)"
-      \: "\<TAB>"
-    tmap <expr><C-j> neosnippet#jumpable() ?
-      \ "\<Plug>(neosnippet_jump)"
-      \: "\<C-j>"
-    smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-      \ "\<Plug>(neosnippet_jump_or_expand)"
-      \: "\<TAB>"
-    smap <expr><C-j> neosnippet#jumpable() ?
-      \ "\<Plug>(neosnippet_jump)"
-      \: "\<C-j>"
-    let g:neosnippet#snippets_directory = $MY_VIMFILES.'/snippets'
-    let g:neosnippet#disable_runtime_snippets = {
-      \   'css': 1,
-      \   'scss': 1,
-      \   'sass': 1,
-      \ }
+    let g:UltiSnipsExpandTrigger = "<tab>"
+    let g:UltiSnipsJumpForwardTrigger = "<c-j>"
+    let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
+    let g:UltiSnipsEditSplit = "vertical"
     set clipboard-=autoselect
-    command! Snip NeoSnippetEdit -split -vertical
-- repo: Shougo/neosnippet-snippets
-# - repo: honza/vim-snippets
+- repo: honza/vim-snippets

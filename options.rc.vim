@@ -155,6 +155,8 @@ set wildignore=
 
 set autoread
 
+set clipboard-=autoselect
+
 " bell
 set noerrorbells visualbell t_vb= tm=500
 autocmd GUIEnter * set vb t_vb=

@@ -16,7 +16,7 @@ let g:coc_global_extensions = [
       \ 'coc-emoji',
       \ 'coc-emmet',
       \ 'coc-highlight',
-      \ 'coc-neosnippet',
+      \ 'coc-ultisnips',
       \ 'coc-phpls',
       \ 'coc-python',
       \ 'coc-solargraph',
@@ -67,7 +67,7 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 nmap <Leader>lr :CocListResume<CR>
 nmap <Leader>ll :CocList<CR>
 nmap <Leader>lb :CocList --normal buffers<CR>
-nmap <Leader>fg :CocList grep<CR>
+" nmap <Leader>fg :CocList grep<CR>
 nmap <Leader>fG :CocList words<CR>
 nmap <Leader>fcg :exe 'CocList --normal -I --input='.expand('<cword>').' grep'<CR>
 nmap <Leader>fcG :exe 'CocList --normal -I --input='.expand('<cword>').' words'<CR>

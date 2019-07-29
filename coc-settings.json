@@ -53,7 +53,7 @@
     }
   },
   "prettier.singleQuote": true,
-  "coc.source.neosnippet.priority": 10,
+  "coc.source.ultisnips.priority": 10,
   "coc.source.buffer.priority": 5,
   "coc.source.word.priority": 1,
   "codeLens.enable": true,

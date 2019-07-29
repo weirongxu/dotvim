@@ -1,0 +1,46 @@
+snippet f "" w
+function(${1}) {${0:TARGET}}
+endsnippet
+
+snippet iife
+(function(${1:#:attribute}) {${0:TARGET}})()
+endsnippet
+
+snippet aiife
+((${1}) => {${0:TARGET}})()
+endsnippet
+
+snippet forin
+for (${1:let} ${2:i} in ${3:#:Things}) {
+	${0:TARGET}
+}
+endsnippet
+
+snippet forof
+for (${1:let} ${2:val} of ${3:#:Things}) {
+	${0:TARGET}
+}
+endsnippet
+
+snippet timeout-arrow-function
+setTimeout(() => { ${0} }, ${1:10})
+endsnippet
+snippet interval-arrow-function
+setInterval(() => { ${0} }, ${1:10})
+endsnippet
+
+snippet log
+console.log(${0:TARGET})
+endsnippet
+
+snippet dir
+console.dir(${0:TARGET})
+endsnippet
+
+snippet error
+console.error(${0:TARGET})
+endsnippet
+
+snippet import
+import ${2:$1} from '${1}'
+endsnippet

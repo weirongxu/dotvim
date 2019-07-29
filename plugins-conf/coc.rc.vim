@@ -1,5 +1,6 @@
 let $VIMCONFIG = $MY_VIMFILES
 let g:coc_global_extensions = [
+      \ 'coc-lists',
       \ 'coc-rls',
       \ 'coc-vetur',
       \ 'coc-json',
@@ -67,7 +68,7 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 nmap <Leader>lr :CocListResume<CR>
 nmap <Leader>ll :CocList<CR>
 nmap <Leader>lb :CocList --normal buffers<CR>
-nmap <Leader>fg :CocList --regex grep<CR>
+nmap <Leader>fg :CocList --strict grep<CR>
 nmap <Leader>fG :CocList words<CR>
 nmap <Leader>fcg :exe 'CocList --normal -I --input='.expand('<cword>').' grep'<CR>
 nmap <Leader>fcG :exe 'CocList --normal -I --input='.expand('<cword>').' words'<CR>

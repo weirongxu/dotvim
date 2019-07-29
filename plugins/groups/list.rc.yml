@@ -1,17 +1,4 @@
 - repo: Shougo/denite.nvim
-  hook_add: |
-    nmap <Leader>lr :Denite -resume<CR>
-    nmap <Leader>lb :Denite buffer<CR>
-    nmap <Leader>lj :Denite jump<CR>
-    nmap <Leader>fg :Denite grep<CR>
-    nmap <Leader>fG :Denite grep:`expand('%')`<CR>
-    nmap <Leader>ffg :Denite grep:<CR>
-    nmap <Leader>ffG :Denite grep:::`expand('<cword>')`<CR>
-    nmap <Leader>lC :Denite command_history<CR>
-    autocmd BufEnter *
-      \   if empty(&buftype)
-      \|    nnoremap <buffer> <c-]> :<C-u>Denite -auto-preview tag:::`expand('<cword>')`<CR>
-      \|  endif
   hook_post_source: |
     autocmd FileType denite-filter call s:denite_filter_my_settings()
     function! s:denite_filter_my_settings() abort
@@ -34,26 +21,4 @@
       nnoremap <silent><buffer><expr> v denite#do_map('do_action', 'vsplit')
     endfunction
 
-    call denite#custom#option('default', 'mode', 'normal')
-    call denite#custom#option('default', 'empty', v:false)
-
-    call denite#custom#var('grep', 'command', ['rg'])
-    call denite#custom#var('grep', 'default_opts', ['-i', '--vimgrep', '--no-heading'])
-    call denite#custom#var('grep', 'recursive_opts', [])
-    call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
-    call denite#custom#var('grep', 'separator', ['--'])
-    call denite#custom#var('grep', 'final_opts', [])
-
     Include /plugins-conf/denite-menu
-- repo: neoclide/denite-extra
-- repo: Shougo/neoyank.vim
-- repo: Shougo/neossh.vim
-- repo: neoclide/denite-git
-  hook_post_source: |
-    nmap <Leader>lgb :Denite gitbranch<CR>
-    nmap <Leader>lgs :Denite gitstatus<CR>
-    nmap <Leader>lgl :Denite gitlog<CR>
-    nmap <Leader>lga :Denite gitlog:all<CR>
-    call denite#custom#map('normal', 'a', '<denite:do_action:add>', 'noremap')
-    call denite#custom#map('normal', 'd', '<denite:do_action:delete>', 'noremap')
-    call denite#custom#map('normal', 'r', '<denite:do_action:reset>', 'noremap')

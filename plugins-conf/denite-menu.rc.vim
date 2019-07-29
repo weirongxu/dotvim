@@ -1,7 +1,7 @@
 " source menu
 map <Leader>lm :Denite menu<CR>
-map <Leader>ll :Denite menu:filetype-menu<CR>
-map <Leader>c :Denite menu:case-convert<CR>
+map <Leader>lmf :Denite menu:filetype-menu<CR>
+map <Leader><Leader>c :Denite menu:case-convert<CR>
 
 let g:menus = extend(g:menus, {})
 

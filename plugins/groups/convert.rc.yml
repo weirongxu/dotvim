@@ -107,13 +107,13 @@
     - HyphenToSnakeAll
     - SnakeToCamelAll
     - SnakeToHyphenAll
-  hook_add: |
+  hook_post_source: |
     call MenuGroupAdd('case-convert', 'Snake case, hyphenation and camel case converter', [
-      \  ['CamelToHyphen', 'CamelToHyphen'],
-      \  ['CamelToSnake', 'CamelToSnake'],
-      \  ['HyphenToCamel', 'HyphenToCamel'],
-      \  ['HyphenToSnake', 'HyphenToSnake'],
-      \  ['SnakeToCamel', 'SnakeToCamel'],
-      \  ['SnakeToHyphen', 'SnakeToHyphen'],
+      \  ['CamelToHyphen' , 'CamelToHyphen'],
+      \  ['CamelToSnake'  , 'CamelToSnake'],
+      \  ['HyphenToCamel' , 'HyphenToCamel'],
+      \  ['HyphenToSnake' , 'HyphenToSnake'],
+      \  ['SnakeToCamel'  , 'SnakeToCamel'],
+      \  ['SnakeToHyphen' , 'SnakeToHyphen'],
       \])
 - repo: tpope/vim-abolish

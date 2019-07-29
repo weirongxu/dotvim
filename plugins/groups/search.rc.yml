@@ -55,29 +55,27 @@
   hook_add: |
     nmap n <Plug>(anzu-n-with-echo)
     nmap N <Plug>(anzu-N-with-echo)
-# - repo: osyo-manga/vim-over
-#   on_cmd: 'OverCommandLine'
 - repo: markonm/traces.vim
 - repo: brooth/far.vim
 
 ##
 # directory search
-- repo: Yggdroot/LeaderF
-  if: g:env#python
-  build: ./install.sh
-  hook_add: |
-    let g:Lf_ShortcutF = '<Plug>Lf_ShortcutP'
-    let g:Lf_ShortcutB = '<Plug>Lf_ShortcutB'
-    let g:Lf_CommandMap = {
-      \ '<C-L>': ['<C-Z>'],
-      \ '<F5>': ['<C-L>'],
-      \ '<Up>': ['<C-P>'],
-      \ '<Down>': ['<C-N>'],
-      \ }
-    function! Lf_ShortcutF()
-      let g:Lf_WorkingDirectory = getcwd()
-      Leaderf file
-    endfunction
-    map <C-P> :call Lf_ShortcutF()<CR>
+# - repo: Yggdroot/LeaderF
+#   if: g:env#python
+#   build: ./install.sh
+#   hook_add: |
+#     let g:Lf_ShortcutF = '<Plug>Lf_ShortcutP'
+#     let g:Lf_ShortcutB = '<Plug>Lf_ShortcutB'
+#     let g:Lf_CommandMap = {
+#       \ '<C-L>': ['<C-Z>'],
+#       \ '<F5>': ['<C-L>'],
+#       \ '<Up>': ['<C-P>'],
+#       \ '<Down>': ['<C-N>'],
+#       \ }
+#     function! Lf_ShortcutF()
+#       let g:Lf_WorkingDirectory = getcwd()
+#       Leaderf file
+#     endfunction
+#     map <C-P> :call Lf_ShortcutF()<CR>
 # - repo: mhinz/vim-grepper
 #   on_cmd: Grepper

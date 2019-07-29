@@ -20,12 +20,6 @@
     'IX', 'IIX', 'IYMD', 'IMDY', 'IDMY',
     'IA', 'ID', 'IM', 'IPOW', 'IIPOW',
   ]
-# - repo: lilydjwg/colorizer # https://github.com/lilydjwg/colorizer/issues/30
-# - repo: ap/vim-css-color
-# - repo: gu-fan/colorv.vim
-#   hook_add: |
-#     # let g:colorv_preview_ftype = join(g:env#web_assets_type_list, ',')
-#     let g:colorv_preview_ftype = ''
 - repo: KabbAmine/vCoolor.vim
   hook_add: |
     let g:vcoolor_disable_mappings = 1
@@ -105,8 +99,6 @@
       \  ['rand words password to reg', "call setreg('\"', RandPasswordInputOnlyWord())"],
       \])
 - repo: thinca/vim-partedit
-- repo: meain/vim-package-info
-  build: npm install
 # - repo: h-youhei/vim-ibus
 #   if: 'g:env#unix && executable("ibus")'
 #   hook_add: |

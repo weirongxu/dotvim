@@ -38,21 +38,20 @@ inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR
 command! -nargs=0 Format :call CocAction('format')
 command! -nargs=? Fold :call CocAction('fold', <f-args>)
 
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-nmap <silent> [d <Plug>(coc-diagnostic-prev)
-nmap <silent> ]d <Plug>(coc-diagnostic-next)
-nmap <Leader><Leader>d  <Plug>(coc-diagnostic-info)
-nmap <Leader><Leader>rn <Plug>(coc-rename)
-nmap <Leader><Leader>rf <Plug>(coc-refactor)
-nmap <Leader><Leader>ac <Plug>(coc-codeaction)
-nmap <Leader><Leader>cl <Plug>(coc-codelens-action)
-nmap <Leader><Leader>o  <Plug>(coc-openlink)
-nmap <Leader><Leader>F  <Plug>(coc-fix-current)
-nmap <Leader><Leader>f  <Plug>(coc-format)
-vmap <Leader><Leader>f  <Plug>(coc-format-selected)
+nmap gd <Plug>(coc-definition)
+nmap gy <Plug>(coc-type-definition)
+nmap gi <Plug>(coc-implementation)
+nmap gr <Plug>(coc-references)
+nmap [d <Plug>(coc-diagnostic-prev)
+nmap ]d <Plug>(coc-diagnostic-next)
+nmap <Leader>rn <Plug>(coc-rename)
+nmap <Leader>rf <Plug>(coc-refactor)
+nmap <Leader>ca <Plug>(coc-codeaction)
+nmap <Leader>cl <Plug>(coc-codelens-action)
+nmap <Leader>oo  <Plug>(coc-openlink)
+nmap <Leader>fx  <Plug>(coc-fix-current)
+nmap <Leader>ff  <Plug>(coc-format)
+vmap <Leader>ff  <Plug>(coc-format-selected)
 nmap <silent> K :call <SID>show_documentation()<CR>
 function! s:show_documentation()
   if index(['vim', 'help'], &filetype) >= 0
@@ -65,25 +64,35 @@ autocmd ColorScheme *
       \ hi CocHighlightText ctermbg=242 guibg=#404040
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
-nmap <Leader>lcc :CocList commands<CR>
-nmap <Leader>lco :CocList outline<CR>
-nmap <Leader>lcw :CocList workspace<CR>
-nmap <Leader>lcd :CocList diagnostics<CR>
-nmap <Leader>lcs :CocList services<CR>
-nmap <Leader>lcl :CocList<CR>
-nmap <Leader>lcr :CocListResume<CR>
-call MenuGroupAdd('coc-actions', 'Coc actions', [
-      \ ['pick color', 'call CocAction("pickColor")'],
-      \ ['color presentation', 'call CocAction("colorPresentation")'],
-      \])
-nmap <Leader>lca :Denite menu:coc-actions<CR>
+nmap <Leader>lr :CocListResume<CR>
+nmap <Leader>ll :CocList<CR>
+nmap <Leader>lb :CocList --normal buffers<CR>
+nmap <Leader>fg :CocList grep<CR>
+nmap <Leader>fG :CocList words<CR>
+nmap <Leader>fcg :exe 'CocList --normal -I --input='.expand('<cword>').' grep'<CR>
+nmap <Leader>fcG :exe 'CocList --normal -I --input='.expand('<cword>').' words'<CR>
+nmap <Leader>lc :CocList commands<CR>
+nmap <Leader>lC :CocList vimcommands<CR>
+nmap <Leader>lCh :CocList cmdhistory<CR>
+nmap <Leader>l/ :CocList searchhistory<CR>
+nmap <Leader>lo :CocList outline<CR>
+nmap <Leader>lw :CocList workspace<CR>
+nmap <Leader>ld :CocList diagnostics<CR>
+nmap <Leader>ls :CocList services<CR>
+
+" ctrl-p
+nmap <C-p> :CocList files<CR>
+
+" actions
+nmap <Leader>ccp :call CocAction("pickColor")<CR>
+nmap <Leader>ccP :call CocAction("colorPresentation")<CR>
 
 " coc-git
 nmap [c <Plug>(coc-git-prevchunk)
 nmap ]c <Plug>(coc-git-nextchunk)
-nmap <Leader><Leader>gs <Plug>(coc-git-chunkinfo)
-nmap <Leader><Leader>gc <Plug>(coc-git-commit)
+nmap <Leader>ggs <Plug>(coc-git-chunkinfo)
+nmap <Leader>ggc <Plug>(coc-git-commit)
 
 " coc-calc
-nmap <Leader><Leader>cc <Plug>(coc-calc-result-append)
-nmap <Leader><Leader>cC <Plug>(coc-calc-result-replace)
+nmap <Leader>cc <Plug>(coc-calc-result-append)
+nmap <Leader>cC <Plug>(coc-calc-result-replace)

@@ -1,12 +1,9 @@
 - repo: Shougo/neco-vim
 - repo: neoclide/coc-neco
-- repo: /Users/raidou/Projects/coc.nvim
+- repo: neoclide/coc.nvim
+  rev: 'release'
+  # if: executable('yarn')
+  # build: "yarn install --frozen-lockfile"
+  # hook_post_update: {-> coc#util#install()}
   hook_add: |
     Include /plugins-conf/coc
-# - repo: neoclide/coc.nvim
-#   rev: 'release'
-#   # if: executable('yarn')
-#   # build: "yarn install --frozen-lockfile"
-#   # hook_post_update: {-> coc#util#install()}
-#   hook_add: |
-#     Include /plugins-conf/coc

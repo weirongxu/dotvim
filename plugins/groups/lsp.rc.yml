@@ -1,5 +1,5 @@
-- repo: Shougo/neco-vim
-- repo: neoclide/coc-neco
+# - repo: Shougo/neco-vim
+# - repo: neoclide/coc-neco
 - repo: neoclide/coc.nvim
   rev: 'release'
   # if: executable('yarn')

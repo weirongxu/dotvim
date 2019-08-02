@@ -1,5 +1,6 @@
 let $VIMCONFIG = $MY_VIMFILES
 let g:coc_global_extensions = [
+      \ 'coc-vimlsp',
       \ 'coc-lists',
       \ 'coc-rls',
       \ 'coc-vetur',
@@ -31,7 +32,6 @@ let g:coc_global_extensions = [
       \ 'coc-svg',
       \ 'coc-docker',
       \ ]
-Pkg gem install solargraph
 
 inoremap <silent><expr> <C-l> coc#refresh()
 inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<C-r>=coc#on_enter()\<CR>"

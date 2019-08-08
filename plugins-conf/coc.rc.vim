@@ -49,10 +49,11 @@ nmap <Leader>rn <Plug>(coc-rename)
 nmap <Leader>rf <Plug>(coc-refactor)
 nmap <Leader>ca <Plug>(coc-codeaction)
 nmap <Leader>cl <Plug>(coc-codelens-action)
-nmap <Leader>oo  <Plug>(coc-openlink)
-nmap <Leader>fx  <Plug>(coc-fix-current)
-nmap <Leader>ff  <Plug>(coc-format)
-vmap <Leader>ff  <Plug>(coc-format-selected)
+nmap <Leader>oo <Plug>(coc-openlink)
+nmap <Leader>fx <Plug>(coc-fix-current)
+nmap <Leader>fi :call CocAction('runCommand', 'editor.action.organizeImport')<CR>
+nmap <Leader>ff <Plug>(coc-format)
+vmap <Leader>ff <Plug>(coc-format-selected)
 nmap <silent> K :call <SID>show_documentation()<CR>
 function! s:show_documentation()
   if index(['vim', 'help'], &filetype) >= 0

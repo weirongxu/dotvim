@@ -24,7 +24,6 @@ let g:coc_global_extensions = [
       \ 'coc-solargraph',
       \ 'coc-vimtex',
       \ 'coc-calc',
-      \ 'coc-smartf',
       \ 'coc-pairs',
       \ 'coc-git',
       \ 'coc-import-cost',

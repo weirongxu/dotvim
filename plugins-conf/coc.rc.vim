@@ -51,7 +51,7 @@ nmap <Leader>ca <Plug>(coc-codeaction)
 nmap <Leader>cl <Plug>(coc-codelens-action)
 nmap <Leader>oo <Plug>(coc-openlink)
 nmap <Leader>fx <Plug>(coc-fix-current)
-nmap <Leader>fi :call CocAction('runCommand', 'editor.action.organizeImport')<CR>
+nmap <Leader>fi :CocCommand editor.action.organizeImport<CR>
 nmap <Leader>ff <Plug>(coc-format)
 vmap <Leader>ff <Plug>(coc-format-selected)
 nmap <silent> K :call <SID>show_documentation()<CR>

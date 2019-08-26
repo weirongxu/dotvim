@@ -102,13 +102,3 @@ nmap <Leader>ggc <Plug>(coc-git-commit)
 " coc-calc
 nmap <Leader>cc <Plug>(coc-calc-result-append)
 nmap <Leader>cC <Plug>(coc-calc-result-replace)
-
-" Smartf
-nmap f <Plug>(coc-smartf-forward)
-nmap F <Plug>(coc-smartf-backward)
-nmap ; <Plug>(coc-smartf-repeat)
-nmap , <Plug>(coc-smartf-repeat-opposite)
-augroup Smartf
-  autocmd User SmartfEnter :hi Conceal ctermfg=220 guifg=#6638F0
-  autocmd User SmartfLeave :hi Conceal ctermfg=239 guifg=#504945
-augroup end

@@ -95,6 +95,13 @@ function! SplitTerminal()
 endfunction
 command! Terminal call SplitTerminal()
 
+function! SynStack()
+  for id in synstack(line('.'), col('.'))
+    execute('hi ' . synIDattr(id, "name"))
+  endfor
+endfunc
+command! SynStack call SynStack()
+
 " path
 " command! EchoPath echo expand("%:p")
 command! CdHere exec 'cd ' expand("%:p:h")

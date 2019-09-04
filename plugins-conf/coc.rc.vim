@@ -47,8 +47,7 @@ nmap [d <Plug>(coc-diagnostic-prev)
 nmap ]d <Plug>(coc-diagnostic-next)
 nmap <Leader>rn <Plug>(coc-rename)
 nmap <Leader>rf <Plug>(coc-refactor)
-nmap <Leader>ca <Plug>(coc-codeaction)
-nmap <Leader>cl <Plug>(coc-codelens-action)
+nmap <Leader>ca :CocAction<CR>
 nmap <Leader>oo <Plug>(coc-openlink)
 nmap <Leader>fx <Plug>(coc-fix-current)
 nmap <Leader>fi :CocCommand editor.action.organizeImport<CR>
@@ -98,6 +97,8 @@ nmap [c <Plug>(coc-git-prevchunk)
 nmap ]c <Plug>(coc-git-nextchunk)
 nmap <Leader>ggs <Plug>(coc-git-chunkinfo)
 nmap <Leader>ggc <Plug>(coc-git-commit)
+nmap <Leader>gg< :CocCommand git.chunkStage<CR>
+nmap <Leader>gg= :CocCommand git.chunkUndo<CR>
 
 " coc-calc
 nmap <Leader>cc <Plug>(coc-calc-result-append)

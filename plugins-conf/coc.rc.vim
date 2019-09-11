@@ -1,5 +1,6 @@
 let $VIMCONFIG = $MY_VIMFILES
 let g:coc_global_extensions = [
+      \ 'coc-explorer',
       \ 'coc-vimlsp',
       \ 'coc-lists',
       \ 'coc-rls',
@@ -103,3 +104,7 @@ nmap <Leader>gg= :CocCommand git.chunkUndo<CR>
 " coc-calc
 nmap <Leader>cc <Plug>(coc-calc-result-append)
 nmap <Leader>cC <Plug>(coc-calc-result-replace)
+
+" coc-explorer
+nmap ge :CocCommand explorer<CR>
+nmap gE :execute ':CocCommand explorer --reveal '.$MY_PLUGINS.' '.$MY_VIMFILES<CR>

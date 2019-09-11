@@ -8,6 +8,7 @@
     let g:indentLine_fileTypeExclude = [
       \  '',
       \  'defx',
+      \  'coc-explorer',
       \  'json',
       \  'vimfiler',
       \  'unite',

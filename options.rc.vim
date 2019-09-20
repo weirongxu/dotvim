@@ -175,7 +175,7 @@ set updatetime=300
 
 " highlight 80th column
 function! s:set_colorcolumn() "{{{
-  let exclude_ft_list = ['startify|vimfiler|unite|tagbar'] + g:env#html_type_list
+  let exclude_ft_list = ['startify|coc-explorer|tagbar'] + g:env#html_type_list
   if &ft =~ '\v(^$|'. join(exclude_ft_list, '|') .')'
     set colorcolumn=
     return

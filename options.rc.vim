@@ -3,6 +3,7 @@ lang en_US.UTF-8
 " UI
 if g:env#gui
   set guioptions=
+  set guitablabel=%t\ %M number showmatch scrolloff=5 ruler
   set showtabline=2
 
   " Menu
@@ -84,11 +85,6 @@ set nobomb linespace=0 ambiwidth=single
 set concealcursor=
 set list listchars=tab:\|\ ,trail:.
 " set cursorline cursorcolumn
-
-" interface
-set guitablabel=%t\ %M number showmatch scrolloff=5 ruler
-" Don't redraw while executing macros (good performance config)
-" set lazyredraw
 
 try
   set signcolumn=auto:2

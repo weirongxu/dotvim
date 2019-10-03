@@ -11,6 +11,7 @@ source $MY_VIMFILES/buildin/boot.rc.vim
 Include mappings
 Include plugins
 Include options
+Include tabline
 
 syntax on
 filetype plugin indent on

@@ -1,7 +1,9 @@
 - repo: gcavallanti/vim-noscrollbar
-- repo: vim-airline/vim-airline
+- repo: ryanoasis/vim-devicons
+- repo: taigacute/spaceline.vim
   hook_add: |
-    Include /plugins-conf/airline
+    let g:spaceline_seperate_style= 'none'
+    let g:spaceline_line_symbol = 1
 
 - repo: Yggdroot/indentLine
   hook_add: |

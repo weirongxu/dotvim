@@ -5,8 +5,13 @@ function! s:filename(n)
   return filename !=# '' ? filename : '[No Name]'
 endfunction
 
+function! s:modified(n)
+  let winnr = tabpagewinnr(a:n)
+  return gettabwinvar(a:n, winnr, '&modified') ? '+' : gettabwinvar(a:n, winnr, '&modifiable') ? '' : '-'
+endfunction
+
 function! MyTabLabel(n)
-  return printf('%s %s', a:n, s:filename(a:n))
+  return printf('%s %s%s', a:n, s:filename(a:n), s:modified(a:n))
 endfunction
 
 function! MyTabLine()

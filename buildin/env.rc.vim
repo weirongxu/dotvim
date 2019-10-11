@@ -27,7 +27,7 @@ let g:env#python_cmd = get(filter(['python3', 'python', 'python2'], {i, cmd -> e
 let g:env#record_dir = $HOME.'/.record/vim'
 let g:env#record_dir#sessions = g:env#record_dir.'/sessions'
 let g:env#record_dir#defx_sessions = g:env#record_dir.'/defx-sessions'
-let g:env#tmp = expand($MY_VIMFILES . '/tmp')
+let g:env#tmp = $MY_VIMFILES . '/tmp'
 for dir in [g:env#record_dir#sessions, g:env#record_dir#defx_sessions, g:env#tmp]
   if !isdirectory(dir)
     call mkdir(dir, 'p')

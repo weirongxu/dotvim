@@ -10,6 +10,11 @@ function! s:modified(n)
   return gettabwinvar(a:n, winnr, '&modified') ? '+' : gettabwinvar(a:n, winnr, '&modifiable') ? '' : '-'
 endfunction
 
+function s:readonly()
+  let winnr = tabpagewinnr(a:n)
+  return gettabwinvar(a:n, winnr, '&readonly') ? 'RO' : ''
+endfunction
+
 function! MyTabLabel(n)
   return printf('%s %s%s', a:n, s:filename(a:n), s:modified(a:n))
 endfunction

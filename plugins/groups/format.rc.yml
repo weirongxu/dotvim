@@ -3,17 +3,3 @@
   on_cmd: Autoformat
 - repo: sbdchd/neoformat
   on_cmd: Neoformat
-- repo: maksimr/vim-jsbeautify
-  hook_add: |
-    call MenuFileType(g:env#web_assets_type_list, [
-      \ ['jsbf-RangeJsBeautify', 'call RangeJsBeautify()'],
-      \ ['jsbf-JsBeautify', 'call JsBeautify()'],
-      \ ['jsbf-JsxBeautify', 'call JsxBeautify()'],
-      \ ['jsbf-RangeJsxBeautify', 'call RangeJsxBeautify()'],
-      \ ['jsbf-JsonBeautify', 'call JsonBeautify()'],
-      \ ['jsbf-RangeJsonBeautify', 'call RangeJsonBeautify()'],
-      \ ['jsbf-RangeHtmlBeautify', 'call RangeHtmlBeautify()'],
-      \ ['jsbf-HtmlBeautify', 'call HtmlBeautify()'],
-      \ ['jsbf-RangeCSSBeautify', 'call RangeCSSBeautify()'],
-      \ ['jsbf-CSSBeautify', 'call CSSBeautify()'],
-      \ ])

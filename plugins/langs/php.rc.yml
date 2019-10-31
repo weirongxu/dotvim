@@ -12,7 +12,5 @@
     vnoremap <buffer> <Leader>8 :call PhpDocRange()<CR>
 
 - repo_local: php-cs-fixer
-  hook_add: |
-    call MenuFileType('php', [
-      \ ['php-fixer', 'PhpFixer']
-      \ ])
+  hook_post_source: |
+    call coc#add_command('php-fixer', 'PhpFixer')

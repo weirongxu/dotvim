@@ -108,12 +108,10 @@
     - SnakeToCamelAll
     - SnakeToHyphenAll
   hook_post_source: |
-    call MenuGroupAdd('case-convert', 'Snake case, hyphenation and camel case converter', [
-      \  ['CamelToHyphen' , 'CamelToHyphen'],
-      \  ['CamelToSnake'  , 'CamelToSnake'],
-      \  ['HyphenToCamel' , 'HyphenToCamel'],
-      \  ['HyphenToSnake' , 'HyphenToSnake'],
-      \  ['SnakeToCamel'  , 'SnakeToCamel'],
-      \  ['SnakeToHyphen' , 'SnakeToHyphen'],
-      \])
+    call coc#add_command('case.CamelToHyphen' , 'CamelToHyphen')
+    call coc#add_command('case.CamelToSnake'  , 'CamelToSnake')
+    call coc#add_command('case.HyphenToCamel' , 'HyphenToCamel')
+    call coc#add_command('case.HyphenToSnake' , 'HyphenToSnake')
+    call coc#add_command('case.SnakeToCamel'  , 'SnakeToCamel')
+    call coc#add_command('case.SnakeToHyphen' , 'SnakeToHyphen')
 - repo: tpope/vim-abolish

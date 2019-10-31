@@ -31,12 +31,11 @@
   hook_add: |
     nmap <silent> <C-ScrollWheelUp>   <Plug>FontsizeInc
     nmap <silent> <C-ScrollWheelDown> <Plug>FontsizeDec
-    call MenuGroupAdd('fontsize', 'Fontsize', [
-      \  ['FontsizeBegin', '<Plug>FontsizeBegin'],
-      \  ['FontsizeInc', '<Plug>FontsizeInc'],
-      \  ['FontsizeDec', '<Plug>FontsizeDec'],
-      \  ['FontsizeDefault', '<Plug>FontsizeDefault'],
-      \])
+  hook_post_source: |
+    call coc#add_command('fontsize.FontsizeBegin', '<Plug>FontsizeBegin')
+    call coc#add_command('fontsize.FontsizeInc', '<Plug>FontsizeInc')
+    call coc#add_command('fontsize.FontsizeDec', '<Plug>FontsizeDec')
+    call coc#add_command('fontsize.FontsizeDefault', '<Plug>FontsizeDefault')
 - repo: jszakmeister/vim-togglecursor
   if: '! g:env#gui'
 - repo: equalsraf/neovim-gui-shim

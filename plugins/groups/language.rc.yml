@@ -2,6 +2,7 @@
   on_key: OnlineThesaurusCurrentWord
   hook_add: |
     let g:online_thesaurus_map_keys = 0
-    call MenuMiscAdd([['OnlineThesaurusCurrentWord', ':OnlineThesaurusCurrentWord<CR>']])
+  hook_post_source: |
+    call coc#add_command('OnlineThesaurusCurrentWord', 'OnlineThesaurusCurrentWord')
 - repo: rhysd/vim-grammarous
   on_cmd: GrammarousCheck

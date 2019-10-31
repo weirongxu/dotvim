@@ -1,7 +1,7 @@
 - repo: jaxbot/semantic-highlight.vim
   on_cmd: SemanticHighlightToggle
-  hook_add: |
-    call MenuMiscAdd([['SemanticHighlightToggle', ':SemanticHighlightToggle<CR>']])
+  hook_post_source: |
+    call coc#add_command('SemanticHighlightToggle', 'SemanticHighlightToggle')
 - repo: tpope/vim-eunuch
   on_cmd: [
     'Unlink', 'Remove', 'Move',
@@ -93,11 +93,11 @@
     vmap <Leader>tp :call translate_shell_speak#speak_visual()<CR>
 - repo_local: convert-tmp
 - repo_local: rand_password
-  hook_add: |
-    call MenuGroupAdd('random-string', 'Random string', [
-      \  ['rand password to reg', "call setreg('\"', RandPasswordInput())"],
-      \  ['rand words password to reg', "call setreg('\"', RandPasswordInputOnlyWord())"],
-      \])
+  hook_post_source: |
+    command! RandomPasswordReg call setreg('"', RandPasswordInput())
+    command! RandomWordsPasswordReg call setreg('"', RandPasswordInputOnlyWord())
+    call coc#add_command('random.password2reg' , 'RandomPasswordReg')
+    call coc#add_command('random.words-password2reg' , 'RandomWordsPasswordReg')
 - repo: thinca/vim-partedit
 # - repo: h-youhei/vim-ibus
 #   if: 'g:env#unix && executable("ibus")'

@@ -1,6 +1,7 @@
 let s:pkg_installer_dir = $MY_BUILDIN . '/package-installer'
-let s:Process = vital#vimrc#import('System.Process')
-let s:Job = vital#vimrc#import('System.Job')
+let s:V = vital#vimrc#new()
+let s:Process = s:V.import('System.Process')
+let s:Job = s:V.import('System.Job')
 
 function! Pkg(name, action, package_name) "{{{
   let cmds = [

@@ -12,13 +12,6 @@
   on_ft: [vim, vimspec]
 - repo: lambdalisue/vim-backslash
   on_ft: vim
-- repo: mhinz/vim-lookup
-  on_ft: vim
-  hook_add: |
-    call MenuFileType('vim', [
-      \ ['vim-lookup', 'call lookup#lookup()'],
-      \ ['vim-lookup-pop', 'call lookup#pop()'],
-      \ ])
 - repo: tweekmonster/helpful.vim
   on_cmd: HelpfulVersion
 - repo: tpope/vim-scriptease

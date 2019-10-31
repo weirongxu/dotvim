@@ -20,5 +20,3 @@
       nnoremap <silent><buffer><expr> s denite#do_map('do_action', 'split')
       nnoremap <silent><buffer><expr> v denite#do_map('do_action', 'vsplit')
     endfunction
-
-    Include /plugins-conf/denite-menu

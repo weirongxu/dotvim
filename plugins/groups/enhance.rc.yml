@@ -41,13 +41,13 @@
     let g:rainbow_active = 0
 - repo: AndrewRadev/splitjoin.vim
   on_map: ['gS', 'gJ']
-- repo: osyo-manga/vim-jplus
-  on_map: '<Plug>(jplus'
-  hook_add: |
-    nmap J <Plug>(jplus)
-    vmap J <Plug>(jplus)
-    nmap <Leader>J <Plug>(jplus-getchar)
-    vmap <Leader>J <Plug>(jplus-getchar)
+# - repo: osyo-manga/vim-jplus
+#   on_map: '<Plug>(jplus'
+#   hook_add: |
+#     nmap J <Plug>(jplus)
+#     vmap J <Plug>(jplus)
+#     nmap <Leader>J <Plug>(jplus-getchar)
+#     vmap <Leader>J <Plug>(jplus-getchar)
 
 - repo: thinca/vim-ref
   on_cmd: Ref

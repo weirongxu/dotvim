@@ -1,6 +1,8 @@
 let $VIMCONFIG = $MY_VIMFILES
 let g:coc_global_extensions = [
       \ 'coc-explorer',
+      \ 'coc-tsserver',
+      \ 'coc-tslint-plugin',
       \ 'coc-vimlsp',
       \ 'coc-lists',
       \ 'coc-rls',

@@ -5,7 +5,6 @@ let g:coc_global_extensions = [
       \ 'coc-tslint-plugin',
       \ 'coc-vimlsp',
       \ 'coc-lists',
-      \ 'coc-rls',
       \ 'coc-vetur',
       \ 'coc-json',
       \ 'coc-css',
@@ -34,6 +33,7 @@ let g:coc_global_extensions = [
       \ 'coc-go',
       \ 'coc-svg',
       \ 'coc-docker',
+      \ 'coc-rust-analyzer',
       \ ]
 
 inoremap <silent><expr> <C-l> coc#refresh()

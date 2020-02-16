@@ -81,3 +81,5 @@
 - repo: chrisbra/vim-diff-enhanced
   if: "!has('patch-8.1.0360')"
 # - repo: Shougo/deol.nvim
+
+- repo: tpope/vim-unimpaired

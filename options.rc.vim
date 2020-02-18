@@ -30,7 +30,7 @@ endif
 set fileencodings=utf-8,gb18030,gbk,gb2312,cp936,ucs-bom,chinese,latin-1
 set fileformats=unix,dos,mac
 
-set fileencoding=utf-8 encoding=utf-8 termencoding=utf-8
+set fileencoding=utf-8 encoding=utf-8
 set fileformat=unix
 
 " Colorscheme

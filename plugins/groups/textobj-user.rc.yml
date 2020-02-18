@@ -6,6 +6,16 @@
 - repo: rhysd/vim-textobj-continuous-line
 - repo: mattn/vim-textobj-url
 - repo: coderifous/textobj-word-column.vim
+  hook_add: |
+    let g:skip_default_textobj_word_column_mappings = 1
+    xnoremap <silent> ab :<C-u>call TextObjWordBasedColumn("aw")<cr>
+    xnoremap <silent> aB :<C-u>call TextObjWordBasedColumn("aW")<cr>
+    xnoremap <silent> ib :<C-u>call TextObjWordBasedColumn("iw")<cr>
+    xnoremap <silent> iB :<C-u>call TextObjWordBasedColumn("iW")<cr>
+    onoremap <silent> ab :call TextObjWordBasedColumn("aw")<cr>
+    onoremap <silent> aB :call TextObjWordBasedColumn("aW")<cr>
+    onoremap <silent> ib :call TextObjWordBasedColumn("iw")<cr>
+    onoremap <silent> iB :call TextObjWordBasedColumn("iW")<cr>
 - repo: thinca/vim-textobj-between
 - repo: kana/vim-textobj-lastpat
 - repo: kana/vim-textobj-syntax

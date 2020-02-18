@@ -88,6 +88,9 @@ nmap <Leader>lw :CocList workspace<CR>
 nmap <Leader>ld :CocList diagnostics<CR>
 nmap <Leader>ls :CocList services<CR>
 
+nmap <Leader>[c :CocPrev<CR>
+nmap <Leader>]c :CocNext<CR>
+
 " ctrl-p
 nmap <C-p> :CocList files<CR>
 
@@ -98,10 +101,15 @@ nmap <Leader>ccP :call CocAction("colorPresentation")<CR>
 " coc-git
 nmap [c <Plug>(coc-git-prevchunk)
 nmap ]c <Plug>(coc-git-nextchunk)
-nmap <Leader>ggs <Plug>(coc-git-chunkinfo)
+nmap <Leader>gi <Plug>(coc-git-chunkinfo)
 nmap <Leader>ggc <Plug>(coc-git-commit)
-nmap <Leader>gg< :CocCommand git.chunkStage<CR>
-nmap <Leader>gg= :CocCommand git.chunkUndo<CR>
+nmap <Leader>g< :CocCommand git.chunkStage<CR>
+nmap <Leader>g= :CocCommand git.chunkUndo<CR>
+nmap <Leader>lg :CocList gstatus<CR>
+omap ic <Plug>(coc-git-chunk-inner)
+xmap ic <Plug>(coc-git-chunk-inner)
+omap ac <Plug>(coc-git-chunk-outer)
+xmap ac <Plug>(coc-git-chunk-outer)
 
 " coc-calc
 nmap <Leader>cc <Plug>(coc-calc-result-append)

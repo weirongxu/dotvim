@@ -7,3 +7,4 @@
     map <c-/> gcc
     Include /plugins-conf/caw
 - repo_local: ft-caw
+- repo: kkoomen/vim-doge

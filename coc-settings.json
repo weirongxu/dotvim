@@ -1,10 +1,5 @@
 {
   "languageserver": {
-    "ccls": {
-      "command": "ccls",
-      "filetypes": ["c", "cpp", "cuda", "objc", "objcpp"],
-      "initializationOptions": {}
-    },
     "dart": {
       "command": "dart_language_server",
       "args": [],

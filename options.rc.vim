@@ -106,7 +106,7 @@ autocmd BufEnter,BufCreate * call timer_start(100, function('s:update_sign'))
 set wildmenu " command complete menu inline
 set cmdheight=2
 set laststatus=2
-set shortmess=aoOtT
+set shortmess=aoOtFT
 
 " break multi-line
 " set nowrap

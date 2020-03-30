@@ -38,14 +38,14 @@
       "args": ["server:run"],
       "filetypes": ["kotlin"]
     },
-    "sorbet": {
-      "command": "srb",
-      "args": ["tc", "--lsp", "--enable-all-experimental-lsp-features"],
-      "filetypes": ["ruby"],
-      "rootPatterns": ["sorbet/config"],
-      "initializationOptions": {},
-      "settings": {}
-    }
+    /* "sorbet": {                                                          */
+    /*   "command": "srb",                                                  */
+    /*   "args": ["tc", "--lsp", "--enable-all-experimental-lsp-features"], */
+    /*   "filetypes": ["ruby"],                                             */
+    /*   "rootPatterns": ["sorbet/config"],                                 */
+    /*   "initializationOptions": {},                                       */
+    /*   "settings": {}                                                     */
+    /* }                                                                    */
   },
   "prettier.singleQuote": true,
   "prettier.disableLanguages": [],
@@ -53,6 +53,7 @@
   "coc.source.buffer.priority": 5,
   "coc.source.word.priority": 1,
   "codeLens.enable": true,
+  "html.autoClosingTags": true,
   "list.normalMappings": {
     "q": "do:exit"
   },

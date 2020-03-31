@@ -76,15 +76,15 @@ nmap <Leader>lr :CocListResume<CR>
 nmap <Leader>ll :CocList<CR>
 nmap <Leader>lb :CocList --normal buffers<CR>
 nmap <Leader>fg :CocList --strict -I grep<CR>
-nmap <Leader>fG :CocList words<CR>
+nmap <Leader>fG :CocList -I grep<CR>
 nmap <Leader>fcg :exe 'CocList --normal -I --input='.expand('<cword>').' grep'<CR>
-nmap <Leader>fcG :exe 'CocList --normal -I --input='.expand('<cword>').' words'<CR>
 nmap <Leader>lc :CocList commands<CR>
 nmap <Leader>lC :CocList vimcommands<CR>
 nmap <Leader>lCh :CocList cmdhistory<CR>
 nmap <Leader>l/ :CocList searchhistory<CR>
 nmap <Leader>lo :CocList outline<CR>
-nmap <Leader>lw :CocList workspace<CR>
+nmap <Leader>le :CocList extensions<CR>
+nmap <Leader>lmp :CocList marketplace<CR>
 nmap <Leader>ld :CocList diagnostics<CR>
 nmap <Leader>ls :CocList services<CR>
 

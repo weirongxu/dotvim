@@ -75,8 +75,8 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 nmap <Leader>lr :CocListResume<CR>
 nmap <Leader>ll :CocList<CR>
 nmap <Leader>lb :CocList --normal buffers<CR>
-nmap <Leader>fg :CocList --strict -I grep<CR>
-nmap <Leader>fG :CocList -I grep<CR>
+nmap <Leader>fg :CocList -I grep<CR>
+nmap <Leader>fG :CocList -I grep -regex <CR>
 nmap <Leader>fcg :exe 'CocList --normal -I --input='.expand('<cword>').' grep'<CR>
 nmap <Leader>lc :CocList commands<CR>
 nmap <Leader>lC :CocList vimcommands<CR>

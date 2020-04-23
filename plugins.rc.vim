@@ -14,7 +14,8 @@ let no_plugin_maps = 1
 let &runtimepath .= ','.$DEIN_DIR.'/repos/github.com/Shougo/dein.vim'
 let g:dein#types#git#clone_depth = 1
 
-let g:coc_node_args = ['--nolazy', '--async-stack-traces']
+let g:coc_node_args = ['--nolazy']
+" let g:coc_node_args = ['--nolazy', '--async-stack-traces', '--inspect-brk=6045']
 let updated = CheckPluginsUpdated(s:plugins_local_dir, s:plugins_dir, s:plugins_index, s:plugins_compiled, s:plugins_manager_type)
 
 " if ! updated || dein#load_state($DEIN_DIR)

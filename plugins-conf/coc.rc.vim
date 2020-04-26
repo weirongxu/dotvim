@@ -116,9 +116,9 @@ nmap <Leader>cc <Plug>(coc-calc-result-append)
 nmap <Leader>cC <Plug>(coc-calc-result-replace)
 
 " coc-explorer
-nmap ge :CocCommand explorer<CR>
-nmap gE :execute ':CocCommand explorer --reveal '.$MY_PLUGINS.' '.$MY_VIMFILES<CR>
-nmap gR :call CocAction('runCommand', 'explorer.doAction', 'closest', ['reveal:0'], [['relative', 0, 'file']])<CR>
+nmap gee :CocCommand explorer<CR>
+nmap gev :execute ':CocCommand explorer --reveal '.$MY_PLUGINS.' '.$MY_VIMFILES<CR>
+nmap ger :call CocAction('runCommand', 'explorer.doAction', 'closest', ['reveal:0'], [['relative', 0, 'file']])<CR>
 
 let g:coc_explorer_global_presets = {
 \   '.vim': {

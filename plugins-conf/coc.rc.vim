@@ -88,8 +88,8 @@ nmap <Leader>lmp :CocList marketplace<CR>
 nmap <Leader>ld :CocList diagnostics<CR>
 nmap <Leader>ls :CocList services<CR>
 
-nmap <Leader>[c :CocPrev<CR>
-nmap <Leader>]c :CocNext<CR>
+nmap <Leader>[l :CocPrev<CR>
+nmap <Leader>]l :CocNext<CR>
 
 " ctrl-p
 nmap <C-p> :CocList files<CR>
@@ -118,6 +118,7 @@ nmap <Leader>cC <Plug>(coc-calc-result-replace)
 " coc-explorer
 nmap ge :CocCommand explorer<CR>
 nmap gE :execute ':CocCommand explorer --reveal '.$MY_PLUGINS.' '.$MY_VIMFILES<CR>
+nmap gR :call CocAction('runCommand', 'explorer.doAction', 'closest', ['reveal:0'], [['relative', 0, 'file']])<CR>
 
 let g:coc_explorer_global_presets = {
 \   '.vim': {

@@ -116,9 +116,10 @@ nmap <Leader>cc <Plug>(coc-calc-result-append)
 nmap <Leader>cC <Plug>(coc-calc-result-replace)
 
 " coc-explorer
-nmap gee :CocCommand explorer<CR>
-nmap gev :execute ':CocCommand explorer --reveal '.$MY_PLUGINS.' '.$MY_VIMFILES<CR>
-nmap ger :call CocAction('runCommand', 'explorer.doAction', 'closest', ['reveal:0'], [['relative', 0, 'file']])<CR>
+nmap <Leader>ee :CocCommand explorer<CR>
+nmap <Leader>ef :CocCommand explorer --position floating --open-action-strategy sourceWindow<CR>
+nmap <Leader>ev :execute ':CocCommand explorer --reveal '.$MY_PLUGINS.' '.$MY_VIMFILES<CR>
+nmap <Leader>er :call CocAction('runCommand', 'explorer.doAction', 'closest', ['reveal:0'], [['relative', 0, 'file']])<CR>
 
 let g:coc_explorer_global_presets = {
 \   '.vim': {

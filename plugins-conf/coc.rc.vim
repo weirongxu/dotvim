@@ -117,28 +117,51 @@ nmap <Leader>cC <Plug>(coc-calc-result-replace)
 
 " coc-explorer
 nmap <Leader>ee :CocCommand explorer<CR>
-nmap <Leader>ef :CocCommand explorer --position floating --open-action-strategy sourceWindow<CR>
-nmap <Leader>ev :execute ':CocCommand explorer --reveal '.$MY_PLUGINS.' '.$MY_VIMFILES<CR>
+nmap <Leader>ef :CocCommand explorer --present floating
+nmap <Leader>eh :CocCommand explorer --present floatingLeftside
+nmap <Leader>el :CocCommand explorer --present floatingRightside
+nmap <Leader>ev :CocCommand explorer --present .vim
 nmap <Leader>er :call CocAction('runCommand', 'explorer.doAction', 'closest', ['reveal:0'], [['relative', 0, 'file']])<CR>
 
 let g:coc_explorer_global_presets = {
 \   '.vim': {
-\      'root-uri': '~/.vim',
+\      'root-uri': $MY_VIMFILES,
+\      'reveal': $MY_PLUGINS,
 \   },
 \   'floating': {
 \      'position': 'floating',
+\      'open-action-strategy': 'sourceWindow',
 \   },
 \   'floatingLeftside': {
 \      'position': 'floating',
 \      'floating-position': 'left-center',
 \      'floating-width': 50,
+\      'open-action-strategy': 'sourceWindow',
 \   },
 \   'floatingRightside': {
 \      'position': 'floating',
 \      'floating-position': 'right-center',
 \      'floating-width': 50,
+\      'open-action-strategy': 'sourceWindow',
 \   },
 \   'simplify': {
 \     'file.child.template': '[selection | clip | 1] [indent][icon | 1] [filename omitCenter 1]'
 \   }
 \ }
+
+function s:coc_list_current_dir(args)
+  let node_info = CocAction('runCommand', 'explorer.getNodeInfo', 0)
+  if node_info isnot v:null && node_info['expandable']
+    execute 'cd ' . node_info['fullpath']
+    execute 'CocList ' . a:args
+  endif
+endfunction
+
+function s:init_explorer()
+  nmap <Leader>fg :call <SID>coc_list_current_dir('-I grep')<CR>
+  nmap <Leader>fG :call <SID>coc_list_current_dir('-I grep -regex')<CR>
+endfunction
+
+augroup CocExplorer
+  autocmd FileType coc-explorer call <SID>init_explorer()
+augroup END

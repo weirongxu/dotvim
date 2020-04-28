@@ -117,10 +117,10 @@ nmap <Leader>cC <Plug>(coc-calc-result-replace)
 
 " coc-explorer
 nmap <Leader>ee :CocCommand explorer<CR>
-nmap <Leader>ef :CocCommand explorer --present floating
-nmap <Leader>eh :CocCommand explorer --present floatingLeftside
-nmap <Leader>el :CocCommand explorer --present floatingRightside
-nmap <Leader>ev :CocCommand explorer --present .vim
+nmap <Leader>ef :CocCommand explorer --preset floating<CR>
+nmap <Leader>eh :CocCommand explorer --preset floatingLeftside<CR>
+nmap <Leader>el :CocCommand explorer --preset floatingRightside<CR>
+nmap <Leader>ev :CocCommand explorer --preset .vim<CR>
 nmap <Leader>er :call CocAction('runCommand', 'explorer.doAction', 'closest', ['reveal:0'], [['relative', 0, 'file']])<CR>
 
 let g:coc_explorer_global_presets = {

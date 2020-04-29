@@ -158,8 +158,8 @@ function s:coc_list_current_dir(args)
 endfunction
 
 function s:init_explorer()
-  nmap <Leader>fg :call <SID>coc_list_current_dir('-I grep')<CR>
-  nmap <Leader>fG :call <SID>coc_list_current_dir('-I grep -regex')<CR>
+  nmap <buffer> <Leader>fg :call <SID>coc_list_current_dir('-I grep')<CR>
+  nmap <buffer> <Leader>fG :call <SID>coc_list_current_dir('-I grep -regex')<CR>
 endfunction
 
 augroup CocExplorer

@@ -154,6 +154,9 @@ function s:coc_list_current_dir(args)
   if node_info isnot v:null && node_info['expandable']
     execute 'cd ' . node_info['fullpath']
     execute 'CocList ' . a:args
+  else
+    execute 'cd ' . fnamemodify(node_info['fullpath'], ':h')
+    execute 'CocList ' . a:args
   endif
 endfunction
 

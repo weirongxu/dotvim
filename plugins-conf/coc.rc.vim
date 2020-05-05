@@ -165,6 +165,7 @@ function s:init_explorer()
   nmap <buffer> <Leader>fG :call <SID>coc_list_current_dir('-I grep -regex')<CR>
 endfunction
 
-augroup CocExplorer
+augroup CocExplorerCustom
+  autocmd!
   autocmd FileType coc-explorer call <SID>init_explorer()
 augroup END

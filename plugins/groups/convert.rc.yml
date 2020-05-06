@@ -107,7 +107,7 @@
     - HyphenToSnakeAll
     - SnakeToCamelAll
     - SnakeToHyphenAll
-  hook_post_source: |
+  hook_post_add: |
     call coc#add_command('case.CamelToHyphen' , 'CamelToHyphen')
     call coc#add_command('case.CamelToSnake'  , 'CamelToSnake')
     call coc#add_command('case.HyphenToCamel' , 'HyphenToCamel')

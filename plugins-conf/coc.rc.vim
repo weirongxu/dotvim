@@ -34,6 +34,7 @@ let g:coc_global_extensions = [
       \ 'coc-svg',
       \ 'coc-docker',
       \ 'coc-rust-analyzer',
+      \ 'coc-actions',
       \ ]
 
 inoremap <silent><expr> <C-l> coc#refresh()
@@ -50,7 +51,11 @@ nmap [d <Plug>(coc-diagnostic-prev)
 nmap ]d <Plug>(coc-diagnostic-next)
 nmap <Leader>rn <Plug>(coc-rename)
 nmap <Leader>rf <Plug>(coc-refactor)
-nmap <Leader>ca :CocAction<CR>
+if has('nvim')
+  nmap <Leader>aa :CocCommand actions.open<CR>
+else
+  nmap <Leader>aa :CocAction<CR>
+endif
 nmap <Leader>oo <Plug>(coc-openlink)
 nmap <Leader>fx <Plug>(coc-fix-current)
 nmap <Leader>fi :CocCommand editor.action.organizeImport<CR>
@@ -151,13 +156,8 @@ let g:coc_explorer_global_presets = {
 
 function s:coc_list_current_dir(args)
   let node_info = CocAction('runCommand', 'explorer.getNodeInfo', 0)
-  if node_info isnot v:null && node_info['expandable']
-    execute 'cd ' . node_info['fullpath']
-    execute 'CocList ' . a:args
-  else
-    execute 'cd ' . fnamemodify(node_info['fullpath'], ':h')
-    execute 'CocList ' . a:args
-  endif
+  execute 'cd ' . fnamemodify(node_info['fullpath'], ':h')
+  execute 'CocList ' . a:args
 endfunction
 
 function s:init_explorer()

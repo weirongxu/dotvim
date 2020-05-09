@@ -92,7 +92,7 @@
 - repo: junegunn/vim-easy-align
   on_map: ['<Plug>(EasyAlign)', '<Plug>(LiveEasyAlign)']
   on_cmd: ['EasyAlign', 'LiveEasyAlign']
-  hook_add: vmap <Leader>a <Plug>(LiveEasyAlign)
+  hook_add: vmap <Leader>al <Plug>(LiveEasyAlign)
 - repo: chiedo/vim-case-convert
   on_cmd:
     - CamelToHyphen

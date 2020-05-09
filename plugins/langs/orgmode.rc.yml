@@ -1,2 +1,4 @@
 - repo: jceb/vim-orgmode
 - repo: mattn/calendar-vim
+  hook_add: |
+    let g:calendar_no_mappings = 1

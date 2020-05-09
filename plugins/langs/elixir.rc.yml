@@ -1,4 +1,4 @@
 - repo: elixir-editors/vim-elixir
   on_ft: elixir
-- repo: slashmili/alchemist.vim
-  on_ft: elixir
+# - repo: slashmili/alchemist.vim
+#   on_ft: elixir

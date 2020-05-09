@@ -53,8 +53,10 @@ nmap <Leader>rn <Plug>(coc-rename)
 nmap <Leader>rf <Plug>(coc-refactor)
 if has('nvim')
   nmap <Leader>aa :CocCommand actions.open<CR>
+  vmap <Leader>aa :CocCommand actions.open<CR>
 else
   nmap <Leader>aa :CocAction<CR>
+  vmap <Leader>aa :CocAction<CR>
 endif
 nmap <Leader>oo <Plug>(coc-openlink)
 nmap <Leader>fx <Plug>(coc-fix-current)
@@ -126,12 +128,16 @@ nmap <Leader>ef :CocCommand explorer --preset floating<CR>
 nmap <Leader>eh :CocCommand explorer --preset floatingLeftside<CR>
 nmap <Leader>el :CocCommand explorer --preset floatingRightside<CR>
 nmap <Leader>ev :CocCommand explorer --preset .vim<CR>
+nmap <Leader>ec :CocCommand explorer --preset cocConfig<CR>
 nmap <Leader>er :call CocAction('runCommand', 'explorer.doAction', 'closest', ['reveal:0'], [['relative', 0, 'file']])<CR>
 
 let g:coc_explorer_global_presets = {
 \   '.vim': {
 \      'root-uri': $MY_VIMFILES,
 \      'reveal': $MY_PLUGINS,
+\   },
+\   'cocConfig': {
+\      'root-uri': '~/.config/coc',
 \   },
 \   'floating': {
 \      'position': 'floating',
@@ -163,9 +169,19 @@ endfunction
 function s:init_explorer()
   nmap <buffer> <Leader>fg :call <SID>coc_list_current_dir('-I grep')<CR>
   nmap <buffer> <Leader>fG :call <SID>coc_list_current_dir('-I grep -regex')<CR>
+  nmap <buffer> <C-p> :call <SID>coc_list_current_dir('files')<CR>
+endfunction
+
+function s:enter_explorer()
+  " echom 'coc-explorer'
 endfunction
 
 augroup CocExplorerCustom
   autocmd!
   autocmd FileType coc-explorer call <SID>init_explorer()
+  autocmd BufEnter *
+        \ if &filetype == 'coc-explorer'
+        \ | call <SID>enter_explorer()
+        \ | endif
+  autocmd User CocExplorerOpenPost call <SID>enter_explorer()
 augroup END

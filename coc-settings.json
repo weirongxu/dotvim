@@ -37,15 +37,7 @@
       "command": "~/apps/KotlinLanguageServer/gradlew",
       "args": ["server:run"],
       "filetypes": ["kotlin"]
-    },
-    /* "sorbet": {                                                          */
-    /*   "command": "srb",                                                  */
-    /*   "args": ["tc", "--lsp", "--enable-all-experimental-lsp-features"], */
-    /*   "filetypes": ["ruby"],                                             */
-    /*   "rootPatterns": ["sorbet/config"],                                 */
-    /*   "initializationOptions": {},                                       */
-    /*   "settings": {}                                                     */
-    /* }                                                                    */
+    }
   },
   "prettier.singleQuote": true,
   "prettier.disableLanguages": [],

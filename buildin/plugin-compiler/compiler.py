@@ -41,6 +41,8 @@ class Config(object):
       elif manager_type == 'dein.vim':
         options['merged'] = 0
         template = "call dein#add('{}', {})"
+      else:
+        return
       self.vimscript_content.append(
         template.format(repo, parse_eval(
           json.dumps(

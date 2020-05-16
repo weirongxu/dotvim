@@ -95,8 +95,8 @@ nmap <Leader>lmp :CocList marketplace<CR>
 nmap <Leader>ld :CocList diagnostics<CR>
 nmap <Leader>ls :CocList services<CR>
 
-nmap <Leader>[l :CocPrev<CR>
-nmap <Leader>]l :CocNext<CR>
+nmap <Leader>[[ :CocPrev<CR>
+nmap <Leader>]] :CocNext<CR>
 
 " ctrl-p
 nmap <C-p> :CocList files<CR>

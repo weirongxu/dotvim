@@ -7,7 +7,7 @@ if ! exists('*Include')
         let path = a:current . '/' . a:path
       endif
       execute 'source ' . path . '.rc.vim'
-    catch E484
+    catch /^Vim\%((\a\+)\)\=:E484/
       echoerr 'Cant Include ' . a:path
     endtry
   endfunction "}}}

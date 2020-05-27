@@ -173,15 +173,11 @@ function s:init_explorer()
 endfunction
 
 function s:enter_explorer()
-  " echom 'coc-explorer'
+  setl statusline=coc-explorer
 endfunction
 
 augroup CocExplorerCustom
   autocmd!
   autocmd FileType coc-explorer call <SID>init_explorer()
-  autocmd BufEnter *
-        \ if &filetype == 'coc-explorer'
-        \ | call <SID>enter_explorer()
-        \ | endif
   autocmd User CocExplorerOpenPost call <SID>enter_explorer()
 augroup END

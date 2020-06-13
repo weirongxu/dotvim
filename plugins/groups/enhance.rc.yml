@@ -1,4 +1,5 @@
 - repo_local: ft-extend
+- repo: drmikehenry/vim-fixkey
 - repo: mhinz/vim-startify
   hook_add: |
     # set sessionoptions=blank,buffers,curdir,folds,help,resize,slash,tabpages,unix
@@ -24,10 +25,10 @@
       \ ]
     map <Leader><Leader><Leader> :Startify<CR>
   hook_post_source: |
-    call coc#add_command('session.save', 'SSave')
-    call coc#add_command('session.load', 'SLoad')
-    call coc#add_command('session.delete', 'SDelete')
-    call coc#add_command('session.close', 'SClose')
+    call AddCommand('session.save', 'SSave')
+    call AddCommand('session.load', 'SLoad')
+    call AddCommand('session.delete', 'SDelete')
+    call AddCommand('session.close', 'SClose')
 - repo: kshenoy/vim-signature
   hook_add: let g:SignatureErrorIfNoAvailableMarks = 0
 - repo: gioele/vim-autoswap

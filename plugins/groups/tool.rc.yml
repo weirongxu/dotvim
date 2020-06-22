@@ -1,13 +1,20 @@
 - repo: jaxbot/semantic-highlight.vim
   on_cmd: SemanticHighlightToggle
   hook_post_source: |
-    call coc#add_command('SemanticHighlightToggle', 'SemanticHighlightToggle')
+    call AddCommand('SemanticHighlightToggle', 'SemanticHighlightToggle')
 - repo: tpope/vim-eunuch
-  on_cmd: [
-    'Unlink', 'Remove', 'Move',
-    'Rename', 'Chmod', 'Find',
-    'Locate', 'SudoWrite', 'W',
-  ]
+  on_cmd:
+    [
+      'Unlink',
+      'Remove',
+      'Move',
+      'Rename',
+      'Chmod',
+      'Find',
+      'Locate',
+      'SudoWrite',
+      'W',
+    ]
 - repo: lambdalisue/suda.vim
   hook_add: |
     command! SudaRead  edit  suda://%
@@ -15,11 +22,25 @@
 - repo: vim-scripts/DrawIt
   on_cmd: ['DIstart', 'DIsngl', 'DIdbl', 'DIstop', 'DrawIt']
 - repo: vim-scripts/VisIncr
-  on_cmd: [
-    'I', 'II', 'IB', 'IIB', 'IO', 'IIO',
-    'IX', 'IIX', 'IYMD', 'IMDY', 'IDMY',
-    'IA', 'ID', 'IM', 'IPOW', 'IIPOW',
-  ]
+  on_cmd:
+    [
+      'I',
+      'II',
+      'IB',
+      'IIB',
+      'IO',
+      'IIO',
+      'IX',
+      'IIX',
+      'IYMD',
+      'IMDY',
+      'IDMY',
+      'IA',
+      'ID',
+      'IM',
+      'IPOW',
+      'IIPOW',
+    ]
 - repo: KabbAmine/vCoolor.vim
   hook_add: |
     let g:vcoolor_disable_mappings = 1
@@ -40,10 +61,20 @@
     - VinarisePluginDump
     - VinarisePluginViewBitmapView
 - repo: Shougo/vimshell.vim
-  on_cmd: ['VimShell', 'VimShellCreate', 'VimShellTab', 'VimShellPop',
-    'VimShellCurrentDir', 'VimShellBufferDir', 'VimShellExecute',
-    'VimShellInteractive', 'VimShellTerminal', 'VimShellSendString',
-    'VimShellSendBuffer']
+  on_cmd:
+    [
+      'VimShell',
+      'VimShellCreate',
+      'VimShellTab',
+      'VimShellPop',
+      'VimShellCurrentDir',
+      'VimShellBufferDir',
+      'VimShellExecute',
+      'VimShellInteractive',
+      'VimShellTerminal',
+      'VimShellSendString',
+      'VimShellSendBuffer',
+    ]
 - repo: diepm/vim-rest-console
   on_ft: rest
   hook_add: |
@@ -96,8 +127,8 @@
   hook_post_source: |
     command! RandomPasswordReg call setreg('"', RandPasswordInput())
     command! RandomWordsPasswordReg call setreg('"', RandPasswordInputOnlyWord())
-    call coc#add_command('random.password2reg' , 'RandomPasswordReg')
-    call coc#add_command('random.words-password2reg' , 'RandomWordsPasswordReg')
+    call AddCommand('random.password2reg' , 'RandomPasswordReg')
+    call AddCommand('random.words-password2reg' , 'RandomWordsPasswordReg')
 - repo: thinca/vim-partedit
 # - repo: h-youhei/vim-ibus
 #   if: 'g:env#unix && executable("ibus")'

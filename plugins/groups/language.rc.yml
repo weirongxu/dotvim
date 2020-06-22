@@ -3,6 +3,6 @@
   hook_add: |
     let g:online_thesaurus_map_keys = 0
   hook_post_source: |
-    call coc#add_command('OnlineThesaurusCurrentWord', 'OnlineThesaurusCurrentWord')
+    call AddCommand('OnlineThesaurusCurrentWord', 'OnlineThesaurusCurrentWord')
 - repo: rhysd/vim-grammarous
   on_cmd: GrammarousCheck

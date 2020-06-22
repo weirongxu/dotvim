@@ -108,10 +108,10 @@
     - SnakeToCamelAll
     - SnakeToHyphenAll
   hook_post_add: |
-    call coc#add_command('case.CamelToHyphen' , 'CamelToHyphen')
-    call coc#add_command('case.CamelToSnake'  , 'CamelToSnake')
-    call coc#add_command('case.HyphenToCamel' , 'HyphenToCamel')
-    call coc#add_command('case.HyphenToSnake' , 'HyphenToSnake')
-    call coc#add_command('case.SnakeToCamel'  , 'SnakeToCamel')
-    call coc#add_command('case.SnakeToHyphen' , 'SnakeToHyphen')
+    call AddCommand('case.CamelToHyphen', 'CamelToHyphen')
+    call AddCommand('case.CamelToSnake',  'CamelToSnake')
+    call AddCommand('case.HyphenToCamel', 'HyphenToCamel')
+    call AddCommand('case.HyphenToSnake', 'HyphenToSnake')
+    call AddCommand('case.SnakeToCamel',  'SnakeToCamel')
+    call AddCommand('case.SnakeToHyphen', 'SnakeToHyphen')
 - repo: tpope/vim-abolish

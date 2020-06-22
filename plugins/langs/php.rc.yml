@@ -13,4 +13,4 @@
 
 - repo_local: php-cs-fixer
   hook_post_source: |
-    call coc#add_command('php-fixer', 'PhpFixer')
+    call AddCommand('php-fixer', 'PhpFixer')

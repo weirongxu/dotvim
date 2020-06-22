@@ -46,6 +46,7 @@
   "coc.source.word.priority": 1,
   "codeLens.enable": true,
   "html.autoClosingTags": true,
+  "explorer.file.column.git.showIgnored": true,
   "list.normalMappings": {
     "q": "do:exit"
   },

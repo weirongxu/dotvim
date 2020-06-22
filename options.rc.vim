@@ -3,7 +3,7 @@ lang en_US.UTF-8
 " UI
 if g:env#gui
   set guioptions=
-  set guitablabel=%t\ %M number showmatch scrolloff=5 ruler
+  set guitablabel=%t\ %M number showmatch ruler
   set showtabline=2
 
   " Menu
@@ -21,6 +21,8 @@ function! s:update_number(timer)
   endif
 endfunction
 autocmd BufCreate,BufCreate * call timer_start(100, function('s:update_number'))
+
+set scrolloff=5
 
 if &shell =~ 'fish'
   set shell=bash

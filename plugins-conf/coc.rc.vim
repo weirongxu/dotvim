@@ -53,7 +53,7 @@ nmap <Leader>rn <Plug>(coc-rename)
 nmap <Leader>rf <Plug>(coc-refactor)
 if has('nvim')
   nmap <Leader>aa :CocCommand actions.open<CR>
-  vmap <Leader>aa :CocCommand actions.open<CR>
+  xmap <leader>aa :<C-u>execute 'CocCommand actions.open ' . visualmode()<CR>
 else
   nmap <Leader>aa :CocAction<CR>
   vmap <Leader>aa :CocAction<CR>

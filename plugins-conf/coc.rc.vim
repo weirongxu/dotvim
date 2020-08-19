@@ -49,7 +49,7 @@ nmap gi <Plug>(coc-implementation)
 nmap gr <Plug>(coc-references)
 nmap [d <Plug>(coc-diagnostic-prev)
 nmap ]d <Plug>(coc-diagnostic-next)
-nmap <Leader>rn <Plug>(coc-rename)
+nmap <Leader>rn <Plug>(coc-floatinput-rename)
 nmap <Leader>rf <Plug>(coc-refactor)
 if has('nvim')
   nmap <Leader>aa :CocCommand actions.open<CR>
@@ -160,24 +160,31 @@ let g:coc_explorer_global_presets = {
 \   }
 \ }
 
-function s:coc_list_current_dir(args)
+function! s:coc_list_current_dir(args)
   let node_info = CocAction('runCommand', 'explorer.getNodeInfo', 0)
   execute 'cd ' . fnamemodify(node_info['fullpath'], ':h')
   execute 'CocList ' . a:args
 endfunction
 
-function s:init_explorer()
-  nmap <buffer> <Leader>fg :call <SID>coc_list_current_dir('-I grep')<CR>
-  nmap <buffer> <Leader>fG :call <SID>coc_list_current_dir('-I grep -regex')<CR>
-  nmap <buffer> <C-p> :call <SID>coc_list_current_dir('files')<CR>
+function! s:init_explorer(bufnr)
+  call setbufvar(a:bufnr, '&winblend', 50)
 endfunction
 
-function s:enter_explorer()
+function! s:enter_explorer()
+  if !exists('b:has_enter_coc_explorer') && &filetype == 'coc-explorer'
+    nmap <buffer> <Leader>fg :call <SID>coc_list_current_dir('-I grep')<CR>
+    nmap <buffer> <Leader>fG :call <SID>coc_list_current_dir('-I grep -regex')<CR>
+    nmap <buffer> <C-p> :call <SID>coc_list_current_dir('files')<CR>
+    let b:has_enter_coc_explorer = v:true
+  endif
   setl statusline=coc-explorer
 endfunction
 
 augroup CocExplorerCustom
   autocmd!
-  autocmd FileType coc-explorer call <SID>init_explorer()
-  autocmd User CocExplorerOpenPost call <SID>enter_explorer()
+  autocmd BufEnter call <SID>enter_explorer()
 augroup END
+
+function! CocExplorerInited(filetype, bufnr)
+  call setbufvar(a:bufnr, '&winblend', 10)
+endfunction

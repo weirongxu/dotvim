@@ -152,6 +152,7 @@ set noautochdir
 set wildignore=
 
 set autoread
+set splitright
 
 set clipboard-=autoselect
 

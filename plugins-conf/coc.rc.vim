@@ -49,7 +49,11 @@ nmap gi <Plug>(coc-implementation)
 nmap gr <Plug>(coc-references)
 nmap [d <Plug>(coc-diagnostic-prev)
 nmap ]d <Plug>(coc-diagnostic-next)
-nmap <Leader>rn <Plug>(coc-floatinput-rename)
+if has('nvim')
+  nmap <Leader>rn <Plug>(coc-floatinput-rename)
+else
+  nmap <Leader>rn <Plug>(coc-rename)
+endif
 nmap <Leader>rf <Plug>(coc-refactor)
 if has('nvim')
   nmap <Leader>aa :CocCommand actions.open<CR>
@@ -125,11 +129,16 @@ nmap <Leader>cC <Plug>(coc-calc-result-replace)
 " coc-explorer
 nmap <Leader>ee :CocCommand explorer<CR>
 nmap <Leader>ef :CocCommand explorer --preset floating<CR>
+nmap <Leader>et :CocCommand explorer --preset tab<CR>
 nmap <Leader>eh :CocCommand explorer --preset floatingLeftside<CR>
 nmap <Leader>el :CocCommand explorer --preset floatingRightside<CR>
 nmap <Leader>ev :CocCommand explorer --preset .vim<CR>
 nmap <Leader>ec :CocCommand explorer --preset cocConfig<CR>
 nmap <Leader>er :call CocAction('runCommand', 'explorer.doAction', 'closest', ['reveal:0'], [['relative', 0, 'file']])<CR>
+
+autocmd ColorScheme *
+      \ hi CocHelperNormalFloatBorder guifg=#dddddd guibg=#575B54
+      \ | hi CocHelperNormalFloat guibg=#575B54
 
 let g:coc_explorer_global_presets = {
 \   '.vim': {
@@ -138,6 +147,10 @@ let g:coc_explorer_global_presets = {
 \   },
 \   'cocConfig': {
 \      'root-uri': '~/.config/coc',
+\   },
+\   'tab': {
+\      'position': 'tab',
+\      'quit-on-open': v:true,
 \   },
 \   'floating': {
 \      'position': 'floating',

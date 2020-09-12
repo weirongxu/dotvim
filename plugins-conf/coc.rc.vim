@@ -49,6 +49,8 @@ nmap gi <Plug>(coc-implementation)
 nmap gr <Plug>(coc-references)
 nmap [d <Plug>(coc-diagnostic-prev)
 nmap ]d <Plug>(coc-diagnostic-next)
+nmap [D <Plug>(coc-diagnostic-prev-error)
+nmap ]D <Plug>(coc-diagnostic-next-error)
 if has('nvim')
   nmap <Leader>rn <Plug>(coc-floatinput-rename)
 else

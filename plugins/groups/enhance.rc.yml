@@ -32,6 +32,7 @@
 - repo: kshenoy/vim-signature
   hook_add: let g:SignatureErrorIfNoAvailableMarks = 0
 - repo: gioele/vim-autoswap
+  if: '!has("win32")'
 - repo: tpope/vim-repeat
 - repo: andymass/vim-matchup
   hook_add: |

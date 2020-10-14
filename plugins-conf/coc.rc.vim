@@ -184,8 +184,8 @@ function! s:coc_list_current_dir(args)
   execute 'CocList ' . a:args
 endfunction
 
-function! s:init_explorer(bufnr)
-  set winblend=50
+function! s:init_explorer()
+  set winblend=10
   nmap <buffer> <Leader>fg :call <SID>coc_list_current_dir('-I grep')<CR>
   nmap <buffer> <Leader>fG :call <SID>coc_list_current_dir('-I grep -regex')<CR>
   nmap <buffer> <C-p> :call <SID>coc_list_current_dir('files')<CR>

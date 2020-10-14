@@ -197,7 +197,7 @@ endfunction
 
 augroup CocExplorerCustom
   autocmd!
-  autocmd BufEnter call <SID>enter_explorer()
+  autocmd BufEnter * call <SID>enter_explorer()
 augroup END
 
 function! CocExplorerInited(filetype, bufnr)

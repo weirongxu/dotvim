@@ -186,7 +186,7 @@ function! s:init_explorer(bufnr)
 endfunction
 
 function! s:enter_explorer()
-  if filetype == 'coc-explorer'
+  if &filetype == 'coc-explorer'
     if !exists('b:has_enter_coc_explorer')
       nmap <buffer> <Leader>fg :call <SID>coc_list_current_dir('-I grep')<CR>
       nmap <buffer> <Leader>fG :call <SID>coc_list_current_dir('-I grep -regex')<CR>

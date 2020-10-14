@@ -1,1 +1,2 @@
 - repo: lervag/vimtex
+  hook_add: let g:tex_flavor = "latex"

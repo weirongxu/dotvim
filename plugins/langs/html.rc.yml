@@ -4,13 +4,16 @@
   on_ft: EVAL(g:env#web_assets_type_list)
   hook_add: |
     let g:user_emmet_settings = {
-    \  'javascript' : {
-    \     'extends' : 'jsx',
+    \  'javascript': {
+    \     'extends': 'jsx',
     \  },
-    \  'typescript' : {
-    \     'extends' : 'jsx',
+    \  'typescript': {
+    \     'extends': 'jsx',
     \  },
-    \  'typescript.tsx' : {
-    \     'extends' : 'jsx',
+    \  'typescriptreact': {
+    \     'extends': 'jsx',
+    \  },
+    \  'typescript.tsx': {
+    \     'extends': 'jsx',
     \  },
     \}

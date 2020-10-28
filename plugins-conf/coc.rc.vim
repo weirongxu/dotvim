@@ -129,19 +129,6 @@ nmap <Leader>cc <Plug>(coc-calc-result-append)
 nmap <Leader>cC <Plug>(coc-calc-result-replace)
 
 " coc-explorer
-nmap <Leader>ee :CocCommand explorer<CR>
-nmap <Leader>ef :CocCommand explorer --preset floating<CR>
-nmap <Leader>et :CocCommand explorer --preset tab<CR>
-nmap <Leader>eh :CocCommand explorer --preset floatingLeftside<CR>
-nmap <Leader>el :CocCommand explorer --preset floatingRightside<CR>
-nmap <Leader>ev :CocCommand explorer --preset .vim<CR>
-nmap <Leader>ec :CocCommand explorer --preset cocConfig<CR>
-nmap <Leader>er :call CocAction('runCommand', 'explorer.doAction', 'closest', ['reveal:0'], [['relative', 0, 'file']])<CR>
-
-autocmd ColorScheme *
-      \ hi CocHelperNormalFloatBorder guifg=#dddddd guibg=#575B54
-      \ | hi CocHelperNormalFloat guibg=#575B54
-
 let g:coc_explorer_global_presets = {
 \   '.vim': {
 \      'root-uri': $MY_VIMFILES,

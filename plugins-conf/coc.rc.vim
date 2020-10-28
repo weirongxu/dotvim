@@ -182,17 +182,15 @@ function! s:coc_list_current_dir(args)
 endfunction
 
 function! s:init_explorer(bufnr)
-  call setbufvar(a:bufnr, '&winblend', 50)
+  set winblend=50
+  nmap <buffer> <Leader>fg :call <SID>coc_list_current_dir('-I grep')<CR>
+  nmap <buffer> <Leader>fG :call <SID>coc_list_current_dir('-I grep -regex')<CR>
+  nmap <buffer> <C-p> :call <SID>coc_list_current_dir('files')<CR>
 endfunction
 
 function! s:enter_explorer()
   if &filetype == 'coc-explorer'
-    if !exists('b:has_enter_coc_explorer')
-      nmap <buffer> <Leader>fg :call <SID>coc_list_current_dir('-I grep')<CR>
-      nmap <buffer> <Leader>fG :call <SID>coc_list_current_dir('-I grep -regex')<CR>
-      nmap <buffer> <C-p> :call <SID>coc_list_current_dir('files')<CR>
-      let b:has_enter_coc_explorer = v:true
-    endif
+    " statusline
     setl statusline=coc-explorer
   endif
 endfunction
@@ -200,11 +198,8 @@ endfunction
 augroup CocExplorerCustom
   autocmd!
   autocmd BufEnter * call <SID>enter_explorer()
+  autocmd FileType coc-explorer call <SID>init_explorer()
 augroup END
-
-function! CocExplorerInited(filetype, bufnr)
-  call setbufvar(a:bufnr, '&winblend', 10)
-endfunction
 
 if has('nvim')
   function! s:is_float(winnr) abort

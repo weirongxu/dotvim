@@ -172,8 +172,24 @@ let g:coc_explorer_global_presets = {
 \   },
 \   'simplify': {
 \     'file.child.template': '[selection | clip | 1] [indent][icon | 1] [filename omitCenter 1]'
-\   }
+\   },
+\   'git': {
+\     'sources': 'git+'
+\   },
 \ }
+nmap <Leader>ee :CocCommand explorer<CR>
+nmap <Leader>ef :CocCommand explorer --preset floating<CR>
+nmap <Leader>et :CocCommand explorer --preset tab<CR>
+nmap <Leader>eh :CocCommand explorer --preset floatingLeftside<CR>
+nmap <Leader>el :CocCommand explorer --preset floatingRightside<CR>
+nmap <Leader>ev :CocCommand explorer --preset .vim<CR>
+nmap <Leader>ec :CocCommand explorer --preset cocConfig<CR>
+nmap <Leader>eg :CocCommand explorer --preset git<CR>
+nmap <Leader>er :call CocAction('runCommand', 'explorer.doAction', 'closest', ['reveal:0'], [['relative', 0, 'file']])<CR>
+
+autocmd ColorScheme *
+      \ hi CocHelperNormalFloatBorder guifg=#dddddd guibg=#575B54
+      \ | hi CocHelperNormalFloat guibg=#575B54
 
 function! s:coc_list_current_dir(args)
   let node_info = CocAction('runCommand', 'explorer.getNodeInfo', 0)

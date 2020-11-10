@@ -3,6 +3,7 @@
   hook_add: |
     map <Leader>gs :Gina status --opener=split<CR>
     map <Leader>gc :Gina commit --opener=split<CR>
+    map <Leader>gC :Gina commit --amend --opener=split<CR>
     map <Leader>gp :Gina push<CR>
     map <Leader>gl :Gina pull --rebase<CR>
     map <Leader>gL :Gina pull<CR>

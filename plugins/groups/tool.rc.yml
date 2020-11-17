@@ -137,3 +137,6 @@
 #     let g:ibus#engine = 'rime'
 # - repo: h-youhei/vim-fcitx
 #   if: 'g:env#unix && executable("fcitx-remote")'
+- repo: voldikss/vim-floaterm
+  hook_add: |
+    nmap <Leader>ft :FloatermNew --wintype=floating<CR>

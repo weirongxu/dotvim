@@ -22,7 +22,6 @@ let g:coc_global_extensions = [
       \ 'coc-highlight',
       \ 'coc-ultisnips',
       \ 'coc-phpls',
-      \ 'coc-python',
       \ 'coc-solargraph',
       \ 'coc-vimtex',
       \ 'coc-calc',

@@ -159,8 +159,11 @@ let g:coc_explorer_global_presets = {
 \   'simplify': {
 \     'file.child.template': '[selection | clip | 1] [indent][icon | 1] [filename omitCenter 1]'
 \   },
+\   'buffer': {
+\     'sources': [{'name': 'buffer', 'expand': v:true}]
+\   },
 \   'git': {
-\     'sources': 'git+'
+\     'sources': [{'name': 'git', 'expand': v:true}]
 \   },
 \ }
 nmap <Leader>ee :CocCommand explorer<CR>
@@ -170,6 +173,7 @@ nmap <Leader>eh :CocCommand explorer --preset floatingLeftside<CR>
 nmap <Leader>el :CocCommand explorer --preset floatingRightside<CR>
 nmap <Leader>ev :CocCommand explorer --preset .vim<CR>
 nmap <Leader>ec :CocCommand explorer --preset cocConfig<CR>
+nmap <Leader>eb :CocCommand explorer --preset buffer<CR>
 nmap <Leader>eg :CocCommand explorer --preset git<CR>
 nmap <Leader>er :call CocAction('runCommand', 'explorer.doAction', 'closest', ['reveal:0'], [['relative', 0, 'file']])<CR>
 

@@ -8,6 +8,12 @@
     map <Leader>gl :Gina pull --rebase<CR>
     map <Leader>gL :Gina pull<CR>
   hook_post_source: |
+    function s:gina_change()
+      if exists('#User#CocGitStatusChange')
+        doautocmd <nomodeline> User CocGitStatusChange
+      endif
+    endfunction
+    call gina#core#emitter#subscribe('modified', function('s:gina_change'))
     call extend(g:gina#command#browse#translation_patterns, {
       \ 'coding.net': [
       \   [

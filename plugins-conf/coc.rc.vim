@@ -33,7 +33,6 @@ let g:coc_global_extensions = [
       \ 'coc-svg',
       \ 'coc-docker',
       \ 'coc-rust-analyzer',
-      \ 'coc-actions',
       \ ]
 
 inoremap <silent><expr> <C-l> coc#refresh()
@@ -56,13 +55,8 @@ else
   nmap <Leader>rn <Plug>(coc-rename)
 endif
 nmap <Leader>rf <Plug>(coc-refactor)
-if has('nvim')
-  nmap <Leader>aa :CocCommand actions.open<CR>
-  xmap <leader>aa :<C-u>execute 'CocCommand actions.open ' . visualmode()<CR>
-else
-  nmap <Leader>aa :CocAction<CR>
-  vmap <Leader>aa :CocAction<CR>
-endif
+nmap <Leader>aa :CocAction<CR>
+vmap <Leader>aa :CocAction<CR>
 nmap <Leader>oo <Plug>(coc-openlink)
 nmap <Leader>fx <Plug>(coc-fix-current)
 nmap <Leader>fi :CocCommand editor.action.organizeImport<CR>

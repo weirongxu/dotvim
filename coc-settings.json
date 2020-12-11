@@ -46,6 +46,10 @@
   "coc.source.word.priority": 1,
   "codeLens.enable": true,
   "html.autoClosingTags": true,
+  "explorer.keyMappings.global": {
+    "j": ["wait", "nodeNext"],
+    "k": ["wait", "nodePrev"]
+  },
   "explorer.git.showIgnored": true,
   "explorer.filename.colored.enable": true,
   "list.normalMappings": {

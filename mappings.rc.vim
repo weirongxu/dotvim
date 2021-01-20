@@ -1,4 +1,4 @@
-" <leader>
+" <Leader>
 let mapleader = "\<Space>"
 let maplocalleader = "\<Space>"
 
@@ -21,20 +21,45 @@ cmap <C-b>q `
 
 " Clipboard
 vmap <S-Del> "+x
-vmap <leader>x "+x
-map <leader>x "+x
+vmap <Leader>x "+x
+map <Leader>x "+x
 
 vmap <C-Insert> "+y
-vmap <leader>y "+y
-map <leader>y "+y
-map <leader>Y "+Y
+vmap <Leader>y "+y
+map <Leader>y "+y
+map <Leader>Y "+Y
 
 map <S-Insert> "+p
-map <leader>p "+p
-map <leader>P "+P
+map <Leader>p "+p
+map <Leader>P "+P
+
+function TogglePaste()
+  if &paste
+    set nopaste
+    echo 'nopaste'
+  else
+    set paste
+    echo 'paste'
+  endif
+endfunction
+map <silent> <Leader><Leader>p :call TogglePaste()<CR>
+function OffPaste(...)
+  if &paste
+    set nopaste
+    echo 'nopaste'
+  endif
+endfunction
+function TmpEnterPaste()
+  if !&paste
+    set paste
+    echo 'paste'
+  endif
+  call timer_start(5000, 'OffPaste')
+endfunction
+imap <silent> <C-V> <C-o>:call TmpEnterPaste()<CR>
 
 " align code
-noremap <leader><leader>cl :set cuc!<CR>
+noremap <Leader><Leader>cl :set cuc!<CR>
 
 " control cursour by alt
 inoremap <silent> <M-h> <C-o>h

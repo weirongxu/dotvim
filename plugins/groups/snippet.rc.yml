@@ -1,8 +1,1 @@
-- repo: SirVer/ultisnips
-  hook_add: |
-    let g:UltiSnipsExpandTrigger = "<tab>"
-    let g:UltiSnipsJumpForwardTrigger = "<c-j>"
-    let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
-    let g:UltiSnipsEditSplit = "vertical"
-    set clipboard-=autoselect
 - repo: honza/vim-snippets

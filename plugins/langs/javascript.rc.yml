@@ -1,8 +1,8 @@
 # - repo: pangloss/vim-javascript
 # - repo_local: js-indent
 # - repo: rschmukler/pangloss-vim-indent
-- repo: leafgarland/typescript-vim
-  on_ft: 'typescript'
+# - repo: leafgarland/typescript-vim
+#   on_ft: 'typescript'
 # - repo: othree/yajs.vim
 # - repo: othree/es.next.syntax.vim
 - repo: othree/javascript-libraries-syntax.vim

@@ -55,6 +55,8 @@ if has('nvim')
 else
   nmap <Leader>rn <Plug>(coc-rename)
 endif
+nmap <silent> <Leader>: <Plug>(coc-floatinput-command)
+nmap <silent> <Leader>c: <Plug>(coc-floatinput-coc-command)
 nmap <Leader>rf <Plug>(coc-refactor)
 nmap <Leader>aa :CocAction<CR>
 vmap <Leader>aa :CocAction<CR>

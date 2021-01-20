@@ -12,6 +12,7 @@ let g:coc_global_extensions = [
       \ 'coc-yaml',
       \ 'coc-eslint',
       \ 'coc-prettier',
+      \ 'coc-snippets',
       \ 'coc-tag',
       \ 'coc-dictionary',
       \ 'coc-word',
@@ -103,6 +104,16 @@ nmap <C-p> :CocList files<CR>
 " actions
 nmap <Leader>ccp :call CocAction("pickColor")<CR>
 nmap <Leader>ccP :call CocAction("colorPresentation")<CR>
+
+" snippets
+inoremap <silent><expr> <TAB>
+      \ coc#expandableOrJumpable() ?
+      \ "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ "\<TAB>"
+vmap <Tab> <Plug>(coc-snippets-select)
+let g:coc_snippet_next = '<c-j>'
+let g:coc_snippet_prev = '<c-k>'
+xmap <leader>x  <Plug>(coc-convert-snippet)
 
 " coc-git
 nmap [c <Plug>(coc-git-prevchunk)

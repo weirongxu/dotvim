@@ -1,5 +1,5 @@
 snippet f "" w
-function(${1}) {${0:TARGET}}
+function(${1}) {${0}}
 endsnippet
 
 snippet aw "" w
@@ -7,26 +7,26 @@ await
 endsnippet
 
 snippet af "" w
-(${1}) => {${0:TARGET}}
+(${1}) => {${0}}
 endsnippet
 
 snippet iife
-(function(${1:#:attribute}) {${0:TARGET}})()
+(function(${1:#:attribute}) {${0}})()
 endsnippet
 
 snippet aiife
-((${1}) => {${0:TARGET}})()
+((${1}) => {${0}})()
 endsnippet
 
 snippet forin
 for (${1:let} ${2:i} in ${3:#:Things}) {
-	${0:TARGET}
+	${0}
 }
 endsnippet
 
 snippet forof
 for (${1:let} ${2:val} of ${3:#:Things}) {
-	${0:TARGET}
+	${0}
 }
 endsnippet
 
@@ -38,15 +38,15 @@ setInterval(() => { ${0} }, ${1:10})
 endsnippet
 
 snippet log
-console.log(${0:TARGET})
+console.log(${0})
 endsnippet
 
 snippet dir
-console.dir(${0:TARGET})
+console.dir(${0})
 endsnippet
 
 snippet error
-console.error(${0:TARGET})
+console.error(${0})
 endsnippet
 
 snippet im

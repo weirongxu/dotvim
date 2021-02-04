@@ -8,7 +8,7 @@
     map <Leader>gl :Gina pull --rebase<CR>
     map <Leader>gL :Gina pull<CR>
   hook_post_source: |
-    function s:gina_change()
+    function! s:gina_change()
       if exists('#User#CocGitStatusChange')
         doautocmd <nomodeline> User CocGitStatusChange
       endif

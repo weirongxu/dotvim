@@ -8,15 +8,22 @@
 - repo: coderifous/textobj-word-column.vim
   hook_add: |
     let g:skip_default_textobj_word_column_mappings = 1
-    xnoremap <silent> ab :<C-u>call TextObjWordBasedColumn("aw")<cr>
-    xnoremap <silent> aB :<C-u>call TextObjWordBasedColumn("aW")<cr>
-    xnoremap <silent> ib :<C-u>call TextObjWordBasedColumn("iw")<cr>
-    xnoremap <silent> iB :<C-u>call TextObjWordBasedColumn("iW")<cr>
-    onoremap <silent> ab :call TextObjWordBasedColumn("aw")<cr>
-    onoremap <silent> aB :call TextObjWordBasedColumn("aW")<cr>
-    onoremap <silent> ib :call TextObjWordBasedColumn("iw")<cr>
-    onoremap <silent> iB :call TextObjWordBasedColumn("iW")<cr>
+    xnoremap <silent> a<space>w :<C-u>call TextObjWordBasedColumn("aw")<cr>
+    xnoremap <silent> a<space>W :<C-u>call TextObjWordBasedColumn("aW")<cr>
+    xnoremap <silent> i<space>w :<C-u>call TextObjWordBasedColumn("iw")<cr>
+    xnoremap <silent> i<space>W :<C-u>call TextObjWordBasedColumn("iW")<cr>
+    onoremap <silent> a<space>w :call TextObjWordBasedColumn("aw")<cr>
+    onoremap <silent> a<space>W :call TextObjWordBasedColumn("aW")<cr>
+    onoremap <silent> i<space>w :call TextObjWordBasedColumn("iw")<cr>
+    onoremap <silent> i<space>W :call TextObjWordBasedColumn("iW")<cr>
 - repo: thinca/vim-textobj-between
+  hook_add: |
+    let g:textobj_between_no_default_key_mappings = 1
+  hook_post_source: |
+    xnoremap <silent> a<space>f <Plug>(textobj-between-a)
+    xnoremap <silent> i<space>f <Plug>(textobj-between-i)
+    onoremap <silent> a<space>f <Plug>(textobj-between-a)
+    onoremap <silent> i<space>f <Plug>(textobj-between-i)
 - repo: kana/vim-textobj-lastpat
 - repo: kana/vim-textobj-syntax
 - repo: kana/vim-textobj-fold

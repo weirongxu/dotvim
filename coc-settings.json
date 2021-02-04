@@ -1,17 +1,5 @@
 {
   "languageserver": {
-    "dart": {
-      "command": "dart_language_server",
-      "args": [],
-      "filetypes": ["dart"],
-      "initializationOptions": {},
-      "settings": {
-        "dart": {
-          "validation": {},
-          "completion": {}
-        }
-      }
-    },
     "haskell-ide-engine": {
       "command": "stack",
       "args": ["exec", "--", "hie"],
@@ -32,11 +20,6 @@
     "elixir-ls": {
       "command": "~/apps/elixir-ls/release/language_server.sh",
       "filetypes": ["elixir", "eelixir"]
-    },
-    "kotlin": {
-      "command": "~/apps/KotlinLanguageServer/gradlew",
-      "args": ["server:run"],
-      "filetypes": ["kotlin"]
     }
   },
   "prettier.singleQuote": true,
@@ -47,6 +30,7 @@
   "coc.source.word.priority": 1,
   "codeLens.enable": true,
   "html.autoClosingTags": true,
+  "solargraph.useBundler": true,
   "explorer.keyMappings.global": {
     "j": ["wait", "nodeNext"],
     "k": ["wait", "nodePrev"]

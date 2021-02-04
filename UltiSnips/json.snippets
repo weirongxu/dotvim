@@ -35,3 +35,62 @@ endsnippet
 snippet onlyYarn "only allow yarn script" b
 "preinstall": "npx only-allow yarn",
 endsnippet
+
+snippet prettierrc "prettierrc" b
+{
+	"singleQuote": true,
+	"trailingComma": "all",
+	"arrowParens": "always",
+	"semi": true,
+	"printWidth": 80
+}
+endsnippet
+
+snippet eslintrc "eslintrc" b
+{
+	"root": true,
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"sourceType": "module",
+		"jsx": true,
+		"project": "tsconfig.json"
+	},
+	"plugins": ["@typescript-eslint"],
+	"env": {
+		"es6": true
+	},
+	"rules": {
+		"semi": ["error", "always"],
+		"guard-for-in": "error",
+		"comma-dangle": ["error", "always-multiline"],
+		"quotes": ["error", "single", { "avoidEscape": true }],
+		"curly": ["error", "all"],
+		"eqeqeq": ["error", "always", { "null": "ignore" }],
+		"prefer-const": [
+			"error",
+			{
+				"destructuring": "any",
+				"ignoreReadBeforeAssign": true
+			}
+		],
+		"@typescript-eslint/no-floating-promises": [
+			"error",
+			{
+				"ignoreVoid": true
+			}
+		],
+		"@typescript-eslint/no-misused-promises": [
+			"error",
+			{
+				"checksConditionals": true,
+				"checksVoidReturn": false
+			}
+		],
+		"no-console": ["error"]
+	}
+}
+endsnippet
+
+snippet eslintScript "eslint script" b
+"lint": "eslint src --ext .js,.ts",
+endsnippet

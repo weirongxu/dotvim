@@ -79,7 +79,7 @@ autocmd ColorScheme *
       \ | hi CocWarningHighlight guibg=#806022
       \ | hi CocInfoHighlight guibg=#806022
       \ | hi CocHintHighlight guibg=#224290
-autocmd CursorHold * silent call CocActionAsync('highlight')
+" autocmd CursorHold * silent call CocActionAsync('highlight')
 
 nmap <Leader>lr :CocListResume<CR>
 nmap <Leader>ll :CocList<CR>
@@ -125,10 +125,10 @@ nmap <Leader>ggc <Plug>(coc-git-commit)
 nmap <Leader>g< :CocCommand git.chunkStage<CR>
 nmap <Leader>g= :CocCommand git.chunkUndo<CR>
 nmap <Leader>lg :CocList gstatus<CR>
-omap ic <Plug>(coc-git-chunk-inner)
-xmap ic <Plug>(coc-git-chunk-inner)
-omap ac <Plug>(coc-git-chunk-outer)
-xmap ac <Plug>(coc-git-chunk-outer)
+omap igc <Plug>(coc-git-chunk-inner)
+xmap igc <Plug>(coc-git-chunk-inner)
+omap agc <Plug>(coc-git-chunk-outer)
+xmap agc <Plug>(coc-git-chunk-outer)
 
 " coc-calc
 nmap <Leader>cc <Plug>(coc-calc-result-append)
@@ -183,6 +183,15 @@ nmap <Leader>ec :CocCommand explorer --preset cocConfig<CR>
 nmap <Leader>eb :CocCommand explorer --preset buffer<CR>
 nmap <Leader>eg :CocCommand explorer --preset git<CR>
 nmap <Leader>er :call CocAction('runCommand', 'explorer.doAction', 'closest', ['reveal:0'], [['relative', 0, 'file']])<CR>
+
+xmap if <Plug>(coc-funcobj-i)
+omap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap af <Plug>(coc-funcobj-a)
+xmap ic <Plug>(coc-classobj-i)
+omap ic <Plug>(coc-classobj-i)
+xmap ac <Plug>(coc-classobj-a)
+omap ac <Plug>(coc-classobj-a)
 
 autocmd ColorScheme *
       \ hi CocHelperNormalFloatBorder guifg=#dddddd guibg=#575B54

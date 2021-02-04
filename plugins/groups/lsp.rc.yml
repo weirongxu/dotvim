@@ -7,3 +7,5 @@
   # hook_post_update: {-> coc#util#install()}
   hook_add: |
     Include /plugins-conf/coc
+  hook_source: |
+    Include /plugins-conf/coc-source

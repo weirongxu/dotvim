@@ -79,7 +79,7 @@ autocmd ColorScheme *
       \ | hi CocWarningHighlight guibg=#806022
       \ | hi CocInfoHighlight guibg=#806022
       \ | hi CocHintHighlight guibg=#224290
-" autocmd CursorHold * silent call CocActionAsync('highlight')
+autocmd CursorHold * silent call CocActionAsync('highlight')
 
 nmap <Leader>lr :CocListResume<CR>
 nmap <Leader>ll :CocList<CR>

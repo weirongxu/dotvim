@@ -246,13 +246,13 @@ if has('nvim')
     while nr > 0
       if !s:is_float(nr)
         if nr == 1
-          :only
-          break
+          only
         endif
+        break
       endif
       let nr -= 1
     endwhile
-    :quit
+    quit
   endfunction
 
   nmap <silent> <c-w>q :call <SID>quit()<CR>

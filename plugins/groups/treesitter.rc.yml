@@ -1,14 +1,17 @@
 - repo: nvim-treesitter/nvim-treesitter
-  if: g:env#nvim && executable('gcc')
+  if: "g:env#nvim && executable('gcc')"
   build: TSUpdate
   hook_post_source: |
     lua <<EOF
     require'nvim-treesitter.configs'.setup {
       ensure_installed = "all",
+      highlight = {
+        enable = true,
+      }
     }
     EOF
 - repo: nvim-treesitter/nvim-treesitter-refactor
-  if: g:env#nvim && executable('gcc')
+  if: "g:env#nvim && executable('gcc')"
   hook_post_source: |
     lua <<EOF
     require'nvim-treesitter.configs'.setup {
@@ -51,15 +54,17 @@
         },
         swap = {
           enable = true,
-          swap_next = {
-            ["gh"] = "@parameter.inner",
-          },
-          swap_previous = {
-            ["gl"] = "@parameter.inner",
-          },
+          -- swap_next = {
+          --   ["gh"] = "@parameter.inner",
+          -- },
+          -- swap_previous = {
+          --   ["gl"] = "@parameter.inner",
+          -- },
         },
       },
     }
     EOF
 - repo: romgrk/nvim-treesitter-context
+  if: "g:env#nvim && executable('gcc')"
 - repo: nvim-treesitter/playground
+  if: "g:env#nvim && executable('gcc')"

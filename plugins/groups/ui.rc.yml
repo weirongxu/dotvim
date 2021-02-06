@@ -1,8 +1,5 @@
 - repo: ryanoasis/vim-devicons
-- repo: hardcoreplayers/spaceline.vim
-  hook_add: |
-    let g:spaceline_seperate_style = 'none'
-    let g:spaceline_line_symbol = 1
+- repo: liuchengxu/eleline.vim
 
 - repo: Yggdroot/indentLine
   hook_add: |

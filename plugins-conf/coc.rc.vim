@@ -55,17 +55,17 @@ if has('nvim')
 else
   nmap <Leader>rn <Plug>(coc-rename)
 endif
-nmap <silent> <Leader>: <Plug>(coc-floatinput-command)
-nmap <silent> <Leader>c: <Plug>(coc-floatinput-coc-command)
+nmap <Leader>: <Plug>(coc-floatinput-command)
+nmap <Leader>c: <Plug>(coc-floatinput-coc-command)
 nmap <Leader>rf <Plug>(coc-refactor)
-nmap <Leader>aa :CocAction<CR>
-vmap <Leader>aa :CocAction<CR>
+nnoremap <Leader>aa :CocAction<CR>
+vnoremap <Leader>aa :CocAction<CR>
 nmap <Leader>oo <Plug>(coc-openlink)
 nmap <Leader>fx <Plug>(coc-fix-current)
-nmap <Leader>fi :CocCommand editor.action.organizeImport<CR>
+nnoremap <Leader>fi :CocCommand editor.action.organizeImport<CR>
 nmap <Leader>ff <Plug>(coc-format)
 vmap <Leader>ff <Plug>(coc-format-selected)
-nmap <silent> K :call <SID>show_documentation()<CR>
+nnoremap <silent> K :call <SID>show_documentation()<CR>
 function! s:show_documentation()
   if index(['vim', 'help'], &filetype) >= 0
     execute 'h '.expand('<cword>')
@@ -81,31 +81,31 @@ autocmd ColorScheme *
       \ | hi CocHintHighlight guibg=#224290
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
-nmap <Leader>lr :CocListResume<CR>
-nmap <Leader>ll :CocList<CR>
-nmap <Leader>lb :CocList --normal buffers<CR>
-nmap <Leader>fg :CocList -I grep<CR>
-nmap <Leader>fG :CocList -I grep -regex <CR>
-nmap <Leader>fcg :exe 'CocList --normal -I --input='.expand('<cword>').' grep'<CR>
-nmap <Leader>lc :CocList commands<CR>
-nmap <Leader>lC :CocList vimcommands<CR>
-nmap <Leader>lCh :CocList cmdhistory<CR>
-nmap <Leader>l/ :CocList searchhistory<CR>
-nmap <Leader>lo :CocList outline<CR>
-nmap <Leader>le :CocList extensions<CR>
-nmap <Leader>lmp :CocList marketplace<CR>
-nmap <Leader>ld :CocList diagnostics<CR>
-nmap <Leader>ls :CocList services<CR>
+nnoremap <Leader>lr :CocListResume<CR>
+nnoremap <Leader>ll :CocList<CR>
+nnoremap <Leader>lb :CocList --normal buffers<CR>
+nnoremap <Leader>fg :CocList -I grep<CR>
+nnoremap <Leader>fG :CocList -I grep -regex <CR>
+nnoremap <Leader>fcg :exe 'CocList --normal -I --input='.expand('<cword>').' grep'<CR>
+nnoremap <Leader>lc :CocList commands<CR>
+nnoremap <Leader>lC :CocList vimcommands<CR>
+nnoremap <Leader>lCh :CocList cmdhistory<CR>
+nnoremap <Leader>l/ :CocList searchhistory<CR>
+nnoremap <Leader>lo :CocList outline<CR>
+nnoremap <Leader>le :CocList extensions<CR>
+nnoremap <Leader>lmp :CocList marketplace<CR>
+nnoremap <Leader>ld :CocList diagnostics<CR>
+nnoremap <Leader>ls :CocList services<CR>
 
-nmap <Leader>[[ :CocPrev<CR>
-nmap <Leader>]] :CocNext<CR>
+nnoremap <Leader>[[ :CocPrev<CR>
+nnoremap <Leader>]] :CocNext<CR>
 
 " ctrl-p
-nmap <C-p> :CocList files<CR>
+nnoremap <C-p> :CocList files<CR>
 
 " actions
-nmap <Leader>ccp :call CocAction("pickColor")<CR>
-nmap <Leader>ccP :call CocAction("colorPresentation")<CR>
+nnoremap <Leader>ccp :call CocAction("pickColor")<CR>
+nnoremap <Leader>ccP :call CocAction("colorPresentation")<CR>
 
 " snippets
 inoremap <silent><expr> <TAB>
@@ -122,9 +122,9 @@ nmap [c <Plug>(coc-git-prevchunk)
 nmap ]c <Plug>(coc-git-nextchunk)
 nmap <Leader>gi <Plug>(coc-git-chunkinfo)
 nmap <Leader>ggc <Plug>(coc-git-commit)
-nmap <Leader>g< :CocCommand git.chunkStage<CR>
-nmap <Leader>g= :CocCommand git.chunkUndo<CR>
-nmap <Leader>lg :CocList gstatus<CR>
+nnoremap <Leader>g< :CocCommand git.chunkStage<CR>
+nnoremap <Leader>g= :CocCommand git.chunkUndo<CR>
+nnoremap <Leader>lg :CocList gstatus<CR>
 omap igc <Plug>(coc-git-chunk-inner)
 xmap igc <Plug>(coc-git-chunk-inner)
 omap agc <Plug>(coc-git-chunk-outer)
@@ -173,16 +173,16 @@ let g:coc_explorer_global_presets = {
 \     'sources': [{'name': 'git', 'expand': v:true}]
 \   },
 \ }
-nmap <Leader>ee :CocCommand explorer<CR>
-nmap <Leader>ef :CocCommand explorer --preset floating<CR>
-nmap <Leader>et :CocCommand explorer --preset tab<CR>
-nmap <Leader>eh :CocCommand explorer --preset floatingLeftside<CR>
-nmap <Leader>el :CocCommand explorer --preset floatingRightside<CR>
-nmap <Leader>ev :CocCommand explorer --preset .vim<CR>
-nmap <Leader>ec :CocCommand explorer --preset cocConfig<CR>
-nmap <Leader>eb :CocCommand explorer --preset buffer<CR>
-nmap <Leader>eg :CocCommand explorer --preset git<CR>
-nmap <Leader>er :call CocAction('runCommand', 'explorer.doAction', 'closest', ['reveal:0'], [['relative', 0, 'file']])<CR>
+nnoremap <Leader>ee :CocCommand explorer<CR>
+nnoremap <Leader>ef :CocCommand explorer --preset floating<CR>
+nnoremap <Leader>et :CocCommand explorer --preset tab<CR>
+nnoremap <Leader>eh :CocCommand explorer --preset floatingLeftside<CR>
+nnoremap <Leader>el :CocCommand explorer --preset floatingRightside<CR>
+nnoremap <Leader>ev :CocCommand explorer --preset .vim<CR>
+nnoremap <Leader>ec :CocCommand explorer --preset cocConfig<CR>
+nnoremap <Leader>eb :CocCommand explorer --preset buffer<CR>
+nnoremap <Leader>eg :CocCommand explorer --preset git<CR>
+nnoremap <Leader>er :call CocAction('runCommand', 'explorer.doAction', 'closest', ['reveal:0'], [['relative', 0, 'file']])<CR>
 
 xmap if <Plug>(coc-funcobj-i)
 omap if <Plug>(coc-funcobj-i)
@@ -214,9 +214,9 @@ function! s:init_explorer()
   " Integration with other plugins
 
   " CocList
-  nmap <buffer> <Leader>fg :call <SID>exec_cur_dir('CocList -I grep')<CR>
-  nmap <buffer> <Leader>fG :call <SID>exec_cur_dir('CocList -I grep -regex')<CR>
-  nmap <buffer> <C-p> :call <SID>exec_cur_dir('CocList files')<CR>
+  nnoremap <buffer> <Leader>fg :call <SID>exec_cur_dir('CocList -I grep')<CR>
+  nnoremap <buffer> <Leader>fG :call <SID>exec_cur_dir('CocList -I grep -regex')<CR>
+  nnoremap <buffer> <C-p> :call <SID>exec_cur_dir('CocList files')<CR>
 
   " vim-floaterm
   nmap <buffer> <Leader>ft :call <SID>exec_cur_dir('FloatermNew --wintype=floating')<CR>

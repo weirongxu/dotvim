@@ -37,7 +37,7 @@
     }
     EOF
 - repo: nvim-treesitter/nvim-treesitter-textobjects
-  if: g:env#nvim && executable('gcc')
+  if: "g:env#nvim && executable('gcc')"
   hook_post_source: |
     lua <<EOF
     require'nvim-treesitter.configs'.setup {

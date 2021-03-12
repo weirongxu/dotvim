@@ -160,17 +160,19 @@ set clipboard-=autoselect
 set noerrorbells visualbell t_vb= tm=500
 autocmd GUIEnter * set vb t_vb=
 
-" backup
-for it in [['undodir', 'undo'], ['backupdir', 'backup'], ['directory', 'swap']]
-  let dir = g:env#tmp . '/' . it[1]
-  if !isdirectory(dir)
-    call mkdir(dir, 'p', 0700)
-  endif
-  execute printf('let &%s = "%s"', it[0], dir)
-endfor
-set undofile
-set backup writebackup swapfile
-set updatetime=300
+if !g:env#win
+  " backup
+  for it in [['undodir', 'undo'], ['backupdir', 'backup'], ['directory', 'swap']]
+    let dir = g:env#tmp . '/' . it[1]
+    if !isdirectory(dir)
+      call mkdir(dir, 'p', 0700)
+    endif
+    execute printf('let &%s = "%s"', it[0], dir)
+  endfor
+  set undofile
+  set backup writebackup swapfile
+  set updatetime=300
+endif
 
 " highlight 80th column
 function! s:set_colorcolumn() "{{{

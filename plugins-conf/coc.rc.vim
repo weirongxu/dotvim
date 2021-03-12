@@ -21,7 +21,6 @@ let g:coc_global_extensions = [
       \ 'coc-emoji',
       \ 'coc-emmet',
       \ 'coc-highlight',
-      \ 'coc-ultisnips',
       \ 'coc-phpls',
       \ 'coc-solargraph',
       \ 'coc-vimtex',

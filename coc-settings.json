@@ -24,6 +24,8 @@
   },
   "prettier.singleQuote": true,
   "prettier.disableLanguages": [],
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
   "snippets.priority": 10,
   "snippets.userSnippetsDirectory": "~/.vim/UltiSnips",
   "coc.source.buffer.priority": 5,

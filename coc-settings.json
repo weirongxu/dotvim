@@ -26,6 +26,8 @@
   "prettier.disableLanguages": [],
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
+  "typescript.autoClosingTags": true,
+  "javascript.autoClosingTags": true,
   "snippets.priority": 10,
   "snippets.userSnippetsDirectory": "~/.vim/UltiSnips",
   "coc.source.buffer.priority": 5,

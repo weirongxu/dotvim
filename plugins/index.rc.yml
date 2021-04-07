@@ -29,6 +29,7 @@
 - repos_include: groups/list.rc.yml
 - repos_include: groups/utils.rc.yml
 - repos_include: groups/vcs.rc.yml
+- repos_include: groups/copy-paste.rc.yml
 # - repos_include: langs/**
 - repos_include: langs/autohotkey.rc.yml
 - repos_include: langs/c.rc.yml

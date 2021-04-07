@@ -85,5 +85,3 @@
 # - repo: Shougo/deol.nvim
 
 - repo: tpope/vim-unimpaired
-
-- repo: roxma/vim-tmux-clipboard

@@ -1,0 +1,22 @@
+- repo: roxma/vim-tmux-clipboard
+# - repo: machakann/vim-highlightedyank
+- repo: haya14busa/vim-operator-flashy
+  if: g:env#x
+  on_map: '<Plug>(operator-flashy)'
+  depends: vim-operator-user
+  hook_add: |
+    map y <Plug>(operator-flashy)
+    nmap Y <Plug>(operator-flashy)$
+- repo: MaxMEllon/vim-shiny
+  hook_add: |
+    # let g:vim_shiny_window_change = 1
+    nmap p  <Plug>(shiny-p)
+    nmap P  <Plug>(shiny-P)
+    nmap gp <Plug>(shiny-gp)
+    nmap gP <Plug>(shiny-gP)
+- repo: ojroques/vim-oscyank
+  hook_add: |
+    autocmd TextYankPost *
+      \ if v:event.operator is 'y' && v:event.regname is '+'
+      \| OSCYankReg +
+      \| endif

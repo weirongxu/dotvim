@@ -20,6 +20,10 @@
     "elixir-ls": {
       "command": "~/apps/elixir-ls/release/language_server.sh",
       "filetypes": ["elixir", "eelixir"]
+    },
+    "crystalline": {
+      "command": "crystalline",
+      "filetypes": ["crystal"]
     }
   },
   "prettier.singleQuote": true,

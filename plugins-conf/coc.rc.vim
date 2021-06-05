@@ -193,8 +193,10 @@ xmap ac <Plug>(coc-classobj-a)
 omap ac <Plug>(coc-classobj-a)
 
 autocmd ColorScheme *
-      \ hi CocHelperNormalFloatBorder guifg=#dddddd guibg=#575B54
-      \ | hi CocHelperNormalFloat guibg=#575B54
+      \ hi CocHelperNormalFloatBorder guifg=#dddddd guibg=#373B34
+      \ | hi CocHelperNormalFloat guibg=#373B34
+      \ | hi CocExplorerNormalFloatBorder guifg=#dddddd guibg=#373B34
+      \ | hi CocExplorerNormalFloat guibg=#373B34
 
 function! s:explorer_cur_dir()
   let node_info = CocAction('runCommand', 'explorer.getNodeInfo', 0)
@@ -203,12 +205,11 @@ endfunction
 
 function! s:exec_cur_dir(cmd)
   let dir = s:explorer_cur_dir()
-  execute 'cd ' . dir
-  execute a:cmd
+  execute substitute(a:cmd, '\V%cwd', dir, 'g')
 endfunction
 
 function! s:init_explorer()
-  set winblend=10
+  " set winblend=10
 
   " Integration with other plugins
 
@@ -218,7 +219,7 @@ function! s:init_explorer()
   nnoremap <buffer> <C-p> :call <SID>exec_cur_dir('CocList files')<CR>
 
   " vim-floaterm
-  nmap <buffer> <Leader>ft :call <SID>exec_cur_dir('FloatermNew --wintype=floating')<CR>
+  nmap <buffer> <Leader>ft :call <SID>exec_cur_dir('FloatermToggle --wintype=floating)<CR>
 endfunction
 
 function! s:enter_explorer()

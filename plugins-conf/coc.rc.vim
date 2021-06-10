@@ -219,7 +219,7 @@ function! s:init_explorer()
   nnoremap <buffer> <C-p> :call <SID>exec_cur_dir('CocList files')<CR>
 
   " vim-floaterm
-  nmap <buffer> <Leader>ft :call <SID>exec_cur_dir('FloatermToggle --wintype=floating)<CR>
+  nmap <buffer> <Leader>ft :call <SID>exec_cur_dir('FloatermToggle --wintype=floating')<CR>
 endfunction
 
 function! s:enter_explorer()

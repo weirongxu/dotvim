@@ -39,6 +39,8 @@
   "codeLens.enable": true,
   "html.autoClosingTags": true,
   "solargraph.useBundler": true,
+  "coc.source.emoji.filetypes": null,
+  "workspace.bottomUpFiletypes": ["python"],
   "explorer.keyMappings.global": {
     "j": ["wait", "nodeNext"],
     "k": ["wait", "nodePrev"]

@@ -25,30 +25,15 @@
 # Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
 
 snippet onlyNpm "only allow npm script" b
-"engines": {
-	"pnpm": "please-use-npm",
-	"yarn": "please-use-npm",
-	"node": ">=14.0.0",
-	"npm": ">=6.0.0"
-},
+"preinstall": "npx only-allow npm"
 endsnippet
 
 snippet onlyPnpm "only allow pnpm script" b
-"engines": {
-	"npm": "please-use-pnpm",
-	"yarn": "please-use-pnpm",
-	"node": ">=14.0.0",
-	"pnpm": ">=6.0.0"
-},
+"preinstall": "npx only-allow pnpm"
 endsnippet
 
 snippet onlyYarn "only allow yarn script" b
-"engines": {
-	"npm": "please-use-yarn",
-	"pnpm": "please-use-yarn",
-	"node": ">=14.0.0",
-	"yarn": "^1.0.0"
-},
+"preinstall": "npx only-allow yarn"
 endsnippet
 
 snippet prettierrc "prettierrc" b

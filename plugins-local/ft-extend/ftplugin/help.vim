@@ -1,4 +1,5 @@
 " nmap <buffer> <CR> <C-]>
+nmap <buffer> gd <C-]>
 nmap <buffer> <BS> <C-O>
 nmap <buffer> q <C-w>q
 setlocal keywordprg=:help

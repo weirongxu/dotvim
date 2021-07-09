@@ -130,3 +130,6 @@ command! SynStack call SynStack()
 " path
 " command! EchoPath echo expand("%:p")
 command! CdHere exec 'cd ' expand("%:p:h")
+
+" edit
+command! -bar -range=% Reverse <line1>,<line2>g/^/m<line1>-1|nohl

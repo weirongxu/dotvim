@@ -20,10 +20,10 @@
   hook_add: |
     let g:textobj_between_no_default_key_mappings = 1
   hook_post_source: |
-    xnoremap <silent> a<space>f <Plug>(textobj-between-a)
-    xnoremap <silent> i<space>f <Plug>(textobj-between-i)
-    onoremap <silent> a<space>f <Plug>(textobj-between-a)
-    onoremap <silent> i<space>f <Plug>(textobj-between-i)
+    xmap a<space>f <Plug>(textobj-between-a)
+    xmap i<space>f <Plug>(textobj-between-i)
+    omap a<space>f <Plug>(textobj-between-a)
+    omap i<space>f <Plug>(textobj-between-i)
 - repo: kana/vim-textobj-lastpat
 - repo: kana/vim-textobj-syntax
 - repo: kana/vim-textobj-fold

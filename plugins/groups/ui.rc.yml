@@ -1,4 +1,6 @@
 - repo: ryanoasis/vim-devicons
+- repo: kyazdani42/nvim-web-devicons
+  if: g:env#nvim
 - repo: liuchengxu/eleline.vim
 
 - repo: Yggdroot/indentLine

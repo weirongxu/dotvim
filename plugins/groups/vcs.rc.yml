@@ -5,8 +5,12 @@
     map <Leader>gc :Gina commit --opener=split<CR>
     map <Leader>gC :Gina commit --amend --opener=split<CR>
     map <Leader>gp :Gina push<CR>
+    map <Leader>grb<space> :Gina rebase 
+    map <Leader>grbc :Gina rebase --continue<CR>
+    map <Leader>grbs :Gina rebase --skip<CR>
     map <Leader>gl :Gina pull --rebase<CR>
     map <Leader>gL :Gina pull<CR>
+    map <Leader>gh :Gina log<CR>
   hook_post_source: |
     function! s:gina_change()
       if exists('#User#CocGitStatusChange')
@@ -38,6 +42,7 @@
 #   on_cmd: ['GV', 'GV!', 'GV?']
 # - repo: mhinz/vim-signify
 # - repo: rhysd/committia.vim
+# - repo: tpope/vim-fugitive
 - repo: jaxbot/github-issues.vim
   on_cmd: ['Gissues', 'Giadd', 'Giedit', 'Giupdate', 'Gmiles']
   hook_add: |

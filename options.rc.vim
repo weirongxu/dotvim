@@ -4,7 +4,6 @@ lang en_US.UTF-8
 if g:env#gui
   set guioptions=
   set guitablabel=%t\ %M number showmatch ruler
-  set showtabline=2
 
   " Menu
   command! Menu if &guioptions =~# 'm' |
@@ -13,6 +12,7 @@ if g:env#gui
         \set guioptions+=mr |
         \endif
 endif
+set showtabline=2
 
 set number
 function! s:update_number(timer)
@@ -35,6 +35,14 @@ set fileformats=unix,dos,mac
 set fileencoding=utf-8 encoding=utf-8
 set fileformat=unix
 
+set background=dark
+
+" t_Co gui-font
+if g:env#x
+  set t_Co=256
+  set termguicolors
+endif
+
 " Colorscheme
 try
   " colorscheme Tomorrow-Night-Eighties
@@ -50,13 +58,6 @@ catch /^Vim\%((\a\+)\)\=:E185/
   endtry
 endtry
 
-set background=dark
-
-" t_Co gui-font
-if g:env#x
-  set t_Co=256
-  set termguicolors
-endif
 " if g:env#mac
 "   set guifont=Monaco:h12
 " elseif g:env#win

@@ -1,6 +1,26 @@
 - repo: ryanoasis/vim-devicons
 - repo: kyazdani42/nvim-web-devicons
   if: g:env#nvim
+  hook_post_source: |
+    lua<<EOF
+    local devicons = require('nvim-web-devicons')
+    local override = {
+      ["spec.js"] = {
+        icon = "",
+        color = "#ffc600",
+        name = "TsTest",
+      },
+      ["spec.ts"] = {
+        icon = "",
+        color = "#ffc600",
+        name = "TsTest",
+      },
+    }
+    devicons.setup {
+      override = override,
+      default = true,
+    }
+    EOF
 - repo: liuchengxu/eleline.vim
 
 - repo: Yggdroot/indentLine

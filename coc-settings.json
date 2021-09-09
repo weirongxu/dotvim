@@ -26,6 +26,8 @@
       "filetypes": ["crystal"]
     }
   },
+  "coc.source.buffer.priority": 5,
+  "coc.source.word.priority": 1,
   "prettier.singleQuote": true,
   "prettier.disableLanguages": [],
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
@@ -34,8 +36,6 @@
   "javascript.autoClosingTags": true,
   "snippets.priority": 10,
   "snippets.userSnippetsDirectory": "~/.vim/UltiSnips",
-  "coc.source.buffer.priority": 5,
-  "coc.source.word.priority": 1,
   "codeLens.enable": true,
   "html.autoClosingTags": true,
   "solargraph.useBundler": true,
@@ -47,6 +47,8 @@
   },
   "explorer.git.showIgnored": true,
   "explorer.filename.colored.enable": true,
+  "webview.colorStrategy": "dark",
+  "markdown-preview-enhanced.previewTheme": "github-dark.css",
   "list.normalMappings": {
     "q": "do:exit"
   },

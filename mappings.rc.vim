@@ -3,10 +3,10 @@ let mapleader = "\<Space>"
 let maplocalleader = "\<Space>"
 
 " save
-noremap <silent> <C-s> :w<CR>
-inoremap <silent> <C-s> <C-o>:w<CR>
-noremap <silent> <D-s> :w<CR>
-nnoremap <silent> <Leader>s :w<CR>
+map <silent> <C-s> <Cmd>w<CR>
+imap <silent> <C-s> <Cmd>w<CR>
+map <silent> <D-s> <Cmd>w<CR>
+nmap <silent> <Leader>s <Cmd>w<CR>
 
 " fold
 noremap <RightMouse> <LeftMouse>za
@@ -42,7 +42,7 @@ function TogglePaste()
     echo 'paste'
   endif
 endfunction
-map <silent> <Leader><Leader>p :call TogglePaste()<CR>
+map <silent> <Leader><Leader>p <Cmd>call TogglePaste()<CR>
 function OffPaste(...)
   if &paste
     set nopaste
@@ -59,7 +59,7 @@ endfunction
 imap <silent> <C-V> <C-o>:call TmpEnterPaste()<CR>
 
 " align code
-noremap <Leader><Leader>cl :set cuc!<CR>
+map <Leader><Leader>cl <Cmd>set cuc!<CR>
 
 " control cursour by alt
 inoremap <silent> <M-h> <C-o>h
@@ -72,20 +72,20 @@ noremap <silent> <C-W><Up> 5<C-w>+
 noremap <silent> <C-W><Down> 5<C-w>-
 noremap <silent> <C-W><Right> 5<C-w>>
 noremap <silent> <C-W><Left> 5<C-w><
-noremap <silent> <C-h> :wincmd h<CR>
-noremap <silent> <C-j> :wincmd j<CR>
-noremap <silent> <C-k> :wincmd k<CR>
-noremap <silent> <C-l> :wincmd l<CR>
+map <silent> <C-h> <Cmd>wincmd h<CR>
+map <silent> <C-j> <Cmd>wincmd j<CR>
+map <silent> <C-k> <Cmd>wincmd k<CR>
+map <silent> <C-l> <Cmd>wincmd l<CR>
 
 " tab control
-noremap <silent> gn :tab split<CR>
-noremap <silent> gN :tab new<CR>
-noremap <silent> <C-tab> :tabnext<CR>
-noremap <silent> <S-l> :tabnext<CR>
-noremap <silent> <C-S-tab> :tabprevious<CR>
-noremap <silent> <S-h> :tabprevious<CR>
-noremap <silent> <S-Left> :tabmove -1<CR>
-noremap <silent> <S-Right> :tabmove +1<CR>
+map <silent> gn <Cmd>tab split<CR>
+map <silent> gN <Cmd>tab new<CR>
+map <silent> <C-tab> <Cmd>tabnext<CR>
+map <silent> <S-l> <Cmd>tabnext<CR>
+map <silent> <C-S-tab> <Cmd>tabprevious<CR>
+map <silent> <S-h> <Cmd>tabprevious<CR>
+map <silent> <S-Left> <Cmd>tabmove -1<CR>
+map <silent> <S-Right> <Cmd>tabmove +1<CR>
 
 " jump to end of line while in Insert Mode
 inoremap <C-e> <C-o>$
@@ -94,7 +94,7 @@ cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 
 " add semicolon
-nmap <silent> <M-;> :call <SID>AppendMark(';')<CR>
+nmap <silent> <M-;> <Cmd>call <SID>AppendMark(';')<CR>
 fun! s:AppendMark(mark)
   let lines = getline('.')
   if match(lines, '[' . a:mark . '{]\s*$') == -1

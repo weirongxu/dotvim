@@ -44,13 +44,13 @@
 - repo: KabbAmine/vCoolor.vim
   hook_add: |
     let g:vcoolor_disable_mappings = 1
-    map <Leader>vc :VCoolor<CR>
+    map <Leader>vc <Cmd>VCoolor<CR>
 - repo: januswel/sweepbuf.vim
   on_cmd: SweepBuffers
 - repo: szw/vim-maximizer
   on_cmd: MaximizerToggle
   hook_add: |
-    map <Leader>m :MaximizerToggle<CR>
+    map <Leader>m <Cmd>MaximizerToggle<CR>
 - repo: weirongxu/fixdir.vim
   on_cmd: FixDir
 - repo: Shougo/vinarise.vim
@@ -114,14 +114,14 @@
       \['', 'en'],
       \['', 'zh-TW'],
       \]
-    map <Leader>tr :Trans<CR>
-    map <Leader>ts :TransSelectDirection<CR>
-    map <Leader>ti :TransInteractive<CR>
-    map <Leader>th :TransOpenHistoryWindow<CR>
+    map <Leader>tr <Cmd>Trans<CR>
+    map <Leader>ts <Cmd>TransSelectDirection<CR>
+    map <Leader>ti <Cmd>TransInteractive<CR>
+    map <Leader>th <Cmd>TransOpenHistoryWindow<CR>
 - repo_local: translate-shell-speak
   hook_add: |
-    map <Leader>tp :call translate_shell_speak#speak_cursor_work()<CR>
-    vmap <Leader>tp :call translate_shell_speak#speak_visual()<CR>
+    map <Leader>tp <Cmd>call translate_shell_speak#speak_cursor_work()<CR>
+    vmap <Leader>tp <Cmd>call translate_shell_speak#speak_visual()<CR>
 - repo_local: convert-tmp
 - repo_local: rand_password
   hook_post_source: |
@@ -139,4 +139,4 @@
 #   if: 'g:env#unix && executable("fcitx-remote")'
 - repo: voldikss/vim-floaterm
   hook_add: |
-    nmap <Leader>ft :FloatermNew --wintype=floating<CR>
+    nmap <Leader>ft <Cmd>FloatermNew --wintype=floating<CR>

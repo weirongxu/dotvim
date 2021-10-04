@@ -23,7 +23,7 @@
       \ ['   Last Recently Use:'],
       \ 'files',
       \ ]
-    map <Leader><Leader><Leader> :Startify<CR>
+    map <Leader><Leader><Leader> <Cmd>Startify<CR>
   hook_post_source: |
     call AddCommand('session.save', 'SSave')
     call AddCommand('session.load', 'SLoad')
@@ -70,10 +70,10 @@
 - repo: liuchengxu/vim-which-key
   on_cmd: ['WhichKey', 'WhichKey!']
   hook_add: |
-    nnoremap <silent> <Leader> :WhichKey '<Leader>'<CR>
-    vnoremap <silent> <Leader> :<c-u>WhichKeyVisual '<Leader>'<CR>
-    nnoremap <silent> <Leader>kg :WhichKey 'g'<CR>
-    vnoremap <silent> <Leader>kg :WhichKeyVisual 'g'<CR>
+    nmap <silent> <Leader> <Cmd>WhichKey '<Leader>'<CR>
+    vmap <silent> <Leader> :<C-U>WhichKeyVisual '<Leader>'<CR>
+    nmap <silent> <Leader>kg <Cmd>WhichKey 'g'<CR>
+    vmap <silent> <Leader>kg :<C-U>WhichKeyVisual 'g'<CR>
 
 - repo: tweekmonster/braceless.vim
   hook_add: |

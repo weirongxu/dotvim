@@ -1,7 +1,7 @@
 - repo: thinca/vim-quickrun
   on_cmd: QuickRun
   hook_add: |
-    map <c-q> :Quickrun<CR>
+    map <c-q> <Cmd>QuickRun<CR>
     let g:quickrun_config = {
       \  'scss': {
       \    'type': executable('node-sass') ? 'scss/nodejs':

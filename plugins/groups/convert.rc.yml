@@ -10,8 +10,8 @@
 #   on_map: ['g<', 'g>', 'gs']
 - repo: AndrewRadev/sideways.vim
   hook_add: |
-    nnoremap gh :SidewaysLeft<CR>
-    nnoremap gl :SidewaysRight<CR>
+    nmap gh <Cmd>SidewaysLeft<CR>
+    nmap gl <Cmd>SidewaysRight<CR>
     omap a, <Plug>SidewaysArgumentTextobjA
     xmap a, <Plug>SidewaysArgumentTextobjA
     omap i, <Plug>SidewaysArgumentTextobjI
@@ -82,8 +82,8 @@
       endif
     endfunction
 
-    nnoremap <silent> <Leader>w :call Argwrap()<CR>
-    nnoremap <silent> <Leader>W :call NoTailArgwrap()<CR>
+    nmap <silent> <Leader>w <Cmd>call Argwrap()<CR>
+    nmap <silent> <Leader>W <Cmd>call NoTailArgwrap()<CR>
     let g:argwrap_tail_comma_braces = '{['
 - repo: dhruvasagar/vim-table-mode
   on_map: <Leader><Leader>tm

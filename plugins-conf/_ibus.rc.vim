@@ -15,5 +15,5 @@ function! s:inseart_enter() "{{{
 endfunction "}}}
 au InsertLeave * call s:inseart_leave()
 au InsertEnter * call s:inseart_enter()
-nnoremap <silent> <C-_> :let g:ibus#enabled=1-g:ibus#enabled<cr>
-inoremap <silent> <C-_> <C-o>:let g:ibus#enabled=1-g:ibus#enabled<cr>
+nmap <silent> <C-_> <Cmd>let g:ibus#enabled=1-g:ibus#enabled<CR>
+imap <silent> <C-_> <Cmd>let g:ibus#enabled=1-g:ibus#enabled<CR>

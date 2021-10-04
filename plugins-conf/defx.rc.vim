@@ -29,8 +29,8 @@ function! DefxExplorer(dir, reveal)
   execute l:cmd . ' ' . a:dir
 endfunction
 
-nnoremap <silent> <leader>ge :call DefxExplorer("`getcwd()`", "`expand('%:p')`")<CR>
-nnoremap <silent> <leader>gE :call DefxExplorer("`$MY_VIMFILES`", "`$MY_PLUGINS`")<CR>
+nnoremap <silent> <leader>ge <Cmd>call DefxExplorer("`getcwd()`", "`expand('%:p')`")<CR>
+nnoremap <silent> <leader>gE <Cmd>call DefxExplorer("`$MY_VIMFILES`", "`$MY_PLUGINS`")<CR>
 function! s:defx_settings()
   nnoremap <silent><buffer><expr> <CR>  defx#do_action('open')
   nnoremap <silent><buffer><expr> <BS>  defx#do_action('cd', ['..'])

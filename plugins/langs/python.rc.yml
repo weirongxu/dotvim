@@ -18,4 +18,4 @@
 #   hook_add: |
 #     let g:pydocstring_enable_mapping = 0
 #   hook_post_source: |
-#     nnoremap <buffer> <leader>8 :Pydocstring<CR>
+#     nmap <buffer> <leader>8 <Cmd>Pydocstring<CR>

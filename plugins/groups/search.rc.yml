@@ -76,6 +76,6 @@
 #       let g:Lf_WorkingDirectory = getcwd()
 #       Leaderf file
 #     endfunction
-#     map <C-P> :call Lf_ShortcutF()<CR>
+#     map <C-P> <Cmd>call Lf_ShortcutF()<CR>
 # - repo: mhinz/vim-grepper
 #   on_cmd: Grepper

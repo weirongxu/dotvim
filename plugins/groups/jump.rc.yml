@@ -1,17 +1,27 @@
 - repo: majutsushi/tagbar
-  on_cmd: ['TagbarOpen', 'TagbarClose', 'TagbarToggle', 'Tagbar',
-    'TagbarOpenAutoClose', 'TagbarTogglePause',
-    'TagbarSetFoldlevel', 'TagbarShowTag',
-    'TagbarCurrentTag', 'TagbarGetTypeConfig',
-    'TagbarDebug', 'TagbarDebugEnd']
+  on_cmd:
+    [
+      'TagbarOpen',
+      'TagbarClose',
+      'TagbarToggle',
+      'Tagbar',
+      'TagbarOpenAutoClose',
+      'TagbarTogglePause',
+      'TagbarSetFoldlevel',
+      'TagbarShowTag',
+      'TagbarCurrentTag',
+      'TagbarGetTypeConfig',
+      'TagbarDebug',
+      'TagbarDebugEnd',
+    ]
   hook_add: |
     let g:tagbar_show_linenumbers = 1
-    map <Leader>tt :TagbarToggle<CR>
+    map <Leader>tt <Cmd>TagbarToggle<CR>
     Include /plugins-conf/tagbar
   hook_source: Pkg npm install jsctags
 - repo: liuchengxu/vista.vim
   hook_add: |
-    map <Leader>tv :Vista coc<CR>
+    map <Leader>tv <Cmd>Vista coc<CR>
 - repo: wesleyche/SrcExpl
   on_cmd: ['SrcExpl', 'SrcExplClose', 'SrcExplToggle']
 - repo: Lokaltog/vim-easymotion

@@ -2,10 +2,10 @@
 " 比如用unite, 不过兼容性会下降吧.
 " such as unite and textshift.vim
 " " 删除所有行首空格
-" nnoremap <F9> :%s/^[ ]\+//g<CR>
+" nmap <F9> <Cmd>%s/^[ ]\+//g<CR>
 "
 " " 所有 中文全角空格 替换为 两个英文半角空格
-" nnoremap <C-F9> :%s/\%d41377/  /g<CR>
+" nmap <C-F9> <Cmd>%s/\%d41377/  /g<CR>
 "
 " " tab转为4个空格
 " command! TabToSpace :%s/\t/    /g
@@ -26,23 +26,23 @@
 "   %s/\%d41912/8/g
 "   %s/\%d41913/9/g
 " endfunc
-" nnoremap <C-F10> :call NumReplace()<CR>
+" nmap <C-F10> <Cmd>call NumReplace()<CR>
 "
 " " 在行尾添加 ^M 字符 失败
-" " nnoremap <F10> :%s/$//g<CR>
+" " nmap <F10> <Cmd>%s/$//g<CR>
 "
 " " 清除php不标准的标签
 " command! EchoPhpStd :%s/<?=/<?php echo /g<CR>
 " command! TagPhpStd /^<?[^p]\|<?[^p]\|<?$\|^<?$<CR>laphp
 "
 " " 删除所有行尾的 ^M 字符
-" nnoremap <F11> :%s/\r[ \t\r]*$//g<CR>
+" nmap <F11> <Cmd>%s/\r[ \t\r]*$//g<CR>
 " " 所有的 ^M  字符 替换为 换行符
-" nnoremap <C-F11> :%s/ *\r */\r/g<CR>
+" nmap <C-F11> <Cmd>%s/ *\r */\r/g<CR>
 "
 " " 删除所有行未尾空格
-" nnoremap <F12> :%s/[ \t\r]\+$//g<CR>
+" nmap <F12> <Cmd>%s/[ \t\r]\+$//g<CR>
 "
 " " astyle --style=ansi   ansi格式化
-" " map <C-F12> :!astyle --style=ansi -s4 -b -p %<CR>
-" map <C-F12> :!astyle --style=java --indent=spaces=4 --pad-header --unpad-paren --break-closing-brackets --pad-oper %<CR>
+" " map <C-F12> <Cmd>!astyle --style=ansi -s4 -b -p %<CR>
+" map <C-F12> <Cmd>!astyle --style=java --indent=spaces=4 --pad-header --unpad-paren --break-closing-brackets --pad-oper %<CR>

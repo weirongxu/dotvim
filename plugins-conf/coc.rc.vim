@@ -66,12 +66,15 @@ nmap <Leader>ff <Plug>(coc-format)
 vmap <Leader>ff <Plug>(coc-format-selected)
 nmap <silent> K <Cmd>call <SID>show_documentation()<CR>
 function! s:show_documentation()
-  if index(['vim', 'help'], &filetype) >= 0
+  if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
   else
-    call CocAction('doHover')
+    execute '!' . &keywordprg . " " . expand('<cword>')
   endif
 endfunction
+
 autocmd ColorScheme *
       \ hi CocHighlightText ctermbg=242 guibg=#404040
       \ | hi CocErrorHighlight guibg=#802020

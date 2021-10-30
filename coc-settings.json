@@ -28,6 +28,7 @@
   },
   "coc.source.buffer.priority": 5,
   "coc.source.word.priority": 1,
+  "tree.key.toggle": "o",
   "prettier.singleQuote": true,
   "prettier.disableLanguages": [],
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,

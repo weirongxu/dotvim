@@ -1,6 +1,7 @@
 - repo: lambdalisue/gina.vim
   if: g:env#async
   hook_add: |
+    cabbr git Gina
     map <Leader>gs <Cmd>Gina status --opener=split<CR>
     map <Leader>gc <Cmd>Gina commit --opener=split<CR>
     map <Leader>gC <Cmd>Gina commit --amend --opener=split<CR>

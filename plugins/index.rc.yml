@@ -41,6 +41,7 @@
 - repos_include: langs/latex.rc.yml
 - repos_include: langs/matlab.rc.yml
 - repos_include: langs/php.rc.yml
+- repos_include: langs/prisma.rc.yml
 - repos_include: langs/puml.rc.yml
 - repos_include: langs/python.rc.yml
 - repos_include: langs/ruby.rc.yml

@@ -5,6 +5,9 @@ let s:plugins_local_dir = $MY_VIMFILES.'/plugins-local'
 let s:plugins_manager_type = 'dein.vim'
 let s:plugins_compiled = $MY_VIMFILES.'/plugins-compiled.rc.vim'
 
+" let g:node_client_debug = 1
+" let $NODE_CLIENT_LOG_FILE = $HOME . '/tmp/coc-logfile.log'
+
 if ! &loadplugins
   finish
 end

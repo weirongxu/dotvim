@@ -9,3 +9,4 @@
     Include /plugins-conf/coc
   hook_source: |
     Include /plugins-conf/coc-source
+- repo: github/copilot.vim

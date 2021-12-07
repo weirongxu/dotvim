@@ -1,6 +1,5 @@
 - repo: Shougo/dein.vim
 - repo: haya14busa/dein-command.vim
-  on_cmd: Dein
 # - repos_include: groups/**
 # - repos_include: groups/treesitter.rc.yml
 - repos_include: groups/vim-rpc.rc.yml

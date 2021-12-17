@@ -145,8 +145,6 @@ xmap igc <Plug>(coc-git-chunk-inner)
 omap agc <Plug>(coc-git-chunk-outer)
 xmap agc <Plug>(coc-git-chunk-outer)
 
-nmap <Leader>im <Cmd>CocCommand rime.toggle<CR>
-
 " coc-calc
 nmap <Leader>cc <Plug>(coc-calc-result-append)
 nmap <Leader>cC <Plug>(coc-calc-result-replace)

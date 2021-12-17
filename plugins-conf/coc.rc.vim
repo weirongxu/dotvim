@@ -24,6 +24,8 @@ let g:coc_global_extensions = [
       \ 'coc-phpls',
       \ 'coc-solargraph',
       \ 'coc-vimtex',
+      \ 'coc-webview',
+      \ 'coc-markdown-preview-enhanced',
       \ 'coc-calc',
       \ 'coc-pairs',
       \ 'coc-git',
@@ -37,6 +39,7 @@ let g:coc_global_extensions = [
 
 inoremap <silent><expr> <C-l> coc#refresh()
 inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<C-r>=coc#on_enter()\<CR>"
+inoremap <C-p> <C-\><C-O>:call CocActionAsync('showSignatureHelp')<cr>
 
 command! -nargs=0 Format :call CocAction('format')
 command! -nargs=? Fold :call CocAction('fold', <f-args>)
@@ -141,6 +144,8 @@ omap igc <Plug>(coc-git-chunk-inner)
 xmap igc <Plug>(coc-git-chunk-inner)
 omap agc <Plug>(coc-git-chunk-outer)
 xmap agc <Plug>(coc-git-chunk-outer)
+
+nmap <Leader>im <Cmd>CocCommand rime.toggle<CR>
 
 " coc-calc
 nmap <Leader>cc <Plug>(coc-calc-result-append)

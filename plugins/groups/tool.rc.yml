@@ -21,6 +21,7 @@
     command! SudaWrite write suda://%
 - repo: vim-scripts/DrawIt
   on_cmd: ['DIstart', 'DIsngl', 'DIdbl', 'DIstop', 'DrawIt']
+- repo: gyim/vim-boxdraw
 - repo: vim-scripts/VisIncr
   on_cmd:
     [
@@ -139,4 +140,13 @@
 #   if: 'g:env#unix && executable("fcitx-remote")'
 - repo: voldikss/vim-floaterm
   hook_add: |
+    nmap <Leader>f1 <Cmd>FloatermToggle --wintype=floating win-1<CR>
+    nmap <Leader>f2 <Cmd>FloatermToggle --wintype=floating win-2<CR>
+    nmap <Leader>f3 <Cmd>FloatermToggle --wintype=floating win-3<CR>
+    nmap <Leader>f4 <Cmd>FloatermToggle --wintype=floating win-4<CR>
+    nmap <Leader>f5 <Cmd>FloatermToggle --wintype=floating win-5<CR>
+    nmap <Leader>f6 <Cmd>FloatermToggle --wintype=floating win-6<CR>
+    nmap <Leader>f7 <Cmd>FloatermToggle --wintype=floating win-7<CR>
+    nmap <Leader>f8 <Cmd>FloatermToggle --wintype=floating win-8<CR>
+    nmap <Leader>f9 <Cmd>FloatermToggle --wintype=floating win-9<CR>
     nmap <Leader>ft <Cmd>FloatermNew --wintype=floating<CR>

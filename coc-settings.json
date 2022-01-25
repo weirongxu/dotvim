@@ -26,6 +26,7 @@
       "filetypes": ["crystal"]
     }
   },
+  "semanticTokens.filetypes": ["*"],
   "coc.source.buffer.priority": 5,
   "coc.source.word.priority": 1,
   "tree.key.toggle": "o",

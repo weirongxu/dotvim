@@ -4,9 +4,12 @@
   # rev: 'release'
   if: executable('yarn')
   build: 'yarn install --frozen-lockfile'
-  # hook_post_update: {-> coc#util#install()}
   hook_add: |
     Include /plugins-conf/coc
   hook_source: |
     Include /plugins-conf/coc-source
 - repo: github/copilot.vim
+  hook_add: |
+    let g:copilot_filetypes = {
+    \ '*': v:true
+    \ }

@@ -63,7 +63,7 @@ nmap <Leader>c: <Plug>(coc-floatinput-coc-command)
 nmap <Leader>rf <Plug>(coc-refactor)
 nmap <Leader><CR> <Cmd>CocAction<CR>
 vnoremap <Leader><CR> :CocAction<CR>
-nmap <Leader>oo <Plug>(coc-openlink)
+nmap <Leader>ol <Plug>(coc-openlink)
 nmap <Leader>fx <Plug>(coc-fix-current)
 nmap <Leader>fi <Cmd>CocCommand editor.action.organizeImport<CR>
 nmap <Leader>ff <Plug>(coc-format)
@@ -97,11 +97,14 @@ nmap <Leader>lc <Cmd>CocList commands<CR>
 nmap <Leader>lC <Cmd>CocList vimcommands<CR>
 nmap <Leader>lCh <Cmd>CocList cmdhistory<CR>
 nmap <Leader>l/ <Cmd>CocList searchhistory<CR>
-nmap <Leader>lo <Cmd>CocList outline<CR>
 nmap <Leader>le <Cmd>CocList extensions<CR>
 nmap <Leader>lmp <Cmd>CocList marketplace<CR>
 nmap <Leader>ld <Cmd>CocList diagnostics<CR>
 nmap <Leader>ls <Cmd>CocList services<CR>
+
+nmap <Leader>lt :call CocAction('showOutline')<CR>
+nmap <Leader>li :call CocAction('incomingCalls')<CR>
+nmap <Leader>lo :call CocAction('outgoingCalls')<CR>
 
 nmap <Leader>[[ <Cmd>CocPrev<CR>
 nmap <Leader>]] <Cmd>CocNext<CR>
@@ -222,6 +225,7 @@ endfunction
 
 function! s:exec_cur_dir(cmd)
   let dir = s:explorer_cur_dir()
+  call chdir(dir)
   execute substitute(a:cmd, '\V%cwd', dir, 'g')
 endfunction
 

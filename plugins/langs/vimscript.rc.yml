@@ -13,7 +13,6 @@
 - repo: lambdalisue/vim-backslash
   on_ft: vim
 - repo: tweekmonster/helpful.vim
-  on_cmd: HelpfulVersion
 - repo: tpope/vim-scriptease
 - repo: tweekmonster/exception.vim
   hook_add: |

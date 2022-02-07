@@ -29,6 +29,7 @@
   "semanticTokens.filetypes": ["*"],
   "coc.source.buffer.priority": 5,
   "coc.source.word.priority": 1,
+  "colors.filetypes": ["*"],
   "tree.key.toggle": "o",
   "prettier.singleQuote": true,
   "prettier.disableLanguages": [],

@@ -1,7 +1,7 @@
 let $MY_VIMFILES = escape(expand('<sfile>:p:h'), '\')
 let $MY_VIMRC = $MY_VIMFILES . '/vimrc'
 let $MY_BUILDIN = $MY_VIMFILES . '/buildin'
-let $MY_PLUGINS = $MY_VIMFILES . '/plugins/index.rc.yml'
+let $MY_PLUGINS = $MY_VIMFILES . '/plugins/index.yml'
 
 if &compatible
   set nocompatible

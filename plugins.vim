@@ -1,6 +1,6 @@
 let $DEIN_DIR = $HOME . '/.cache/dein'
 let s:plugins_dir = $MY_VIMFILES.'/plugins'
-let s:plugins_index = s:plugins_dir.'/index.rc.yml'
+let s:plugins_index = s:plugins_dir.'/index.yml'
 let s:plugins_local_dir = $MY_VIMFILES.'/plugins-local'
 let s:plugins_manager_type = 'dein.vim'
 let s:plugins_compiled = $MY_VIMFILES.'/plugins-compiled.vim'

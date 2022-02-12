@@ -55,6 +55,7 @@
   "explorer.git.showIgnored": true,
   "explorer.filename.colored.enable": true,
   "webview.colorStrategy": "dark",
+  "coc.preferences.watchmanPath": "",
   "markdown-preview-enhanced.previewTheme": "github-dark.css",
   "list.normalMappings": {
     "q": "do:exit"

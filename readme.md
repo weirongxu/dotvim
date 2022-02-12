@@ -9,5 +9,5 @@ cd ~/.vim
 save below config to `.config/nvim/init.vim`
 ```
 exec 'set rtp+='.expand('~/.vim')
-source ~/.vim/vimrc.rc.vim
+source ~/.vim/vimrc.vim
 ```

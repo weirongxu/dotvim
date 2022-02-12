@@ -7,7 +7,7 @@ if &compatible
   set nocompatible
 endif
 
-source $MY_VIMFILES/buildin/boot.rc.vim
+source $MY_VIMFILES/buildin/boot.vim
 Include mappings
 Include plugins
 Include options

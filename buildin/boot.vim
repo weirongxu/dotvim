@@ -6,7 +6,7 @@ if ! exists('*Include')
       else
         let path = a:current . '/' . a:path
       endif
-      execute 'source ' . path . '.rc.vim'
+      execute 'source ' . path . '.vim'
     catch /^Vim\%((\a\+)\)\=:E484/
       echoerr 'Cant Include ' . a:path
     endtry
@@ -17,7 +17,6 @@ command! -nargs=1 Include call Include("<args>", expand('<sfile>:p:h'))
 
 Include env
 
-" Include reload
 Include command
 Include package-installer
 Include plugin-compiler

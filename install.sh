@@ -15,10 +15,9 @@ elif exists-cmd brew; then
 fi
 
 if exists-cmd pip3; then
-  pip3 install pyyaml
   pip3 install pynvim
 else
-  echo 'You need to manually install pyyaml and pynvim'
+  echo 'You need to manually install the pynvim'
 fi
 
 ./script/install-dein.sh

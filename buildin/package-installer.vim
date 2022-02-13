@@ -3,37 +3,22 @@ let s:V = vital#vimrc#new()
 let s:Process = s:V.import('System.Process')
 let s:Job = s:V.import('System.Job')
 
+let s:pkgs = ['npm', 'pip3', 'gem']
+let s:actions = ['install', 'uninstall', 'update']
+
 function! Pkg(name, action, package_name) "{{{
-  let cmds = [
-        \ g:env#python_cmd,
-        \ s:pkg_installer_dir . '/' . a:name . '.py',
-        \ a:action,
-        \ a:package_name,
-        \]
-  " echo join(cmds)
-  if s:Job.is_available()
-    call s:Job.start(cmds)
-  else
-    try
-      call s:Process.execute(cmds, {
-            \ 'background': 1,
-            \})
-    catch
-      call s:Process.execute(cmds)
-    endtry
-  endif
+  call timer_start(0, function(
+        \ 'package_installer#runner#start',
+        \ [a:name, a:action, a:package_name]))
 endfunction "}}}
 
 function! s:complete(arglead, cmdline, cursorpos) "{{{
   let cmds = split(a:cmdline, '\V\s\+', 1)
   let candidates = []
   if len(cmds) == 2
-    let candidates = map(
-          \ split(glob(s:pkg_installer_dir . '/*.py'), "\n"),
-          \ {idx, path -> fnamemodify(path, ':t:r')}
-          \)
+    let candidates = extend([], s:pkgs)
   elseif len(cmds) == 3
-    let candidates =  ['install', 'update', 'uninstall']
+    let candidates =  extend([], s:actions)
   endif
   if len(candidates) > 0
     let lastcmd = cmds[-1]

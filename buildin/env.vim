@@ -22,9 +22,6 @@ let g:env#ruby = has('ruby')
 let g:env#perl = has('perl')
 let g:env#tcl = has('tcl')
 
-let g:env#python_cmd = get(filter(['python3', 'python', 'python2'], {i, cmd -> executable(cmd)}), 0, '')
-
-
 let g:env#record_dir = $HOME.'/.record/vim'
 let g:env#record_dir#sessions = g:env#record_dir.'/sessions'
 let g:env#record_dir#defx_sessions = g:env#record_dir.'/defx-sessions'

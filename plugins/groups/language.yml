@@ -1,8 +1,0 @@
-- repo: beloglazov/vim-online-thesaurus
-  on_key: OnlineThesaurusCurrentWord
-  hook_add: |
-    let g:online_thesaurus_map_keys = 0
-  hook_post_source: |
-    call AddCommand('OnlineThesaurusCurrentWord', 'OnlineThesaurusCurrentWord')
-- repo: rhysd/vim-grammarous
-  on_cmd: GrammarousCheck

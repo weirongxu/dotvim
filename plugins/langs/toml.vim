@@ -1,0 +1,1 @@
+PluginAdd 'cespare/vim-toml'

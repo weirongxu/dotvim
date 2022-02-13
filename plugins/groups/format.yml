@@ -1,5 +1,0 @@
-- repo: sgur/vim-editorconfig
-- repo: Chiel92/vim-autoformat
-  on_cmd: Autoformat
-- repo: sbdchd/neoformat
-  on_cmd: Neoformat

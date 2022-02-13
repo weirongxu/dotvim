@@ -1,0 +1,1 @@
+PluginAdd 'neoclide/jsonc.vim'

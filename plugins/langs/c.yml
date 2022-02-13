@@ -1,6 +1,0 @@
-- repo: justinmk/vim-syntax-extra
-  on_ft: ['c', 'cpp', 'lex', 'yacc']
-
-# jump to include
-- repo: nacitar/a.vim
-  on_ft: ['c', 'cpp', 'lex', 'yacc']

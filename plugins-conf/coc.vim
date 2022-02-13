@@ -1,3 +1,8 @@
+" let g:node_client_debug = 1
+" let $NODE_CLIENT_LOG_FILE = $HOME . '/tmp/coc-logfile.log'
+let g:coc_node_args = ['--nolazy']
+" let g:coc_node_args = ['--nolazy', '--async-stack-traces', '--inspect-brk=6045']
+
 let $VIMCONFIG = $MY_VIMFILES
 let g:coc_global_extensions = [
       \ 'coc-explorer',
@@ -282,3 +287,5 @@ if has('nvim')
 
   autocmd QuitPre * call <SID>quit_pre()
 endif
+
+TryInclude coc-dev.vim

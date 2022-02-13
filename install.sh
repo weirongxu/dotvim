@@ -21,4 +21,4 @@ else
   echo 'You need to manually install pyyaml and pynvim'
 fi
 
-./scripts/install-dein.sh
+./script/install-dein.sh

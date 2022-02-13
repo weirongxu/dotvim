@@ -10,7 +10,7 @@ function! s:modified(n)
   return gettabwinvar(a:n, winnr, '&modified') ? '+' : gettabwinvar(a:n, winnr, '&modifiable') ? '' : '-'
 endfunction
 
-function s:readonly()
+function! s:readonly()
   let winnr = tabpagewinnr(a:n)
   return gettabwinvar(a:n, winnr, '&readonly') ? 'RO' : ''
 endfunction

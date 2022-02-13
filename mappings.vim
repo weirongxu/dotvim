@@ -33,7 +33,7 @@ map <S-Insert> "+p
 map <Leader>p "+p
 map <Leader>P "+P
 
-function TogglePaste()
+function! TogglePaste()
   if &paste
     set nopaste
     echo 'nopaste'
@@ -43,13 +43,13 @@ function TogglePaste()
   endif
 endfunction
 map <silent> <Leader><Leader>p <Cmd>call TogglePaste()<CR>
-function OffPaste(...)
+function! OffPaste(...)
   if &paste
     set nopaste
     echo 'nopaste'
   endif
 endfunction
-function TmpEnterPaste()
+function! TmpEnterPaste()
   if !&paste
     set paste
     echo 'paste'

@@ -9,6 +9,7 @@ let g:env#xterm = match(&term, 'xterm') != -1
 let g:env#screen = &term == 'screen'
 let g:env#tmux = &term == 'screen'
 let g:env#x = g:env#gui || g:env#xterm || g:env#screen || &term == 'nvim'
+let g:env#nerdfont = exists('$NERDFONT')
 
 let g:env#vim8_async = (v:version >= 800 || has('patch-7.4.1829')) && has('job') && has('channel') && has('timers') && has('reltime')
 let g:env#async = g:env#vim8_async || g:env#nvim

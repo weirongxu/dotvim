@@ -1,0 +1,1 @@
+PluginAdd 'keith/swift.vim'

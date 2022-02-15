@@ -121,4 +121,4 @@ function! g:plugin_hooks[SourcedHook()]()
   call AddCommand('case.SnakeToHyphen', 'SnakeToHyphen')
 endfunction
 
-" PluginAdd 'tpope/vim-abolish'
+PluginAdd 'tpope/vim-abolish'

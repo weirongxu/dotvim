@@ -3,6 +3,7 @@
 if executable('yarn')
   PluginAdd 'neoclide/coc.nvim', {
         \ 'rev': 'master',
+        \ 'dev': 1,
         \ 'on_updated': 'yarn install --frozen-lockfile'
         \ }
   Include /plugins-conf/coc.vim

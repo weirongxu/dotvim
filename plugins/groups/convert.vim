@@ -6,7 +6,7 @@ PluginAdd 'salsifis/vim-transpose', { 'on_cmd': [
       \ 'TransposeInteractive',
       \ 'TransposeIndentToggle',
       \ ]}
-      \ 
+
 " PluginAdd machakann/vim-swap
 "   'on_map': ['g<', 'g>', 'gs']
 
@@ -99,18 +99,18 @@ vmap <Leader>al <Plug>(LiveEasyAlign)
 
 PluginAdd 'chiedo/vim-case-convert', {
       \ 'on_cmd': [
-      \  'CamelToHyphen',
-      \  'CamelToSnake',
-      \  'HyphenToCamel',
-      \  'HyphenToSnake',
-      \  'SnakeToCamel',
-      \  'SnakeToHyphen',
-      \  'CamelToHyphenAll',
-      \  'CamelToSnakeAll',
-      \  'HyphenToCamelAll',
-      \  'HyphenToSnakeAll',
-      \  'SnakeToCamelAll',
-      \  'SnakeToHyphenAll',
+      \   'CamelToHyphen',
+      \   'CamelToSnake',
+      \   'HyphenToCamel',
+      \   'HyphenToSnake',
+      \   'SnakeToCamel',
+      \   'SnakeToHyphen',
+      \   'CamelToHyphenAll',
+      \   'CamelToSnakeAll',
+      \   'HyphenToCamelAll',
+      \   'HyphenToSnakeAll',
+      \   'SnakeToCamelAll',
+      \   'SnakeToHyphenAll',
       \ ]}
 function! g:plugin_hooks[SourcedHook()]()
   call AddCommand('case.CamelToHyphen', 'CamelToHyphen')

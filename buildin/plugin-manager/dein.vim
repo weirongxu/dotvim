@@ -1,4 +1,4 @@
-function! s:add(metadata, inner_dir)
+function! s:add(metadata)
   let repo = a:metadata['repo']
   let name = a:metadata['name']
   let options = {
@@ -33,9 +33,7 @@ function! s:add(metadata, inner_dir)
   let sourced_hook = SourcedHook(name)
   let options['hook_post_source'] = 'if has_key(g:plugin_hooks, "' . sourced_hook . '") | call g:plugin_hooks["' . sourced_hook . '"]() | end'
 
-  if a:metadata['inner']
-    call dein#local(a:inner_dir, options, [repo])
-  elseif a:metadata['local']
+  if a:metadata['local']
     let dir = fnamemodify(repo, ':h')
     let a:metadata['path'] = repo
     call dein#local(dir, options, [name])
@@ -45,7 +43,7 @@ function! s:add(metadata, inner_dir)
 endfunction
 
 
-function! PluginsBootDein(inner_dir)
+function! PluginsBootDein()
   let $DEIN_DIR = $HOME . '/.cache/dein'
   let &runtimepath .= ','.$DEIN_DIR.'/repos/github.com/Shougo/dein.vim'
   let g:dein#types#git#clone_depth = 1
@@ -54,7 +52,7 @@ function! PluginsBootDein(inner_dir)
   call dein#add('Shougo/dein.vim')
   call dein#add('haya14busa/dein-command.vim')
   for metadata in g:coc_plugin_repos
-    call s:add(metadata, a:inner_dir)
+    call s:add(metadata)
   endfor
   call dein#end()
 

@@ -1,8 +1,9 @@
-Include plugin-manager-dein.vim
+Include plugin-manager/dein.vim
 
 let g:coc_plugin_repos = []
 let g:plugin_hooks = {}
 
+let s:inner_repos_dir = $MY_VIMFILES.'/plugins/inner'
 let s:current_plugin = {}
 let s:local_repos_dir = expand('~/repos/vim')
 let s:local_repos = readdir(s:local_repos_dir)
@@ -43,7 +44,10 @@ function! PluginAdd(repo, ...)
       let s:current_plugin[optkey] = opt[optkey]
     end
   endfor
-  if count(s:local_repos, name)
+  if s:current_plugin['inner']
+    let s:current_plugin['local'] = v:true
+    let s:current_plugin['repo'] = s:inner_repos_dir . '/' . repo
+  elseif count(s:local_repos, name)
     let s:current_plugin['local'] = v:true
     let s:current_plugin['repo'] = s:local_repos_dir . '/' . name
   endif
@@ -52,6 +56,8 @@ endfunction
 
 command! -nargs=1 PluginAdd call PluginAdd(<args>)
 
-function! PluginsBoot(type, inner_dir)
-  call PluginsBootDein(a:inner_dir)
+function! PluginsBoot(type)
+  if a:type == 'dein.vim'
+    call PluginsBootDein()
+  endif
 endfunction

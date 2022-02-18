@@ -3,13 +3,14 @@ PluginAdd 'local-before', {'inner': 1}
 " Include groups/treesitter.vim
 Include groups/encode.vim
 Include groups/colorscheme.vim
+Include groups/enhance.vim
+Include groups/cmdline.vim
 Include groups/lsp.vim
 Include groups/checker.vim
 Include groups/context_filetype.vim
 Include groups/convert.vim
 Include groups/debug.vim
 Include groups/diff.vim
-Include groups/enhance.vim
 Include groups/comment.vim
 Include groups/file_dir.vim
 Include groups/format.vim

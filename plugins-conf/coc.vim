@@ -85,11 +85,11 @@ function! s:show_documentation()
 endfunction
 
 autocmd ColorScheme *
-      \ hi CocHighlightText ctermbg=242 guibg=#404040
-      \ | hi CocErrorHighlight guibg=#802020
-      \ | hi CocWarningHighlight guibg=#806022
-      \ | hi CocInfoHighlight guibg=#806022
-      \ | hi CocHintHighlight guibg=#224290
+      \ hi default link CocHighlightText HighlightText
+      \ | hi default link CocErrorHighlight ErrorHighlight
+      \ | hi default link CocWarningHighlight WarningHighlight
+      \ | hi default link CocInfoHighlight InfoHighlight
+      \ | hi default link CocHintHighlight HintHighlight
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 nmap <Leader>lr <Cmd>CocListResume<CR>

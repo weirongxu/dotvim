@@ -32,7 +32,7 @@
   "colors.filetypes": ["*"],
   "tree.key.toggle": "o",
   "prettier.singleQuote": true,
-  "prettier.disableLanguages": [],
+  "prettier.disableLanguages": ["handlebars", "hbs"],
   "rust-analyzer.inlayHints.enable": true,
   "typescript.inlayHints.parameterNames.enabled": "literals",
   "typescript.inlayHints.parameterTypes.enabled": true,

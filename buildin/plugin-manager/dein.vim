@@ -36,6 +36,9 @@ function! s:add(metadata)
   if a:metadata['local']
     let dir = fnamemodify(repo, ':h')
     let a:metadata['path'] = repo
+    if has_key(options, 'rev')
+      call remove(options, 'rev')
+    endif
     call dein#local(dir, options, [name])
   else
     call dein#add(repo, options)

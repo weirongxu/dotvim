@@ -31,18 +31,6 @@ noremap <silent><expr> z/ incsearch#go(<SID>config_fuzzyall())
 noremap <silent><expr> z? incsearch#go(<SID>config_fuzzyall({'command': '?'}))
 noremap <silent><expr> zg? incsearch#go(<SID>config_fuzzyall({'is_stay': 1}))
 
-PluginAdd 'haya14busa/incsearch-easymotion.vim'
-function! s:config_easyfuzzymotion(...) abort
-  return extend(copy({
-    \   'converters': [incsearch#config#fuzzy#converter()],
-    \   'modules': [incsearch#config#easymotion#module()],
-    \   'keymap': {"\<CR>": '<Over>(easymotion)'},
-    \   'is_expr': 0,
-    \   'is_stay': 1
-    \ }), get(a:, 1, {}))
-endfunction
-noremap <silent><expr> s/ incsearch#go(<SID>config_easyfuzzymotion())
-
 PluginAdd 'haya14busa/vim-asterisk'
 map *  <Plug>(asterisk-z*)
 map #  <Plug>(asterisk-z#)

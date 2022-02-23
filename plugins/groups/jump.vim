@@ -48,4 +48,16 @@ else
   " nmap sS <Plug>(easymotion-s2)
   " nmap t <Plug>(easymotion-t2)
   nmap sl <Plug>(easymotion-sl)
+
+  PluginAdd 'haya14busa/incsearch-easymotion.vim'
+  function! s:config_easyfuzzymotion(...) abort
+    return extend(copy({
+          \   'converters': [incsearch#config#fuzzy#converter()],
+          \   'modules': [incsearch#config#easymotion#module()],
+          \   'keymap': {"\<CR>": '<Over>(easymotion)'},
+          \   'is_expr': 0,
+          \   'is_stay': 1
+          \ }), get(a:, 1, {}))
+  endfunction
+  noremap <silent><expr> s/ incsearch#go(<SID>config_easyfuzzymotion())
 endif

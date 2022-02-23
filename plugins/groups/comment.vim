@@ -4,4 +4,4 @@ map <c-_> gcc
 Include /plugins-conf/caw.vim
 
 PluginAdd 'ft-caw', {'inner': 1}
-PluginAdd 'kkoomen/vim-doge'
+" PluginAdd 'kkoomen/vim-doge'

@@ -108,8 +108,8 @@ nmap <Leader>ld <Cmd>CocList diagnostics<CR>
 nmap <Leader>ls <Cmd>CocList services<CR>
 
 nmap <Leader>lt :call CocAction('showOutline')<CR>
-nmap <Leader>li :call CocAction('incomingCalls')<CR>
-nmap <Leader>lo :call CocAction('outgoingCalls')<CR>
+nmap <Leader>li :call CocAction('showIncomingCalls')<CR>
+nmap <Leader>lo :call CocAction('showOutgoingCalls')<CR>
 
 nmap <Leader>[[ <Cmd>CocPrev<CR>
 nmap <Leader>]] <Cmd>CocNext<CR>

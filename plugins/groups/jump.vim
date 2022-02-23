@@ -37,7 +37,7 @@ if g:env#nvim
   nmap sj <Cmd>HopLineStartAC<CR>
   nmap sk <Cmd>HopLineStartBC<CR>
   function! g:plugin_hooks[SourcedHook()]()
-    lua require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+    lua require'hop'.setup { keys = 'asdfghjkl;qwertyuiopzxcvbnm' }
   endfunction
 else
   PluginAdd 'easymotion/vim-easymotion', {'on_map': ['<Plug>(easymotion-', 's']}

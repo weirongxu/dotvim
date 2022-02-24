@@ -63,8 +63,10 @@ vmap <silent> <Leader> :<C-U>WhichKeyVisual '<Leader>'<CR>
 nmap <silent> <Leader>kg <Cmd>WhichKey 'g'<CR>
 vmap <silent> <Leader>kg :<C-U>WhichKeyVisual 'g'<CR>
 
-PluginAdd 'tweekmonster/braceless.vim'
-autocmd FileType python,haml,sass,slim,yaml,coffee BracelessEnable +indent
+" PluginAdd 'tweekmonster/braceless.vim'
+" function! g:plugin_hooks[SourcedHook()]()
+"   autocmd FileType python,haml,sass,slim,yaml,coffee BracelessEnable +indent
+" endfunction
 
 PluginAdd 'lambdalisue/readablefold.vim'
 

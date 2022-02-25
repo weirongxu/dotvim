@@ -21,7 +21,6 @@ let g:coc_global_extensions = [
       \ 'coc-tag',
       \ 'coc-dictionary',
       \ 'coc-word',
-      \ 'coc-syntax',
       \ 'coc-jest',
       \ 'coc-emoji',
       \ 'coc-emmet',

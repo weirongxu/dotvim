@@ -6,7 +6,7 @@ let g:plugin_hooks = {}
 let s:inner_repos_dir = $MY_VIMFILES.'/plugins/inner'
 let s:current_plugin = {}
 let s:dev_repos_dir = expand('~/repos/vim')
-let s:dev_repos = readdir(s:dev_repos_dir)
+let s:dev_repos = isdirectory(s:dev_repos_dir) ? readdir(s:dev_repos_dir) : []
 
 function! SourcedHook(...)
   let name = get(a:000, 0, s:current_plugin['name'])

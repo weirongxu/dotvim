@@ -88,7 +88,7 @@ map <silent> <S-Left> <Cmd>tabmove -1<CR>
 map <silent> <S-Right> <Cmd>tabmove +1<CR>
 
 " jump to end of line while in Insert Mode
-inoremap <C-e> <C-o>$
+inoremap <expr> <C-e> pumvisible() ? "\<C-e>" : "\<C-o>$"
 inoremap <C-a> <C-o>^
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>

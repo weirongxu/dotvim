@@ -2,7 +2,7 @@ PluginAdd 'ft-extend', {'inner': 1}
 PluginAdd 'drmikehenry/vim-fixkey'
 PluginAdd 'mhinz/vim-startify'
 " set sessionoptions=blank,buffers,curdir,folds,help,resize,slash,tabpages,unix
-set sessionoptions=curdir,folds,help,slash,tabpages,unix
+set sessionoptions=curdir,folds,help,tabpages
 let g:startify_session_dir = g:env#record_dir#sessions
 let g:startify_session_autoload = 1
 let g:startify_session_delete_buffers = 1

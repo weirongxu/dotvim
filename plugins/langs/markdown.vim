@@ -1,4 +1,4 @@
-PluginAdd 'kannokanno/previm'
+" PluginAdd 'kannokanno/previm'
 
 if executable('yarn')
   PluginAdd 'iamcco/markdown-preview.nvim', {'on_updated': 'cd app & yarn install'}

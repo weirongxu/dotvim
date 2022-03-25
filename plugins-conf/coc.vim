@@ -94,6 +94,7 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 nmap <Leader>lr <Cmd>CocListResume<CR>
 nmap <Leader>ll <Cmd>CocList<CR>
 nmap <Leader>lb <Cmd>CocList --normal buffers<CR>
+nmap <Leader>lf <Cmd>CocList --normal folders<CR>
 nmap <Leader>fg <Cmd>CocList -I grep<CR>
 nmap <Leader>fG <Cmd>CocList -I grep -regex <CR>
 nmap <Leader>fcg <Cmd>exe 'CocList --normal -I --input='.expand('<cword>').' grep'<CR>

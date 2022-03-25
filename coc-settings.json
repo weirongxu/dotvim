@@ -27,6 +27,7 @@
     }
   },
   "semanticTokens.filetypes": ["*"],
+  "suggest.maxCompleteItemCount": 1000,
   "coc.source.buffer.priority": 5,
   "coc.source.word.priority": 1,
   "colors.filetypes": ["*"],

@@ -33,7 +33,7 @@ map <S-Insert> "+p
 map <Leader>p "+p
 map <Leader>P "+P
 
-function! TogglePaste()
+function! s:toggle_paste()
   if &paste
     set nopaste
     echo 'nopaste'
@@ -42,21 +42,21 @@ function! TogglePaste()
     echo 'paste'
   endif
 endfunction
-map <silent> <Leader><Leader>p <Cmd>call TogglePaste()<CR>
-function! OffPaste(...)
+map <silent> <Leader><Leader>p <Cmd>call <SID>toggle_paste()<CR>
+function! s:off_paste(...)
   if &paste
     set nopaste
     echo 'nopaste'
   endif
 endfunction
-function! TmpEnterPaste()
+function! s:tmp_enter_paste()
   if !&paste
     set paste
     echo 'paste'
   endif
-  call timer_start(5000, 'OffPaste')
+  call timer_start(5000, function('s:off_paste'))
 endfunction
-imap <silent> <C-V> <C-o>:call TmpEnterPaste()<CR>
+imap <silent> <C-V> <C-o>:call <SID>tmp_enter_paste()<CR>
 
 " align code
 map <Leader><Leader>cl <Cmd>set cuc!<CR>
@@ -93,9 +93,25 @@ inoremap <C-a> <C-o>^
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 
+let s:gmove_mode = v:false
+function! s:gmove_toggle() abort
+  if !s:gmove_mode
+    nnoremap j gj
+    nnoremap k gk
+    let s:gmove_mode = v:true
+    echom 'gj/gk mode'
+  else
+    nunmap j
+    nunmap k
+    let s:gmove_mode = v:false
+    echom 'normal mode'
+  endif
+endfunction
+nmap <Leader><Leader>g <Cmd>call <SID>gmove_toggle()<CR>
+
 " add semicolon
-nmap <silent> <M-;> <Cmd>call <SID>AppendMark(';')<CR>
-fun! s:AppendMark(mark)
+nmap <silent> <M-;> <Cmd>call <SID>append_mark(';')<CR>
+fun! s:append_mark(mark)
   let lines = getline('.')
   if match(lines, '[' . a:mark . '{]\s*$') == -1
     call setline(line('.'), lines . a:mark)
@@ -105,7 +121,7 @@ endf
 " terminal
 " tnoremap <ESC><ESC> <C-\><C-n>
 tnoremap <C-o> <C-\><C-n>
-function! SplitTerminal()
+function! s:split_terminal()
   let l:cwd = &buftype == 'terminal' ? getcwd() : expand("%:p:h")
   let l:sh = $SHELL
   if g:env#nvim
@@ -118,14 +134,14 @@ function! SplitTerminal()
     exec 'terminal ++curwin ++close ' . l:sh
   endif
 endfunction
-command! Terminal call SplitTerminal()
+command! Terminal call <SID>split_terminal()
 
-function! SynStack()
+function! s:syn_stack()
   for id in synstack(line('.'), col('.'))
     execute('hi ' . synIDattr(id, "name"))
   endfor
 endfunc
-command! SynStack call SynStack()
+command! SynStack call s:syn_stack()
 
 " path
 " command! EchoPath echo expand("%:p")

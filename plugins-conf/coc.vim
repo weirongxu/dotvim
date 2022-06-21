@@ -65,8 +65,8 @@ endif
 nmap <Leader>: <Plug>(coc-floatinput-command)
 nmap <Leader>c: <Plug>(coc-floatinput-coc-command)
 nmap <Leader>rf <Plug>(coc-refactor)
-nmap <Leader><CR> <Cmd>CocAction<CR>
-vnoremap <Leader><CR> :CocAction<CR>
+nmap <Leader><CR> <Plug>(coc-codeaction-cursor)
+vnoremap <Leader><CR> <Plug>(coc-codeaction-selected)
 nmap <Leader>ol <Plug>(coc-openlink)
 nmap <Leader>fx <Plug>(coc-fix-current)
 nmap <Leader>fi <Cmd>CocCommand editor.action.organizeImport<CR>

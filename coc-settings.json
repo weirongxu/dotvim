@@ -56,7 +56,6 @@
   "workspace.bottomUpFiletypes": ["python"],
   "explorer.git.showIgnored": true,
   "explorer.filename.colored.enable": true,
-  "explorer.mouseMode": "singleclick",
   "markdown-preview-enhanced.previewTheme": "github-dark.css",
   "webview.colorStrategy": "dark",
   "list.normalMappings": {

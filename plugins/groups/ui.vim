@@ -36,6 +36,8 @@ EOF
 endif
 
 PluginAdd 'liuchengxu/eleline.vim'
+PluginAdd 'nvim-lua/lsp-status.nvim'
+
 
 PluginAdd 'Yggdroot/indentLine'
 let g:indentLine_fileTypeExclude = [

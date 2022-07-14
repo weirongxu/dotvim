@@ -59,7 +59,19 @@ endfunction
 imap <silent> <C-V> <C-o>:call <SID>tmp_enter_paste()<CR>
 
 " align code
-map <Leader><Leader>cl <Cmd>set cuc!<CR>
+map <Leader><Leader>cc <Cmd>set cursorcolumn!<CR>
+map <Leader><Leader>cl <Cmd>set cursorline!<CR>
+
+function! s:sync_view()
+  let view = winsaveview()
+  normal gg
+  set scrollbind
+  set cursorbind
+  set cursorline
+  call winrestview(view)
+endfunction
+
+map <Leader><Leader>sv <Cmd>call <SID>sync_view()<CR>
 
 " control cursour by alt
 inoremap <silent> <M-h> <C-o>h
@@ -97,12 +109,16 @@ let s:gmove_mode = v:false
 function! s:gmove_toggle() abort
   if !s:gmove_mode
     nnoremap j gj
+    vnoremap j gj
     nnoremap k gk
+    vnoremap k gk
     let s:gmove_mode = v:true
     echom 'gj/gk mode'
   else
     nunmap j
+    vunmap j
     nunmap k
+    vunmap k
     let s:gmove_mode = v:false
     echom 'normal mode'
   endif

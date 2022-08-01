@@ -41,9 +41,11 @@ let g:coc_global_extensions = [
       \ 'coc-rust-analyzer',
       \ ]
 
+" inoremap <silent><expr> <C-n> coc#pum#visible() ? coc#pum#next(1) : "\<C-n>"
+inoremap <silent><expr> <C-p> coc#pum#visible() ? coc#pum#prev(1) : CocActionAsync('showSignatureHelp')
+
 inoremap <silent><expr> <C-l> coc#refresh()
-inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<C-r>=coc#on_enter()\<CR>"
-inoremap <C-p> <C-\><C-O>:call CocActionAsync('showSignatureHelp')<cr>
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<C-r>=coc#on_enter()\<CR>"
 
 command! -nargs=0 Format :call CocAction('format')
 command! -nargs=? Fold :call CocAction('fold', <f-args>)
@@ -72,14 +74,16 @@ nmap <Leader>fx <Plug>(coc-fix-current)
 nmap <Leader>fi <Cmd>CocCommand editor.action.organizeImport<CR>
 nmap <Leader>ff <Plug>(coc-format)
 vmap <Leader>ff <Plug>(coc-format-selected)
+nmap <Leader>rs <Plug>(coc-range-select)
+xmap <Leader>rs <Plug>(coc-range-select)
 nmap <silent> K <Cmd>call <SID>show_documentation()<CR>
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
-  elseif (coc#rpc#ready())
+  elseif CocAction('hasProvider', 'hover')
     call CocActionAsync('doHover')
   else
-    execute '!' . &keywordprg . " " . expand('<cword>')
+    call feedkeys('K', 'in')
   endif
 endfunction
 
@@ -89,7 +93,14 @@ autocmd ColorScheme *
       \ | hi default link CocWarningHighlight WarningHighlight
       \ | hi default link CocInfoHighlight InfoHighlight
       \ | hi default link CocHintHighlight HintHighlight
+      \ | hi default link CocMenuSel InfoHighlight
 autocmd CursorHold * silent call CocActionAsync('highlight')
+
+augroup CocNvimCustom
+  autocmd!
+  " Update signature help on jump placeholder.
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
 
 nmap <Leader>lr <Cmd>CocListResume<CR>
 nmap <Leader>ll <Cmd>CocList<CR>

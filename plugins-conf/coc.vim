@@ -93,7 +93,7 @@ autocmd ColorScheme *
       \ | hi default link CocWarningHighlight WarningHighlight
       \ | hi default link CocInfoHighlight InfoHighlight
       \ | hi default link CocHintHighlight HintHighlight
-      \ | hi default link CocMenuSel InfoHighlight
+      \ | hi default link CocMenuSel HintHighlight
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 augroup CocNvimCustom

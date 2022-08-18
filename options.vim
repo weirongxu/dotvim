@@ -1,4 +1,9 @@
-lang en_US.UTF-8
+try
+  lang en_US.UTF-8
+catch /^Vim\%((\a\+)\)\=:E197/
+  " vim not support en_US.UTF-8 when used in chinese system
+endtry
+
 
 " UI
 if g:env#gui

@@ -12,7 +12,7 @@ if executable('yarn')
   endfunction
 endif
 
-PluginAdd 'github/copilot.vim'
-let g:copilot_filetypes = {
-      \ '*': v:true
-      \ }
+" PluginAdd 'github/copilot.vim'
+" let g:copilot_filetypes = {
+"      \ '*': v:true
+"      \ }

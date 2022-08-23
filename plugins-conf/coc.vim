@@ -113,6 +113,7 @@ nmap <Leader>lc <Cmd>CocList commands<CR>
 nmap <Leader>lC <Cmd>CocList vimcommands<CR>
 nmap <Leader>lCh <Cmd>CocList cmdhistory<CR>
 nmap <Leader>l/ <Cmd>CocList searchhistory<CR>
+nmap <Leader>l' <Cmd>CocList markers<CR>
 nmap <Leader>le <Cmd>CocList extensions<CR>
 nmap <Leader>lmp <Cmd>CocList marketplace<CR>
 nmap <Leader>ld <Cmd>CocList diagnostics<CR>

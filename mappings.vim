@@ -65,7 +65,7 @@ map <Leader><Leader>cl <Cmd>set cursorline!<CR>
 function! s:sync_view()
   let view = winsaveview()
   normal gg
-  set scrollbind
+  " set scrollbind
   set cursorbind
   set cursorline
   call winrestview(view)

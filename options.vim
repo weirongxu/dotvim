@@ -167,8 +167,9 @@ set noerrorbells visualbell t_vb= tm=500
 autocmd GUIEnter * set vb t_vb=
 
 if !g:env#win
+  let undo_folder = g:env#nvim ? 'undo-nvim' : 'undo'
   " backup
-  for it in [['undodir', 'undo'], ['backupdir', 'backup'], ['directory', 'swap']]
+  for it in [['undodir', undo_folder], ['backupdir', 'backup'], ['directory', 'swap']]
     let dir = g:env#tmp . '/' . it[1]
     if !isdirectory(dir)
       call mkdir(dir, 'p', 0700)

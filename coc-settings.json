@@ -58,6 +58,7 @@
   "explorer.filename.colored.enable": true,
   "markdown-preview-enhanced.previewTheme": "github-dark.css",
   "webview.colorStrategy": "dark",
+  "list.source.files.args": ["--hidden", "--files"],
   "list.normalMappings": {
     "q": "do:exit"
   },

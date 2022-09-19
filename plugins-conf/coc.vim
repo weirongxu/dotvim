@@ -1,10 +1,12 @@
+TryInclude coc-dev.vim
+
 " let g:node_client_debug = 1
 " let $NODE_CLIENT_LOG_FILE = $HOME . '/tmp/coc-logfile.log'
 let g:coc_node_args = ['--nolazy']
 " let g:coc_node_args = ['--nolazy', '--async-stack-traces', '--inspect-brk=6045']
 
 let $VIMCONFIG = $MY_VIMFILES
-let g:coc_global_extensions = [
+let s:coc_extensions = [
       \ 'coc-explorer',
       \ 'coc-tsserver',
       \ 'coc-tslint-plugin',
@@ -40,6 +42,13 @@ let g:coc_global_extensions = [
       \ 'coc-docker',
       \ 'coc-rust-analyzer',
       \ ]
+let g:coc_global_extensions = []
+let runtimepathNames = map(split(&runtimepath, ','), {_, path -> reverse(split(path, '/'))[0]})
+for name in s:coc_extensions
+  if index(runtimepathNames, name) == -1
+    call add(g:coc_global_extensions, name)
+  endif
+endfor
 
 " inoremap <silent><expr> <C-n> coc#pum#visible() ? coc#pum#next(1) : "\<C-n>"
 inoremap <silent><expr> <C-p> coc#pum#visible() ? coc#pum#prev(1) : CocActionAsync('showSignatureHelp')
@@ -299,5 +308,3 @@ if has('nvim')
 
   autocmd QuitPre * call <SID>quit_pre()
 endif
-
-TryInclude coc-dev.vim

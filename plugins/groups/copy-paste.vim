@@ -20,7 +20,48 @@ nmap gp <Plug>(shiny-gp)
 nmap gP <Plug>(shiny-gP)
 
 PluginAdd 'ojroques/vim-oscyank'
+let g:oscyank_term = 'default'
 autocmd TextYankPost *
-      \ if v:event.operator is 'y' && v:event.regname is '+'
-      \| OSCYankReg +
-      \| endif
+     \ if v:event.operator is 'y' && v:event.regname is 'o'
+     \| execute 'OSCYankReg o'
+     \| endif
+
+" mapping
+vmap <S-Del> "ox
+vmap <Leader>x "ox
+map <Leader>x "ox
+
+vmap <C-Insert> "oy
+vmap <Leader>y "oy
+map <Leader>y "oy
+map <Leader>Y "oY
+
+map <S-Insert> "op
+map <Leader>p "op
+map <Leader>P "oP
+
+" paste mode
+function! s:toggle_paste()
+  if &paste
+    set nopaste
+    echo 'nopaste'
+  else
+    set paste
+    echo 'paste'
+  endif
+endfunction
+map <silent> <Leader><Leader>p <Cmd>call <SID>toggle_paste()<CR>
+function! s:off_paste(...)
+  if &paste
+    set nopaste
+    echo 'nopaste'
+  endif
+endfunction
+function! s:tmp_enter_paste()
+  if !&paste
+    set paste
+    echo 'paste'
+  endif
+  call timer_start(5000, function('s:off_paste'))
+endfunction
+imap <silent> <C-V> <C-o>:call <SID>tmp_enter_paste()<CR>

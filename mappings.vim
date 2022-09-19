@@ -19,45 +19,6 @@ noremap gQ Q
 imap <C-b>q `
 cmap <C-b>q `
 
-" Clipboard
-vmap <S-Del> "+x
-vmap <Leader>x "+x
-map <Leader>x "+x
-
-vmap <C-Insert> "+y
-vmap <Leader>y "+y
-map <Leader>y "+y
-map <Leader>Y "+Y
-
-map <S-Insert> "+p
-map <Leader>p "+p
-map <Leader>P "+P
-
-function! s:toggle_paste()
-  if &paste
-    set nopaste
-    echo 'nopaste'
-  else
-    set paste
-    echo 'paste'
-  endif
-endfunction
-map <silent> <Leader><Leader>p <Cmd>call <SID>toggle_paste()<CR>
-function! s:off_paste(...)
-  if &paste
-    set nopaste
-    echo 'nopaste'
-  endif
-endfunction
-function! s:tmp_enter_paste()
-  if !&paste
-    set paste
-    echo 'paste'
-  endif
-  call timer_start(5000, function('s:off_paste'))
-endfunction
-imap <silent> <C-V> <C-o>:call <SID>tmp_enter_paste()<CR>
-
 " align code
 map <Leader><Leader>cc <Cmd>set cursorcolumn!<CR>
 map <Leader><Leader>cl <Cmd>set cursorline!<CR>

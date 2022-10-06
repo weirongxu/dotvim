@@ -142,8 +142,9 @@ nmap <C-p> <Cmd>CocList files<CR>
 nmap <Leader>ccp <Cmd>call CocAction("pickColor")<CR>
 nmap <Leader>ccP <Cmd>call CocAction("colorPresentation")<CR>
 
-" scroll
+" flaot & scroll
 if has('nvim-0.4.0') || has('patch-8.2.0750')
+  nnoremap <silent><nowait> <C-w>f <Plug>(coc-float-jump)
   nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
   nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
   inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"

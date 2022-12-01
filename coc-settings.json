@@ -24,17 +24,22 @@
     "crystalline": {
       "command": "crystalline",
       "filetypes": ["crystal"]
+    },
+    "csharp-ls": {
+      "command": "csharp-ls",
+      "filetypes": ["cs"],
+      "rootPatterns": ["*.csproj", ".vim/", ".git/", ".hg/"]
     }
   },
   "semanticTokens.enable": true,
   "suggest.maxCompleteItemCount": 1000,
   "coc.source.buffer.priority": 5,
   "coc.source.word.priority": 1,
-  "colors.filetypes": ["*"],
+  "colors.enable": true,
   "tree.key.toggle": "o",
   "prettier.singleQuote": true,
   "prettier.disableLanguages": ["handlebars", "hbs", "xml"],
-  "rust-analyzer.inlayHints.enable": true,
+  "rust-analyzer.inlayHints.typeHints.enable": true,
   "typescript.inlayHints.parameterNames.enabled": "literals",
   "typescript.inlayHints.parameterTypes.enabled": true,
   "typescript.inlayHints.propertyDeclarationTypes.enabled": true,

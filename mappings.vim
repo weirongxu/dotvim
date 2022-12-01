@@ -8,10 +8,6 @@ imap <silent> <C-s> <Cmd>w<CR>
 map <silent> <D-s> <Cmd>w<CR>
 nmap <silent> <Leader>s <Cmd>w<CR>
 
-" fold
-noremap <RightMouse> <LeftMouse>za
-noremap <2-LeftMouse> <LeftMouse>zA
-
 " remap Q
 map Q gq
 noremap gQ Q
@@ -27,8 +23,9 @@ function! s:sync_view()
   let view = winsaveview()
   normal gg
   " set scrollbind
-  set cursorbind
-  set cursorline
+  setl cursorbind
+  setl cursorline
+  setl cursorlineopt=screenline
   call winrestview(view)
 endfunction
 

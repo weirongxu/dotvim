@@ -45,7 +45,6 @@ Include langs/slim.vim
 Include langs/vimscript.vim
 Include langs/toml.vim
 Include langs/rust.vim
-Include langs/orgmode.vim
 Include langs/css.vim
 Include langs/html.vim
 Include langs/javascript.vim

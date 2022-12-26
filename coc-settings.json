@@ -31,12 +31,31 @@
       "rootPatterns": ["*.csproj", ".vim/", ".git/", ".hg/"]
     }
   },
+  // color
   "semanticTokens.enable": true,
   "suggest.maxCompleteItemCount": 1000,
+  "colors.enable": true,
+  // suggest
   "coc.source.buffer.priority": 5,
   "coc.source.word.priority": 1,
-  "colors.enable": true,
+  "coc.source.emoji.filetypes": ["*"],
+  // codeLens
+  "codeLens.enable": true,
+  "codeLens.position": "top",
+  // snippets
+  "snippets.priority": 10,
+  "snippets.userSnippetsDirectory": "~/.vim/UltiSnips",
+  "snippets.ultisnips.pythonPrompt": false
+  // list
+  "list.source.files.args": ["--hidden", "--files"],
+  "list.normalMappings": {
+    "q": "do:exit"
+  },
+  // other
+  "workspace.bottomUpFiletypes": ["python"],
+  "coc.preferences.watchmanPath": "",
   "tree.key.toggle": "o",
+  // extensions
   "prettier.singleQuote": true,
   "prettier.disableLanguages": ["handlebars", "hbs", "xml"],
   "rust-analyzer.inlayHints.typeHints.enable": true,
@@ -50,22 +69,12 @@
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
   "typescript.autoClosingTags": true,
   "javascript.autoClosingTags": true,
-  "snippets.priority": 10,
-  "snippets.userSnippetsDirectory": "~/.vim/UltiSnips",
-  "codeLens.enable": true,
   "html.autoClosingTags": true,
   "solargraph.useBundler": true,
-  "codeLens.position": "eol",
-  "coc.source.emoji.filetypes": ["*"],
-  "coc.preferences.watchmanPath": "",
-  "workspace.bottomUpFiletypes": ["python"],
+  "typescript.referencesCodeLens.enabled": true,
   "explorer.git.showIgnored": true,
   "explorer.filename.colored.enable": true,
   "markdown-preview-enhanced.previewTheme": "github-dark.css",
   "webview.colorStrategy": "dark",
-  "list.source.files.args": ["--hidden", "--files"],
-  "list.normalMappings": {
-    "q": "do:exit"
-  },
-  "git.branchCharacter": ""
+  "git.branchCharacter": "",
 }

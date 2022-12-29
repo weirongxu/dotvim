@@ -19,5 +19,3 @@ if exists-cmd pip3; then
 else
   echo 'You need to manually install the pynvim'
 fi
-
-./script/install-dein.sh

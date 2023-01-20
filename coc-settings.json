@@ -45,7 +45,7 @@
   // snippets
   "snippets.priority": 10,
   "snippets.userSnippetsDirectory": "~/.vim/UltiSnips",
-  "snippets.ultisnips.pythonPrompt": false
+  "snippets.ultisnips.pythonPrompt": false,
   // list
   "list.source.files.args": ["--hidden", "--files"],
   "list.normalMappings": {
@@ -59,6 +59,7 @@
   "prettier.singleQuote": true,
   "prettier.disableLanguages": ["handlebars", "hbs", "xml"],
   "rust-analyzer.inlayHints.typeHints.enable": true,
+  "tsserver.useLocalTsdk": true,
   "typescript.inlayHints.parameterNames.enabled": "literals",
   "typescript.inlayHints.parameterTypes.enabled": true,
   "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
@@ -76,5 +77,5 @@
   "explorer.filename.colored.enable": true,
   "markdown-preview-enhanced.previewTheme": "github-dark.css",
   "webview.colorStrategy": "dark",
-  "git.branchCharacter": "",
+  "git.branchCharacter": ""
 }

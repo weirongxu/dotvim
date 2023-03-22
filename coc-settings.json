@@ -33,12 +33,21 @@
   },
   // color
   "semanticTokens.enable": true,
-  "suggest.maxCompleteItemCount": 1000,
   "colors.enable": true,
   // suggest
+  "suggest.maxCompleteItemCount": 1000,
   "coc.source.buffer.priority": 5,
   "coc.source.word.priority": 1,
   "coc.source.emoji.filetypes": ["*"],
+  // ui
+  "suggest.floatConfig": {
+    "rounded": true,
+    "border": true
+  },
+  "floatFactory.floatConfig": {
+    "rounded": true,
+    "border": true
+  },
   // codeLens
   "codeLens.enable": true,
   "codeLens.position": "top",

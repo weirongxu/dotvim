@@ -57,11 +57,11 @@ map <S-Down> <M-j>
 
 PluginAdd 'tpope/vim-characterize', {'on_map': 'ga'}
 
-PluginAdd 'liuchengxu/vim-which-key', {'on_cmd': ['WhichKey', 'WhichKey!']}
+PluginAdd 'liuchengxu/vim-which-key'
 nmap <silent> <Leader> <Cmd>WhichKey '<Leader>'<CR>
-vmap <silent> <Leader> :<C-U>WhichKeyVisual '<Leader>'<CR>
+vmap <silent> <Leader> :<C-u>WhichKeyVisual '<Leader>'<CR>
 nmap <silent> <Leader>kg <Cmd>WhichKey 'g'<CR>
-vmap <silent> <Leader>kg :<C-U>WhichKeyVisual 'g'<CR>
+vmap <silent> <Leader>kg :<C-u>WhichKeyVisual 'g'<CR>
 
 " PluginAdd 'tweekmonster/braceless.vim'
 " function! g:plugin_hooks[SourcedHook()]()

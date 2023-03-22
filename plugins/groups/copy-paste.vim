@@ -23,7 +23,7 @@ PluginAdd 'ojroques/vim-oscyank'
 let g:oscyank_term = 'default'
 autocmd TextYankPost *
      \ if v:event.operator is 'y' && v:event.regname is 'o'
-     \| execute 'OSCYankReg o'
+     \| execute 'OSCYankRegister o'
      \| endif
 
 " mapping

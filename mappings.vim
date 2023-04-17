@@ -66,17 +66,31 @@ cnoremap <C-e> <End>
 let s:gmove_mode = v:false
 function! s:gmove_toggle() abort
   if !s:gmove_mode
-    nnoremap j gj
-    vnoremap j gj
-    nnoremap k gk
-    vnoremap k gk
+    noremap j gj
+    noremap k gk
+    noremap 0 g0
+    noremap $ g$
+    noremap ^ g^
+
+    noremap gj j
+    noremap gk k
+    noremap g0 0
+    noremap g$ $
+    noremap g^ ^
     let s:gmove_mode = v:true
     echom 'gj/gk mode'
   else
-    nunmap j
-    vunmap j
-    nunmap k
-    vunmap k
+    unmap j
+    unmap k
+    unmap 0
+    unmap $
+    unmap ^
+
+    unmap gj
+    unmap gk
+    unmap g0
+    unmap g$
+    unmap g^
     let s:gmove_mode = v:false
     echom 'normal mode'
   endif

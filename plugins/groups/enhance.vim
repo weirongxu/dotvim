@@ -50,10 +50,28 @@ let g:ref_phpmanual_path = expand('~/document/ref/php-chunked-xhtml/')
 map <Leader>K <Plug>(ref-keyword)
 
 PluginAdd 'matze/vim-move', { 'on_map': ['<M-k>', '<M-j>'] }
-let g:move_key_modifier = 'M'
+let g:move_map_keys = 0
 let g:move_auto_indent = 0
-map <S-Up> <M-k>
-map <S-Down> <M-j>
+
+nmap <Leader>k <Plug>MoveLineUp
+nmap <Leader>j <Plug>MoveLineDown
+nmap <Leader>h <Plug>MoveCharLeft
+nmap <Leader>l <Plug>MoveCharRight
+
+vmap <Leader>k <Plug>MoveBlockUp
+vmap <Leader>j <Plug>MoveBlockDown
+vmap <Leader>h <Plug>MoveBlockLeft
+vmap <Leader>l <Plug>MoveBlockRight
+
+nmap <S-Up>    <Plug>MoveLineUp
+nmap <S-Down>  <Plug>MoveLineDown
+nmap <S-Left>  <Plug>MoveCharLeft
+nmap <S-Right> <Plug>MoveCharRight
+
+vmap <S-Up>    <Plug>MoveBlockUp
+vmap <S-Down>  <Plug>MoveBlockDown
+vmap <S-Left>  <Plug>MoveBlockLeft
+vmap <S-Right> <Plug>MoveBlockRight
 
 PluginAdd 'tpope/vim-characterize', {'on_map': 'ga'}
 

@@ -55,13 +55,13 @@ let g:move_auto_indent = 0
 
 nmap <Leader>k <Plug>MoveLineUp
 nmap <Leader>j <Plug>MoveLineDown
-nmap <Leader>h <Plug>MoveCharLeft
-nmap <Leader>l <Plug>MoveCharRight
+" nmap <Leader>h <Plug>MoveCharLeft
+" nmap <Leader>l <Plug>MoveCharRight
 
 vmap <Leader>k <Plug>MoveBlockUp
 vmap <Leader>j <Plug>MoveBlockDown
-vmap <Leader>h <Plug>MoveBlockLeft
-vmap <Leader>l <Plug>MoveBlockRight
+" vmap <Leader>h <Plug>MoveBlockLeft
+" vmap <Leader>l <Plug>MoveBlockRight
 
 nmap <S-Up>    <Plug>MoveLineUp
 nmap <S-Down>  <Plug>MoveLineDown

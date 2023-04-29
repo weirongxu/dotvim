@@ -49,7 +49,7 @@ PluginAdd 'thinca/vim-ref', { 'on_cmd': 'Ref', 'on_map': '<Plug>(ref-keyword)' }
 let g:ref_phpmanual_path = expand('~/document/ref/php-chunked-xhtml/')
 map <Leader>K <Plug>(ref-keyword)
 
-PluginAdd 'matze/vim-move', { 'on_map': ['<M-k>', '<M-j>'] }
+PluginAdd 'matze/vim-move'
 let g:move_map_keys = 0
 let g:move_auto_indent = 0
 

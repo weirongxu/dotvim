@@ -65,13 +65,13 @@ vmap <Leader>j <Plug>MoveBlockDown
 
 nmap <S-Up>    <Plug>MoveLineUp
 nmap <S-Down>  <Plug>MoveLineDown
-nmap <S-Left>  <Plug>MoveCharLeft
-nmap <S-Right> <Plug>MoveCharRight
+" nmap <S-Left>  <Plug>MoveCharLeft
+" nmap <S-Right> <Plug>MoveCharRight
 
 vmap <S-Up>    <Plug>MoveBlockUp
 vmap <S-Down>  <Plug>MoveBlockDown
-vmap <S-Left>  <Plug>MoveBlockLeft
-vmap <S-Right> <Plug>MoveBlockRight
+" vmap <S-Left>  <Plug>MoveBlockLeft
+" vmap <S-Right> <Plug>MoveBlockRight
 
 PluginAdd 'tpope/vim-characterize', {'on_map': 'ga'}
 

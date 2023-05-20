@@ -240,6 +240,14 @@ omap ic <Plug>(coc-classobj-i)
 xmap ac <Plug>(coc-classobj-a)
 omap ac <Plug>(coc-classobj-a)
 
+function! s:prompt_start()
+  iunmap <silent><nowait><buffer> <esc>
+  set buftype=
+  autocmd WinLeave <buffer> set buftype=nofile
+endfunction
+
+autocmd User CocOpenFloatPrompt call s:prompt_start()
+
 autocmd ColorScheme *
       \ hi CocHelperNormalFloatBorder guifg=#dddddd guibg=#373B34
       \ | hi CocHelperNormalFloat guibg=#373B34

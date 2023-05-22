@@ -50,6 +50,10 @@ for name in s:coc_extensions
   endif
 endfor
 
+let g:coc_filetype_map = {
+      \   'cs': 'csharp',
+      \ }
+
 " inoremap <silent><expr> <C-n> coc#pum#visible() ? coc#pum#next(1) : "\<C-n>"
 inoremap <silent><expr> <C-p> coc#pum#visible() ? coc#pum#prev(1) : CocActionAsync('showSignatureHelp')
 
@@ -68,11 +72,7 @@ nmap [d <Plug>(coc-diagnostic-prev)
 nmap ]d <Plug>(coc-diagnostic-next)
 nmap [D <Plug>(coc-diagnostic-prev-error)
 nmap ]D <Plug>(coc-diagnostic-next-error)
-if has('nvim')
-  nmap <Leader>rn <Plug>(coc-floatinput-rename)
-else
-  nmap <Leader>rn <Plug>(coc-rename)
-endif
+nmap <Leader>rn <Plug>(coc-rename)
 nmap <Leader><Leader>rn <Plug>(coc-rename)
 nmap <Leader>: <Plug>(coc-floatinput-command)
 nmap <Leader>c: <Plug>(coc-floatinput-coc-command)
@@ -97,19 +97,38 @@ function! s:show_documentation()
   endif
 endfunction
 
-autocmd ColorScheme *
-      \ hi default link CocHighlightText HighlightText
-      \ | hi default link CocErrorHighlight ErrorHighlight
-      \ | hi default link CocWarningHighlight WarningHighlight
-      \ | hi default link CocInfoHighlight InfoHighlight
-      \ | hi default link CocHintHighlight HintHighlight
-      \ | hi default link CocMenuSel HintHighlight
-autocmd CursorHold * silent call CocActionAsync('highlight')
-
 augroup CocNvimCustom
   autocmd!
   " Update signature help on jump placeholder.
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+  " highlight
+  autocmd ColorScheme *
+        \ hi default link CocHighlightText HighlightText
+        \ | hi default link CocErrorHighlight ErrorHighlight
+        \ | hi default link CocWarningHighlight WarningHighlight
+        \ | hi default link CocInfoHighlight InfoHighlight
+        \ | hi default link CocHintHighlight HintHighlight
+        \ | hi default link CocMenuSel HintHighlight
+  autocmd CursorHold * silent call CocActionAsync('highlight')
+
+  " coc helper
+  autocmd ColorScheme *
+        \ hi CocHelperNormalFloatBorder guifg=#dddddd guibg=#373B34
+        \ | hi CocHelperNormalFloat guibg=#373B34
+        \ | hi CocExplorerNormalFloatBorder guifg=#dddddd guibg=#373B34
+        \ | hi CocExplorerNormalFloat guibg=#373B34
+
+  " float prompt
+  function! s:prompt_start()
+    iunmap <silent><nowait><buffer> <esc>
+    set buftype=
+    augroup CocNvimCustomPrompt
+      autocmd!
+      autocmd WinLeave <buffer> set buftype=nofile
+    augroup end
+  endfunction
+
+  autocmd User CocOpenFloatPrompt call s:prompt_start()
 augroup end
 
 nmap <Leader>lr <Cmd>CocListResume<CR>
@@ -240,20 +259,6 @@ omap ic <Plug>(coc-classobj-i)
 xmap ac <Plug>(coc-classobj-a)
 omap ac <Plug>(coc-classobj-a)
 
-function! s:prompt_start()
-  iunmap <silent><nowait><buffer> <esc>
-  set buftype=
-  autocmd WinLeave <buffer> set buftype=nofile
-endfunction
-
-autocmd User CocOpenFloatPrompt call s:prompt_start()
-
-autocmd ColorScheme *
-      \ hi CocHelperNormalFloatBorder guifg=#dddddd guibg=#373B34
-      \ | hi CocHelperNormalFloat guibg=#373B34
-      \ | hi CocExplorerNormalFloatBorder guifg=#dddddd guibg=#373B34
-      \ | hi CocExplorerNormalFloat guibg=#373B34
-
 function! s:explorer_cur_dir()
   let node_info = CocAction('runCommand', 'explorer.getNodeInfo', 0)
   return fnamemodify(node_info['fullpath'], ':h')
@@ -290,31 +295,31 @@ augroup CocExplorerCustom
   autocmd!
   autocmd BufEnter * call <SID>enter_explorer()
   autocmd FileType coc-explorer call <SID>init_explorer()
+
+  if has('nvim')
+    function! s:is_float(winnr)
+      let winid = win_getid(a:winnr)
+      return !empty(nvim_win_get_config(winid)['relative'])
+    endfunction
+
+    function! s:quit_pre()
+      let cur_nr = winnr()
+      if s:is_float(cur_nr)
+        return
+      endif
+      let last_nr = winnr('$')
+      for nr in range(last_nr, 1, -1)
+        if s:is_float(nr)
+          continue
+        endif
+        if nr == 1
+          only
+        else
+          break
+        endif
+      endfor
+    endfunction
+
+    autocmd QuitPre * call <SID>quit_pre()
+  endif
 augroup END
-
-if has('nvim')
-  function! s:is_float(winnr)
-    let winid = win_getid(a:winnr)
-    return !empty(nvim_win_get_config(winid)['relative'])
-  endfunction
-
-  function! s:quit_pre()
-    let cur_nr = winnr()
-    if s:is_float(cur_nr)
-      return
-    endif
-    let last_nr = winnr('$')
-    for nr in range(last_nr, 1, -1)
-      if s:is_float(nr)
-        continue
-      endif
-      if nr == 1
-        only
-      else
-        break
-      endif
-    endfor
-  endfunction
-
-  autocmd QuitPre * call <SID>quit_pre()
-endif

@@ -27,7 +27,7 @@
     },
     "csharp-ls": {
       "command": "csharp-ls",
-      "filetypes": ["cs"],
+      "filetypes": ["csharp"],
       "rootPatterns": ["*.csproj", ".vim/", ".git/", ".hg/"]
     }
   },
@@ -64,6 +64,7 @@
   "workspace.bottomUpFiletypes": ["python"],
   "coc.preferences.watchmanPath": "",
   "tree.key.toggle": "o",
+  "outline.sortBy": "position",
   // extensions
   "prettier.singleQuote": true,
   "prettier.disableLanguages": ["handlebars", "hbs", "xml"],

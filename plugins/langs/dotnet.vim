@@ -1,0 +1,1 @@
+PluginAdd 'adelarsq/neofsharp.vim'

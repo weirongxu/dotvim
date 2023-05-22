@@ -1,6 +1,6 @@
 {
   "languageserver": {
-    "haskell-ide-engine": {
+    "haskell": {
       "command": "stack",
       "args": ["exec", "--", "hie"],
       "trace.server": "verbose",
@@ -8,7 +8,7 @@
       "filetypes": ["hs", "lhs", "haskell"],
       "initializationOptions": {}
     },
-    "reason-language-server": {
+    "reason": {
       "command": "reason-language-server",
       "filetypes": ["ocaml", "reason"]
     },
@@ -17,7 +17,7 @@
       "rootPatterns": ["build.sbt"],
       "filetypes": ["scala", "sbt"]
     },
-    "elixir-ls": {
+    "elixir": {
       "command": "~/apps/elixir-ls/release/language_server.sh",
       "filetypes": ["elixir", "eelixir"]
     },
@@ -25,10 +25,37 @@
       "command": "crystalline",
       "filetypes": ["crystal"]
     },
-    "csharp-ls": {
+    "csharp": {
       "command": "csharp-ls",
       "filetypes": ["csharp"],
       "rootPatterns": ["*.csproj", ".vim/", ".git/", ".hg/"]
+    },
+    "fsharp": {
+      "command": "fsautocomplete",
+      "args": [],
+      "filetypes": ["fsharp"],
+      "trace.server": "verbose",
+      "initializationOptions": {
+        "AutomaticWorkspaceInit": true
+      },
+      "settings": {
+        "FSharp.keywordsAutocomplete": true,
+        "FSharp.ExternalAutocomplete": false,
+        "FSharp.Linter": true,
+        "FSharp.UnionCaseStubGeneration": true,
+        "FSharp.UnionCaseStubGenerationBody": "failwith \"Not Implemented\"",
+        "FSharp.RecordStubGeneration": true,
+        "FSharp.RecordStubGenerationBody": "failwith \"Not Implemented\"",
+        "FSharp.InterfaceStubGeneration": true,
+        "FSharp.InterfaceStubGenerationObjectIdentifier": "this",
+        "FSharp.InterfaceStubGenerationMethodBody": "failwith \"Not Implemented\"",
+        "FSharp.UnusedOpensAnalyzer": true,
+        "FSharp.UnusedDeclarationsAnalyzer": true,
+        "FSharp.UseSdkScripts": true,
+        "FSharp.SimplifyNameAnalyzer": false,
+        "FSharp.ResolveNamespaces": true,
+        "FSharp.EnableReferenceCodeLens": true
+      }
     }
   },
   // color

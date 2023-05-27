@@ -27,6 +27,7 @@
     },
     "csharp": {
       "command": "csharp-ls",
+      "trace.server": "verbose",
       "filetypes": ["csharp"],
       "rootPatterns": ["*.csproj", ".vim/", ".git/", ".hg/"]
     },

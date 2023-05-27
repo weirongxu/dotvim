@@ -53,6 +53,5 @@ Include langs/nodejs.vim
 Include langs/graphql.vim
 Include langs/dart.vim
 Include langs/reasonml.vim
-Include langs/dotnet.vim
 
 PluginAdd 'local-after', {'inner': 1}

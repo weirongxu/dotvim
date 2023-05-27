@@ -80,6 +80,7 @@ nmap <Leader>rf <Plug>(coc-refactor)
 nmap <Leader><CR> <Plug>(coc-codeaction-cursor)
 vnoremap <Leader><CR> <Plug>(coc-codeaction-selected)
 nmap <Leader>ol <Plug>(coc-openlink)
+nmap <Leader>oo <Cmd>CocCommand workspace.showOutput<CR>
 nmap <Leader>fx <Plug>(coc-fix-current)
 nmap <Leader>fi <Cmd>CocCommand editor.action.organizeImport<CR>
 nmap <Leader>ff <Plug>(coc-format)
@@ -121,6 +122,7 @@ augroup CocNvimCustom
   " float prompt
   function! s:prompt_start()
     iunmap <silent><nowait><buffer> <esc>
+    nmap <nowait><buffer> <cr> A<cr>
     set buftype=
     augroup CocNvimCustomPrompt
       autocmd!

@@ -41,6 +41,7 @@ let s:coc_extensions = [
       \ 'coc-svg',
       \ 'coc-docker',
       \ 'coc-rust-analyzer',
+      \ '@yaegassy/coc-marksman',
       \ ]
 let g:coc_global_extensions = []
 let runtimepathNames = map(split(&runtimepath, ','), {_, path -> reverse(split(path, '/'))[0]})

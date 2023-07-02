@@ -11,3 +11,5 @@ PluginAdd 'rhysd/vim-wasm'
 
 PluginAdd 'posva/vim-vue'
 let g:vue_disable_pre_processors = 1
+
+PluginAdd 'evanleck/vim-svelte'

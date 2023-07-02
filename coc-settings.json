@@ -115,5 +115,6 @@
   "explorer.filename.colored.enable": true,
   "markdown-preview-enhanced.previewTheme": "github-dark.css",
   "webview.colorStrategy": "dark",
-  "git.branchCharacter": ""
+  "git.branchCharacter": "",
+  "svelte.enable-ts-plugin": true
 }

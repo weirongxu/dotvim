@@ -7,6 +7,7 @@ let s:dict = {
       \ '】': ')',
       \ '\s\?:\s\?': '：',
       \ '\s\{2,}': ' ',
+      \ '\s\*.': '.',
       \ }
 
 function s:filename_convert() range

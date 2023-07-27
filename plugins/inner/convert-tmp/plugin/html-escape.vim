@@ -7,14 +7,14 @@ let s:html_escape_dict = {
       \ ' ': 'nbsp',
       \ }
 function! s:HtmlEscape()
-  for k in keys(s:html_escape_dict)
-    exec 'silent s/\V'.k.'/&'.s:html_escape_dict[k].';/eg'
+  for [k, v] in items(s:html_escape_dict)
+    exec 'silent s/\V'.k.'/&'.v.';/eg'
   endfor
 endfunction
 
 function! s:HtmlUnEscape()
-  for k in keys(s:html_escape_dict)
-    exec 'silent s/\V&'.s:html_escape_dict[k].';/'.k.'/eg'
+  for [k, v] in items(s:html_escape_dict)
+    exec 'silent s/\V&'.v.';/'.k.'/eg'
   endfor
 endfunction
 

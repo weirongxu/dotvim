@@ -110,6 +110,7 @@
   "javascript.autoClosingTags": true,
   "html.autoClosingTags": true,
   "solargraph.useBundler": true,
+  "ruby.rubocop.useBundler": true,
   "typescript.referencesCodeLens.enabled": true,
   "explorer.git.showIgnored": true,
   "explorer.filename.colored.enable": true,

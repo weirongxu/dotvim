@@ -7,8 +7,10 @@ if executable('yarn')
         \ 'on_updated': 'yarn install --frozen-lockfile'
         \ }
   Include /plugins-conf/coc.vim
+  TryInclude /plugins-conf/coc-dev.vim
   function! g:plugin_hooks[SourcedHook()]()
     Include /plugins-conf/coc-sourced.vim
+    TryInclude /plugins-conf/coc-dev-sourced.vim
   endfunction
 endif
 

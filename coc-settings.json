@@ -8,10 +8,6 @@
       "filetypes": ["hs", "lhs", "haskell"],
       "initializationOptions": {}
     },
-    "reason": {
-      "command": "reason-language-server",
-      "filetypes": ["ocaml", "reason"]
-    },
     "metals": {
       "command": "metals-vim",
       "rootPatterns": ["build.sbt"],

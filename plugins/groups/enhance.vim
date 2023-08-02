@@ -94,4 +94,5 @@ PluginAdd 'tpope/vim-unimpaired'
 
 PluginAdd 'jiangmiao/auto-pairs'
 let g:AutoPairsMapCR = 0
-let g:AutoPairsShortcutToggle = '<space>ap'
+let g:AutoPairsShortcutToggle = ''
+nmap <silent> <Leader>ap :call AutoPairsToggle()<CR>

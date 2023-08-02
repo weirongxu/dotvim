@@ -1,5 +1,3 @@
-TryInclude coc-dev.vim
-
 " let g:node_client_debug = 1
 " let $NODE_CLIENT_LOG_FILE = $HOME . '/tmp/coc-logfile.log'
 let g:coc_node_args = ['--nolazy']

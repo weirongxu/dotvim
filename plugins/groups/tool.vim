@@ -95,22 +95,22 @@ PluginAdd 'AndrewRadev/bufferize.vim'
 
 PluginAdd 'kristijanhusak/vim-carbon-now-sh', {'on_cmd': 'CarbonNowSh'}
 
-PluginAdd 'echuraev/translate-shell.vim'
-let g:trans_default_direction = ':zh-CN'
-let g:trans_directions_list = [
-      \['', 'zh-CN'],
-      \['', 'ja'],
-      \['', 'en'],
-      \['', 'zh-TW'],
-      \]
-map <Leader>tr <Cmd>Trans<CR>
-map <Leader>ts <Cmd>TransSelectDirection<CR>
-map <Leader>ti <Cmd>TransInteractive<CR>
-map <Leader>th <Cmd>TransOpenHistoryWindow<CR>
+" PluginAdd 'echuraev/translate-shell.vim'
+" let g:trans_default_direction = ':zh-CN'
+" let g:trans_directions_list = [
+"      \['', 'zh-CN'],
+"      \['', 'ja'],
+"      \['', 'en'],
+"      \['', 'zh-TW'],
+"      \]
+" map <Leader>tr <Cmd>Trans<CR>
+" map <Leader>ts <Cmd>TransSelectDirection<CR>
+" map <Leader>ti <Cmd>TransInteractive<CR>
+" map <Leader>th <Cmd>TransOpenHistoryWindow<CR>
 
-PluginAdd 'translate-shell-speak', {'inner': 1}
-map <Leader>tp <Cmd>call translate_shell_speak#speak_cursor_work()<CR>
-vmap <Leader>tp <Cmd>call translate_shell_speak#speak_visual()<CR>
+" PluginAdd 'translate-shell-speak', {'inner': 1}
+" map <Leader>tp <Cmd>call translate_shell_speak#speak_cursor_work()<CR>
+" vmap <Leader>tp <Cmd>call translate_shell_speak#speak_visual()<CR>
 
 PluginAdd 'convert-tmp', {'inner': 1}
 

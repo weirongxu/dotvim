@@ -41,13 +41,14 @@ endif
 "   autocmd BufWritePost * GitGutter
 " endfunction
 
-PluginAdd 'cohama/agit.vim', {'on_cmd': ['Agit', 'AgitFile', 'AgitGit']}
+PluginAdd 'cohama/agit.vim', #{on_cmd: ['Agit', 'AgitFile', 'AgitGit']}
+let g:agit_stat_width = '1000'
 
-" PluginAdd 'junegunn/gv.vim', {'on_cmd': ['GV', 'GV!', 'GV?']}
+" PluginAdd 'junegunn/gv.vim', #{on_cmd: ['GV', 'GV!', 'GV?']}
 " PluginAdd 'mhinz/vim-signify'
 " PluginAdd 'rhysd/committia.vim'
 " PluginAdd 'tpope/vim-fugitive'
-" PluginAdd 'jaxbot/github-issues.vim', {'on_cmd': ['Gissues', 'Giadd', 'Giedit', 'Giupdate', 'Gmiles']}
+" PluginAdd 'jaxbot/github-issues.vim', #{on_cmd: ['Gissues', 'Giadd', 'Giedit', 'Giupdate', 'Gmiles']}
 " if filereadable(g:github_token_file)
 "   let g:github_access_token = strpart(join(readfile(g:github_token_file), ""), 6)
 " endif

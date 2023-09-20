@@ -1,4 +1,4 @@
-PluginAdd 'local-before', {'inner': 1}
+PluginAdd 'local-before', #{inner: 1}
 
 " Include groups/treesitter.vim
 Include groups/encode.vim
@@ -54,4 +54,6 @@ Include langs/graphql.vim
 Include langs/dart.vim
 Include langs/reasonml.vim
 
-PluginAdd 'local-after', {'inner': 1}
+TryInclude custom.vim
+
+PluginAdd 'local-after', #{inner: 1}

@@ -1,4 +1,4 @@
-PluginAdd 'thinca/vim-quickrun', {'on_cmd': 'QuickRun'}
+PluginAdd 'thinca/vim-quickrun', #{on_cmd: 'QuickRun'}
 map <c-q> <Cmd>QuickRun<CR>
 let g:quickrun_config = {
   \  'scss': {
@@ -56,4 +56,4 @@ let g:quickrun_config = {
 
 PluginAdd 'rhysd/reply.vim'
 
-PluginAdd 'metakirby5/codi.vim', {'on_cmd': 'Codi'}
+PluginAdd 'metakirby5/codi.vim', #{on_cmd: 'Codi'}

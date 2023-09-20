@@ -9,7 +9,6 @@ function! s:add(metadata)
         \ 'on_cmd',
         \ 'on_ft',
         \ 'rtp',
-        \ 'path',
         \ 'rev',
         \ 'frozen',
         \ ]
@@ -33,28 +32,32 @@ function! s:add(metadata)
   let sourced_hook = SourcedHook(name)
   let options['hook_post_source'] = 'if has_key(g:plugin_hooks, "' . sourced_hook . '") | call g:plugin_hooks["' . sourced_hook . '"]() | end'
 
-  if a:metadata['local']
-    let dir = fnamemodify(repo, ':h')
-    let a:metadata['path'] = repo
-    if has_key(options, 'rev')
-      call remove(options, 'rev')
-    endif
-    call dein#local(dir, options, [name])
-  else
-    call dein#add(repo, options)
-  endif
+  call dein#add(repo, options)
 endfunction
 
 
 function! PluginsBootDein()
-  let $DEIN_DIR = $HOME . '/.cache/dein'
+  " install
+  if &runtimepath !~# '/dein.vim'
+    let s:dein_dir = fnamemodify('dein.vim', ':p')
+    if !isdirectory(s:dein_dir)
+      let s:dein_dir = $CACHE . '/dein/repos/github.com/Shougo/dein.vim'
+      if !isdirectory(s:dein_dir)
+        execute '!git clone https://github.com/Shougo/dein.vim' s:dein_dir
+      endif
+    endif
+    execute 'set runtimepath^=' . substitute(
+          \ fnamemodify(s:dein_dir, ':p') , '[/\\]$', '', '')
+  endif
+
+  let $DEIN_DIR = $CACHE . '/dein'
   let &runtimepath .= ','.$DEIN_DIR.'/repos/github.com/Shougo/dein.vim'
   let g:dein#types#git#clone_depth = 1
 
   call dein#begin($DEIN_DIR)
   call dein#add('Shougo/dein.vim')
   call dein#add('haya14busa/dein-command.vim')
-  for metadata in g:coc_plugin_repos
+  for metadata in g:plugin_manager_repos
     call s:add(metadata)
   endfor
   call dein#end()

@@ -1,4 +1,4 @@
-PluginAdd 'salsifis/vim-transpose', { 'on_cmd': [
+PluginAdd 'salsifis/vim-transpose', #{ on_cmd: [
       \ 'Transpose',
       \ 'TransposeWords',
       \ 'TransposeTab',
@@ -88,17 +88,17 @@ nmap <silent> <Leader>w <Cmd>call Argwrap()<CR>
 nmap <silent> <Leader>W <Cmd>call NoTailArgwrap()<CR>
 let g:argwrap_tail_comma_braces = '{['
 
-PluginAdd 'dhruvasagar/vim-table-mode', { 'on_map': '<Leader><Leader>tm' }
+PluginAdd 'dhruvasagar/vim-table-mode', #{ on_map: '<Leader><Leader>tm' }
 let g:table_mode_map_prefix = '<Leader><Leader>t'
 
-PluginAdd 'junegunn/vim-easy-align', {
-      \ 'on_map': ['<Plug>(EasyAlign)', '<Plug>(LiveEasyAlign)'],
-      \ 'on_cmd': ['EasyAlign', 'LiveEasyAlign'],
+PluginAdd 'junegunn/vim-easy-align', #{
+      \ on_map: ['<Plug>(EasyAlign)', '<Plug>(LiveEasyAlign)'],
+      \ on_cmd: ['EasyAlign', 'LiveEasyAlign'],
       \ }
 vmap <Leader>al <Plug>(LiveEasyAlign)
 
-PluginAdd 'chiedo/vim-case-convert', {
-      \ 'on_cmd': [
+PluginAdd 'chiedo/vim-case-convert', #{
+      \ on_cmd: [
       \   'CamelToHyphen',
       \   'CamelToSnake',
       \   'HyphenToCamel',

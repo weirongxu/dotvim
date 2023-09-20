@@ -1,5 +1,5 @@
-PluginAdd 'majutsushi/tagbar', {
-      \ 'on_cmd': [
+PluginAdd 'majutsushi/tagbar', #{
+      \ on_cmd: [
       \   'TagbarOpen',
       \   'TagbarClose',
       \   'TagbarToggle',
@@ -21,10 +21,10 @@ Pkg npm install jsctags
 PluginAdd 'liuchengxu/vista.vim'
 map <Leader>tv <Cmd>Vista coc<CR>
 
-PluginAdd 'wesleyche/SrcExpl', {'on_cmd': ['SrcExpl', 'SrcExplClose', 'SrcExplToggle']}
+PluginAdd 'wesleyche/SrcExpl', #{on_cmd: ['SrcExpl', 'SrcExplClose', 'SrcExplToggle']}
 
 if g:env#nvim
-  PluginAdd 'phaazon/hop.nvim', {'on_map': ['s']}
+  PluginAdd 'phaazon/hop.nvim', #{on_map: ['s']}
   nmap sw <Cmd>HopWordAC<CR>
   nmap se <Cmd>HopWordAC<CR>
   nmap sb <Cmd>HopWordBC<CR>
@@ -40,7 +40,7 @@ if g:env#nvim
     lua require'hop'.setup { keys = 'asdfghjkl;qwertyuiopzxcvbnm' }
   endfunction
 else
-  PluginAdd 'easymotion/vim-easymotion', {'on_map': ['<Plug>(easymotion-', 's']}
+  PluginAdd 'easymotion/vim-easymotion', #{on_map: ['<Plug>(easymotion-', 's']}
   let g:EasyMotion_leader_key = 's'
   let g:EasyMotion_use_upper = 1
   let g:EasyMotion_smartcase = 1

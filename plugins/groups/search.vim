@@ -38,7 +38,7 @@ map g*  <Plug>(asterisk-g*)
 map g#  <Plug>(asterisk-g#)
 " let g:asterisk#keeppos = 1
 
-PluginAdd 'osyo-manga/vim-anzu', {'on_map': '<Plug>(anzu-'}
+PluginAdd 'osyo-manga/vim-anzu', #{on_map: '<Plug>(anzu-'}
 nmap n <Plug>(anzu-n-with-echo)
 nmap N <Plug>(anzu-N-with-echo)
 
@@ -49,7 +49,7 @@ PluginAdd 'brooth/far.vim'
 ""
 " directory search
 " if g:env#python
-"   PluginAdd 'Yggdroot/LeaderF', {'on_updated': './install.sh'}
+"   PluginAdd 'Yggdroot/LeaderF', #{on_updated: './install.sh'}
 "   let g:Lf_ShortcutF = '<Plug>Lf_ShortcutP'
 "   let g:Lf_ShortcutB = '<Plug>Lf_ShortcutB'
 "   let g:Lf_CommandMap = {
@@ -64,4 +64,4 @@ PluginAdd 'brooth/far.vim'
 "   endfunction
 "   map <C-P> <Cmd>call Lf_ShortcutF()<CR>
 " endif
-" PluginAdd 'mhinz/vim-grepper', {'on_cmd': 'Grepper'}
+" PluginAdd 'mhinz/vim-grepper', #{on_cmd: 'Grepper'}

@@ -12,3 +12,4 @@ __pycache__
 /sessions
 /plugins-conf/coc-dev.vim
 /plugins-conf/coc-dev-sourced.vim
+/plugins/custom.vim

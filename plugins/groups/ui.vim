@@ -38,7 +38,6 @@ endif
 PluginAdd 'liuchengxu/eleline.vim'
 PluginAdd 'nvim-lua/lsp-status.nvim'
 
-
 PluginAdd 'Yggdroot/indentLine'
 let g:indentLine_fileTypeExclude = [
       \  '',
@@ -61,7 +60,7 @@ if !g:env#x
 endif
 
 if g:env#gui
-  PluginAdd 'drmikehenry/vim-fontsize', {'on_map': '<Plug>Fontsize'}
+  PluginAdd 'drmikehenry/vim-fontsize', #{on_map: '<Plug>Fontsize'}
   nmap <silent> <C-ScrollWheelUp>   <Plug>FontsizeInc
   nmap <silent> <C-ScrollWheelDown> <Plug>FontsizeDec
   function! g:plugin_hooks[SourceHook()]()

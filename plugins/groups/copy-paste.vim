@@ -3,8 +3,8 @@ PluginAdd 'roxma/vim-tmux-clipboard'
 " PluginAdd 'machakann/vim-highlightedyank'
 
 if g:env#x && !has('nvim-0.5.0')
-  PluginAdd 'haya14busa/vim-operator-flashy', {
-        \ 'on_map': '<Plug>(operator-flashy)'
+  PluginAdd 'haya14busa/vim-operator-flashy', #{
+        \ on_map: '<Plug>(operator-flashy)'
         \ }
   map y <Plug>(operator-flashy)
   nmap Y <Plug>(operator-flashy)$

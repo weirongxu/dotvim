@@ -1,5 +1,5 @@
 if g:env#nvim && executable('gcc')
-  PluginAdd 'nvim-treesitter/nvim-treesitter', {'build': 'TSUpdate'}
+  PluginAdd 'nvim-treesitter/nvim-treesitter', #{build: 'TSUpdate'}
   function! g:plugin_hooks[SourcedHook()]()
     lua <<EOF
     require'nvim-treesitter.configs'.setup {

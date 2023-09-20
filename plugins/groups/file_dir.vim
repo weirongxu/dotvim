@@ -8,7 +8,7 @@ let g:rooter_patterns = [
       \ '.git/',
       \]
 
-" PluginAdd 'Shougo/defx.nvim', {'on_cmd': 'Defx'}
+" PluginAdd 'Shougo/defx.nvim', #{on_cmd: 'Defx'}
 " Include /plugins-conf/defx.vim
 " PluginAdd 'kristijanhusak/defx-git'
 " PluginAdd 'kristijanhusak/defx-icons'

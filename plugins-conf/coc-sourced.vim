@@ -12,7 +12,7 @@ if g:env#nvim
   let lua_runtimes = {}
   let lua_runtimes[$VIMRUNTIME . '/lua/'] = v:true
   for p in nvim_list_runtime_paths()
-    let lua_path = expand(p + "/lua/")
+    let lua_path = expand(p + '/lua/')
     if isdirectory(lua_path)
       let lua_runtimes[lua_path] = v:true
     endif
@@ -21,33 +21,33 @@ if g:env#nvim
 endif
 
 if g:env#nerdfont
-  let labels = {
-        \ "keyword": "",
-        \ "variable": "",
-        \ "value": "󰎠",
-        \ "operator": "",
-        \ "constructor": "󰆧",
-        \ "function": "ƒ",
-        \ "reference": "",
-        \ "constant": "",
-        \ "method": "",
-        \ "struct": "",
-        \ "class": "",
-        \ "interface": "",
-        \ "text": "󱀍",
-        \ "enum": "",
-        \ "enumMember": "",
-        \ "module": "",
-        \ "color": "",
-        \ "property": "",
-        \ "field": "",
-        \ "unit": "",
-        \ "event": "",
-        \ "file": "",
-        \ "folder": "",
-        \ "snippet": "",
-        \ "typeParameter": "",
-        \ "default": ""
+  let labels = #{
+        \ keyword: "",
+        \ variable: "",
+        \ value: "󰎠",
+        \ operator: "",
+        \ constructor: "󰆧",
+        \ function: "ƒ",
+        \ reference: "",
+        \ constant: "",
+        \ method: "",
+        \ struct: "",
+        \ class: "",
+        \ interface: "",
+        \ text: "󱀍",
+        \ enum: "",
+        \ enumMember: "",
+        \ module: "",
+        \ color: "",
+        \ property: "",
+        \ field: "",
+        \ unit: "",
+        \ event: "",
+        \ file: "",
+        \ folder: "",
+        \ snippet: "",
+        \ typeParameter: "",
+        \ default: ""
         \ }
   for [key, value] in items(labels)
     call coc#config('suggest.completionItemKindLabels.' . key, value)

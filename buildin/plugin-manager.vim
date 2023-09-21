@@ -37,11 +37,11 @@ function! PluginAdd(repo, ...)
   let opt = get(a:000, 0, {})
   let repo = a:repo
   let name = fnamemodify(repo, ":t")
-  let s:current_plugin = {
-        \ 'repo': repo,
-        \ 'inner': v:false,
-        \ 'dev': v:false,
-        \ 'name': name,
+  let s:current_plugin = #{
+        \ repo: repo,
+        \ inner: v:false,
+        \ dev: v:false,
+        \ name: name,
         \ }
   let optkeys = [
         \ 'inner',

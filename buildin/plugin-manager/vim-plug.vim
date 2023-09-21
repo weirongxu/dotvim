@@ -23,11 +23,11 @@ function! s:add(metadata)
 
   let source_hook = SourceHook(name)
   if has_key(g:plugin_hooks, source_hook)
-    call add(g:vim_plug_manager_hooks['source'], g:plugin_hooks[source_hook])
+    call add(g:vim_plug_manager_hooks['source'], #{name: name, fn: g:plugin_hooks[source_hook]})
   endif
   let sourced_hook = SourcedHook(name)
   if has_key(g:plugin_hooks, sourced_hook)
-    call add(g:vim_plug_manager_hooks['sourced'], g:plugin_hooks[sourced_hook])
+    call add(g:vim_plug_manager_hooks['sourced'], #{name: name, fn: g:plugin_hooks[sourced_hook]})
   endif
 
   let cmd = "Plug '" . repo . "'"
@@ -38,14 +38,14 @@ function! s:add(metadata)
 endfunction
 
 function! s:boot_source_hook()
-  for Fn in g:vim_plug_manager_hooks['source']
-    call call(Fn, [], {})
+  for hook in g:vim_plug_manager_hooks['source']
+    call call(hook['fn'], [], {})
   endfor
 endfunction
 
 function! s:boot_sourced_hook()
-  for Fn in g:vim_plug_manager_hooks['sourced']
-    call call(Fn, [], {})
+  for hook in g:vim_plug_manager_hooks['sourced']
+    call call(hook['fn'], [], {})
   endfor
 endfunction
 
@@ -59,6 +59,5 @@ function! PluginsBootVimPlug()
   call plug#end()
 
   call s:boot_source_hook()
-
   au VimEnter * call s:boot_sourced_hook()
 endfunction

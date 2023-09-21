@@ -48,8 +48,8 @@ for name in s:coc_extensions
   endif
 endfor
 
-let g:coc_filetype_map = {
-      \   'cs': 'csharp',
+let g:coc_filetype_map = #{
+      \   cs: 'csharp',
       \ }
 
 " inoremap <silent><expr> <C-n> coc#pum#visible() ? coc#pum#next(1) : "\<C-n>"

@@ -1,2 +1,4 @@
 #!/usr/bin/env bash
-vim -c "Vader test/**/*.vader"
+
+# nvim -c "Vader test/**/*.vader"
+nvim -c "Vader plugins/inner/*/test/**/*.vader"

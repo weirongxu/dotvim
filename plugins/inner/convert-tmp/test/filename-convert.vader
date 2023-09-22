@@ -1,0 +1,14 @@
+Given (Filenames):
+  Hello World    1 （Author [author]）.txt
+  Hello World 2 （Author 【author】）.txt
+  Hello World 3   .txt
+  Hello World: 4.txt
+
+Do (FilenameConvert):
+  :FilenameConvert\<CR>
+
+Expect (Filenames converted):
+  Hello World 1 (Author (author)).txt
+  Hello World 2 (Author (author)).txt
+  Hello World 3.txt
+  Hello World：4.txt

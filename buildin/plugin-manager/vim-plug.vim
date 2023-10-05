@@ -71,6 +71,21 @@ function! s:setup_extra()
     autocmd FileType vim-plug nnoremap <buffer> <silent> gx :call <sid>plug_gx()<cr>
   augroup END
 
+  " gd open directory
+  function! s:plug_gd()
+    let line = getline('.')
+    let sha  = matchstr(line, '^  \X*\zs\x\{7,9}\ze ')
+    let name = empty(sha) ? matchstr(line, '^[-x+] \zs[^:]\+\ze:')
+          \ : getline(search('^- .*:$', 'bn'))[2:-2]
+    let dir  = get(get(g:plugs, name, {}), 'dir', '')
+    execute 'edit ' . dir
+  endfunction
+
+  augroup PlugGd
+    autocmd!
+    autocmd FileType vim-plug nnoremap <buffer> <silent> gd :call <sid>plug_gd()<cr>
+  augroup END
+
   " diff
   function! s:scroll_preview(down)
     silent! wincmd P

@@ -41,7 +41,7 @@ snippet prettierrc "prettierrc" b
 	"singleQuote": true,
 	"trailingComma": "all",
 	"arrowParens": "always",
-	"semi": true,
+	"semi": false,
 	"printWidth": 80
 }
 endsnippet
@@ -88,6 +88,27 @@ snippet eslintrc "eslintrc" b
 		],
 		"no-console": ["error"]
 	}
+}
+endsnippet
+
+snippet tsconfig "tsconfig" b
+{
+	"compilerOptions": {
+		"outDir": "dist",
+		"jsx": "react-jsx",
+		"declaration": false,
+		"allowJs": true,
+		"lib": ["DOM", "ES2022"],
+		"esModuleInterop": true,
+		"target": "ES2020",
+		"module": "Node16",
+		"verbatimModuleSyntax": true,
+		"forceConsistentCasingInFileNames": true,
+		"moduleResolution": "Node10",
+		"strict": true,
+		"skipLibCheck": true
+	},
+	"include": ["src", "."]
 }
 endsnippet
 

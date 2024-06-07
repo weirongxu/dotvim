@@ -20,6 +20,10 @@ let g:startify_list_order = [
       \ ['   Last Recently Use:'],
       \ 'files',
       \ ]
+function! StartifyCustomSessionSave(bang, name, ...)
+  call startify#session_save(a:bang, a:name . '.vim', a:000)
+endfunction
+command! -nargs=? -bar -bang -complete=customlist,startify#session_list SSave call StartifyCustomSessionSave(<bang>0, <f-args>)
 map <Leader><Leader><Leader> <Cmd>Startify<CR>
 function! g:plugin_hooks[SourcedHook()]()
   call AddCommand('session.save', 'SSave')

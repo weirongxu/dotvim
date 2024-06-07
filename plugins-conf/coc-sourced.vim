@@ -54,3 +54,5 @@ if g:env#nerdfont
   endfor
   call coc#config('explorer.icon.enableNerdfont', v:true)
 endif
+
+call coc#config('session.directory', g:env#record_dir#sessions)

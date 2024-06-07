@@ -16,7 +16,7 @@ let s:coc_extensions = [
       \ 'coc-html',
       \ 'coc-yaml',
       \ 'coc-eslint',
-      \ '@raidou/coc-prettier-v3',
+      \ 'coc-prettier',
       \ 'coc-snippets',
       \ 'coc-tag',
       \ 'coc-dictionary',
@@ -121,11 +121,6 @@ augroup CocNvimCustom
   function! s:prompt_start()
     iunmap <silent><nowait><buffer> <esc>
     nmap <nowait><buffer> <cr> A<cr>
-    set buftype=
-    augroup CocNvimCustomPrompt
-      autocmd!
-      autocmd WinLeave <buffer> set buftype=nofile
-    augroup end
   endfunction
 
   autocmd User CocOpenFloatPrompt call s:prompt_start()
@@ -146,7 +141,8 @@ nmap <Leader>l' <Cmd>CocList markers<CR>
 nmap <Leader>le <Cmd>CocList extensions<CR>
 nmap <Leader>lmp <Cmd>CocList marketplace<CR>
 nmap <Leader>ld <Cmd>CocList diagnostics<CR>
-nmap <Leader>ls <Cmd>CocList services<CR>
+nmap <Leader>ls <Cmd>CocList sessions<CR>
+nmap <Leader>lS <Cmd>CocList services<CR>
 
 nmap <Leader>lt :call CocAction('showOutline')<CR>
 nmap <Leader>li :call CocAction('showIncomingCalls')<CR>

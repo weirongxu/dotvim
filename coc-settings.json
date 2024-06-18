@@ -87,6 +87,7 @@
   // other
   "workspace.bottomUpFiletypes": ["python"],
   "coc.preferences.watchmanPath": "",
+  "session.saveOnVimLeave": false,
   "tree.key.toggle": "o",
   "outline.sortBy": "position",
   // extensions

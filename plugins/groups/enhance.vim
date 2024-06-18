@@ -23,13 +23,16 @@ let g:startify_list_order = [
 function! StartifyCustomSessionSave(bang, name, ...)
   call startify#session_save(a:bang, a:name . '.vim', a:000)
 endfunction
-command! -nargs=? -bar -bang -complete=customlist,startify#session_list SSave call StartifyCustomSessionSave(<bang>0, <f-args>)
+function StartifyCustomSessionList(...)
+  return map(call('startify#session_list', a:000), {key, value -> substitute(value, '\v\.vim$', '', '')})
+endfunction
 map <Leader><Leader><Leader> <Cmd>Startify<CR>
 function! g:plugin_hooks[SourcedHook()]()
   call AddCommand('session.save', 'SSave')
   call AddCommand('session.load', 'SLoad')
   call AddCommand('session.delete', 'SDelete')
   call AddCommand('session.close', 'SClose')
+  command! -nargs=? -bar -bang -complete=customlist,StartifyCustomSessionList SSave call StartifyCustomSessionSave(<bang>0, <f-args>)
 endfunction
 
 PluginAdd 'kshenoy/vim-signature'

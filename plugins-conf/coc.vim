@@ -70,6 +70,9 @@ nmap [d <Plug>(coc-diagnostic-prev)
 nmap ]d <Plug>(coc-diagnostic-next)
 nmap [D <Plug>(coc-diagnostic-prev-error)
 nmap ]D <Plug>(coc-diagnostic-next-error)
+nmap [s <Plug>(coc-typos-prev)
+nmap ]s <Plug>(coc-typos-next)
+nmap z= <Plug>(coc-typos-fix)
 nmap <Leader>rn <Plug>(coc-rename)
 nmap <Leader><Leader>rn <Plug>(coc-rename)
 nmap <Leader>: <Plug>(coc-floatinput-command)
@@ -158,7 +161,7 @@ nmap <C-p> <Cmd>CocList files<CR>
 nmap <Leader>ccp <Cmd>call CocAction("pickColor")<CR>
 nmap <Leader>ccP <Cmd>call CocAction("colorPresentation")<CR>
 
-" flaot & scroll
+" float & scroll
 if has('nvim-0.4.0') || has('patch-8.2.0750')
   nnoremap <silent><nowait> <C-w>f <Plug>(coc-float-jump)
   nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"

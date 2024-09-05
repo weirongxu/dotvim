@@ -43,7 +43,6 @@ let g:airline#extensions#default#layout = [
 let g:airline#extensions#default#section_truncate_width = {
       \ 'a': 80,
       \ 'b': 80,
-      \ 'c': 60,
       \ 'x': 120,
       \ 'y': 120,
       \ 'z': 120,

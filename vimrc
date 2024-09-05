@@ -12,7 +12,7 @@ Include highlights.vim
 Include mappings.vim
 Include plugins.vim
 Include options.vim
-Include tabline.vim
+"Include tabline.vim
 
 syntax on
 filetype plugin indent on

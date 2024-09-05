@@ -35,7 +35,30 @@ EOF
   endfunction
 endif
 
-PluginAdd 'liuchengxu/eleline.vim'
+PluginAdd 'vim-airline/vim-airline'
+let g:airline#extensions#default#layout = [
+      \ [ 'a', 'b', 'c'],
+      \ [ 'x', 'y', 'z']
+      \ ]
+let g:airline#extensions#default#section_truncate_width = {
+      \ 'a': 80,
+      \ 'b': 80,
+      \ 'c': 60,
+      \ 'x': 120,
+      \ 'y': 120,
+      \ 'z': 120,
+      \ 'warning': 120,
+      \ 'error': 120,
+      \ }
+let g:airline_powerline_fonts = g:env#nerdfont
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#tabline#show_splits = 0
+let g:airline#extensions#tabline#show_tab_type = 0
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+PluginAdd 'vim-airline/vim-airline-themes'
+let g:airline_theme = 'papercolor'
+
 PluginAdd 'nvim-lua/lsp-status.nvim'
 
 PluginAdd 'Yggdroot/indentLine'
@@ -58,6 +81,13 @@ let g:indentLine_faster = 1
 if !g:env#x
   let g:indentLine_color_term = 8
 endif
+
+"PluginAdd 'lukas-reineke/indent-blankline.nvim'
+"function! g:plugin_hooks[SourcedHook()]()
+"  lua <<EOF
+"  require'ibl'.setup()
+"EOF
+"endfunction
 
 if g:env#gui
   PluginAdd 'drmikehenry/vim-fontsize', #{on_map: '<Plug>Fontsize'}

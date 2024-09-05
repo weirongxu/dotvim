@@ -82,11 +82,11 @@ vmap <S-Down>  <Plug>MoveBlockDown
 
 PluginAdd 'tpope/vim-characterize', #{on_map: 'ga'}
 
-PluginAdd 'liuchengxu/vim-which-key'
-nmap <silent> <Leader> <Cmd>WhichKey '<Leader>'<CR>
-vmap <silent> <Leader> :<C-u>WhichKeyVisual '<Leader>'<CR>
-nmap <silent> <Leader>kg <Cmd>WhichKey 'g'<CR>
-vmap <silent> <Leader>kg :<C-u>WhichKeyVisual 'g'<CR>
+PluginAdd 'spinks/vim-leader-guide'
+nnoremap <silent> <leader> <Cmd>LeaderGuide '<Space>'<CR>
+vnoremap <silent> <leader> :<C-u>LeaderGuideVisual '<Space>'<CR>
+nnoremap <silent> <Leader>kg <Cmd>LeaderGuide 'g'<CR>
+vnoremap <silent> <Leader>kg :<C-u>LeaderGuideVisual 'g'<CR>
 
 " PluginAdd 'tweekmonster/braceless.vim'
 " function! g:plugin_hooks[SourcedHook()]()

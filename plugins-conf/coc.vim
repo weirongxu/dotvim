@@ -7,7 +7,6 @@ let $VIMCONFIG = $MY_VIMFILES
 let s:coc_extensions = [
       \ 'coc-explorer',
       \ 'coc-tsserver',
-      \ 'coc-tslint-plugin',
       \ 'coc-vimlsp',
       \ 'coc-lists',
       \ 'coc-vetur',
@@ -101,6 +100,10 @@ endfunction
 
 augroup CocNvimCustom
   autocmd!
+
+  " status
+	autocmd User CocStatusChange redrawstatus
+
   " Update signature help on jump placeholder.
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
   " highlight
@@ -136,8 +139,8 @@ nmap <Leader>lf <Cmd>CocList --normal folders<CR>
 nmap <Leader>fg <Cmd>CocList -I grep<CR>
 nmap <Leader>fG <Cmd>CocList -I grep -regex <CR>
 nmap <Leader>fcg <Cmd>exe 'CocList --normal -I --input='.expand('<cword>').' grep'<CR>
-nmap <Leader>lc <Cmd>CocList commands<CR>
-nmap <Leader>lC <Cmd>CocList vimcommands<CR>
+map <Leader>lc <Cmd>CocList commands<CR>
+map <Leader>lC <Cmd>CocList vimcommands<CR>
 nmap <Leader>lCh <Cmd>CocList cmdhistory<CR>
 nmap <Leader>l/ <Cmd>CocList searchhistory<CR>
 nmap <Leader>l' <Cmd>CocList markers<CR>

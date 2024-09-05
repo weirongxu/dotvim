@@ -72,6 +72,7 @@
     "rounded": true,
     "border": true
   },
+  "coc.preferences.enableMessageDialog": true,
   // codeLens
   "codeLens.enable": true,
   "codeLens.position": "top",
@@ -86,6 +87,7 @@
   },
   // other
   "workspace.bottomUpFiletypes": ["python"],
+  "inlayHint.position": "eol",
   "coc.preferences.watchmanPath": "",
   "session.saveOnVimLeave": false,
   "tree.key.toggle": "o",
@@ -107,5 +109,31 @@
   "markdown-preview-enhanced.previewTheme": "github-dark.css",
   "webview.colorStrategy": "dark",
   "git.branchCharacter": "",
-  "svelte.enable-ts-plugin": true
+  "svelte.enable-ts-plugin": true,
+  "todo-tree.tags": [
+    {
+      "tagName": "todo",
+      "regex": "TODO",
+      "icon": {
+        "text": "",
+        "hlGroup": "Normal"
+      }
+    },
+    {
+      "tagName": "fixme",
+      "regex": "FIXME",
+      "icon": {
+        "text": "",
+        "hlGroup": "SpellBad"
+      }
+    },
+    {
+      "tagName": "xxx",
+      "regex": "XXX",
+      "icon": {
+        "text": "",
+        "hlGroup": "SpellBad"
+      }
+    }
+  ]
 }

@@ -3,7 +3,7 @@
     "haskell": {
       "command": "stack",
       "args": ["exec", "--", "hie"],
-      "trace.server": "verbose",
+      //"trace.server": "verbose",
       "rootPatterns": [".stack.yaml", "cabal.config", "package.yaml"],
       "filetypes": ["hs", "lhs", "haskell"],
       "initializationOptions": {}
@@ -23,7 +23,7 @@
     },
     "csharp": {
       "command": "csharp-ls",
-      "trace.server": "verbose",
+      //"trace.server": "verbose",
       "filetypes": ["csharp", "cs"],
       "rootPatterns": ["*.csproj", ".vim/", ".git/", ".hg/"]
     },
@@ -31,7 +31,7 @@
       "command": "fsautocomplete",
       "args": [],
       "filetypes": ["fsharp"],
-      "trace.server": "verbose",
+      //"trace.server": "verbose",
       "initializationOptions": {
         "AutomaticWorkspaceInit": true
       },
@@ -53,6 +53,13 @@
         "FSharp.ResolveNamespaces": true,
         "FSharp.EnableReferenceCodeLens": true
       }
+    },
+    "tr": {
+      "command": "tr-ls",
+      "args": ["--stdio"],
+      "filetypes": ["markdown"],
+      //"trace.server": "verbose",
+      "initializationOptions": {}
     }
   },
   // color

@@ -36,6 +36,13 @@ EOF
 endif
 
 PluginAdd 'vim-airline/vim-airline'
+let g:airline_powerline_fonts = g:env#nerdfont
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#tabline#show_splits = 0
+let g:airline#extensions#tabline#show_tab_type = 0
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline#extensions#wordcount#filetypes = []
 let g:airline#extensions#default#layout = [
       \ [ 'a', 'b', 'c'],
       \ [ 'x', 'y', 'z']
@@ -45,16 +52,13 @@ let g:airline#extensions#default#section_truncate_width = {
       \ 'b': 80,
       \ 'x': 120,
       \ 'y': 120,
-      \ 'z': 120,
       \ 'warning': 120,
       \ 'error': 120,
       \ }
-let g:airline_powerline_fonts = g:env#nerdfont
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#show_buffers = 0
-let g:airline#extensions#tabline#show_splits = 0
-let g:airline#extensions#tabline#show_tab_type = 0
-let g:airline#extensions#tabline#formatter = 'unique_tail'
+function! AirlineInit()
+  let g:airline_section_z = airline#section#create(['linenr', 'maxlinenr'])
+endfunction
+autocmd User AirlineAfterInit call AirlineInit()
 PluginAdd 'vim-airline/vim-airline-themes'
 let g:airline_theme = 'papercolor'
 

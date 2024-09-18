@@ -95,7 +95,7 @@ PluginAdd 'junegunn/vim-easy-align', #{
       \ on_map: ['<Plug>(EasyAlign)', '<Plug>(LiveEasyAlign)'],
       \ on_cmd: ['EasyAlign', 'LiveEasyAlign'],
       \ }
-vmap <Leader>al <Cmd>LiveEasyAlign<CR>
+vmap <Leader>al :LiveEasyAlign<CR>
 
 PluginAdd 'chiedo/vim-case-convert', #{
       \ on_cmd: [

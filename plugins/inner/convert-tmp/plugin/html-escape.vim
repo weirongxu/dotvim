@@ -18,7 +18,7 @@ function! s:HtmlUnEscape()
   endfor
 endfunction
 
-nmap <silent> <Leader>he <Cmd>call <SID>HtmlEscape()<CR>
-nmap <silent> <Leader>hu <Cmd>call <SID>HtmlUnEscape()<CR>
-vmap <silent> <Leader>he <Cmd>call <SID>HtmlEscape()<CR>
-vmap <silent> <Leader>hu <Cmd>call <SID>HtmlUnEscape()<CR>
+nmap <silent> <Leader>he :call <SID>HtmlEscape()<CR>
+nmap <silent> <Leader>hu :call <SID>HtmlUnEscape()<CR>
+vmap <silent> <Leader>he :call <SID>HtmlEscape()<CR>
+vmap <silent> <Leader>hu :call <SID>HtmlUnEscape()<CR>

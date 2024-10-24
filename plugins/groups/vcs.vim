@@ -10,7 +10,8 @@ if g:env#async
   map <Leader>grbs <Cmd>Gina rebase --skip<CR>
   map <Leader>gl <Cmd>Gina pull --rebase<CR>
   map <Leader>gL <Cmd>Gina pull<CR>
-  map <Leader>gh <Cmd>Gina log<CR>
+  map <Leader>gh <Cmd>Gina log --all<CR>
+  map <Leader>gH <Cmd>Gina log<CR>
   function! g:plugin_hooks[SourcedHook()]()
     function! s:gina_change()
       if exists('#User#CocGitStatusChange')

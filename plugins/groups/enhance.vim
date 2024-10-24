@@ -101,6 +101,7 @@ PluginAdd 'tpope/vim-unimpaired'
 
 PluginAdd 'jiangmiao/auto-pairs'
 let g:AutoPairsMapCR = 0
+let g:AutoPairsMapSpace = 0
 let g:AutoPairsShortcutToggle = ''
 let g:AutoPairsMoveCharacter = ''
 let g:AutoPairsMultilineClose = 0

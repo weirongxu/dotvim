@@ -41,11 +41,11 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tabline#show_splits = 0
 let g:airline#extensions#tabline#show_tab_type = 0
-let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline#extensions#tabline#formatter = 'global_unique'
 let g:airline#extensions#wordcount#filetypes = []
 let g:airline#extensions#default#layout = [
       \ [ 'a', 'b', 'c'],
-      \ [ 'x', 'y', 'z']
+      \ [ 'x', 'y', 'z'],
       \ ]
 let g:airline#extensions#default#section_truncate_width = {
       \ 'a': 80,
@@ -61,6 +61,8 @@ endfunction
 autocmd User AirlineAfterInit call AirlineInit()
 PluginAdd 'vim-airline/vim-airline-themes'
 let g:airline_theme = 'papercolor'
+
+PluginAdd 'airline-global-unique', #{inner: 1}
 
 PluginAdd 'nvim-lua/lsp-status.nvim'
 

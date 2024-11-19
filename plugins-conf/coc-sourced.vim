@@ -56,3 +56,35 @@ if g:env#nerdfont
 endif
 
 call coc#config('session.directory', g:env#record_dir#sessions)
+
+" Rime
+call coc#config('rime-ls.max_tokens', 1)
+call coc#config('rime-ls.always_incomplete', v:true)
+if g:env#nerdfont
+  call coc#config('coc-rime-ls.statusBar', '')
+endif
+
+function! RimeToggle()
+  let rime_enable = CocAction('runCommand', 'coc-rime-ls.toggle')
+  if rime_enable
+    inoremap <silent> <Space> <C-r>=RimeConfirm()<CR>
+    echomsg 'Rime enable'
+  else
+    iunmap <silent><expr> <Space>
+    echomsg 'Rime disable'
+  endif
+  return ''
+endfunction
+
+function! RimeConfirm()
+  let result = CocAction('runCommand', 'coc-rime-ls.completion_with_first')
+  if result is v:false
+    return "\<Space>"
+  endif
+  return ''
+endfunction
+
+command! RimeToggle call RimeToggle()
+
+nmap <C-t> :RimeToggle<CR>
+imap <expr> <C-t> RimeToggle()

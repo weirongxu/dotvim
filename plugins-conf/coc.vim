@@ -3,6 +3,8 @@
 let g:coc_node_args = ['--nolazy']
 " let g:coc_node_args = ['--nolazy', '--async-stack-traces', '--inspect-brk=6045']
 
+let g:coc_user_config = {}
+
 let $VIMCONFIG = $MY_VIMFILES
 let s:coc_extensions = [
       \ 'coc-explorer',
@@ -325,3 +327,55 @@ augroup CocExplorerCustom
     autocmd QuitPre * call <SID>quit_pre()
   endif
 augroup END
+
+" Rime
+let g:coc_user_config['rime-ls.max_tokens'] = 1
+let g:coc_user_config['rime-ls.always_incomplete'] = v:true
+if g:env#nerdfont
+  let g:coc_user_config['coc-rime-ls.statusBar'] = ''
+endif
+
+let s:puns = ['!', '"', '''', '#', '$', '%', '&',
+      \  '(', ')', '*', '+', ',', '-', '.', '/',
+      \  ':', ';', '<', '=', '>', '?', '@', '\',
+      \  '[',  ']', '^', '_', '`', '{', '|', '}',
+      \  '~', ]
+let s:pun_enable = v:true
+
+function! RimeToggle()
+  let rime_enable = CocAction('runCommand', 'coc-rime-ls.toggle')
+  if rime_enable
+    inoremap <silent> <Space> <C-r>=RimeConfirm()<CR>
+    echomsg 'Rime enable'
+  else
+    iunmap <silent><expr> <Space>
+    echomsg 'Rime disable'
+  endif
+  return ''
+endfunction
+
+function! RimePunToggle()
+  let s:pun_enable = !s:pun_enable
+  echomsg 'Rime punctuation ' . (s:pun_enable ? 'enable' : 'disable')
+endfunction
+
+function! RimeConfirm()
+  let cursor_letter = strpart(getline('.'), col('.') - 2, 1, v:true)
+  echom col('.') - 1
+  echom cursor_letter . ',' . index(s:puns, cursor_letter)
+  if !s:pun_enable && index(s:puns, cursor_letter) != -1
+    return "\<Space>"
+  endif
+  let result = CocAction('runCommand', 'coc-rime-ls.completion_with_first')
+  if result is v:false
+    return "\<Space>"
+  endif
+  return ''
+endfunction
+
+command! RimeToggle call RimeToggle()
+command! RimePunToggle call RimePunToggle()
+
+nmap <C-t> :RimeToggle<CR>
+imap <expr> <C-t> RimeToggle()
+nmap <Leader>. :RimePunToggle<CR>

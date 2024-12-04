@@ -342,6 +342,18 @@ let s:puns = ['!', '"', '''', '#', '$', '%', '&',
       \  '~', ]
 let s:pun_enable = v:true
 
+function! RimeConfirm()
+  let cursor_letter = strpart(getline('.'), col('.') - 2, 1, v:true)
+  if !s:pun_enable && index(s:puns, cursor_letter) != -1
+    return "\<Space>"
+  endif
+  let result = CocAction('runCommand', 'coc-rime-ls.completion_with_first')
+  if result is v:false
+    return "\<Space>"
+  endif
+  return ''
+endfunction
+
 function! RimeToggle()
   let rime_enable = CocAction('runCommand', 'coc-rime-ls.toggle')
   if rime_enable
@@ -354,28 +366,16 @@ function! RimeToggle()
   return ''
 endfunction
 
+command! RimeToggle call RimeToggle()
+nmap <C-t> :RimeToggle<CR>
+imap <expr> <C-t> RimeToggle()
+
 function! RimePunToggle()
   let s:pun_enable = !s:pun_enable
   echomsg 'Rime punctuation ' . (s:pun_enable ? 'enable' : 'disable')
-endfunction
-
-function! RimeConfirm()
-  let cursor_letter = strpart(getline('.'), col('.') - 2, 1, v:true)
-  echom col('.') - 1
-  echom cursor_letter . ',' . index(s:puns, cursor_letter)
-  if !s:pun_enable && index(s:puns, cursor_letter) != -1
-    return "\<Space>"
-  endif
-  let result = CocAction('runCommand', 'coc-rime-ls.completion_with_first')
-  if result is v:false
-    return "\<Space>"
-  endif
   return ''
 endfunction
 
-command! RimeToggle call RimeToggle()
 command! RimePunToggle call RimePunToggle()
-
-nmap <C-t> :RimeToggle<CR>
-imap <expr> <C-t> RimeToggle()
-nmap <Leader>. :RimePunToggle<CR>
+nmap <C-d> :RimePunToggle<CR>
+imap <expr> <C-d> RimePunToggle()

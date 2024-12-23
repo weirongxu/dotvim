@@ -367,7 +367,6 @@ function! RimeToggle()
 endfunction
 
 command! RimeToggle call RimeToggle()
-nmap <C-t> :RimeToggle<CR>
 imap <expr> <C-t> RimeToggle()
 
 function! RimePunToggle()
@@ -377,5 +376,4 @@ function! RimePunToggle()
 endfunction
 
 command! RimePunToggle call RimePunToggle()
-nmap <C-d> :RimePunToggle<CR>
 imap <expr> <C-d> RimePunToggle()

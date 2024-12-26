@@ -154,7 +154,7 @@ set incsearch hlsearch ignorecase smartcase magic
 set nowrapscan
 
 " dir
-set browsedir=buffer " file browse dir
+"set browsedir=buffer " file browse dir
 set noautochdir
 set wildignore=
 

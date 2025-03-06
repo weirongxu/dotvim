@@ -33,7 +33,6 @@ let s:coc_extensions = [
       \ 'coc-markdown-preview-enhanced',
       \ 'coc-calc',
       \ 'coc-git',
-      \ 'coc-import-cost',
       \ 'coc-marketplace',
       \ 'coc-go',
       \ 'coc-svg',

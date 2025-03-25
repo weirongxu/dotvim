@@ -97,6 +97,38 @@ function! s:gmove_toggle() abort
 endfunction
 nmap <Leader><Leader>g <Cmd>call <SID>gmove_toggle()<CR>
 
+let g:space_as_esc = v:false
+function! s:space_as_esc_toggle()
+  if g:space_as_esc
+    let g:space_as_esc = v:false
+    nunmap <C-Space>
+    iunmap <C-Space>
+    vunmap <C-Space>
+    cunmap <C-Space>
+    sunmap <C-Space>
+    nunmap <M-Space>
+    iunmap <M-Space>
+    vunmap <M-Space>
+    cunmap <M-Space>
+    sunmap <M-Space>
+    echom 'normal mode'
+  else
+    let g:space_as_esc = v:true
+    nmap <silent> <C-Space> <ESC>
+    imap <silent> <C-Space> <ESC>
+    vmap <silent> <C-Space> <ESC>
+    cmap <silent> <C-Space> <ESC>
+    smap <silent> <C-Space> <ESC>
+    nmap <silent> <M-Space> <ESC>
+    imap <silent> <M-Space> <ESC>
+    vmap <silent> <M-Space> <ESC>
+    cmap <silent> <M-Space> <ESC>
+    smap <silent> <M-Space> <ESC>
+    echom '<C-Space> mode'
+  endif
+endfunction
+nmap <Leader><Leader>z <Cmd>call <SID>space_as_esc_toggle()<CR>
+
 " add semicolon
 nmap <silent> <M-;> <Cmd>call <SID>append_mark(';')<CR>
 fun! s:append_mark(mark)

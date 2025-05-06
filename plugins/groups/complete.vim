@@ -18,3 +18,10 @@ endif
 " let g:copilot_filetypes = {
 "      \ '*': v:true
 "      \ }
+
+PluginAdd 'nvim-treesitter/nvim-treesitter'
+PluginAdd 'stevearc/dressing.nvim'
+PluginAdd 'nvim-lua/plenary.nvim'
+PluginAdd 'MunifTanjim/nui.nvim'
+PluginAdd 'MeanderingProgrammer/render-markdown.nvim'
+PluginAdd 'yetone/avante.nvim', #{ rev: 'main', on_updated: 'make' }

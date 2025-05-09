@@ -39,14 +39,53 @@ endfunction
 
 function! s:boot_source_hook()
   for hook in g:vim_plug_manager_hooks['source']
-    call call(hook['fn'], [], {})
+    if has_key(g:plugs, hook['name'])
+      call call(hook['fn'], [], {})
+    endif
   endfor
 endfunction
 
-function! s:boot_sourced_hook()
-  for hook in g:vim_plug_manager_hooks['sourced']
-    call call(hook['fn'], [], {})
+function! s:rtp(spec)
+  return s:path(a:spec.dir . get(a:spec, 'rtp', ''))
+endfunction
+
+if g:env#win
+  function! s:path(path)
+    return s:trim(substitute(a:path, '/', '\', 'g'))
+  endfunction
+else
+  function! s:path(path)
+    return s:trim(a:path)
+  endfunction
+endif
+
+function! s:trim(str)
+  return substitute(a:str, '[\/]\+$', '', '')
+endfunction
+
+function! s:split_rtp()
+  return split(&rtp, '\\\@<!,')
+endfunction
+
+function! s:register_sourced_hook()
+  let rtps = s:split_rtp()
+  for [i, hook] in items(g:vim_plug_manager_hooks['sourced'])
+    if has_key(g:plugs, hook['name'])
+      let rtp = s:rtp(g:plugs[hook['name']])
+      if index(rtps, rtp)
+        execute 'autocmd VimEnter * call <SID>boot_sourced_hook(' . i . ')'
+        continue
+      endif
+    endif
+    execute 'autocmd User' hook['name'] 'call <SID>boot_sourced_hook(' . i . ')'
+    "call call(hook['fn'], [], {})
   endfor
+endfunction
+
+function! s:boot_sourced_hook(index)
+  echom a:index
+  let hook = g:vim_plug_manager_hooks['sourced'][a:index]
+  call call(hook['fn'], [], {})
 endfunction
 
 function! s:setup_extra()
@@ -120,7 +159,7 @@ function! PluginsBootVimPlug()
   call plug#end()
 
   call s:boot_source_hook()
-  autocmd VimEnter * call s:boot_sourced_hook()
+  call s:register_sourced_hook()
 
   " auto install
   autocmd VimEnter *

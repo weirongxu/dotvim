@@ -102,7 +102,7 @@
   // other
   "workspace.bottomUpFiletypes": ["python"],
   "inlayHint.position": "eol",
-  "coc.preferences.watchmanPath": "",
+  "fileSystemWatch.enable": false,
   "session.saveOnVimLeave": false,
   "tree.key.toggle": "o",
   "outline.sortBy": "position",

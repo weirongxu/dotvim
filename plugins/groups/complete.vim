@@ -19,9 +19,31 @@ endif
 "      \ '*': v:true
 "      \ }
 
-PluginAdd 'nvim-treesitter/nvim-treesitter'
-PluginAdd 'stevearc/dressing.nvim'
-PluginAdd 'nvim-lua/plenary.nvim'
-PluginAdd 'MunifTanjim/nui.nvim'
-PluginAdd 'MeanderingProgrammer/render-markdown.nvim'
-PluginAdd 'yetone/avante.nvim', #{ rev: 'main', on_updated: 'make' }
+"if g:env#nvim
+"  PluginAdd 'nvim-treesitter/nvim-treesitter'
+"  PluginAdd 'stevearc/dressing.nvim'
+"  PluginAdd 'nvim-lua/plenary.nvim'
+"  PluginAdd 'MunifTanjim/nui.nvim'
+"  PluginAdd 'MeanderingProgrammer/render-markdown.nvim'
+"  PluginAdd 'yetone/avante.nvim', #{ rev: 'main', on_updated: 'make' }
+"  function! s:setup_avante()
+"    lua<<EOF
+"    require('avante').setup({
+"      -- add any opts here
+"      -- for example
+"      provider = "ollama",
+"      auto_suggestions_provider = "ollama",
+"      ollama = {
+"        endpoint = "http://172.17.0.1:11434",
+"        model = "qwen2.5-coder:1.5b-base",
+"      },
+"      behaviour = {
+"        auto_suggestions = true, -- Experimental stage
+"      },
+"    })
+"EOF
+"  endfunction
+"  function! g:plugin_hooks[SourcedHook()]()
+"    call s:setup_avante()
+"  endfunction
+"endif

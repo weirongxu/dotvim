@@ -177,13 +177,13 @@ if has('nvim-0.4.0') || has('patch-8.2.0750')
 endif
 
 " snippets
-inoremap <silent><expr> <TAB>
+inoremap <silent><expr> <C-j>
       \ coc#expandableOrJumpable() ?
       \ "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-      \ "\<TAB>"
-vmap <Tab> <Plug>(coc-snippets-select)
-let g:coc_snippet_next = '<c-j>'
-let g:coc_snippet_prev = '<c-k>'
+      \ "\<c-j>"
+vmap <C-j> <Plug>(coc-snippets-select)
+let g:coc_snippet_next = '<C-j>'
+let g:coc_snippet_prev = '<C-k>'
 xmap <leader>x  <Plug>(coc-convert-snippet)
 
 " coc-git

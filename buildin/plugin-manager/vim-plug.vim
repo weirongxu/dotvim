@@ -83,7 +83,6 @@ function! s:register_sourced_hook()
 endfunction
 
 function! s:boot_sourced_hook(index)
-  echom a:index
   let hook = g:vim_plug_manager_hooks['sourced'][a:index]
   call call(hook['fn'], [], {})
 endfunction

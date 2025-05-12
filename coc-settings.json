@@ -124,6 +124,7 @@
   "webview.colorStrategy": "dark",
   "git.branchCharacter": "",
   "svelte.enable-ts-plugin": true,
+  "html.format.indentHandlebars": false,
   "todo-tree.tags": [
     {
       "tagName": "todo",

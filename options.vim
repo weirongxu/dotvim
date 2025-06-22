@@ -93,7 +93,7 @@ set nobomb linespace=0 ambiwidth=single
 set concealcursor=
 set list
 function! s:set_listchars()
-  execute 'setlocal listchars=trail:·,tab:│\ ,multispace:┆' . repeat('\ ', &sw - 1)
+  execute 'setlocal listchars=trail:·,tab:│\ ,leadmultispace:┆' . repeat('\ ', &sw - 1)
 endfunction
 call s:set_listchars()
 autocmd OptionSet shiftwidth call s:set_listchars()

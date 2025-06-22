@@ -125,6 +125,9 @@
   "git.branchCharacter": "",
   "svelte.enable-ts-plugin": true,
   "html.format.indentHandlebars": false,
+  "[handlebars]": {
+    "coc.preferences.formatOnSave": false
+  },
   "todo-tree.tags": [
     {
       "tagName": "todo",

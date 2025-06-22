@@ -67,14 +67,18 @@ function! s:split_rtp()
   return split(&rtp, '\\\@<!,')
 endfunction
 
-function! s:register_sourced_hook()
+function! s:register_sourced_hook(no_exist_plugs)
   let rtps = s:split_rtp()
   for [i, hook] in items(g:vim_plug_manager_hooks['sourced'])
     if has_key(g:plugs, hook['name'])
       let rtp = s:rtp(g:plugs[hook['name']])
-      if index(rtps, rtp)
-        execute 'autocmd VimEnter * call <SID>boot_sourced_hook(' . i . ')'
-        continue
+      if index(rtps, rtp) >= 0
+        if !has_key(a:no_exist_plugs, hook['name'])
+          execute 'autocmd VimEnter * call <SID>boot_sourced_hook(' . i . ')'
+          continue
+        else
+          execute 'autocmd User PluginInstallDone call <SID>boot_sourced_hook(' . i . ')'
+        endif
       endif
     endif
     execute 'autocmd User' hook['name'] 'call <SID>boot_sourced_hook(' . i . ')'
@@ -157,13 +161,15 @@ function! PluginsBootVimPlug()
   endfor
   call plug#end()
 
+  let s:no_exist_plugs = filter(copy(g:plugs), {i, plug -> !isdirectory(plug.dir)})
+
   call s:boot_source_hook()
-  call s:register_sourced_hook()
+  call s:register_sourced_hook(s:no_exist_plugs)
 
   " auto install
   autocmd VimEnter *
-        \  if len(filter(values(g:plugs), {i, plug -> !isdirectory(plug.dir)}))
-        \|   PlugInstall --sync | q
+        \  if len(s:no_exist_plugs)
+        \|   PlugInstall --sync | q | doautocmd User PluginInstallDone
         \| endif
 
   call s:setup_extra()

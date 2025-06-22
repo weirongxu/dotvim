@@ -66,27 +66,6 @@ PluginAdd 'airline-global-unique', #{inner: 1}
 
 PluginAdd 'nvim-lua/lsp-status.nvim'
 
-PluginAdd 'Yggdroot/indentLine'
-let g:indentLine_fileTypeExclude = [
-      \  '',
-      \  'defx',
-      \  'coc-explorer',
-      \  'json',
-      \  'vimfiler',
-      \  'unite',
-      \  'tagbar',
-      \  'gina-status',
-      \  'gina-grep',
-      \  'gina-branch',
-      \  'gina-log',
-      \]
-let g:indentLine_concealcursor = ''
-let g:indentLine_conceallevel = 1
-let g:indentLine_faster = 1
-if !g:env#x
-  let g:indentLine_color_term = 8
-endif
-
 "PluginAdd 'lukas-reineke/indent-blankline.nvim'
 "function! g:plugin_hooks[SourcedHook()]()
 "  lua <<EOF

@@ -91,7 +91,12 @@ set mouse=a " support mouse
 " chars display
 set nobomb linespace=0 ambiwidth=single
 set concealcursor=
-set list listchars=tab:\|\ ,trail:.
+set list
+function! s:set_listchars()
+  execute 'setlocal listchars=trail:·,tab:│\ ,multispace:┆' . repeat('\ ', &sw - 1)
+endfunction
+call s:set_listchars()
+autocmd OptionSet shiftwidth call s:set_listchars()
 " set cursorline cursorcolumn
 
 try

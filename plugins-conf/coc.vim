@@ -181,9 +181,9 @@ inoremap <silent><expr> <C-j>
       \ coc#expandableOrJumpable() ?
       \ "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
       \ "\<c-j>"
-vmap <C-j> <Plug>(coc-snippets-select)
-let g:coc_snippet_next = '<C-j>'
-let g:coc_snippet_prev = '<C-k>'
+vmap <C-k> <Plug>(coc-snippets-select)
+let g:coc_snippet_next = '<C-k>'
+let g:coc_snippet_prev = '<C-j>'
 xmap <leader>x  <Plug>(coc-convert-snippet)
 
 " coc-git
@@ -193,6 +193,8 @@ nmap <Leader>gi <Plug>(coc-git-chunkinfo)
 nmap <Leader>ggc <Plug>(coc-git-commit)
 nmap <Leader>g< <Cmd>CocCommand git.chunkStage<CR>
 nmap <Leader>g= <Cmd>CocCommand git.chunkUndo<CR>
+vmap <Leader>g< <Cmd>CocCommand git.chunkStage<CR>
+vmap <Leader>g= <Cmd>CocCommand git.chunkUndo<CR>
 nmap <Leader>lg <Cmd>CocList gstatus<CR>
 omap igc <Plug>(coc-git-chunk-inner)
 xmap igc <Plug>(coc-git-chunk-inner)

@@ -92,11 +92,11 @@ set mouse=a " support mouse
 set nobomb linespace=0 ambiwidth=single
 set concealcursor=
 set list
-function! s:set_listchars()
+function! s:set_listchars(timer)
   execute 'setlocal listchars=trail:·,tab:│\ ,leadmultispace:┆' . repeat('\ ', &sw - 1)
 endfunction
-call s:set_listchars()
-autocmd OptionSet shiftwidth call s:set_listchars()
+autocmd OptionSet shiftwidth call timer_start(100, function('s:set_listchars'))
+autocmd BufAdd * call timer_start(100, function('s:set_listchars'))
 " set cursorline cursorcolumn
 
 try
@@ -113,7 +113,7 @@ function! s:update_sign(timer)
     endtry
   endif
 endfunction
-autocmd BufEnter,BufCreate * call timer_start(100, function('s:update_sign'))
+autocmd BufEnter,BufAdd * call timer_start(100, function('s:update_sign'))
 
 " cmd
 set wildmenu " command complete menu inline

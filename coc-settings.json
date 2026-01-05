@@ -106,6 +106,7 @@
   "session.saveOnVimLeave": false,
   "tree.key.toggle": "o",
   "outline.sortBy": "position",
+  "list.source.grep.maxColumns": 10000,
   // extensions
   "prettier.singleQuote": true,
   "prettier.disableLanguages": ["handlebars", "hbs", "xml"],

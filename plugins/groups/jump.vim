@@ -1,23 +1,3 @@
-PluginAdd 'majutsushi/tagbar', #{
-      \ on_cmd: [
-      \   'TagbarOpen',
-      \   'TagbarClose',
-      \   'TagbarToggle',
-      \   'Tagbar',
-      \   'TagbarOpenAutoClose',
-      \   'TagbarTogglePause',
-      \   'TagbarSetFoldlevel',
-      \   'TagbarShowTag',
-      \   'TagbarCurrentTag',
-      \   'TagbarGetTypeConfig',
-      \   'TagbarDebug',
-      \   'TagbarDebugEnd',
-      \ ]}
-let g:tagbar_show_linenumbers = 1
-map <Leader>tt <Cmd>TagbarToggle<CR>
-Include /plugins-conf/tagbar.vim
-Pkg npm install jsctags
-
 PluginAdd 'liuchengxu/vista.vim'
 map <Leader>tv <Cmd>Vista coc<CR>
 

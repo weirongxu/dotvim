@@ -193,9 +193,21 @@ nmap <Leader>gi <Plug>(coc-git-chunkinfo)
 nmap <Leader>ggc <Plug>(coc-git-commit)
 nmap <Leader>g< <Cmd>CocCommand git.chunkStage<CR>
 nmap <Leader>g= <Cmd>CocCommand git.chunkUndo<CR>
-vmap <Leader>g< <Cmd>CocCommand git.chunkStage<CR>
-vmap <Leader>g= <Cmd>CocCommand git.chunkUndo<CR>
-nmap <Leader>lg <Cmd>CocList gstatus<CR>
+function s:chunk_stage() range
+  for lnum in range(a:firstline, a:lastline)
+    execute lnum
+    silent! call CocAction('runCommand', 'git.chunkStage')
+  endfor
+endfunction
+function s:chunk_undo() range
+  for lnum in range(a:firstline, a:lastline)
+    execute lnum
+    silent! call CocAction('runCommand', 'git.chunkUndo')
+  endfor
+endfunction
+vmap <Leader>g< :call <SID>chunk_stage()<CR>
+vmap <Leader>g= :call <SID>chunk_undo()<CR>
+nmap <silent> <Leader>lg <Cmd>CocList gstatus<CR>
 omap igc <Plug>(coc-git-chunk-inner)
 xmap igc <Plug>(coc-git-chunk-inner)
 omap agc <Plug>(coc-git-chunk-outer)

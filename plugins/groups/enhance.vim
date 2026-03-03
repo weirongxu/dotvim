@@ -50,7 +50,7 @@ let g:matchup_matchparen_deferred = 1
 PluginAdd 'luochen1990/rainbow'
 let g:rainbow_active = 0
 
-PluginAdd 'AndrewRadev/splitjoin.vim', #{on_map: ['gS', 'gJ']}
+"PluginAdd 'AndrewRadev/splitjoin.vim', #{on_map: ['gS', 'gJ']}
 
 PluginAdd 'thinca/vim-ref', #{on_cmd: 'Ref', on_map: '<Plug>(ref-keyword)'}
 let g:ref_phpmanual_path = expand('~/document/ref/php-chunked-xhtml/')

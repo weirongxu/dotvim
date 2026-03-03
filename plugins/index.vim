@@ -6,6 +6,7 @@ Include groups/colorscheme.vim
 Include groups/enhance.vim
 Include groups/cmdline.vim
 Include groups/complete.vim
+Include groups/agent.vim
 Include groups/checker.vim
 Include groups/context_filetype.vim
 Include groups/convert.vim

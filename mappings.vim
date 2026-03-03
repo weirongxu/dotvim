@@ -2,11 +2,12 @@
 let mapleader = "\<Space>"
 let maplocalleader = "\<Space>"
 
-" save
+" save / reload
 map <silent> <C-s> <Cmd>w<CR>
 imap <silent> <C-s> <Cmd>w<CR>
 map <silent> <D-s> <Cmd>w<CR>
 nmap <silent> <Leader>s <Cmd>w<CR>
+nmap <silent> <Leader>re <Cmd>checktime<CR>
 
 " remap Q
 map Q gq

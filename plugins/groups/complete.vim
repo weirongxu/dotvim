@@ -14,11 +14,6 @@ if executable('npm')
   endfunction
 endif
 
-" PluginAdd 'github/copilot.vim'
-" let g:copilot_filetypes = {
-"      \ '*': v:true
-"      \ }
-
 "if g:env#nvim
 "  PluginAdd 'nvim-treesitter/nvim-treesitter'
 "  PluginAdd 'stevearc/dressing.nvim'

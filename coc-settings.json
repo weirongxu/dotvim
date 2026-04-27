@@ -86,7 +86,7 @@
     "rounded": true,
     "border": true
   },
-  "coc.preferences.enableMessageDialog": true,
+  "coc.preferences.messageDialogKind": "notification",
   // codeLens
   "codeLens.enable": true,
   "codeLens.position": "top",
@@ -110,6 +110,7 @@
   // extensions
   "prettier.singleQuote": true,
   "prettier.disableLanguages": ["handlebars", "hbs", "xml"],
+  // "prettier.requireConfig": true,
   "tsserver.useLocalTsdk": true,
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
@@ -121,10 +122,9 @@
   "typescript.referencesCodeLens.enabled": true,
   "explorer.git.showIgnored": true,
   "explorer.filename.colored.enable": true,
-  "markdown-preview-enhanced.previewTheme": "github-dark.css",
+  // "markdown-preview-enhanced.previewTheme": "github-dark.css",
   "webview.colorStrategy": "dark",
   "git.branchCharacter": "",
-  "svelte.enable-ts-plugin": true,
   "html.format.indentHandlebars": false,
   "[handlebars]": {
     "coc.preferences.formatOnSave": false

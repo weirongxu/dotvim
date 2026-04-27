@@ -74,7 +74,6 @@ nmap [s <Plug>(coc-typos-prev)
 nmap ]s <Plug>(coc-typos-next)
 nmap z= <Plug>(coc-typos-fix)
 nmap <Leader>rn <Plug>(coc-rename)
-nmap <Leader><Leader>rn <Plug>(coc-rename)
 nmap <Leader>: <Plug>(coc-floatinput-command)
 nmap <Leader>c: <Plug>(coc-floatinput-coc-command)
 nmap <Leader>rf <Plug>(coc-refactor)
@@ -208,6 +207,7 @@ endfunction
 vmap <Leader>g< :call <SID>chunk_stage()<CR>
 vmap <Leader>g= :call <SID>chunk_undo()<CR>
 nmap <silent> <Leader>lg <Cmd>CocList gstatus<CR>
+nmap <silent> <Leader>l<S-G> <Cmd>CocList gstatus \| grep '^ '<CR>
 omap igc <Plug>(coc-git-chunk-inner)
 xmap igc <Plug>(coc-git-chunk-inner)
 omap agc <Plug>(coc-git-chunk-outer)

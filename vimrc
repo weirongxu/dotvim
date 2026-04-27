@@ -10,6 +10,7 @@ endif
 source $MY_VIMFILES/buildin/boot.vim
 Include highlights.vim
 Include mappings.vim
+Include modes.vim
 Include plugins.vim
 Include options.vim
 "Include tabline.vim

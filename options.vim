@@ -91,6 +91,9 @@ set mouse=a " support mouse
 " chars display
 set nobomb linespace=0 ambiwidth=single
 set concealcursor=
+if g:env#nvim
+  set conceallevel=0
+end
 set list
 function! s:set_listchars(timer)
   execute 'setlocal listchars=trail:·,tab:│\ ,leadmultispace:┆' . repeat('\ ', &sw - 1)
@@ -156,7 +159,7 @@ set nosmartindent autoindent smarttab nocindent
 
 " search
 set incsearch hlsearch ignorecase smartcase magic
-set nowrapscan
+set wrapscan
 
 " dir
 "set browsedir=buffer " file browse dir

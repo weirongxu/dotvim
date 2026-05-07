@@ -4,7 +4,7 @@ map <Leader>tv <Cmd>Vista coc<CR>
 PluginAdd 'wesleyche/SrcExpl', #{on_cmd: ['SrcExpl', 'SrcExplClose', 'SrcExplToggle']}
 
 if g:env#nvim
-  PluginAdd 'phaazon/hop.nvim', #{on_map: ['s']}
+  PluginAdd 'smoka7/hop.nvim', #{on_map: ['s']}
   nmap sw <Cmd>HopWordAC<CR>
   nmap se <Cmd>HopWordAC<CR>
   nmap sb <Cmd>HopWordBC<CR>
